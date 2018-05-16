@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 import { Provider } from '../components/AppContext'
+import Navigation from '../components/navigation/Navigation'
 import theme from '../theme/theme'
 
 import './index.css'
@@ -18,6 +19,20 @@ const Layout = props => (
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' },
           ]}
+        />
+        <Navigation
+          items={{
+            logo: 'http://via.placeholder.com/164x64',
+            listItems: [
+              'Learn',
+              'Attend',
+              'Support us',
+              'Take part',
+              'Plan',
+              'Help',
+            ],
+            cta: 'donate',
+          }}
         />
         <div>{props.children()}</div>
       </div>
