@@ -1,19 +1,42 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Header from './presentational/header'
-
+import Header from './header'
+import Submenu from './submenu'
 class Navigation extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       isOpen: false,
-      isHovered: false,
     }
   }
 
+  mouseOver = () => {
+    this.setState(prevState => ({
+      isOpen: true,
+    }))
+  }
+
+  mouseOut = () => {
+    this.setState(prevState => ({
+      isOpen: false,
+    }))
+  }
+
   render() {
-    return <Header {...this.props}>{this.props.children}</Header>
+    console.log(this.state.isOpen)
+    return (
+      <Fragment>
+        <Header
+          {...this.props}
+          mouseOver={this.mouseOver}
+          mouseOut={this.mouseOut}
+        >
+          {this.props.children}
+        </Header>
+        {this.state.isOpen ? <Submenu /> : null}
+      </Fragment>
+    )
   }
 }
 
