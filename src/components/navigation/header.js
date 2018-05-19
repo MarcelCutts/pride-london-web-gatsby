@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Container, Row } from '../../grid/grid'
+import { Container, Row } from '../grid/grid'
 import NavItems from './navItems'
 
 const StyledContainer = styled(Container)`
@@ -10,13 +10,18 @@ const StyledContainer = styled(Container)`
   height: 100px;
 `
 
+const StyledRow = styled(Row)`
+  height: 100%;
+`
+
 const Header = props => {
-  console.log(props)
   return (
     <StyledContainer>
-      <Row alignItems="center" justifyContent="center">
-        <NavItems items={props.items}>{props.children}</NavItems>
-      </Row>
+      <StyledRow alignItems="center" justifyContent="center">
+        <NavItems items={props.items} {...props}>
+          {props.children}
+        </NavItems>
+      </StyledRow>
     </StyledContainer>
   )
 }

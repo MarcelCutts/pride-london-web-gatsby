@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import { Column } from '../../grid/grid'
+import { Column } from '../grid/grid'
 
 const StyledLink = styled(Link)`
   color: ${props => props.theme.colors.white};
@@ -11,6 +11,15 @@ const StyledLink = styled(Link)`
   margin: 0 10px 0 10px;
   font-family: 'Poppins';
   text-decoration: none;
+`
+
+const StyledColumn = styled(Column)`
+  height: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const StyledButton = styled(Link)`
@@ -27,20 +36,24 @@ const StyledButton = styled(Link)`
 `
 
 const NavItems = props => {
+  console.log(props)
   const { listItems, logo } = props.items
-
   return (
     <Fragment>
-      <Column flex={3} alignItems="center" justifyContent="center">
+      <Column flex={6} alignItems="center" justifyContent="center">
         <img src={logo} alt="" />
       </Column>
       {listItems.map((items, index) => (
-        <Column key={index}>
+        <StyledColumn
+          key={index}
+          onMouseEnter={props.mouseOver}
+          onMouseLeave={props.mouseOut}
+        >
           <StyledLink to="#"> {items}</StyledLink>
-        </Column>
+        </StyledColumn>
       ))}
       <Column>
-        <StyledButton>Donate</StyledButton>
+        <StyledButton to="#">Donate</StyledButton>
       </Column>
     </Fragment>
   )
