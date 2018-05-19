@@ -59,4 +59,8 @@ const NavItems = props => {
   )
 }
 
+NavItems.propTypes = {
+  items: PropTypes.object,
+}
+
 export default NavItems
