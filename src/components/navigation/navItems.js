@@ -44,16 +44,24 @@ const NavItems = props => {
         <img src={logo} alt="" />
       </Column>
       {listItems.map((items, index) => (
+<<<<<<< HEAD:src/components/navigation/navItems.js
         <StyledColumn
           key={index}
           onMouseEnter={props.mouseOver}
           onMouseLeave={props.mouseOut}
         >
+=======
+        <Column key={index}>
+>>>>>>> fd4e38be0ace586256da4d8ba4572c109f3a0370:src/components/navigation/presentational/navItems.js
           <StyledLink to="#"> {items}</StyledLink>
         </StyledColumn>
       ))}
       <Column>
+<<<<<<< HEAD:src/components/navigation/navItems.js
         <StyledButton to="#">Donate</StyledButton>
+=======
+        <StyledButton to="/">Donate</StyledButton>
+>>>>>>> fd4e38be0ace586256da4d8ba4572c109f3a0370:src/components/navigation/presentational/navItems.js
       </Column>
     </Fragment>
   )
