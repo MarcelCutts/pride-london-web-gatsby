@@ -33,7 +33,7 @@ class Provider extends Component {
   }
 
   getCheckboxSetValues = (e, name) => {
-    const { state } = this
+    let state = this.state
 
     if (
       e.target.checked &&
