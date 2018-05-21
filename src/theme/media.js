@@ -2,19 +2,19 @@ import { css } from 'styled-components'
 import theme from './theme'
 
 export const media = {
-  tablet() {
+  tablet: function() {
     return `@media (min-width: ${theme.breakpoints[1]}) {
-      ${css(...arguments)}
+      ${css.apply(null, arguments)}
     }`
   },
-  desktop() {
+  desktop: function() {
     return `@media (min-width: ${theme.breakpoints[2]}) {
-      ${css(...arguments)}
+      ${css.apply(null, arguments)}
     }`
   },
-  desktopHD() {
+  desktopHD: function() {
     return `@media (min-width: ${theme.breakpoints[3]}) {
-      ${css(...arguments)}
+      ${css.apply(null, arguments)}
     }`
   },
 }
