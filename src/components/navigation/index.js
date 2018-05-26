@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
 import Header from './header'
-import SubMenu from './submenu'
 import logo from '../../theme/assets/images/logo-pride.svg'
 
 class Navigation extends Component {
@@ -19,7 +17,6 @@ class Navigation extends Component {
     return (
       <Fragment>
         <Header
-          {...this.props}
           mouseOver={this.mouseOver}
           mouseOut={this.mouseOut}
           isOpen={this.state.isOpen}
@@ -97,6 +94,11 @@ class Navigation extends Component {
       </Fragment>
     )
   }
+}
+
+Navigation.defaultProps = {
+  children: null,
+  items: {},
 }
 
 export default Navigation

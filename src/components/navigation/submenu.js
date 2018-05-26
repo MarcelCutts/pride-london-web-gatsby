@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SubMenuItems from './subMenuItems'
+// import SubMenuItems from './subMenuItems'
 
 const SubMenu = props => {
   console.log('submenu', props)
@@ -14,11 +14,7 @@ const SubMenu = props => {
 }
 
 SubMenu.propTypes = {
-  submenu: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-    })
-  ),
+  item: PropTypes.object.isRequired,
 }
 
 export default SubMenu

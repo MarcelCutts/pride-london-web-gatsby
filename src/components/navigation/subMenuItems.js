@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { Container, Row, Column } from '../grid/grid'
+// import PropTypes from 'prop-types'
+import { Container, Row, Column } from '../grid'
 
 const StyledContainer = styled(Container)`
   background-color: ${props => props.theme.colors.beachBlue};
@@ -13,9 +13,9 @@ const StyledContainer = styled(Container)`
   z-index: 100;
 `
 
-const StyledRow = styled(Row)`
-  height: 100%;
-`
+// const StyledRow = styled(Row)`
+//   height: 100%;
+// `
 const StyledLi = styled.li`
   list-style: none;
 `
@@ -24,11 +24,11 @@ const StyledUl = styled.ul`
   padding: 0;
 `
 
-const Items = props => {
-  const { item } = props
+// const Items = props => {
+//   // const { item } = props
 
-  return <Row>{/* <div>{item.text}</div> */}</Row>
-}
+//   return <Row>{/* <div>{item.text}</div> */}</Row>
+// }
 
 const Left = props => {
   const { items } = props

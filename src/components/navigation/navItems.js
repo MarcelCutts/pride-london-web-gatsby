@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import { Column, Container } from '../grid/grid'
+import { Column } from '../grid'
 import SubMenu from './submenu'
 
 const StyledLink = styled(Link)`
@@ -14,14 +14,14 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-const StyledColumn = styled(Column)`
-  height: 100%;
-  padding-top: 0;
-  padding-bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
+// const StyledColumn = styled(Column)`
+//   height: 100%;
+//   padding-top: 0;
+//   padding-bottom: 0;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `
 
 const StyledButton = styled(Link)`
   color: ${props => props.theme.colors.white};
@@ -50,24 +50,16 @@ const StyledLi = styled.li`
 // }
 
 class NavItems extends Component {
-  constructor(props) {
-    super()
-
-    this.state = {
-      isSubMenuOpen: false,
-    }
+  state = {
+    isSubMenuOpen: false,
   }
 
   mouseOver = () => {
-    this.setState(prevState => ({
-      isSubMenuOpen: true,
-    }))
+    this.setState({ isSubMenuOpen: true })
   }
 
   mouseOut = () => {
-    this.setState(prevState => ({
-      isSubMenuOpen: false,
-    }))
+    this.setState({ isSubMenuOpen: false })
   }
 
   render() {
@@ -82,8 +74,8 @@ class NavItems extends Component {
             <img src={logo} alt="" />
           </StyledLink>
         </Column>
-        {items.listItems.map((item, index) => (
-          <Fragment key={index}>
+        {listItems.map(item => (
+          <Fragment key={item.text}>
             <Column>
               <StyledUl>
                 <StyledLi onMouseEnter={this.mouseOver}>
@@ -103,7 +95,7 @@ class NavItems extends Component {
 }
 
 NavItems.propTypes = {
-  items: PropTypes.object,
+  items: PropTypes.object.isRequired,
 }
 
 export default NavItems
