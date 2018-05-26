@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import { Column } from '../grid/grid'
+import { Column, Container } from '../grid/grid'
+import SubMenu from './submenu'
 
 const StyledLink = styled(Link)`
   color: ${props => props.theme.colors.white};
@@ -35,28 +36,70 @@ const StyledButton = styled(Link)`
   background-color: ${props => props.theme.colors.eucalyptusGreen};
 `
 
-const NavItems = props => {
-  console.log(props)
-  const { listItems, logo } = props.items
-  return (
-    <Fragment>
-      <Column flex={6} alignItems="center" justifyContent="center">
-        <img src={logo} alt="" />
-      </Column>
-      {listItems.map((items, index) => (
-        <StyledColumn
-          key={index}
-          onMouseEnter={props.mouseOver}
-          onMouseLeave={props.mouseOut}
-        >
-          <StyledLink to="#"> {items}</StyledLink>
-        </StyledColumn>
-      ))}
-      <Column>
-        <StyledButton to="#">Donate</StyledButton>
-      </Column>
-    </Fragment>
-  )
+const StyledUl = styled.ul`
+  padding: 0;
+  margin: 0;
+`
+
+const StyledLi = styled.li`
+  list-style: none;
+`
+// const NavItems = props => {
+//   const { listItems, logo, cta } = props.items
+//   const { isOpen, mouseOver, mouseOut } = props
+// }
+
+class NavItems extends Component {
+  constructor(props) {
+    super()
+
+    this.state = {
+      isSubMenuOpen: false,
+    }
+  }
+
+  mouseOver = () => {
+    this.setState(prevState => ({
+      isSubMenuOpen: true,
+    }))
+  }
+
+  mouseOut = () => {
+    this.setState(prevState => ({
+      isSubMenuOpen: false,
+    }))
+  }
+
+  render() {
+    const { isSubMenuOpen } = this.state
+    const { items } = this.props
+    const { listItems, logo, cta } = items
+    console.log(isSubMenuOpen)
+    return (
+      <Fragment>
+        <Column flex={6} alignItems="center" justifyContent="center">
+          <StyledLink to="/">
+            <img src={logo} alt="" />
+          </StyledLink>
+        </Column>
+        {items.listItems.map((item, index) => (
+          <Fragment key={index}>
+            <Column>
+              <StyledUl>
+                <StyledLi onMouseEnter={this.mouseOver}>
+                  <div>{item.text}</div>
+                  {isSubMenuOpen && <SubMenu item={item} />}
+                </StyledLi>
+              </StyledUl>
+            </Column>
+          </Fragment>
+        ))}
+        <Column>
+          <StyledButton to="#">{cta}</StyledButton>
+        </Column>
+      </Fragment>
+    )
+  }
 }
 
 NavItems.propTypes = {

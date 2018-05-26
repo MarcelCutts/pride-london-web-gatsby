@@ -20,20 +20,7 @@ const Layout = props => (
             { name: 'keywords', content: 'sample, something' },
           ]}
         />
-        <Navigation
-          items={{
-            logo: 'http://via.placeholder.com/164x64',
-            listItems: [
-              'Learn',
-              'Attend',
-              'Support us',
-              'Take part',
-              'Plan',
-              'Help',
-            ],
-            cta: 'donate',
-          }}
-        />
+        <Navigation />
         <div>{props.children()}</div>
       </div>
     </ThemeProvider>

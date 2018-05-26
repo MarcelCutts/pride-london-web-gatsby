@@ -1,14 +1,24 @@
 import React from 'react'
-import { Container, Row, Column } from '../grid/grid'
+import PropTypes from 'prop-types'
+import SubMenuItems from './subMenuItems'
 
-const Submenu = () => {
+const SubMenu = props => {
+  console.log('submenu', props)
+  const { item } = props
   return (
-    <Container>
-      <Row>
-        <Column>Menu</Column>
-      </Row>
-    </Container>
+    <div>
+      {item.text}
+      {/* <SubMenuItems {...props}>{props.children}</SubMenuItems> */}
+    </div>
   )
 }
 
-export default Submenu
+SubMenu.propTypes = {
+  submenu: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+    })
+  ),
+}
+
+export default SubMenu
