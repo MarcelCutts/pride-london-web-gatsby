@@ -10,7 +10,7 @@ import './index.css'
 import './fonts.css'
 
 const Layout = props => (
-  <Provider value={props.data.allContentfulEvent.edges}>
+  <Provider events={props.data.allContentfulEvent.edges}>
     <ThemeProvider theme={theme}>
       <div>
         <Helmet
@@ -20,20 +20,7 @@ const Layout = props => (
             { name: 'keywords', content: 'sample, something' },
           ]}
         />
-        <Navigation
-          items={{
-            logo: 'http://via.placeholder.com/164x64',
-            listItems: [
-              'Learn',
-              'Attend',
-              'Support us',
-              'Take part',
-              'Plan',
-              'Help',
-            ],
-            cta: 'donate',
-          }}
-        />
+        <Navigation />
         <div>{props.children()}</div>
       </div>
     </ThemeProvider>
@@ -62,7 +49,13 @@ export const query = graphql`
           name
           startTime
           endTime
+          isFree
           eventPriceLow
+          eventCategories
+          venueDetails
+          audience
+          accessibilityOptions
+          postcode
           eventsListPicture {
             title
             file {
