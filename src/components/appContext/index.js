@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+// @flow
+import * as React from 'react'
 import {
   filterByDate,
   filterByFree,
@@ -13,29 +13,53 @@ import { itemsToLoad } from '../../constants'
 const AppContext = React.createContext()
 const { Consumer } = AppContext
 
-function getInitialFilterState() {
-  return {
-    date: null,
-    free: false,
-    eventCategories: [],
-    venueDetails: [],
-    audience: [],
-    accessibilityOptions: [],
-    area: [],
-    timeOfDay: [],
-  }
+const initialFilterState = {
+  date: null,
+  free: false,
+  eventCategories: [],
+  venueDetails: [],
+  audience: [],
+  accessibilityOptions: [],
+  area: [],
+  timeOfDay: [],
 }
 
 const initialState = {
   filterOpen: null,
+  filteredEventsCount: 0,
   eventsToShow: itemsToLoad,
-  filters: getInitialFilterState(),
+  filters: initialFilterState,
 }
 
-class Provider extends Component {
-  state = { ...initialState }
+type Props = {
+  events: Array<*>, // TODO The shape of the array should be typed
+  children: React.Node,
+}
 
-  getDatepickerValue = date => {
+type State = {
+  filterOpen: ?string,
+  eventsToShow: typeof itemsToLoad,
+  filteredEventsCount: number,
+  filters: {
+    date: ?Date,
+    free: boolean,
+    eventCategories: Array<string>,
+    venueDetails: Array<string>,
+    audience: Array<string>,
+    accessibilityOptions: Array<string>,
+    area: Array<string>, // NOTE This does not exist in graphql?
+    timeOfDay: Array<string>,
+  },
+}
+
+class Provider extends React.Component<Props, State> {
+  state = initialState
+
+  static defaultProps = {
+    events: [],
+  }
+
+  getDatepickerValue = (date: Date) => {
     this.setState(prevState => ({
       ...prevState,
       filters: {
@@ -45,7 +69,7 @@ class Provider extends Component {
     }))
   }
 
-  getCheckboxBool = (name, checked) => {
+  getCheckboxBool = (name: string, checked: boolean) => {
     console.log('getCheckboxBool', checked)
     this.setState(prevState => ({
       ...prevState,
@@ -56,7 +80,10 @@ class Provider extends Component {
     }))
   }
 
-  getCheckboxSetValues = (e, name) => {
+  getCheckboxSetValues = (
+    e: SyntheticInputEvent<HTMLInputElement>,
+    name: string
+  ) => {
     const state = {
       ...this.state,
       filters: { ...this.state.filters },
@@ -81,12 +108,12 @@ class Provider extends Component {
     this.setState({
       ...this.state,
       filterOpen: null,
-      filters: getInitialFilterState(),
+      filters: initialFilterState,
     })
   }
 
-  closeSiblingFilters = (filterName, isOpen) => {
-    if (isOpen && filterName != this.state.openFilter) {
+  closeSiblingFilters = (filterName: string, isOpen: string) => {
+    if (isOpen && filterName != this.state.filterOpen) {
       this.setState(prevState => ({
         ...prevState,
         filterOpen: filterName,
@@ -121,7 +148,7 @@ class Provider extends Component {
     return filteredEvents
   }
 
-  showMore = filteredCount => {
+  showMore = (filteredCount: number) => {
     if (this.state.eventsToShow < filteredCount) {
       this.setState({ eventsToShow: this.state.eventsToShow + itemsToLoad })
     }
@@ -151,18 +178,6 @@ class Provider extends Component {
       </AppContext.Provider>
     )
   }
-}
-
-Provider.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-  events: PropTypes.array,
-}
-
-Provider.defaultProps = {
-  events: [],
 }
 
 module.exports = {
