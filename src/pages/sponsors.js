@@ -4,6 +4,7 @@ import { Container } from '../components/grid/'
 import ImageBanner from '../components/imageBanner'
 import SponsorBadge from '../templates/sponsors/SponsorBadge'
 import SponsorsSubsection from '../templates/sponsors/SponsorsSubsection'
+import constants from '../constants'
 import theme from '../theme/theme'
 
 const SponsorsContainer = styled(Container)`
@@ -19,13 +20,6 @@ const Body = styled.div`
 const SponsorsList = styled.div`
   padding: 60px 0;
 `
-
-const SPONSOR_LEVELS = {
-  HEADLINE: 'Headline',
-  GOLD: 'Gold',
-  SILVER: 'Silver',
-  BRONZE: 'Bronze',
-}
 
 const selectSponsors = data =>
   data.allContentfulSponsor.edges
@@ -94,16 +88,16 @@ const Sponsors = ({ data }) => {
           </p>
           <div>
             <SponsorsSubsection title="Headline sponsors">
-              {renderSponsors(sponsors[SPONSOR_LEVELS.HEADLINE])}
+              {renderSponsors(sponsors[constants.sponsorLevels.headline])}
             </SponsorsSubsection>
             <SponsorsSubsection title="Gold sponsors">
-              {renderSponsors(sponsors[SPONSOR_LEVELS.GOLD])}
+              {renderSponsors(sponsors[constants.sponsorLevels.gold])}
             </SponsorsSubsection>
             <SponsorsSubsection title="Silver sponsors">
-              {renderSponsors(sponsors[SPONSOR_LEVELS.SILVER])}
+              {renderSponsors(sponsors[constants.sponsorLevels.silver])}
             </SponsorsSubsection>
             <SponsorsSubsection title="Bronze sponsors">
-              {renderSponsors(sponsors[SPONSOR_LEVELS.BRONZE])}
+              {renderSponsors(sponsors[constants.sponsorLevels.bronze])}
             </SponsorsSubsection>
           </div>
         </SponsorsList>

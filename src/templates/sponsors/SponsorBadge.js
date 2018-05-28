@@ -1,6 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import constants from '../../constants'
+
+const isLargeBadge = level =>
+  level === constants.sponsorLevels.headline ||
+  level === constants.sponsorLevels.gold
 
 const Badge = styled.div`
   display: inline-flex;
@@ -9,7 +14,7 @@ const Badge = styled.div`
   background-color: #f9f9f9;
   margin: 0 30px 30px 0;
   ${({ level }) =>
-    level === 'Headline'
+    isLargeBadge(level)
       ? css`
           height: 175px;
           width: 293px;
@@ -21,8 +26,8 @@ const Badge = styled.div`
 `
 
 const BadgeImage = styled.img`
-  max-height: ${({ level }) => (level === 'Headline' ? '84px' : '52px')};
-  max-width: ${({ level }) => (level === 'Headline' ? '220px' : '95px')};
+  max-height: ${({ level }) => (isLargeBadge(level) ? '84px' : '52px')};
+  max-width: ${({ level }) => (isLargeBadge(level) ? '220px' : '95px')};
 `
 
 const NamePlaceholder = styled.h3`
