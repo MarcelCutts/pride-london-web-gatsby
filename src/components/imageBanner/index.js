@@ -14,6 +14,7 @@ const Container = styled.div`
   overflow: hidden;
   padding-left: 10px;
   position: relative;
+  background: ${props => props.backgroundColor};
 
   & img {
     position: absolute;
@@ -28,9 +29,15 @@ const Container = styled.div`
   }
 `
 
-const ImageBanner = ({ titleText, subtitleText, imageSrc, altText }) => (
-  <Container>
-    <img src={imageSrc} alt={altText} />
+const ImageBanner = ({
+  titleText,
+  subtitleText,
+  imageSrc,
+  altText,
+  backgroundColor,
+}) => (
+  <Container backgroundColor={backgroundColor}>
+    {imageSrc && <img src={imageSrc} alt={altText} />}
     <BannerTitle>{titleText}</BannerTitle>
     <BannerSubtitle>{subtitleText}</BannerSubtitle>
   </Container>
@@ -41,6 +48,7 @@ ImageBanner.propTypes = {
   altText: PropTypes.string,
   subtitleText: PropTypes.string,
   titleText: PropTypes.string,
+  backgroundColor: PropTypes.string,
 }
 
 ImageBanner.defaultProps = {
@@ -48,6 +56,7 @@ ImageBanner.defaultProps = {
   altText: '',
   subtitleText: '',
   titleText: '',
+  backgroundColor: 'none',
 }
 
 export default ImageBanner

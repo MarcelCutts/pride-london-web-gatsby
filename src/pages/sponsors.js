@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { Container } from '../components/grid/'
+import ImageBanner from '../components/imageBanner'
 import SponsorBadge from '../templates/sponsors/SponsorBadge'
+import theme from '../theme/theme'
 
 const Body = styled.div`
   padding: 60px 0;
@@ -22,7 +24,11 @@ const selectSponsors = data =>
 
 const Sponsors = ({ data }) => (
   <Fragment>
-    <div>Banner goes here</div>
+    <ImageBanner
+      titleText="Sponsor us"
+      subtitleText="Help us to keep Pride free for everyone by becoming one of our sponsors"
+      backgroundColor={theme.colors.yellow}
+    />
     <Container>
       <Body>
         <h2>Be part of something</h2>
