@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import constants from '../../constants'
+import { media } from '../../theme/media'
 
 const isLargeBadge = level =>
   level === constants.sponsorLevels.headline ||
@@ -12,22 +13,48 @@ const Badge = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #f9f9f9;
-  margin: 0 30px 30px 0;
-  ${({ level }) =>
+  margin: 0 10px 10px 0;
+  ${media.tablet`
+    margin: 0 30px 30px 0;
+  `} ${({ level }) =>
     isLargeBadge(level)
       ? css`
-          height: 175px;
-          width: 293px;
+          height: 97px;
+          width: 162px;
+          ${media.tablet`
+            height: 175px;
+            width: 293px;
+          `};
         `
       : css`
-          height: 110px;
-          width: 185px;
+          height: 97px;
+          width: 105px;
+          ${media.tablet`
+            height: 110px;
+            width: 185px;
+          `};
         `};
 `
 
 const BadgeImage = styled.img`
-  max-height: ${({ level }) => (isLargeBadge(level) ? '84px' : '52px')};
-  max-width: ${({ level }) => (isLargeBadge(level) ? '220px' : '95px')};
+  ${({ level }) =>
+    isLargeBadge(level)
+      ? css`
+          max-height: 80px;
+          max-width: 122px;
+          ${media.tablet`
+      max-height: 84px;
+      max-width: 220px;
+    `};
+        `
+      : css`
+          max-height: 78px;
+          max-width: 83px;
+          ${media.tablet`
+        max-height: 52px;
+        max-width: 95px;
+      `};
+        `};
 `
 
 const NamePlaceholder = styled.h3`

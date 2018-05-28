@@ -6,19 +6,29 @@ import SponsorBadge from '../templates/sponsors/SponsorBadge'
 import SponsorsSubsection from '../templates/sponsors/SponsorsSubsection'
 import constants from '../constants'
 import theme from '../theme/theme'
+import { media } from '../theme/media'
 
 const SponsorsContainer = styled(Container)`
   background-color: ${props => props.theme.colors.white};
-  padding: 90px;
+  padding: 0 20px;
+  ${media.tablet`
+    padding: 0 90px;
+  `};
 `
 
 const Body = styled.div`
-  padding: 60px 0;
+  padding: 30px 0;
   border-bottom: 1px solid rgba(203, 203, 203, 0.5);
+  ${media.tablet`
+    padding: 60px 0;
+  `};
 `
 
 const SponsorsList = styled.div`
-  padding: 60px 0;
+  padding: 30px 0;
+  ${media.tablet`
+    padding: 60px 0;
+  `};
 `
 
 const selectSponsors = data =>
