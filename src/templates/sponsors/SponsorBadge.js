@@ -25,10 +25,22 @@ const BadgeImage = styled.img`
   max-width: ${({ level }) => (level === 'Headline' ? '220px' : '95px')};
 `
 
+const NamePlaceholder = styled.h3`
+  color: #9b9b9b;
+  display: inline-block;
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+`
+
 const SponsorBadge = ({ logo, name, url, level }) => (
   <Badge level={level}>
     <a href={url} target="_blank">
-      <BadgeImage src={logo} alt={name} level={level} />
+      {logo ? (
+        <BadgeImage src={logo} alt={name} level={level} />
+      ) : (
+        <NamePlaceholder>{name}</NamePlaceholder>
+      )}
     </a>
   </Badge>
 )

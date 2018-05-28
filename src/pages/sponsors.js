@@ -8,7 +8,7 @@ import theme from '../theme/theme'
 
 const SponsorsContainer = styled(Container)`
   background-color: ${props => props.theme.colors.white};
-  padding-left: 90px;
+  padding: 90px;
 `
 
 const Body = styled.div`
@@ -59,13 +59,32 @@ const Sponsors = ({ data }) => {
         <Body>
           <h2>Be part of something</h2>
           <p>
-            Scelerisque a parturient consectetur dui erat a ligula a a id
-            imperdiet elit scelerisque ipsum cubilia ac a. Malesuada elementum a
-            vestibulum fermentum sodales ullamcorper a vestibulum vulputate
-            nascetur nec felis ullamcorper ut quis at a purus vestibulum eu
-            parturient parturient condimentum vitae faucibus. Ultrices a mi quis
-            ullamcorper ullamcorper vestibulum etiam a imperdiet egestas orci
-            condimentum orci non arcu adipiscing mus a ac at facilisis quis.
+            Without our dedicated and loyal partners, Pride in London simply
+            would not exist. Since the current community group took over the
+            running of Pride in 2012, the office of the Mayor of London and
+            Barclays have remained committed to keeping Pride on the road. They
+            have proved to be great allies of the LGBTQ+ community and we are
+            eternally grateful for their support. In 2018, Sadiq Khan, Mayor of
+            London extended Pride in London’s contract, committing to support
+            our work for a further 5 years.
+          </p>
+          <p>
+            For many years LGBTQ+ people have faced hiding their true selves
+            from their colleagues. Only since 2000 have people been able to
+            openly serve in the military. Today, while prejudice is still rife
+            in many places, many companies and organisations have embraced their
+            LGBTQ+ members of staff. Studies show, that employers who recognise
+            and support diversity are on average more productive and more
+            profitable.
+          </p>
+          <p>
+            {' '}
+            Over the years we have seen more and more companies openly support
+            and embrace their LGBTQ+ colleagues, as well as provide a safe,
+            loving and supportive workplace. Being part of Pride is one of the
+            many ways we are seeing workplaces transform for the better. Pride
+            in London are proud to be working with our partners to ensure
+            diversity is embedded in the core of each company we work with.
           </p>
         </Body>
         <SponsorsList>
