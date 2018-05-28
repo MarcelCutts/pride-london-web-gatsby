@@ -78,7 +78,11 @@ const SponsorBadge = ({ logo, name, url, level }) => (
 )
 
 SponsorBadge.propTypes = {
-  level: PropTypes.oneOf(['Headline', 'Gold', 'Silver', 'Bronze']).isRequired,
+  level: PropTypes.oneOf(
+    Object.keys(constants.sponsorLevels).map(
+      key => constants.sponsorLevels[key]
+    )
+  ).isRequired,
 }
 
 export default SponsorBadge
