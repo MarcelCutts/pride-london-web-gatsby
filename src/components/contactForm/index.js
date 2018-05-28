@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { media } from '../../theme/media'
 import theme from '../../theme/theme'
-
+import Button from '../button'
 import 'react-accessible-accordion/dist/fancy-example.css'
 
 const Wrapper = styled.div`
@@ -21,6 +21,11 @@ const Wrapper = styled.div`
 
   input + input {
     margin: 20px 0 20px 0;
+  }
+
+  button {
+    margin-top: 30px;
+    border: none;
   }
 `
 
@@ -158,6 +163,7 @@ const ContactForm = () => {
         <StyledOption>1</StyledOption>
       </StyledSelect>
       <StyledTextarea placeholder="Question" />
+      <Button primary>Send question</Button>
       <AddressBox>
         <StyledTitle>Or write to us..</StyledTitle>
         <small>
