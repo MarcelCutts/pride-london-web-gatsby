@@ -7,6 +7,7 @@ const Badge = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #f9f9f9;
+  margin: 0 30px 30px 0;
   ${({ level }) =>
     level === 'Headline'
       ? css`
