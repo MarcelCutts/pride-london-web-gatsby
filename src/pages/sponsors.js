@@ -6,6 +6,11 @@ import SponsorBadge from '../templates/sponsors/SponsorBadge'
 import SponsorsSubsection from '../templates/sponsors/SponsorsSubsection'
 import theme from '../theme/theme'
 
+const SponsorsContainer = styled(Container)`
+  background-color: ${props => props.theme.colors.white};
+  padding-left: 90px;
+`
+
 const Body = styled.div`
   padding: 60px 0;
   border-bottom: 1px solid rgba(203, 203, 203, 0.5);
@@ -50,7 +55,7 @@ const Sponsors = ({ data }) => {
         subtitleText="Help us to keep Pride free for everyone by becoming one of our sponsors"
         backgroundColor={theme.colors.yellow}
       />
-      <Container>
+      <SponsorsContainer>
         <Body>
           <h2>Be part of something</h2>
           <p>
@@ -83,7 +88,7 @@ const Sponsors = ({ data }) => {
             </SponsorsSubsection>
           </div>
         </SponsorsList>
-      </Container>
+      </SponsorsContainer>
     </Fragment>
   )
 }
