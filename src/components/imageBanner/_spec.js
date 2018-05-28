@@ -23,9 +23,14 @@ describe('ImageBanner', () => {
     expect(wrapper.find(BannerSubtitle)).toHaveLength(1)
   })
 
-  it('should render an <img>', () => {
-    const wrapper = shallow(<ImageBanner />)
+  it('should render an <img> if imageSrc is passed', () => {
+    const wrapper = shallow(<ImageBanner imageSrc="test" />)
     expect(wrapper.find('img')).toHaveLength(1)
+  })
+
+  it('should not render an <img> if no imageSrc is passed', () => {
+    const wrapper = shallow(<ImageBanner />)
+    expect(wrapper.find('img')).toHaveLength(0)
   })
 
   it('should render an img with imgSrc from props', () => {
@@ -36,7 +41,7 @@ describe('ImageBanner', () => {
 
   it('should render an img with altText from props', () => {
     const altText = 'background image'
-    const wrapper = shallow(<ImageBanner altText={altText} />)
+    const wrapper = shallow(<ImageBanner imageSrc="test" altText={altText} />)
     expect(wrapper.find('img').props().alt).toBe(altText)
   })
 
