@@ -4,6 +4,8 @@ import { Container, Row, Column } from '../components/grid'
 
 import AccordionWrapper from '../components/accordion/accordionWrapper'
 import Accordion from '../components/accordion'
+import ContactForm from '../components/contactForm'
+import ImageBanner from '../components/imageBanner'
 
 const PageWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
@@ -22,6 +24,7 @@ const Help = () => (
   <Fragment>
     <PageWrapper>
       <Container>
+        <ImageBanner />
         <Row>
           <Column width={[1, 1, 1, 0.65]}>
             <h1> We're often asked... </h1>
@@ -30,6 +33,7 @@ const Help = () => (
             </AccordionWrapper>
           </Column>
         </Row>
+        <ContactForm />
       </Container>
     </PageWrapper>
   </Fragment>
