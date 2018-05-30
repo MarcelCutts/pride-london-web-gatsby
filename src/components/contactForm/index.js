@@ -18,15 +18,19 @@ const Wrapper = styled.div`
     top: 270px;
     padding: 40px;
  `};
-
-  input + input {
-    margin: 20px 0 20px 0;
+  
+  span {
+    margin-bottom 20px;
   }
 
   button {
-    margin-top: 30px;
     border: none;
   }
+
+`
+
+const StyledSpan = styled.span`
+  position: relative;
 `
 
 const StyledSelect = styled.select`
@@ -59,7 +63,6 @@ const StyledTextarea = styled.textarea`
   font-size: 14px;
   font-weight: 500;
   height: auto;
-  margin-top: 20px;
   padding-left: 10px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.2);
@@ -75,20 +78,26 @@ const StyledTextarea = styled.textarea`
 
   &:focus {
     border: 2px solid ${theme.colors.eucalyptusGreen} !important;
-    
-    &::placeholder {
+
+    + label {
       font-size: 12px;
       font-weight: lighter;
-      position relative;
       top: -15px;
       color: ${theme.colors.eucalyptusGreen};
     }
-
   }
 
-  &::placeholder {
+  + label {
     color: ${theme.colors.white};
   }
+`
+
+const StyledLabel = styled.label`
+  font-size: 14px;
+  font-weight: 500;
+  position: absolute;
+  left: 0;
+  padding: 20px;
 `
 
 const StyledInput = styled.input`
@@ -111,18 +120,19 @@ const StyledInput = styled.input`
 
   &:focus {
     border: 2px solid ${theme.colors.eucalyptusGreen} !important;
-    
-    &::placeholder {
+    padding-top: 30px;
+    padding-left: 18px;
+
+    + label {
       font-size: 12px;
       font-weight: lighter;
-      position relative;
-      top: -15px;
+      top: -10px;
+      padding-bottom: 5px;
       color: ${theme.colors.eucalyptusGreen};
     }
-
   }
 
-  &::placeholder {
+  + label {
     color: ${theme.colors.white};
   }
 `
@@ -154,15 +164,28 @@ const ContactForm = () => {
   return (
     <Wrapper>
       <StyledTitle>Can't find what you need?</StyledTitle>
-      <StyledInput placeholder="Full name" />
-      <StyledInput placeholder="E-mail address" />
-      <StyledSelect>
-        <StyledOption style={{ display: 'none' }} value>
-          What is your question about?
-        </StyledOption>
-        <StyledOption>1</StyledOption>
-      </StyledSelect>
-      <StyledTextarea placeholder="Question" />
+      <StyledSpan>
+        <StyledInput id="name" />
+        <StyledLabel htmlFor="name">Full name</StyledLabel>
+      </StyledSpan>
+      <StyledSpan>
+        <StyledInput id="email" />
+        <StyledLabel type="email" htmlFor="email">
+          E-mail address
+        </StyledLabel>
+      </StyledSpan>
+      <StyledSpan>
+        <StyledSelect id="options">
+          <StyledOption style={{ display: 'none' }} value>
+            What is your question about?
+          </StyledOption>
+          <StyledOption>1</StyledOption>
+        </StyledSelect>
+      </StyledSpan>
+      <StyledSpan>
+        <StyledTextarea id="question" />
+        <StyledLabel htmlFor="question">Question</StyledLabel>
+      </StyledSpan>
       <Button primary>Send question</Button>
       <AddressBox>
         <StyledTitle>Or write to us..</StyledTitle>
