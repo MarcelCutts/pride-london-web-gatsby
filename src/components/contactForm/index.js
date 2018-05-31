@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { media } from '../../theme/media'
 import theme from '../../theme/theme'
 import Button from '../button'
+import chevronDown from '../../theme/assets/images/icon-chevron-down-white.svg'
 import 'react-accessible-accordion/dist/fancy-example.css'
 
 const Wrapper = styled.div`
@@ -50,6 +51,10 @@ const StyledSelect = styled.select`
   text-indent: 10px;
   color: ${theme.colors.white};
   overflow: hidden;
+  appearance: none;
+  background-image: url(${chevronDown});
+  background-repeat: no-repeat;
+  background-position: 94%;
   ${media.desktop`
     margin-bottom: 0;
   `};
@@ -82,7 +87,7 @@ const StyledTextarea = styled.textarea`
     + label {
       font-size: 12px;
       font-weight: lighter;
-      top: -15px;
+      top: -10px;
       color: ${theme.colors.eucalyptusGreen};
     }
   }
