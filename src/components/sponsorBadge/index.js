@@ -43,17 +43,17 @@ const BadgeImage = styled.img`
           max-height: 80px;
           max-width: 122px;
           ${media.tablet`
-      max-height: 84px;
-      max-width: 220px;
-    `};
+            max-height: 84px;
+            max-width: 220px;
+          `};
         `
       : css`
           max-height: 78px;
           max-width: 83px;
           ${media.tablet`
-        max-height: 52px;
-        max-width: 95px;
-      `};
+            max-height: 52px;
+            max-width: 95px;
+          `};
         `};
 `
 
