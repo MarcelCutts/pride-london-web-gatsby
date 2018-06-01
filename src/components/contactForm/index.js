@@ -4,6 +4,7 @@ import { media } from '../../theme/media'
 import theme from '../../theme/theme'
 import Button from '../button'
 import chevronDown from '../../theme/assets/images/icon-chevron-down-white.svg'
+import chevronUp from '../../theme/assets/images/icon-chevron-up-white.svg'
 import 'react-accessible-accordion/dist/fancy-example.css'
 
 const Wrapper = styled.div`
@@ -48,6 +49,7 @@ const StyledSelect = styled.select`
   height: 58px;
   apperance: none;
   padding: 20px;
+  padding-left: 10px;
   text-indent: 10px;
   color: ${theme.colors.white};
   overflow: hidden;
@@ -61,6 +63,7 @@ const StyledSelect = styled.select`
 
   &:focus {
     border: 2px solid ${theme.colors.eucalyptusGreen} !important;
+    background-image: url(${chevronUp});
   }
 `
 
@@ -83,6 +86,7 @@ const StyledTextarea = styled.textarea`
 
   &:focus {
     border: 2px solid ${theme.colors.eucalyptusGreen} !important;
+    padding-top: 25px;
 
     + label {
       font-size: 12px;
@@ -165,41 +169,71 @@ const StyledTitle = styled.h2`
   font-size: 24px;
 `
 
-const ContactForm = () => {
-  return (
-    <Wrapper>
-      <StyledTitle>Can't find what you need?</StyledTitle>
-      <StyledSpan>
-        <StyledInput id="name" />
-        <StyledLabel htmlFor="name">Full name</StyledLabel>
-      </StyledSpan>
-      <StyledSpan>
-        <StyledInput id="email" />
-        <StyledLabel type="email" htmlFor="email">
-          E-mail address
-        </StyledLabel>
-      </StyledSpan>
-      <StyledSpan>
-        <StyledSelect id="options">
-          <StyledOption style={{ display: 'none' }} value>
-            What is your question about?
-          </StyledOption>
-          <StyledOption>1</StyledOption>
-        </StyledSelect>
-      </StyledSpan>
-      <StyledSpan>
-        <StyledTextarea id="question" />
-        <StyledLabel htmlFor="question">Question</StyledLabel>
-      </StyledSpan>
-      <Button primary>Send question</Button>
-      <AddressBox>
-        <StyledTitle>Or write to us..</StyledTitle>
-        <small>
-          London LGBT+ Community Pride CIC, PO Box 71920, London NW2 9QN
-        </small>
-      </AddressBox>
-    </Wrapper>
-  )
+class ContactForm extends React.Component {
+  showLabels = e => {
+    const label = e.target.nextElementSibling
+
+    label.style.display = 'inline'
+  }
+
+  hideLabels = e => {
+    const label = e.target.nextElementSibling
+
+    if (e.target.value != '') {
+      label.style.display = 'none'
+    } else {
+      label.style.display = 'inline'
+    }
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <StyledTitle>Can't find what you need?</StyledTitle>
+        <StyledSpan>
+          <StyledInput
+            id="name"
+            onFocus={e => this.showLabels(e)}
+            onBlur={e => this.hideLabels(e)}
+          />
+          <StyledLabel htmlFor="name">Full name</StyledLabel>
+        </StyledSpan>
+        <StyledSpan>
+          <StyledInput
+            id="email"
+            onFocus={e => this.showLabels(e)}
+            onBlur={e => this.hideLabels(e)}
+          />
+          <StyledLabel type="email" htmlFor="email">
+            E-mail address
+          </StyledLabel>
+        </StyledSpan>
+        <StyledSpan>
+          <StyledSelect id="options">
+            <StyledOption style={{ display: 'none' }}>
+              What is your question about?
+            </StyledOption>
+            <StyledOption>1</StyledOption>
+          </StyledSelect>
+        </StyledSpan>
+        <StyledSpan>
+          <StyledTextarea
+            id="question"
+            onFocus={e => this.showLabels(e)}
+            onBlur={e => this.hideLabels(e)}
+          />
+          <StyledLabel htmlFor="question">Question</StyledLabel>
+        </StyledSpan>
+        <Button primary>Send question</Button>
+        <AddressBox>
+          <StyledTitle>Or write to us..</StyledTitle>
+          <small>
+            London LGBT+ Community Pride CIC, PO Box 71920, London NW2 9QN
+          </small>
+        </AddressBox>
+      </Wrapper>
+    )
+  }
 }
 
 export default ContactForm
