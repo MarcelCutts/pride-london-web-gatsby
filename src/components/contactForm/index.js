@@ -78,8 +78,10 @@ const StyledTextarea = styled.textarea`
   border: none;
   border-radius: 4px;
   line-height: 17px;
+  height: 58px;
   padding: 20px;
   color: ${theme.colors.white};
+  resize: none;
   ${media.desktop`
     margin-bottom: 0;
   `};
@@ -172,8 +174,11 @@ const StyledTitle = styled.h2`
 class ContactForm extends React.Component {
   showLabels = e => {
     const label = e.target.nextElementSibling
-
     label.style.display = 'inline'
+
+    if (e.target.tagName == 'TEXTAREA') {
+      this.increaseTextarea(e.target)
+    }
   }
 
   hideLabels = e => {
@@ -184,6 +189,20 @@ class ContactForm extends React.Component {
     } else {
       label.style.display = 'inline'
     }
+
+    if (e.target.tagName == 'TEXTAREA' && e.target.value != '') {
+      this.increaseTextarea(e.target)
+    } else {
+      this.decreaseTextarea(e.target)
+    }
+  }
+
+  increaseTextarea = textarea => {
+    textarea.style.height = '128px'
+  }
+
+  decreaseTextarea = textarea => {
+    textarea.style.height = '58px'
   }
 
   render() {
