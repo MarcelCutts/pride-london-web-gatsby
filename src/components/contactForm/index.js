@@ -48,10 +48,6 @@ const DropDown = styled.fieldset`
   @media (min-width: ${props => props.theme.breakpoints[1]}) {
     display: ${props => (props.isDropdownOpen ? 'block' : 'none')};
   }
-
-  @media (min-width: ${props => props.theme.breakpoints[0]}) {
-    display: ${props => (props.isDropdownOpen ? 'block' : 'none')};
-  }
 `
 const StyledTextarea = styled.textarea`
   font-size: 14px;
