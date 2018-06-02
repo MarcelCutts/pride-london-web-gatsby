@@ -35,38 +35,24 @@ const StyledSpan = styled.span`
   position: relative;
 `
 
-const StyledSelect = styled.select`
-  font-size: 14px;
-  font-weight: 500;
-  white-space: nowrap;
-  margin-bottom: 10px;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  outline: none;
+const DropDown = styled.fieldset`
+  padding: 0;
+  margin: 0;
   border: none;
-  border-radius: 4px;
-  line-height: 17px;
-  height: 58px;
-  apperance: none;
-  padding: 20px;
-  padding-left: 10px;
-  text-indent: 10px;
-  color: ${theme.colors.white};
-  overflow: hidden;
-  appearance: none;
-  background-image: url(${chevronDown});
-  background-repeat: no-repeat;
-  background-position: 94%;
-  ${media.desktop`
-    margin-bottom: 0;
-  `};
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 
-  &:focus {
-    border: 2px solid ${theme.colors.eucalyptusGreen} !important;
-    background-image: url(${chevronUp});
+  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+    display: ${props => (props.isDropdownOpen ? 'block' : 'none')};
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints[0]}) {
+    display: ${props => (props.isDropdownOpen ? 'block' : 'none')};
   }
 `
-
 const StyledTextarea = styled.textarea`
   font-size: 14px;
   font-weight: 500;
@@ -100,6 +86,35 @@ const StyledTextarea = styled.textarea`
 
   + label {
     color: ${theme.colors.white};
+  }
+`
+
+const List = styled.ul`
+  list-style: none;
+  padding: 10px 10px;
+  margin: 0;
+  border-top: 2px solid transparent;
+  box-sizing: border-box;
+  background-color: #242565;
+  border-radius: 4px;
+
+  @media (min-width: ${props => props.theme.breakpoints[0]}) {
+    padding: 10px;
+  }
+`
+const ListItem = styled.li`
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: ${theme.colors.eucalyptusGreen};
+    cursor: pointer;
   }
 `
 
@@ -148,12 +163,36 @@ const StyledInput = styled.input`
   }
 `
 
-const StyledOption = styled.option`
-  color: ${theme.colors.white} !important;
+const StyledButton = styled.button`
   font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  outline: none;
+  border: ${props =>
+    props.isDropdownOpen ? '2px solid #2CDA9D !important' : 'none'};
+  border-radius: 4px;
+  line-height: 17px;
+  height: 58px;
   apperance: none;
+  padding: 20px;
+  padding-left: 10px;
+  text-indent: 10px;
+  text-align: left;
+  color: ${theme.colors.white};
+  overflow: hidden;
+  appearance: none;
+  background-image: url(${props =>
+    props.isDropdownOpen ? `${chevronUp}` : `${chevronDown}`});
+  background-repeat: no-repeat;
+  background-position: 94%;
+  ${media.desktop`
+    margin-bottom: 0;
+  `};
+
   &:hover {
-    color: ${theme.colors.eucalyptusGreen};
+    cursor: pointer;
   }
 `
 
@@ -172,6 +211,24 @@ const StyledTitle = styled.h2`
 `
 
 class ContactForm extends React.Component {
+  state = {
+    isDropdownOpen: false,
+    selectedDropdownItem: '',
+  }
+
+  toggleDropdown = () => {
+    this.setState({
+      isDropdownOpen: !this.state.isDropdownOpen,
+    })
+  }
+
+  setSelectedDropdownItem = e => {
+    this.setState({
+      selectedDropdownItem: e.target.innerText,
+      isDropdownOpen: false,
+    })
+  }
+
   showLabels = e => {
     const label = e.target.nextElementSibling
     label.style.display = 'inline'
@@ -228,12 +285,27 @@ class ContactForm extends React.Component {
           </StyledLabel>
         </StyledSpan>
         <StyledSpan>
-          <StyledSelect id="options">
-            <StyledOption style={{ display: 'none' }}>
-              What is your question about?
-            </StyledOption>
-            <StyledOption>1</StyledOption>
-          </StyledSelect>
+          <StyledButton
+            onClick={() => this.toggleDropdown()}
+            isDropdownOpen={this.state.isDropdownOpen}
+          >
+            {this.state.selectedDropdownItem != ''
+              ? this.state.selectedDropdownItem
+              : 'What is your question about?'}
+          </StyledButton>
+          <DropDown isDropdownOpen={this.state.isDropdownOpen}>
+            <List>
+              <ListItem id="0" onClick={e => this.setSelectedDropdownItem(e)}>
+                Testing 01
+              </ListItem>
+              <ListItem id="1" onClick={e => this.setSelectedDropdownItem(e)}>
+                Testing 02
+              </ListItem>
+              <ListItem id="2" onClick={e => this.setSelectedDropdownItem(e)}>
+                Testing 03
+              </ListItem>
+            </List>
+          </DropDown>
         </StyledSpan>
         <StyledSpan>
           <StyledTextarea
