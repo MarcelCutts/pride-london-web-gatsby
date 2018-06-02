@@ -4,39 +4,47 @@ exports[`header matches snapshot 1`] = `
 <React.Fragment>
   <Column
     alignItems="center"
-    flex={3}
+    flex={6}
     justifyContent="center"
   >
-    <img
-      alt=""
-    />
-  </Column>
-  <Column
-    key="mockId"
-  >
     <LinkTest
-      to="#"
-    >
-       
-      Shante, you stay
-    </LinkTest>
-  </Column>
-  <Column
-    key="mockId"
-  >
-    <LinkTest
-      to="#"
-    >
-       
-      Sashay away
-    </LinkTest>
-  </Column>
-  <Column>
-    <ButtonTest
       to="/"
     >
-      Donate
-    </ButtonTest>
+      <img
+        alt=""
+      />
+    </LinkTest>
+  </Column>
+  <React.Fragment>
+    <Styled(Column)>
+      <styled.ul>
+        <styled.li
+          onMouseEnter={[Function]}
+        >
+          <div
+            onMouseEnter={[Function]}
+          />
+        </styled.li>
+      </styled.ul>
+    </Styled(Column)>
+  </React.Fragment>
+  <React.Fragment>
+    <Styled(Column)>
+      <styled.ul>
+        <styled.li
+          onMouseEnter={[Function]}
+        >
+          <div
+            onMouseEnter={[Function]}
+          />
+        </styled.li>
+      </styled.ul>
+    </Styled(Column)>
+  </React.Fragment>
+  <Column>
+    <ButtonTest
+      to="#"
+    />
   </Column>
 </React.Fragment>
 `;

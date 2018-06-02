@@ -50,7 +50,11 @@ const SubMenuItems = props => {
         <ContainerColumn>
           {verifyValue === item.text && (
             <Fragment>
-              <Row justifyContent="flex-start" alignItems="flex-start" mx={4}>
+              <Row
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                style={{ margin: 0 }}
+              >
                 <Column
                   flex={7}
                   justifyContent="flex-start"

@@ -12,7 +12,7 @@ const theme = {
     electricPurple: '#BC01FF',
     darkPurple: '#660C63',
     lightIndigo: '#2D2F7F',
-    darkIndigo: '#211E6B',
+    indigo: '#211E6B',
     greyBlue: '#5770D1',
     beachBlue: '#2C77E5',
     skyBlue: '#2ACFFF',

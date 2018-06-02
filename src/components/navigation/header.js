@@ -5,8 +5,10 @@ import { Container, Row } from '../grid'
 import NavItems from './navItems'
 
 const StyledContainer = styled(Container)`
-  background-color: ${props => props.theme.colors.darkIndigo};
+  background-color: ${props => props.theme.colors.indigo};
   color: ${props => props.theme.colors.white};
+  max-width: ${props => props.theme.breakpoints[3]};
+  width: 100%;
   height: 100px;
   position: relative;
 `

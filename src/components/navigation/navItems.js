@@ -24,8 +24,18 @@ const StyledButton = styled(Link)`
   font-weight: 600;
   text-decoration: none;
   border-radius: 4px;
-  color: ${props => props.theme.colors.darkIndigo};
+  color: ${props => props.theme.colors.indigo};
   background-color: ${props => props.theme.colors.eucalyptusGreen};
+`
+
+const StyledColumn = styled(Column)`
+  height: 100px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 StyledButton.displayName = 'ButtonTest'
 
