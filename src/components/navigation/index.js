@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react'
 import Header from './header'
 import logo from '../../theme/assets/images/logo-pride.svg'
 
+Header.displayName = 'Header'
+
 class Navigation extends Component {
   constructor(props) {
     super(props)

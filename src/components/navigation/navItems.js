@@ -14,16 +14,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-const StyledColumn = styled(Column)`
-  height: 100px;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
+StyledLink.displayName = 'LinkTest'
 const StyledButton = styled(Link)`
   color: ${props => props.theme.colors.white};
   width: 138px;
@@ -36,6 +27,7 @@ const StyledButton = styled(Link)`
   color: ${props => props.theme.colors.darkIndigo};
   background-color: ${props => props.theme.colors.eucalyptusGreen};
 `
+StyledButton.displayName = 'ButtonTest'
 
 const StyledUl = styled.ul`
   padding: 0;
