@@ -8,6 +8,7 @@ const StyledContainer = styled(Container)`
   background-color: ${props => props.theme.colors.indigo};
   color: ${props => props.theme.colors.white};
   height: 100px;
+  position: relative;
 `
 
 const Header = props => (

@@ -12,13 +12,9 @@ class Navigation extends Component {
   }
 
   render() {
-    console.log(this.state.isOpen)
-
     return (
       <Fragment>
         <Header
-          mouseOver={this.mouseOver}
-          mouseOut={this.mouseOut}
           isOpen={this.state.isOpen}
           items={{
             logo,
@@ -26,6 +22,7 @@ class Navigation extends Component {
               {
                 text: 'Learn',
                 submenu: {
+                  text: 'Learn',
                   paragraph:
                     'Cupcake ipsum dolor sit. Amet dragée chocolate donut. Jelly-o chupa chups liquorice chocolate.',
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 import { Column } from '../grid'
-import SubMenu from './submenu'
+import SubMenuItems from './subMenuItems'
 
 const StyledLink = styled(Link)`
   color: ${props => props.theme.colors.white};
@@ -52,6 +52,7 @@ const StyledLi = styled.li`
 class NavItems extends Component {
   state = {
     isSubMenuOpen: false,
+    currentValue: null,
   }
 
   mouseOver = () => {
@@ -62,11 +63,19 @@ class NavItems extends Component {
     this.setState({ isSubMenuOpen: false })
   }
 
+  verifyValue = event => {
+    this.setState({
+      currentValue: event.currentTarget.textContent,
+    })
+  }
+
   render() {
-    const { isSubMenuOpen } = this.state
+    const { isSubMenuOpen, currentValue } = this.state
     const { items } = this.props
     const { listItems, logo, cta } = items
-    console.log(isSubMenuOpen)
+
+    listItems.map(item => console.log(currentValue === item.text))
+
     return (
       <Fragment>
         <Column flex={6} alignItems="center" justifyContent="center">
@@ -79,8 +88,11 @@ class NavItems extends Component {
             <Column>
               <StyledUl>
                 <StyledLi onMouseEnter={this.mouseOver}>
-                  <div>{item.text}</div>
-                  {isSubMenuOpen && <SubMenu item={item} />}
+                  <div onMouseEnter={this.verifyValue}>{item.text}</div>
+                  {isSubMenuOpen &&
+                    (currentValue === item.text ? (
+                      <SubMenuItems item={item} verifyValue={currentValue} />
+                    ) : null)}
                 </StyledLi>
               </StyledUl>
             </Column>
