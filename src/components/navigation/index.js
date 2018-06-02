@@ -22,7 +22,6 @@ class Navigation extends Component {
               {
                 text: 'Learn',
                 submenu: {
-                  text: 'Learn',
                   paragraph:
                     'Cupcake ipsum dolor sit. Amet dragée chocolate donut. Jelly-o chupa chups liquorice chocolate.',
 
@@ -39,8 +38,14 @@ class Navigation extends Component {
                     'Cupcake ipsum dolor sit. Amet dragée chocolate donut. Jelly-o chupa chups liquorice chocolate.',
 
                   items: {
-                    left: ['About us', 'Meet the team', 'Our history'],
-                    right: ['News', 'Our mission'],
+                    left: [
+                      'Parade Day',
+                      'Stages',
+                      'Parade groups',
+                      'Map',
+                      'Top tips',
+                    ],
+                    right: ['Pride’s Got Talent', '2018 Winners'],
                   },
                 },
               },
@@ -51,8 +56,13 @@ class Navigation extends Component {
                     'Cupcake ipsum dolor sit. Amet dragée chocolate donut. Jelly-o chupa chups liquorice chocolate.',
 
                   items: {
-                    left: ['About us', 'Meet the team', 'Our history'],
-                    right: ['News', 'Our mission'],
+                    left: [
+                      'As an individual',
+                      'Volunteer',
+                      'Donate',
+                      'Buy merchandise',
+                    ],
+                    right: ['As a business', 'Sponsor us', 'Work with us'],
                   },
                 },
               },
@@ -63,8 +73,12 @@ class Navigation extends Component {
                     'Cupcake ipsum dolor sit. Amet dragée chocolate donut. Jelly-o chupa chups liquorice chocolate.',
 
                   items: {
-                    left: ['About us', 'Meet the team', 'Our history'],
-                    right: ['News', 'Our mission'],
+                    left: [
+                      'Perform',
+                      'Have a stall',
+                      'Host an event',
+                      'Take part in the part in the parade',
+                    ],
                   },
                 },
               },
@@ -74,13 +88,17 @@ class Navigation extends Component {
                   paragraph:
                     'Cupcake ipsum dolor sit. Amet dragée chocolate donut. Jelly-o chupa chups liquorice chocolate.',
                   items: {
-                    left: ['About us', 'Meet the team', 'Our history'],
-                    right: ['News', 'Our mission'],
+                    left: [
+                      'Places to eat & drink',
+                      'Travel & accomodation',
+                      'Accessibility',
+                      'Our app',
+                    ],
                   },
                 },
               },
               {
-                item: 'help',
+                text: 'help',
               },
             ],
             cta: 'donate',

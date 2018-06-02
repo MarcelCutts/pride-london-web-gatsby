@@ -14,14 +14,15 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-// const StyledColumn = styled(Column)`
-//   height: 100%;
-//   padding-top: 0;
-//   padding-bottom: 0;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `
+const StyledColumn = styled(Column)`
+  height: 100px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const StyledButton = styled(Link)`
   color: ${props => props.theme.colors.white};
@@ -32,22 +33,27 @@ const StyledButton = styled(Link)`
   font-weight: 600;
   text-decoration: none;
   border-radius: 4px;
-  color: ${props => props.theme.colors.indigo};
+  color: ${props => props.theme.colors.darkIndigo};
   background-color: ${props => props.theme.colors.eucalyptusGreen};
 `
 
 const StyledUl = styled.ul`
   padding: 0;
   margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const StyledLi = styled.li`
   list-style: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: ${props => props.theme.fonts.title};
 `
-// const NavItems = props => {
-//   const { listItems, logo, cta } = props.items
-//   const { isOpen, mouseOver, mouseOut } = props
-// }
 
 class NavItems extends Component {
   state = {
@@ -85,17 +91,21 @@ class NavItems extends Component {
         </Column>
         {listItems.map(item => (
           <Fragment key={item.text}>
-            <Column>
+            <StyledColumn>
               <StyledUl>
                 <StyledLi onMouseEnter={this.mouseOver}>
                   <div onMouseEnter={this.verifyValue}>{item.text}</div>
                   {isSubMenuOpen &&
                     (currentValue === item.text ? (
-                      <SubMenuItems item={item} verifyValue={currentValue} />
+                      <SubMenuItems
+                        item={item}
+                        verifyValue={currentValue}
+                        mouseLeave={this.mouseOut}
+                      />
                     ) : null)}
                 </StyledLi>
               </StyledUl>
-            </Column>
+            </StyledColumn>
           </Fragment>
         ))}
         <Column>

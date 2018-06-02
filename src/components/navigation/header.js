@@ -5,7 +5,7 @@ import { Container, Row } from '../grid'
 import NavItems from './navItems'
 
 const StyledContainer = styled(Container)`
-  background-color: ${props => props.theme.colors.indigo};
+  background-color: ${props => props.theme.colors.darkIndigo};
   color: ${props => props.theme.colors.white};
   height: 100px;
   position: relative;
