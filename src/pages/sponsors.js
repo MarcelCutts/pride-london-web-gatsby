@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import ReactMarkdown from 'react-markdown'
 import { Container } from '../components/grid/'
 import ImageBanner from '../components/imageBanner'
 import SponsorBadge from '../components/sponsorBadge'
@@ -50,6 +51,8 @@ const selectSponsors = data =>
 const renderSponsors = sponsors =>
   sponsors.map(sponsor => <SponsorBadge key={sponsor.name} {...sponsor} />)
 
+const selectBodyContent = data => data.contentfulGenericCopy.content.content
+
 const Sponsors = ({ data }) => {
   const sponsors = selectSponsors(data)
   return (
@@ -61,34 +64,7 @@ const Sponsors = ({ data }) => {
       />
       <SponsorsContainer>
         <Body>
-          <p>
-            Without our dedicated and loyal partners, Pride in London simply
-            would not exist. Since the current community group took over the
-            running of Pride in 2012, the office of the Mayor of London and
-            Barclays have remained committed to keeping Pride on the road. They
-            have proved to be great allies of the LGBTQ+ community and we are
-            eternally grateful for their support. In 2018, Sadiq Khan, Mayor of
-            London extended Pride in London’s contract, committing to support
-            our work for a further 5 years.
-          </p>
-          <p>
-            For many years LGBTQ+ people have faced hiding their true selves
-            from their colleagues. Only since 2000 have people been able to
-            openly serve in the military. Today, while prejudice is still rife
-            in many places, many companies and organisations have embraced their
-            LGBTQ+ members of staff. Studies show, that employers who recognise
-            and support diversity are on average more productive and more
-            profitable.
-          </p>
-          <p>
-            {' '}
-            Over the years we have seen more and more companies openly support
-            and embrace their LGBTQ+ colleagues, as well as provide a safe,
-            loving and supportive workplace. Being part of Pride is one of the
-            many ways we are seeing workplaces transform for the better. Pride
-            in London are proud to be working with our partners to ensure
-            diversity is embedded in the core of each company we work with.
-          </p>
+          <ReactMarkdown source={selectBodyContent(data)} />
         </Body>
         <SponsorsList>
           <h2>Our main 2018 partners</h2>
@@ -117,6 +93,11 @@ const Sponsors = ({ data }) => {
 
 export const query = graphql`
   query sponsorsQuery {
+    contentfulGenericCopy(name: { eq: "Sponsors page body" }) {
+      content {
+        content
+      }
+    }
     allContentfulSponsor(filter: {}) {
       distinct
       edges {
