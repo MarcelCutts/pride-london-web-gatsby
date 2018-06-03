@@ -57,11 +57,10 @@ const Sponsors = ({ data }) => {
       <ImageBanner
         titleText="Sponsor us"
         subtitleText="Help us to keep Pride free for everyone by becoming one of our sponsors"
-        backgroundColor={theme.colors.yellow}
+        color={theme.colors.yellow}
       />
       <SponsorsContainer>
         <Body>
-          <h2>Be part of something</h2>
           <p>
             Without our dedicated and loyal partners, Pride in London simply
             would not exist. Since the current community group took over the
@@ -92,7 +91,7 @@ const Sponsors = ({ data }) => {
           </p>
         </Body>
         <SponsorsList>
-          <h1>Our main 2018 partners</h1>
+          <h2>Our main 2018 partners</h2>
           <p>
             A huge thank you to our main partners for their continued support.
           </p>
