@@ -25,6 +25,14 @@ const Body = styled.div`
   `};
 `
 
+const ListTitle = styled.h2`
+  margin-top: 0;
+  margin-bottom: 20px;
+  ${media.tablet`
+    margin-bottom: 30px;
+  `};
+`
+
 const SponsorsList = styled.div`
   padding: 30px 0;
   ${media.tablet`
@@ -67,7 +75,7 @@ const Sponsors = ({ data }) => {
           <ReactMarkdown source={selectBodyContent(data)} />
         </Body>
         <SponsorsList>
-          <h2>Our main 2018 partners</h2>
+          <ListTitle>Our main 2018 partners</ListTitle>
           <p>
             A huge thank you to our main partners for their continued support.
           </p>
