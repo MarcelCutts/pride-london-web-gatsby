@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { media } from '../../theme/media'
 import theme from '../../theme/theme'
 import Button from '../button'
-import chevronDown from '../../theme/assets/images/icon-chevron-down-white.svg'
-import chevronUp from '../../theme/assets/images/icon-chevron-up-white.svg'
+import DropDown from './dropDown'
 import 'react-accessible-accordion/dist/fancy-example.css'
 
 const Wrapper = styled.div`
@@ -29,26 +28,15 @@ const Wrapper = styled.div`
     border: none;
   }
 
+  small {
+    font-size: 14px;
+  }
 `
 
 const StyledSpan = styled.span`
   position: relative;
 `
 
-const DropDown = styled.fieldset`
-  padding: 0;
-  margin: 0;
-  border: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    display: ${props => (props.isDropdownOpen ? 'block' : 'none')};
-  }
-`
 const StyledTextarea = styled.textarea`
   font-size: 14px;
   font-weight: 500;
@@ -85,35 +73,6 @@ const StyledTextarea = styled.textarea`
   }
 `
 
-const List = styled.ul`
-  list-style: none;
-  padding: 10px 10px;
-  margin: 0;
-  border-top: 2px solid transparent;
-  box-sizing: border-box;
-  background-color: #242565;
-  border-radius: 4px;
-
-  @media (min-width: ${props => props.theme.breakpoints[0]}) {
-    padding: 10px;
-  }
-`
-const ListItem = styled.li`
-  padding: 10px;
-  font-size: 14px;
-  border-radius: 4px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: ${theme.colors.eucalyptusGreen};
-    cursor: pointer;
-  }
-`
-
 const StyledLabel = styled.label`
   font-size: 14px;
   font-weight: 500;
@@ -125,7 +84,6 @@ const StyledLabel = styled.label`
 const StyledInput = styled.input`
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 10px;
   padding-left: 10px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.2);
@@ -159,72 +117,27 @@ const StyledInput = styled.input`
   }
 `
 
-const StyledButton = styled.button`
-  font-size: 14px;
-  font-weight: 500;
-  white-space: nowrap;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  outline: none;
-  border: ${props =>
-    props.isDropdownOpen ? '2px solid #2CDA9D !important' : 'none'};
-  border-radius: 4px;
-  line-height: 17px;
-  height: 58px;
-  apperance: none;
-  padding: 20px;
-  padding-left: 10px;
-  text-indent: 10px;
-  text-align: left;
-  color: ${theme.colors.white};
-  overflow: hidden;
-  appearance: none;
-  background-image: url(${props =>
-    props.isDropdownOpen ? `${chevronUp}` : `${chevronDown}`});
-  background-repeat: no-repeat;
-  background-position: 94%;
-  ${media.desktop`
-    margin-bottom: 0;
-  `};
-
-  &:hover {
-    cursor: pointer;
-  }
-`
-
 const AddressBox = styled.div`
   margin-top: 30px !important;
 
-  h2 {
+  h3 {
     margin-bottom: 10px;
   }
 `
 
-const StyledTitle = styled.h2`
+const StyledTitle = styled.h3`
   color: ${theme.colors.white};
   font-family: ${theme.fonts.title};
   font-size: 24px;
+  margin-top: 0;
+
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    margin-bottom: 30px;
+    font-size: 18px;
+  }
 `
 
 class ContactForm extends React.Component {
-  state = {
-    isDropdownOpen: false,
-    selectedDropdownItem: '',
-  }
-
-  toggleDropdown = () => {
-    this.setState({
-      isDropdownOpen: !this.state.isDropdownOpen,
-    })
-  }
-
-  setSelectedDropdownItem = e => {
-    this.setState({
-      selectedDropdownItem: e.target.innerText,
-      isDropdownOpen: false,
-    })
-  }
-
   showLabels = e => {
     const label = e.target.nextElementSibling
     label.style.display = 'inline'
@@ -281,27 +194,7 @@ class ContactForm extends React.Component {
           </StyledLabel>
         </StyledSpan>
         <StyledSpan>
-          <StyledButton
-            onClick={() => this.toggleDropdown()}
-            isDropdownOpen={this.state.isDropdownOpen}
-          >
-            {this.state.selectedDropdownItem != ''
-              ? this.state.selectedDropdownItem
-              : 'What is your question about?'}
-          </StyledButton>
-          <DropDown isDropdownOpen={this.state.isDropdownOpen}>
-            <List>
-              <ListItem id="0" onClick={e => this.setSelectedDropdownItem(e)}>
-                Testing 01
-              </ListItem>
-              <ListItem id="1" onClick={e => this.setSelectedDropdownItem(e)}>
-                Testing 02
-              </ListItem>
-              <ListItem id="2" onClick={e => this.setSelectedDropdownItem(e)}>
-                Testing 03
-              </ListItem>
-            </List>
-          </DropDown>
+          <DropDown />
         </StyledSpan>
         <StyledSpan>
           <StyledTextarea
