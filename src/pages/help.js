@@ -12,6 +12,9 @@ const PageWrapper = styled.div`
 
   h1 {
     margin-top: 60px;
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: bold;
 
     @media (max-width: ${props => props.theme.breakpoints[1]}) {
       font-size: 20px;
