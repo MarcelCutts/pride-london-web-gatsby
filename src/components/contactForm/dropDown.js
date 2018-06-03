@@ -113,6 +113,12 @@ class DropDown extends React.Component {
         >
           {selectedItem != '' ? selectedItem : 'What is your question about?'}
         </StyledButton>
+        <input
+          type="text"
+          id="question_topic"
+          value={this.state.selectedItem}
+          hidden
+        />
         <StyledDropDown isOpen={isOpen}>
           <List>
             <ListItem id="0" onClick={e => this.setSelectedDropdownItem(e)}>
