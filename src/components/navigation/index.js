@@ -41,13 +41,15 @@ class Navigation extends Component {
 
                   items: {
                     left: [
-                      'Parade Day',
+                      { title: 'Parade Day' },
                       'Stages',
                       'Parade groups',
                       'Map',
                       'Top tips',
                     ],
-                    right: ['Pride’s Got Talent', '2018 Winners'],
+                    right: [{ title: 'Pride’s Got Talent' }, '2018 Winners'],
+
+                    bottom: [{ title: 'Pride Festival' }, "What's on"],
                   },
                 },
               },
@@ -59,12 +61,17 @@ class Navigation extends Component {
 
                   items: {
                     left: [
-                      'As an individual',
+                      { title: 'As an individual' },
                       'Volunteer',
                       'Donate',
                       'Buy merchandise',
                     ],
-                    right: ['As a business', 'Sponsor us', 'Work with us'],
+                    right: [
+                      { title: 'As a business' },
+                      'Sponsor us',
+                      'Work with us',
+                    ],
+                    bottom: [{ title: 'As an MP' }, 'Sign the pledge'],
                   },
                 },
               },

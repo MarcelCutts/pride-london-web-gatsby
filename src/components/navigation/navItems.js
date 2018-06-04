@@ -15,6 +15,7 @@ const StyledLink = styled(Link)`
 `
 
 StyledLink.displayName = 'LinkTest'
+
 const StyledButton = styled(Link)`
   color: ${props => props.theme.colors.white};
   width: 138px;
@@ -55,12 +56,21 @@ const StyledLi = styled.li`
   justify-content: center;
   align-items: center;
   font-family: ${props => props.theme.fonts.title};
+  cursor: pointer;
+  padding: 0 15px;
+  background-color: none;
+
+  &:hover {
+    transition: 1s ease;
+    background: ${props => props.theme.colors.lightIndigo};
+  }
 `
 
 class NavItems extends Component {
   state = {
     isSubMenuOpen: false,
     currentValue: null,
+    hasSubmenu: false,
   }
 
   mouseOver = () => {
@@ -82,8 +92,6 @@ class NavItems extends Component {
     const { items } = this.props
     const { listItems, logo, cta } = items
 
-    listItems.map(item => console.log(currentValue === item.text))
-
     return (
       <Fragment>
         <Column flex={6} alignItems="center" justifyContent="center">
@@ -91,25 +99,27 @@ class NavItems extends Component {
             <img src={logo} alt="" />
           </StyledLink>
         </Column>
-        {listItems.map(item => (
-          <Fragment key={item.text}>
-            <StyledColumn>
-              <StyledUl>
-                <StyledLi onMouseEnter={this.mouseOver}>
+        <Fragment>
+          <StyledColumn>
+            <StyledUl>
+              {listItems.map(item => (
+                <StyledLi key={item.text} onMouseEnter={this.mouseOver}>
                   <div onMouseEnter={this.verifyValue}>{item.text}</div>
                   {isSubMenuOpen &&
+                    item.hasOwnProperty('submenu') &&
                     (currentValue === item.text ? (
                       <SubMenuItems
                         item={item}
                         verifyValue={currentValue}
                         mouseLeave={this.mouseOut}
+                        isOpen={isSubMenuOpen}
                       />
                     ) : null)}
                 </StyledLi>
-              </StyledUl>
-            </StyledColumn>
-          </Fragment>
-        ))}
+              ))}
+            </StyledUl>
+          </StyledColumn>
+        </Fragment>
         <Column>
           <StyledButton to="#">{cta}</StyledButton>
         </Column>
