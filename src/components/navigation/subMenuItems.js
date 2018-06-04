@@ -14,11 +14,19 @@ const StyledContainer = styled(Container)`
   z-index: 100;
 `
 
+const ColumnDivider = styled(Column)`
+  border-right: 1px solid ${props => props.theme.colors.eucalyptusGreen};
+`
+
 const SubmenuText = styled.div`
   font-size: 48px;
   font-family: ${props => props.theme.fonts.title};
 `
-
+const SubmenuSubText = styled.div`
+  font-size: 16px;
+  font-family: ${props => props.theme.fonts.body};
+  margin-top: 25px;
+`
 const StyledColumn = styled(Column)`
   display: flex;
   justify-content: center;
@@ -29,10 +37,7 @@ const StyledColumn = styled(Column)`
 const ContainerColumn = styled(Column)`
   margin-top: 60px;
 `
-const SubmenuSubText = styled.div`
-  font-size: 16px;
-  font-family: ${props => props.theme.fonts.body};
-`
+
 const StyledUl = styled.ul`
   padding: 0;
 `
@@ -55,7 +60,7 @@ const SubMenuItems = props => {
                 alignItems="flex-start"
                 style={{ margin: 0 }}
               >
-                <Column
+                <ColumnDivider
                   flex={7}
                   justifyContent="flex-start"
                   alignItems="flex-start"
@@ -64,7 +69,7 @@ const SubMenuItems = props => {
                   <SubmenuSubText>
                     {item.submenu.paragraph && item.submenu.paragraph}
                   </SubmenuSubText>
-                </Column>
+                </ColumnDivider>
                 <StyledColumn flex={4.5} alignSelf="baseline">
                   <StyledUl>
                     {item.submenu.items.left.map(items => (
