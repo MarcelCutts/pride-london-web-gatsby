@@ -24,7 +24,7 @@ const StyledContainer = styled(Container)`
 
   ${media.tablet`
     align-items: center;
-    height: 400px;
+    height: ${props => (props.large ? '500px' : '400px')};
     padding: 0;
   `};
 `
@@ -34,14 +34,23 @@ const StyledRow = styled(Row)`
   flex-basis: 100%;
 `
 
-const ImageBanner = ({ titleText, subtitleText, imageSrc, altText, color }) => (
-  <StyledContainer color={color}>
+const ImageBanner = ({
+  titleText,
+  subtitleText,
+  imageSrc,
+  altText,
+  color,
+  children,
+  large,
+}) => (
+  <StyledContainer color={color} large={large}>
     {imageSrc && <img src={imageSrc} alt={altText} />}
     <StyledRow>
       <Column width={1}>
         <BannerTitle>{titleText}</BannerTitle>
         <BannerSubtitle>{subtitleText}</BannerSubtitle>
       </Column>
+      {children}
     </StyledRow>
   </StyledContainer>
 )
@@ -52,6 +61,11 @@ ImageBanner.propTypes = {
   subtitleText: PropTypes.string,
   titleText: PropTypes.string,
   color: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+  large: PropTypes.bool,
 }
 
 ImageBanner.defaultProps = {
@@ -60,6 +74,8 @@ ImageBanner.defaultProps = {
   subtitleText: '',
   titleText: '',
   color: '',
+  children: null,
+  large: false,
 }
 
 export default ImageBanner

@@ -6,6 +6,7 @@ import { darken } from 'polished'
 export const Button = props => {
   const StyledButton = styled[props.link ? 'a' : 'button']`
     box-sizing: border-box;
+    border: none;
     padding: 12px;
     border-radius: 4px;
     display: inline-block;
@@ -21,7 +22,7 @@ export const Button = props => {
     font-weight: 700;
     font-size: ${styleProps => (styleProps.small ? '0.875rem' : '1.125rem')};
     line-height: 1.388;
-    min-width: 250px;
+    min-width: ${styleProps => (styleProps.wide ? '250px' : '180px')};
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.15s linear;
@@ -47,6 +48,7 @@ export const Button = props => {
       disabled={props.disabled}
       href={props.link ? props.to : null}
       small={props.small}
+      wide={props.wide}
     >
       {props.children}
     </StyledButton>
@@ -58,10 +60,11 @@ Button.propTypes = {
   type: PropTypes.string,
   primary: PropTypes.bool,
   children: PropTypes.node,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   disabled: PropTypes.bool,
   small: PropTypes.bool,
   to: PropTypes.string,
+  wide: PropTypes.bool,
 }
 
 Button.defaultProps = {
@@ -69,9 +72,11 @@ Button.defaultProps = {
   type: 'button',
   primary: false,
   children: 'Button',
+  onClick: () => {},
   disabled: false,
   small: false,
   to: null,
+  wide: true,
 }
 
 export default Button
