@@ -24,7 +24,7 @@ const StyledContainer = styled(Container)`
 
   ${media.tablet`
     align-items: center;
-    height: ${props => (props.large ? '500px' : '400px')};
+    height: ${props => (props.large === 'true' ? '500px' : '400px')};
     padding: 0;
   `};
 `
@@ -56,6 +56,7 @@ const ImageBanner = ({
 )
 
 ImageBanner.propTypes = {
+  large: PropTypes.string,
   imageSrc: PropTypes.string,
   altText: PropTypes.string,
   subtitleText: PropTypes.string,
@@ -65,17 +66,16 @@ ImageBanner.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-  large: PropTypes.bool,
 }
 
 ImageBanner.defaultProps = {
+  large: 'false', // this isn' a bool because styled components
   imageSrc: '',
   altText: '',
   subtitleText: '',
   titleText: '',
   color: '',
   children: null,
-  large: false,
 }
 
 export default ImageBanner

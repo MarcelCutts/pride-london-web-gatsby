@@ -3,7 +3,7 @@
 exports[`ImageBanner should render 1`] = `
 <Styled(Styled(Box))
   color=""
-  large={false}
+  large="false"
 >
   <Styled(Row)>
     <Column
@@ -19,7 +19,7 @@ exports[`ImageBanner should render 1`] = `
 exports[`ImageBanner should render the subtitleText from props to BannerTitle  1`] = `
 <Styled(Styled(Box))
   color=""
-  large={false}
+  large="false"
 >
   <Styled(Row)>
     <Column
@@ -37,7 +37,7 @@ exports[`ImageBanner should render the subtitleText from props to BannerTitle  1
 exports[`ImageBanner should render the titleText from props to BannerTitle  1`] = `
 <Styled(Styled(Box))
   color=""
-  large={false}
+  large="false"
 >
   <Styled(Row)>
     <Column

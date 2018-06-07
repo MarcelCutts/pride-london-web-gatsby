@@ -65,6 +65,7 @@
     "gatsby-source-contentful": "^1.3.50",
     "husky": "^0.14.3",
     "jest": "^23.1.0",
+    "jest-environment-jsdom": "^23.1.0",
     "jest-styled-components": "^5.0.1",
     "lint-staged": "^7.1.2",
     "now": "^11.1.12",
@@ -76,8 +77,14 @@
     "react-router-dom": "^4.2.2"
   },
   "jest": {
-    "testMatch": ["**/?(*_)(spec|test).js"],
-    "setupFiles": ["./src/configuration/jest.config.js"],
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "testMatch": [
+      "**/?(*_)(spec|test).js"
+    ],
+    "setupFiles": [
+      "./src/configuration/jest.config.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }

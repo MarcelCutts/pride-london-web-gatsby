@@ -18,7 +18,7 @@ const Home = ({ data: { contentfulHeaderBanner } }) => (
       imageSrc={contentfulHeaderBanner.heroImage.file.url}
       altText={contentfulHeaderBanner.heroImage.title}
       color={contentfulHeaderBanner.backgroundColour}
-      large
+      large="true"
     >
       <ColumnTextCenter>
         <Button wide={false} primary link to="/events/">

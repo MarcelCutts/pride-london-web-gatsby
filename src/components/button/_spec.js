@@ -9,19 +9,27 @@ describe('Button component', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should have property of colour xxx if primary', () => {
-    const wrapper = shallow(<Button primary />)
+  it('should fire correct method when set onClick property', () => {
+    let counter = 0
 
-    console.log(wrapper.style)
+    const handleClick = () => (counter += 1)
 
-    expect(wrapper)
+    const wrapper = shallow(<Button onClick={handleClick} />)
+
+    wrapper.prop('onClick')()
+
+    expect(counter).toBe(1)
   })
 
-  it('should fire correct method when set onClick property', () => {})
+  it('should redirect the page if button is link and to is defined', () => {
+    console.log(global.location.href)
 
-  it('should not be clickable if disabled', () => {})
+    const wrapper = shallow(<Button link to="/home" />)
 
-  it('should match the corresponding sizes if small and wide are passed in as props', () => {})
+    wrapper.simulate('click')
 
-  it('should redirect the page if button is link and to is defined', () => {})
+    console.log(global.window.location.href)
+
+    expect(global.window)
+  })
 })
