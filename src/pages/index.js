@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ImageBanner from '../components/imageBanner'
-import theme from '../theme/theme'
 import Button from '../components/button'
 import { Column } from '../components/grid'
 
@@ -10,14 +10,14 @@ const ColumnTextCenter = styled(Column)`
   width: fit-content;
 `
 
-const Home = () => (
+const Home = ({ data: { contentfulHeaderBanner } }) => (
   <Fragment>
     <ImageBanner
-      titleText="See what's on at the festival"
-      subtitleText="See the full list of events at this year's Pride Festival"
-      imageSrc=""
-      altText="Celebrate Pride banner"
-      color={theme.colors.beachBlue}
+      titleText={contentfulHeaderBanner.heading}
+      subtitleText={contentfulHeaderBanner.subheading}
+      imageSrc={contentfulHeaderBanner.heroImage.file.url}
+      altText={contentfulHeaderBanner.heroImage.title}
+      color={contentfulHeaderBanner.backgroundColour}
       large
     >
       <ColumnTextCenter>
@@ -30,3 +30,31 @@ const Home = () => (
 )
 
 export default Home
+
+Home.propTypes = {
+  data: PropTypes.object,
+}
+
+Home.defaultProps = {
+  data: {},
+}
+
+export const homePageQuery = graphql`
+  query contentfulHeaderBanner {
+    contentfulHeaderBanner {
+      title
+      heading
+      headingLine2
+      backgroundColour
+      heroImage {
+        file {
+          url
+          fileName
+          contentType
+        }
+        title
+      }
+      subHeading
+    }
+  }
+`

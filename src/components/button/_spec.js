@@ -9,7 +9,13 @@ describe('Button component', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should have property of colour xxx if primary', () => {})
+  it('should have property of colour xxx if primary', () => {
+    const wrapper = shallow(<Button primary />)
+
+    console.log(wrapper.style)
+
+    expect(wrapper)
+  })
 
   it('should fire correct method when set onClick property', () => {})
 
