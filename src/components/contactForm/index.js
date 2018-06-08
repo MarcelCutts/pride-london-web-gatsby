@@ -22,6 +22,10 @@ const Wrapper = styled.div`
     props.theme.breakpoints[1]}) and (max-width: ${props =>
   props.theme.breakpoints[2]}) {
     margin: 0 -60px 0 -60px;
+
+    .submit {
+      background-position: 34% 47% !important;
+    }
   };
   
   span {
@@ -30,6 +34,17 @@ const Wrapper = styled.div`
 
   button {
     border: none;
+  }
+
+  .submit {
+    background-size: 20px !important;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints[2]}) {
+    .submit {
+      background-position: 38% 47% !important;
+    }
+    
   }
 
   small {
@@ -190,8 +205,8 @@ class ContactForm extends React.Component {
       button.target.innerText = 'Sent!'
       button.target.style.background = `url(${check}) ${
         theme.colors.eucalyptusGreen
-      } no-repeat 32% 48%`
-      button.target.style.backgroundSize = '8%'
+      } no-repeat 38% 47%`
+      button.target.style.backgroundSize = '20px'
     }
   }
 
@@ -228,7 +243,11 @@ class ContactForm extends React.Component {
           />
           <StyledLabel htmlFor="question">Question</StyledLabel>
         </StyledSpan>
-        <Button onClick={e => this.changeButtonText(e)} primary>
+        <Button
+          className="submit"
+          onClick={e => this.changeButtonText(e)}
+          primary
+        >
           Send question
         </Button>
         <AddressBox>
