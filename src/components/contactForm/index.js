@@ -4,6 +4,7 @@ import { media } from '../../theme/media'
 import theme from '../../theme/theme'
 import Button from '../button'
 import DropDown from './dropDown'
+import check from '../../theme/assets/images/icon-check.svg'
 import 'react-accessible-accordion/dist/fancy-example.css'
 
 const Wrapper = styled.div`
@@ -144,6 +145,10 @@ const StyledTitle = styled.h3`
 `
 
 class ContactForm extends React.Component {
+  state = {
+    sent: false,
+  }
+
   showLabels = e => {
     const label = e.target.nextElementSibling
     label.style.display = 'inline'
@@ -176,6 +181,18 @@ class ContactForm extends React.Component {
 
   decreaseTextarea = textarea => {
     textarea.style.height = '58px'
+  }
+
+  changeButtonText = button => {
+    if (this.state.sent === true) {
+      button.target.innerText = 'Sending...'
+    } else {
+      button.target.innerText = 'Sent!'
+      button.target.style.background = `url(${check}) ${
+        theme.colors.eucalyptusGreen
+      } no-repeat 32% 48%`
+      button.target.style.backgroundSize = '8%'
+    }
   }
 
   render() {
@@ -211,7 +228,9 @@ class ContactForm extends React.Component {
           />
           <StyledLabel htmlFor="question">Question</StyledLabel>
         </StyledSpan>
-        <Button primary>Send question</Button>
+        <Button onClick={e => this.changeButtonText(e)} primary>
+          Send question
+        </Button>
         <AddressBox>
           <StyledTitle>Or write to us..</StyledTitle>
           <small>
