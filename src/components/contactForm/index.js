@@ -61,6 +61,7 @@ const StyledTextarea = styled.textarea`
       font-size: 12px;
       font-weight: lighter;
       top: -10px;
+      transition: all 0.2s linear;
       color: ${theme.colors.eucalyptusGreen};
     }
   }
@@ -76,6 +77,7 @@ const StyledLabel = styled.label`
   position: absolute;
   left: 0;
   padding: 20px;
+  transition: all 0.5s linear;
 `
 
 const StyledInput = styled.input`
@@ -104,6 +106,7 @@ const StyledInput = styled.input`
       font-size: 12px;
       font-weight: lighter;
       top: -10px;
+      transition: all 0.2s linear;
       padding-bottom: 5px;
       color: ${theme.colors.eucalyptusGreen};
     }
@@ -151,6 +154,7 @@ class ContactForm extends React.Component {
       label.style.display = 'none'
     } else {
       label.style.display = 'inline'
+      label.style.transition = 'all .2s linear'
     }
 
     if (e.target.tagName == 'TEXTAREA' && e.target.value != '') {
