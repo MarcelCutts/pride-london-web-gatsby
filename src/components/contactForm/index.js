@@ -16,6 +16,12 @@ const Wrapper = styled.div`
   @media (max-width: ${props => props.theme.breakpoints[1]}) {
     margin: 0 -20px 0 -20px;
   };
+
+  @media (min-width: ${props =>
+    props.theme.breakpoints[1]}) and (max-width: ${props =>
+  props.theme.breakpoints[2]}) {
+    margin: 0 -60px 0 -60px;
+  };
   
   span {
     margin-bottom 20px;
@@ -61,7 +67,7 @@ const StyledTextarea = styled.textarea`
       font-size: 12px;
       font-weight: lighter;
       top: -10px;
-      transition: all 0.2s linear;
+      transition: all 0.4s linear;
       color: ${theme.colors.eucalyptusGreen};
     }
   }
@@ -106,7 +112,7 @@ const StyledInput = styled.input`
       font-size: 12px;
       font-weight: lighter;
       top: -10px;
-      transition: all 0.2s linear;
+      transition: all 0.4s linear;
       padding-bottom: 5px;
       color: ${theme.colors.eucalyptusGreen};
     }
@@ -154,7 +160,7 @@ class ContactForm extends React.Component {
       label.style.display = 'none'
     } else {
       label.style.display = 'inline'
-      label.style.transition = 'all .2s linear'
+      label.style.transition = 'all 0.4s linear'
     }
 
     if (e.target.tagName == 'TEXTAREA' && e.target.value != '') {
