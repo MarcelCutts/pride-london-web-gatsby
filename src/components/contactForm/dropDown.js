@@ -23,7 +23,7 @@ const StyledButton = styled.button`
   font-weight: 500;
   white-space: nowrap;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.2) !important;
   outline: none;
   border: ${props => (props.isOpen ? '2px solid #2CDA9D !important' : 'none')};
   border-radius: 4px;
@@ -37,10 +37,9 @@ const StyledButton = styled.button`
   color: ${theme.colors.white};
   overflow: hidden;
   appearance: none;
-  background-image: url(${props =>
-    props.isOpen ? `${chevronUp}` : `${chevronDown}`});
-  background-repeat: no-repeat;
-  background-position: 94%;
+  background: url(${props =>
+      props.isOpen ? `${chevronUp}` : `${chevronDown}`})
+    no-repeat 94%;
   ${media.desktop`
     margin-bottom: 0;
   `};
@@ -111,7 +110,7 @@ class DropDown extends React.Component {
           isOpen={isOpen}
           aria-expanded={isOpen}
         >
-          {selectedItem != '' ? selectedItem : 'What is your question about?'}
+          {selectedItem !== '' ? selectedItem : 'What is your question about?'}
         </StyledButton>
         <input
           type="text"

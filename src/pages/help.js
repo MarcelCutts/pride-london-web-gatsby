@@ -29,14 +29,16 @@ const Help = () => (
       <Container>
         <ImageBanner />
         <Row>
-          <Column width={[1, 1, 1, 0.65]}>
+          <Column width={[1, 1, 1, 0.6666]}>
             <h1> We're often asked... </h1>
             <AccordionWrapper>
               <Accordion />
             </AccordionWrapper>
           </Column>
+          <Column width={[1, 1, 1, 0.3333]}>
+            <ContactForm />
+          </Column>
         </Row>
-        <ContactForm />
       </Container>
     </PageWrapper>
   </Fragment>

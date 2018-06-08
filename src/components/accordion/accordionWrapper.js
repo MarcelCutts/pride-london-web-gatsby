@@ -38,6 +38,10 @@ const AccordionWrapper = styled.div`
         font-size: 14px;
       }
     }
+
+    &:hover {
+      background-color: ${props => props.theme.colors.lightGrey} !important;
+    }
   }
 
   .accordion__title[aria-selected='true'] {
@@ -51,6 +55,10 @@ const AccordionWrapper = styled.div`
 
     h3 {
       color: ${props => props.theme.colors.indigo};
+    }
+
+    &:hover {
+      background-color: ${props => props.theme.colors.white} !important;
     }
   }
 

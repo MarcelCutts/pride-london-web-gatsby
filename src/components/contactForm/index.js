@@ -12,13 +12,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   padding: 30px 20px;
   color: white;
-  ${media.desktop`
-    position: absolute;
-    width: 400px;
-    right: 90px;
-    top: 270px;
-    padding: 40px;
- `};
+ 
+  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    margin: 0 -20px 0 -20px;
+  };
   
   span {
     margin-bottom 20px;
