@@ -12,6 +12,7 @@ const BannerTitle = styled.h1`
   display: inline;
   box-shadow: 10px 0 0 ${props => props.theme.colors.white},
     -10px 0 0 ${props => props.theme.colors.white};
+  box-decoration-break: clone;
   background-color: white;
   color: ${props => props.theme.colors.indigo};
   font-size: 1.75rem;
