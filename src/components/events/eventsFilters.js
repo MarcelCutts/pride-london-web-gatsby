@@ -4,11 +4,11 @@ import styled, { keyframes } from 'styled-components'
 import { Flex, Box } from 'grid-styled'
 import { media } from '../../theme/media'
 import { Consumer } from '../../components/appContext'
+import iconClear from '../../theme/assets/images/icon-clear.svg'
+import iconClose from '../../theme/assets/images/icon-close.svg'
 import EventDateFilter from './filters/eventDateFilter'
 import EventFreeFilter from './filters/eventFreeFilter'
 import EventDropdownFilter from './filters/eventDropdownFilter'
-import iconClear from '../../theme/assets/images/icon-clear.svg'
-import iconClose from '../../theme/assets/images/icon-close.svg'
 
 const FilterWrapper = styled(Flex)`
   background-color: ${props => props.theme.colors.white};

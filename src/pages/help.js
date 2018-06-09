@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { Container, Row, Column } from '../components/grid'
-
 import AccordionWrapper from '../components/accordion/accordionWrapper'
 import Accordion from '../components/accordion'
 
