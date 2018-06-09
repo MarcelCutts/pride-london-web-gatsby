@@ -85,11 +85,14 @@ const VSpace = styled.div`
 const dateFormat = 'D MMMM YYYY'
 
 const formatDayRange = (startTime, endTime) => {
-  if (startTime.isSame('day', endTime)) {
-    return startTime.format(dateFormat)
+  const startDay = startTime.format(dateFormat)
+  const endDay = endTime.format(dateFormat)
+
+  if (startDay === endDay) {
+    return startDay
   }
 
-  return `${startTime.format(dateFormat)} to ${endTime.format(dateFormat)}`
+  return `${startDay} to ${endDay}`
 }
 
 const timeFormat = 'h:mma'
