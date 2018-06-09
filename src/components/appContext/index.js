@@ -80,7 +80,16 @@ class Provider extends Component {
           })
         }
       })
-      return { events: allEventOccurences.filter(filterPastEvents) }
+
+      const events = allEventOccurences.filter(filterPastEvents)
+
+      events.sort(
+        (eventA, eventB) =>
+          moment(eventA.node.startTime).unix() -
+          moment(eventB.node.startTime).unix()
+      )
+
+      return { events }
     }
   }
 
