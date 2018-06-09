@@ -76,7 +76,6 @@ export const query = graphql`
           startTime
           endTime
           recurrenceDates
-          isFree
           eventPriceLow
           eventCategories
           venueDetails

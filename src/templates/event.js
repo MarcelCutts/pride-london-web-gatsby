@@ -4,11 +4,9 @@ import PropTypes from 'prop-types'
 import ReactMarkdown from 'react-markdown'
 import Helmet from 'react-helmet'
 import NewsletterForm from '../components/newsletter'
-import * as featureFlags from '../featureFlags'
 import { media } from '../theme/media'
 import {
   EventTagList,
-  EventSchedule,
   EventsYouMayLike,
   EventInfoCard,
   EventDirectionsSection,
@@ -80,7 +78,6 @@ export default class Event extends Component {
       individualEventPicture,
       eventDescription,
       name,
-      performances,
       eventCategories,
     } = this.props.data.contentfulEvent
 
@@ -102,15 +99,9 @@ export default class Event extends Component {
           <Section>
             <ReactMarkdown source={eventDescription.eventDescription} />
           </Section>
-          {featureFlags.SCHEDULE &&
-            performances && (
-              <Section>
-                <EventSchedule schedule={performances} />
-              </Section>
-            )}
         </ContentWrapper>
         <EventDirectionsSection data={this.props.data.contentfulEvent} />
-        {featureFlags.YOU_MAY_ALSO_LIKE && <EventsYouMayLike eventId={id} />}
+        <EventsYouMayLike eventId={id} />
         <NewsletterForm buttonText="Subscribe" />
       </PageWrapper>
     )
@@ -121,9 +112,8 @@ Event.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-// prettier-ignore
 export const eventPageQuery = graphql`
-  query eventQuery($id: String!, $showSchedule: Boolean!) {
+  query eventQuery($id: String!) {
     contentfulEvent(id: { eq: $id }) {
       id
       name
@@ -135,10 +125,6 @@ export const eventPageQuery = graphql`
         description
       }
       eventCategories
-      @include(if: $showSchedule)
-      performances {
-        ...eventScheduleFragment
-      }
       eventDescription {
         eventDescription
       }
