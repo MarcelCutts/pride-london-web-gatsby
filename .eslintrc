@@ -18,6 +18,7 @@
     "node": true
   },
   "rules": {
+    "array-callback-return": "off",
     "arrow-parens": "off",
     "comma-dangle": "off",
     "consistent-return": "off",
@@ -25,15 +26,18 @@
     "function-paren-newline": "off",
     "import/extensions": "error",
     "import/first": "error",
+    "import/no-duplicates" : "error",
     "import/no-extraneous-dependencies": "off",
     "import/no-named-as-default": "off",
     "import/no-unresolved": "error",
     "import/prefer-default-export": "off",
     "indent": "off", // in conflict with prettier
     "jsx-a11y/anchor-is-valid": "off",
-    "max-len": 2,
+    "jsx-a11y/no-redundant-roles": "off",
+    "max-len": 0, // in conflict with prettier
     "no-confusing-arrow": "off",
     "no-else-return": "error",
+    "no-nested-ternary": "off",
     "no-return-assign": "off",
     "no-undef": "off", // throw error on graphql queries
     "no-unused-vars": "error",

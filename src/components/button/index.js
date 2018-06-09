@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { darken } from 'polished'
+import { media } from '../../theme/media'
 
 export const Button = props => {
   const StyledButton = styled[props.link ? 'a' : 'button']`
@@ -9,6 +10,7 @@ export const Button = props => {
     border: none;
     padding: 12px;
     border-radius: 4px;
+    border: none;
     display: inline-block;
     color: ${styleProps =>
       styleProps.primary
@@ -23,8 +25,10 @@ export const Button = props => {
     font-size: ${styleProps => (styleProps.small ? '0.875rem' : '1.125rem')};
     line-height: 1.388;
     min-width: ${styleProps => (styleProps.wide ? '250px' : '180px')};
+    width: ${styleProps => (styleProps.fullmobile ? '100%' : 'auto')};
     cursor: pointer;
     text-decoration: none;
+    text-align: center;
     transition: background-color 0.15s linear;
 
     &:hover {
@@ -38,10 +42,15 @@ export const Button = props => {
       opacity: 0.5;
       cursor: not-allowed;
     }
+
+    ${media.tablet`
+      width: auto;
+    `};
   `
 
   return (
     <StyledButton
+      className={props.className}
       type={props.link ? null : props.type}
       primary={props.primary}
       onClick={props.onClick}
@@ -49,6 +58,9 @@ export const Button = props => {
       href={props.link ? props.to : null}
       small={props.small}
       wide={props.wide}
+      fullmobile={props.fullmobile}
+      aria-controls={props['aria-controls']}
+      aria-expanded={props['aria-expanded']}
     >
       {props.children}
     </StyledButton>
@@ -56,6 +68,7 @@ export const Button = props => {
 }
 
 Button.propTypes = {
+  className: PropTypes.string,
   link: PropTypes.bool,
   type: PropTypes.string,
   primary: PropTypes.bool,
@@ -65,18 +78,25 @@ Button.propTypes = {
   small: PropTypes.bool,
   to: PropTypes.string,
   wide: PropTypes.bool,
+  fullmobile: PropTypes.bool,
+  'aria-controls': PropTypes.string,
+  'aria-expanded': PropTypes.bool,
 }
 
 Button.defaultProps = {
+  className: '',
   link: false,
   type: 'button',
   primary: false,
   children: 'Button',
-  onClick: () => {},
   disabled: false,
   small: false,
   to: null,
   wide: true,
+  fullmobile: false,
+  onClick: null,
+  'aria-controls': undefined,
+  'aria-expanded': undefined,
 }
 
 export default Button
