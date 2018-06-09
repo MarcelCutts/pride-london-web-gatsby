@@ -26,7 +26,7 @@ const StyledContainer = styled(Container)`
   right: 0;
   animation: ${translateSubmenu} 0.3s ease-in;
   top: 100px;
-  z-index: 100;
+  z-index: 1;
   height: 298px;
 `
 

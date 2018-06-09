@@ -73,18 +73,20 @@ class NavItems extends Component {
     hasSubmenu: false,
   }
 
-  mouseOver = () => {
-    this.setState({ isSubMenuOpen: true })
-  }
-
-  mouseOut = () => {
-    this.setState({ isSubMenuOpen: false })
-  }
-
   verifyValue = event => {
     this.setState({
       currentValue: event.currentTarget.textContent,
     })
+  }
+
+  mouseOver = event => {
+    this.setState({ isSubMenuOpen: true })
+
+    this.verifyValue(event)
+  }
+
+  mouseOut = () => {
+    this.setState({ isSubMenuOpen: false })
   }
 
   render() {
@@ -104,7 +106,7 @@ class NavItems extends Component {
             <StyledUl>
               {listItems.map(item => (
                 <StyledLi key={item.text} onMouseEnter={this.mouseOver}>
-                  <div onMouseEnter={this.verifyValue}>{item.text}</div>
+                  {item.text}
                   {isSubMenuOpen &&
                     item.hasOwnProperty('submenu') &&
                     (currentValue === item.text ? (
