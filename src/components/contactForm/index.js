@@ -13,20 +13,23 @@ const Wrapper = styled.div`
   flex-direction: column;
   padding: 30px 20px;
   color: white;
- 
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
-    margin: 0 -20px 0 -20px;
-  };
+  margin: 0 -20px 0 -20px;
 
-  @media (min-width: ${props =>
-    props.theme.breakpoints[1]}) and (max-width: ${props =>
-  props.theme.breakpoints[2]}) {
-    margin: 0 -60px 0 -60px;
+  .submit {
+      background-position: 38% 47% !important;
+  }
+
+  ${media.desktop`
+    margin: 0 !important;
+  `};
+
+  ${media.tablet`
+    margin: 0 -50px 0 -50px;
 
     .submit {
       background-position: 34% 47% !important;
     }
-  };
+  `};
   
   span {
     margin-bottom 20px;
@@ -38,13 +41,6 @@ const Wrapper = styled.div`
 
   .submit {
     background-size: 20px !important;
-  }
-  
-  @media (max-width: ${props => props.theme.breakpoints[2]}) {
-    .submit {
-      background-position: 38% 47% !important;
-    }
-    
   }
 
   small {
@@ -83,7 +79,7 @@ const StyledTextarea = styled.textarea`
       font-size: 12px;
       font-weight: lighter;
       top: -10px;
-      transition: all 0.4s linear;
+      transition: top 0.4s linear;
       color: ${theme.colors.eucalyptusGreen};
     }
   }
@@ -128,7 +124,7 @@ const StyledInput = styled.input`
       font-size: 12px;
       font-weight: lighter;
       top: -10px;
-      transition: all 0.4s linear;
+      transition: top 0.4s linear;
       padding-bottom: 5px;
       color: ${theme.colors.eucalyptusGreen};
     }
@@ -150,13 +146,16 @@ const AddressBox = styled.div`
 const StyledTitle = styled.h3`
   color: ${theme.colors.white};
   font-family: ${theme.fonts.title};
-  font-size: 24px;
   margin-top: 0;
 
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
+  ${media.mobile`
     margin-bottom: 30px;
     font-size: 18px;
-  }
+  `};
+
+  ${media.tablet`
+    font-size: 24px;
+  `};
 `
 
 class ContactForm extends React.Component {
@@ -180,7 +179,7 @@ class ContactForm extends React.Component {
       label.style.display = 'none'
     } else {
       label.style.display = 'inline'
-      label.style.transition = 'all 0.4s linear'
+      label.style.transition = 'display 0.4s linear'
     }
 
     if (e.target.tagName == 'TEXTAREA' && e.target.value != '') {

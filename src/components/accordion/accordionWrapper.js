@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import chevronDown from '../../theme/assets/images/icon-chevron-down.svg'
 import chevronUp from '../../theme/assets/images/icon-chevron-up.svg'
+import { media } from '../../theme/media'
 
 const AccordionWrapper = styled.div`
   .accordion__body {
@@ -9,11 +10,12 @@ const AccordionWrapper = styled.div`
     animation: none !important;
 
     p {
-      font-size: 18px;
-      line-height: 27px;
-      @media (max-width: ${props => props.theme.breakpoints[1]}) {
-        font-size: 14px;
-      }
+      font-size: 14px;
+
+      ${media.tablet`
+        font-size: 18px;
+        line-height: 27px;
+      `};
     }
   }
 
@@ -26,7 +28,7 @@ const AccordionWrapper = styled.div`
 
     h3 {
       line-height: 20px;
-      font-size: 16px;
+      font-size: 14px;
       margin-top: 0;
       color: ${props => props.theme.colors.black};
 
@@ -34,9 +36,9 @@ const AccordionWrapper = styled.div`
         color: ${props => props.theme.colors.indigo};
       }
 
-      @media (max-width: ${props => props.theme.breakpoints[1]}) {
-        font-size: 14px;
-      }
+      ${media.tablet`
+        font-size: 16px;
+      `};
     }
 
     &:hover {

@@ -51,16 +51,12 @@ const StyledButton = styled.button`
 
 const List = styled.ul`
   list-style: none;
-  padding: 10px 10px;
+  padding: 10px;
   margin: 0;
   border-top: 2px solid transparent;
   box-sizing: border-box;
   background-color: #242565;
   border-radius: 4px;
-
-  @media (min-width: ${props => props.theme.breakpoints[0]}) {
-    padding: 10px;
-  }
 `
 const ListItem = styled.li`
   padding: 10px;
