@@ -20,16 +20,4 @@ describe('Button component', () => {
 
     expect(counter).toBe(1)
   })
-
-  it('should redirect the page if button is link and to is defined', () => {
-    console.log(global.location.href)
-
-    const wrapper = shallow(<Button link to="/home" />)
-
-    wrapper.simulate('click')
-
-    console.log(global.window.location.href)
-
-    expect(global.window)
-  })
 })
