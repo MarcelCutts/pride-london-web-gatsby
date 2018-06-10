@@ -2,9 +2,11 @@
 
 exports[`Button component should match snapshot 1`] = `
 <styled.button
+  className=""
   disabled={false}
+  fullmobile={false}
   href={null}
-  onClick={[Function]}
+  onClick={null}
   primary={false}
   small={false}
   type="button"
