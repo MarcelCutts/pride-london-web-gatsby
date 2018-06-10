@@ -86,11 +86,101 @@ export default class Event extends Component {
       name,
       eventCategories,
       accessibilityDetails,
+      location,
+      locationName,
+      addressLine1,
+      addressLine2,
+      city,
+      postcode
     } = this.props.data.contentfulEvent
+
+    const metaImg = `${individualEventPicture.file.url}?w=1000&h=562`
+    const metaUrl = typeof window !== 'undefined' && (window.location.hostname + this.props.location.pathname)
 
     return (
       <PageWrapper>
-        <Helmet title={name} />
+        <Helmet 
+          title={name}
+          meta={[
+            // Schema meta tags
+            {
+              itemprop: "name",
+              content: name
+            },
+            {
+              itemprop: "description",
+              content: eventDescription.eventDescription
+            },
+            {
+              itemprop: "url",
+              content: metaUrl
+            },
+            {
+              itemprop: "thumbnailUrl",
+              content: metaImg
+            },
+            {
+              itemprop: "image",
+              content: metaImg
+            },
+
+            // OpenGraph Meta Tags
+            {
+              property: "og:title",
+              content: name,
+            },
+            {
+              property: "og:description",
+              content: eventDescription.eventDescription,
+            },
+            {
+              property: "og:latitude",
+              content: location.lat,
+            },
+            {
+              property: "og:longitude",
+              content: location.lon,
+            },
+            {
+              property: "og:street-address",
+              content: !addressLine1 ? '' : addressLine2 ? `${locationName}, ${addressLine1}, ${addressLine2}`: `${locationName}, ${addressLine1}`,
+            },
+            {
+              property: "og:locality",
+              content: city && city
+            },
+            {
+              property: "og:postal-code",
+              content: postcode && postcode,
+            },
+            {
+              property: "og:url",
+              content: metaUrl,
+            },
+
+            // Twitter Meta Tags
+            {
+              name: "twitter:title",
+              content: name,
+            },
+            {
+              name: "twitter:description",
+              content: eventDescription.eventDescription,
+            },
+            {
+              name: "twitter:image",
+              content: metaImg,
+            },
+            {
+              name: "twitter:url",
+              content: metaUrl,
+            },
+
+          ]}
+          htmlAttributes={{
+            itemtype: "http://schema.org/Event"
+          }}
+        />
         <HeroImageAndTitle>
           <HeroImage
             src={individualEventPicture.file.url}
