@@ -130,6 +130,7 @@ export default class Event extends Component {
 
 Event.propTypes = {
   data: PropTypes.object.isRequired,
+  pathContext: PropTypes.object.isRequired,
 }
 
 export const eventPageQuery = graphql`
