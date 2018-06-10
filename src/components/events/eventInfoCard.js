@@ -97,8 +97,15 @@ const formatDayRange = (startTime, endTime) => {
 
 const timeFormat = 'h:mma'
 
-const formatTimeRange = (startTime, endTime) =>
-  `${startTime.format(timeFormat)} to ${endTime.format(timeFormat)}`
+const formatTimeRange = (startTime, endTime) => {
+  const start = startTime.format(timeFormat)
+  const end = endTime.format(timeFormat)
+
+  if (start !== end) {
+    return `${start} to ${end}`
+  }
+  return start
+}
 
 const formatPrice = (eventPriceLow, eventPriceHigh) => {
   if (eventPriceLow === 0 && eventPriceHigh === 0) {
