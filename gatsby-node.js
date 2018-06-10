@@ -57,7 +57,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         ])
 
         recurrenceDates.forEach(date => {
-          const customId = `${edge.node.id}-${date.split('/').join('')}`
+          const customId = `${edge.node.id}-${moment(date).format('YYYYMMDD')}`
           createPage({
             path: `/events/${customId}/`,
             component: eventTemplate,

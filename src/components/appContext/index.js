@@ -59,7 +59,7 @@ class Provider extends Component {
             moment(event.node.startTime).format(dateFormat),
             ...event.node.recurrenceDates,
           ])
-          const time = moment(event.node.startTime).format('HH:mm')
+          const time = moment(event.node.startTime)
           const duration = getDuration(event.node.startTime, event.node.endTime)
 
           recurrenceDates.forEach(date => {
@@ -67,14 +67,15 @@ class Provider extends Component {
             const copy = JSON.parse(JSON.stringify(event))
 
             // Modify start time and end time
-            copy.node.startTime = moment(
-              `${date} ${time}`,
-              'DD/MM/YYYY hh:mm'
-            ).format()
+            copy.node.startTime = moment(date)
+              .minutes(time.minutes())
+              .hours(time.hours())
+              .format()
+
             copy.node.endTime = moment(copy.node.startTime)
               .add(duration, 'milliseconds')
               .format()
-            copy.node.id = `${event.node.id}-${date.split('/').join('')}`
+            copy.node.id = `${event.node.id}-${moment(date).format('YYYYMMDD')}`
 
             allEventOccurences.push(copy)
           })

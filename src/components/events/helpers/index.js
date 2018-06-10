@@ -1,5 +1,4 @@
 const moment = require('moment')
-const { dateFormat } = require('../../../constants')
 
 const formatTime = time => {
   if (moment(time).format('mm') === '00') {
@@ -131,19 +130,9 @@ function filterByLimit(event, index) {
 }
 
 function sanitizeDates(dates) {
-  const formattedDates = []
-  dates.map(date => {
-    const [day, month, year] = date.split('/')
-
-    // Format date to be DD/MM/YYYY
-    const formattedDate = `${day.length === 1 ? `0${day}` : day}/${
-      month.length === 1 ? `0${month}` : month
-    }/${year.length === 2 ? `20${year}` : year}`
-
-    // Create array of valid dates
-    if (moment(formattedDate, dateFormat).isValid()) {
-      formattedDates.push(formattedDate)
-    }
+  const formattedDates = dates.map(date => {
+    const [day, month, year] = date.split('/').map(Number)
+    return moment([year, month - 1, day]).toISOString()
   })
   // Strip duplicates and return
   return Array.from(new Set([...formattedDates]))
