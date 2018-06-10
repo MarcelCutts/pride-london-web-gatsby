@@ -11,6 +11,7 @@ import {
   PhoneIcon,
   TicketIcon,
 } from '../../components/icons'
+import { formatPrice } from './helpers'
 import Button from '../../components/button'
 import PropTypes from 'prop-types'
 
@@ -107,13 +108,6 @@ const formatTimeRange = (startTime, endTime) => {
   return start
 }
 
-const formatPrice = (eventPriceLow, eventPriceHigh) => {
-  if (eventPriceLow === 0 && eventPriceHigh === 0) {
-    return 'Free'
-  }
-  return `From £${eventPriceLow}`
-}
-
 const formatAddress = (addressLine1, addressLine2, city, postcode) => {
   return [
     addressLine1,
@@ -165,10 +159,12 @@ export default function EventInfoCard({
             detail={formatTimeRange(moment(startTime), moment(endTime))}
           />
         )}
-      <Item
-        icon={<TicketIcon />}
-        title={formatPrice(eventPriceLow, eventPriceHigh)}
-      />
+      {eventPriceLow != 'null' && (
+        <Item
+          icon={<TicketIcon />}
+          title={formatPrice(eventPriceLow, eventPriceHigh)}
+        />
+      )}
       <Item
         icon={<MapPinIcon />}
         title={locationName}

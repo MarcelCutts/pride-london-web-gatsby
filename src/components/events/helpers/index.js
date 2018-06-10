@@ -1,5 +1,12 @@
 const moment = require('moment')
 
+const formatPrice = (eventPriceLow, eventPriceHigh) => {
+  if (eventPriceLow === 0 && (eventPriceHigh === 0 || eventPriceHigh == null)) {
+    return 'Free'
+  }
+  return `From £${eventPriceLow.toFixed(2).replace('.00', '')}`
+}
+
 const formatTime = time => {
   if (moment(time).format('mm') === '00') {
     return moment(time).format('ha')
@@ -160,4 +167,5 @@ module.exports = {
   filterByLimit,
   sanitizeDates,
   getDuration,
+  formatPrice,
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import { formatDate } from './helpers'
+import { formatDate, formatPrice } from './helpers'
 import { media } from '../../theme/media'
 
 const Card = styled(Link)`
@@ -171,9 +171,12 @@ export const EventListingCard = props => {
         </CardDate>
         <CardHeading itemProp="name">{event.name}</CardHeading>
       </CardBody>
-      <CardPrice itemProp="offers" itemScope itemType="http://schema.org/Offer">
-        <span itemprop="price">{event.eventPriceLow === 0 ? 'Free' : `from £${event.eventPriceLow}`}</span>
-      </CardPrice>
+      {event.eventPriceLow != null && (
+        <CardPrice itemProp="offers" itemScope itemType="http://schema.org/Offer">
+          <span itemprop="price">{formatPrice(event.eventPriceLow, event.eventPriceHigh)}</span>
+          <meta itemProp="isAccessibleForFree" content={event.eventPriceLow === 0 ? true : false} />
+        </CardPrice>
+      )}
     </Card>
   )
 }

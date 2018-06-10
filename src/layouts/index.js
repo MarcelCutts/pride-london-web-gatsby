@@ -134,6 +134,7 @@ export const query = graphql`
           endTime
           recurrenceDates
           eventPriceLow
+          eventPriceHigh
           eventCategories
           venueDetails
           audience

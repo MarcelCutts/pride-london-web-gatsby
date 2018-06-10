@@ -12,6 +12,8 @@ import {
   EventDirectionsSection,
 } from '../components/events'
 
+import { formatPrice } from '../components/events/helpers'
+
 const PageWrapper = styled.div`
   position: relative;
   margin: 0 auto;
@@ -93,6 +95,7 @@ export default class Event extends Component {
       city,
       postcode,
       eventPriceLow,
+      eventPriceHigh,
     } = this.props.data.contentfulEvent
 
     const metaImg = `${individualEventPicture.file.url}?w=1000&h=562`
@@ -137,6 +140,17 @@ export default class Event extends Component {
             {
               itemprop: 'isAccessibleForFree',
               content: eventPriceLow === 0 ? true : false,
+            },
+            {
+              itemprop: 'offers',
+              itemscope: true,
+              itemtype: 'http://schema.org/Offer',
+              itemref: 'meta-price'
+            },
+            {
+              itemprop: 'price',
+              id: 'meta-price',
+              content: formatPrice(eventPriceLow, eventPriceHigh),
             },
 
             // OpenGraph Meta Tags
@@ -238,6 +252,7 @@ export default class Event extends Component {
 
 Event.propTypes = {
   data: PropTypes.object.isRequired,
+  pathContext: PropTypes.object.isRequired,
 }
 
 export const eventPageQuery = graphql`

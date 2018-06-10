@@ -57,7 +57,7 @@ const HeadingRow = styled(Row)`
 
 const filterEventsYouMayLike = (events, eventId) => {
   const filteredEvents = events.filter(event => {
-    if (event.node.id === eventId) return false
+    if (event.node.id.includes(eventId)) return false
 
     return moment(event.node.startTime).diff(moment(), 'hours') > 0
   })
