@@ -111,7 +111,7 @@ const formatPrice = (eventPriceLow, eventPriceHigh) => {
   if (eventPriceLow === 0 && eventPriceHigh === 0) {
     return 'Free'
   }
-  return `From £${eventPriceLow}`
+  return `From £${eventPriceLow.toFixed(2).replace('.00', '')}`
 }
 
 const formatAddress = (addressLine1, addressLine2, city, postcode) => {
