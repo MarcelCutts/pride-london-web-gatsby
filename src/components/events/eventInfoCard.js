@@ -165,10 +165,12 @@ export default function EventInfoCard({
             detail={formatTimeRange(moment(startTime), moment(endTime))}
           />
         )}
-      <Item
-        icon={<TicketIcon />}
-        title={formatPrice(eventPriceLow, eventPriceHigh)}
-      />
+      {eventPriceLow != 'null' && (
+        <Item
+          icon={<TicketIcon />}
+          title={formatPrice(eventPriceLow, eventPriceHigh)}
+        />
+      )}
       <Item
         icon={<MapPinIcon />}
         title={locationName}
