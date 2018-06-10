@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import { formatDate } from './helpers'
+import { formatDate, formatPrice } from './helpers'
 import { media } from '../../theme/media'
 
 const Card = styled(Link)`
@@ -165,9 +165,11 @@ export const EventListingCard = props => {
         </CardDate>
         <CardHeading>{event.name}</CardHeading>
       </CardBody>
-      <CardPrice>
-        {event.eventPriceLow === 0 ? 'Free' : `from £${event.eventPriceLow}`}
-      </CardPrice>
+      {event.eventPriceLow != null && (
+        <CardPrice>
+          {formatPrice(event.eventPriceLow, event.eventPriceHigh)}
+        </CardPrice>
+      )}
     </Card>
   )
 }
