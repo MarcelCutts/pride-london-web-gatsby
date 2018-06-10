@@ -1,5 +1,5 @@
-const env = process.env.NODE_ENV || 'development';
-require('dotenv').config({path: `./.env.${env}`});
+const env = process.env.NODE_ENV || 'development'
+require('dotenv').config({ path: `./.env.${env}` })
 
 module.exports = {
   siteMetadata: {
@@ -12,8 +12,10 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `${process.env.CONTENTFUL_EVENTS_ID}`,
-        accessToken: `${process.env.CONTENTFUL_EVENTS_TOKEN}`,
+        spaceId: `${process.env.CONTENTFUL_EVENTS_ID ||
+          process.env.CONTENTFUL_ID}`,
+        accessToken: `${process.env.CONTENTFUL_EVENTS_TOKEN ||
+          process.env.CONTENTFUL_TOKEN}`,
       },
     },
   ],
