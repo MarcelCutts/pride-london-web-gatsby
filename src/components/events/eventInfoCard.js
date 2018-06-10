@@ -138,8 +138,6 @@ export default function EventInfoCard({
     addressLine2,
     city,
     postcode,
-    startTime,
-    endTime,
     eventPriceLow,
     eventPriceHigh,
     email,
@@ -148,6 +146,7 @@ export default function EventInfoCard({
     ticketingUrl,
     accessibilityOptions,
   },
+  pathContext: { startTime, endTime },
 }) {
   return (
     <Wrapper>
@@ -228,6 +227,11 @@ EventInfoCard.propTypes = {
     ticketingUrl: PropTypes.string,
     accessibilityOptions: PropTypes.arrayOf(PropTypes.string),
     venueDetails: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+  pathContext: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    startTime: PropTypes.string.isRequired,
+    endTime: PropTypes.string.isRequired,
   }).isRequired,
 }
 

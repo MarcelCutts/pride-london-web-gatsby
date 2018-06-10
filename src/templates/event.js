@@ -94,7 +94,10 @@ export default class Event extends Component {
             <EventTagList values={eventCategories} />
           </TitleWrapper>
         </HeroImageAndTitle>
-        <EventInfoCard data={this.props.data.contentfulEvent} />
+        <EventInfoCard
+          data={this.props.data.contentfulEvent}
+          pathContext={this.props.pathContext}
+        />
         <ContentWrapper>
           <Section>
             <ReactMarkdown source={eventDescription.eventDescription} />
