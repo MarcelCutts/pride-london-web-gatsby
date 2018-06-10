@@ -104,15 +104,10 @@ const formatPrice = (eventPriceLow, eventPriceHigh) => {
   return `From £${eventPriceLow}`
 }
 
-const formatAddress = (addressLine1, addressLine2, city, postcode) => (
-  [
-    addressLine1,
-    addressLine2,
-    [city, postcode].filter(Boolean).join(' '),
-  ]
+const formatAddress = (addressLine1, addressLine2, city, postcode) =>
+  [addressLine1, addressLine2, [city, postcode].filter(Boolean).join(' ')]
     .filter(Boolean)
     .join(', ')
-)
 
 const Link = styled.a`
   color: white;
@@ -177,7 +172,6 @@ export default function EventInfoCard({
         venueDetails.indexOf(VENUE_DETAILS.genderNeutralToilets) > -1 && (
           <Item icon={<GenderIcon />} detail="Gender neutral toilets" />
         )}
-
       {(email || phone || ticketingUrl) && <Hr />}
       {email && (
         <Item
