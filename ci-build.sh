@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 if test $1 = production ; then
   export CONTENTFUL_EVENTS_ID=$CONTENTFUL_EVENTS_ID_PRODUCTION
   export CONTENTFUL_EVENTS_TOKEN=$CONTENTFUL_EVENTS_TOKEN_PRODUCTION
