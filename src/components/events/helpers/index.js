@@ -1,7 +1,6 @@
 const moment = require('moment')
 
 const formatPrice = (eventPriceLow, eventPriceHigh) => {
-  console.log({eventPriceLow, eventPriceHigh})
   if (eventPriceLow === 0 && eventPriceHigh === 0) {
     return 'Free'
   }
