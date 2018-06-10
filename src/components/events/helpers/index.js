@@ -1,7 +1,7 @@
 const moment = require('moment')
 
 const formatPrice = (eventPriceLow, eventPriceHigh) => {
-  if (eventPriceLow === 0 && eventPriceHigh === 0) {
+  if (eventPriceLow === 0 && (eventPriceHigh === 0 || eventPriceHigh == null)) {
     return 'Free'
   }
   return `From £${eventPriceLow.toFixed(2).replace('.00', '')}`
