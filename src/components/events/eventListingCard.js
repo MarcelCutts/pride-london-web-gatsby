@@ -139,7 +139,7 @@ export const EventListingCard = props => {
   const { event } = props
   const { date, time } = formatDate(event)
   return (
-    <Card to={`/events/${event.id}`}>
+    <Card to={`/events/${event.id}`} itemScope itemType="http://schema.org/Event">
       <CardImageOverflow>
         <CardImageWrapper
           className="card-img-wrapper"
@@ -160,10 +160,10 @@ export const EventListingCard = props => {
 
       <CardBody>
         <CardDate>
-          <CardDateSpan>{date}</CardDateSpan>
+          <CardDateSpan itemProp="startDate" content={event.startTime}>{date}</CardDateSpan>
           <CardBullet> • </CardBullet> <CardDateSpan>{time}</CardDateSpan>
         </CardDate>
-        <CardHeading>{event.name}</CardHeading>
+        <CardHeading itemProp="name">{event.name}</CardHeading>
       </CardBody>
       <CardPrice>
         {event.eventPriceLow === 0 ? 'Free' : `from £${event.eventPriceLow}`}
