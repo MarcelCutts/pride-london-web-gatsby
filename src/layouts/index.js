@@ -19,67 +19,68 @@ const Layout = props => (
         <Helmet
           title={props.data.site.siteMetadata.title}
           meta={[
-            { 
-              name: 'description', content: props.data.site.siteMetadata.description
+            {
+              name: 'description',
+              content: props.data.site.siteMetadata.description,
             },
 
             // Schema meta tags
             {
-              itemprop: "name",
-              content: props.data.site.siteMetadata.title
-            },
-            {
-              itemprop: "url",
-              content: props.data.site.siteMetadata.url
-            },
-            {
-              itemprop: "thumbnailUrl",
-              content: metaImg
-            },
-            {
-              itemprop: "image",
-              content: metaImg
-            },
-            // OpenGraph Meta Tags
-            {
-              property: "og:site_name",
-              content: props.data.site.siteMetadata.name,
-            },
-            {
-              property: "og:title",
+              itemprop: 'name',
               content: props.data.site.siteMetadata.title,
             },
             {
-              property: "og:url",
+              itemprop: 'url',
               content: props.data.site.siteMetadata.url,
             },
             {
-              property: "og:type",
-              content: "website",
-            },
-            {
-              property: "og:image:width",
-              content: "1000",
-            },
-            {
-              property: "og:image:height",
-              content: "562",
-            },
-            // Twitter Meta Tags
-            {
-              name: "twitter:card",
-              content: "summary",
-            },
-            {
-              name: "twitter:title",
-              content: props.data.site.siteMetadata.title,
-            },
-            {
-              name: "twitter:image",
+              itemprop: 'thumbnailUrl',
               content: metaImg,
             },
             {
-              name: "twitter:url",
+              itemprop: 'image',
+              content: metaImg,
+            },
+            // OpenGraph Meta Tags
+            {
+              property: 'og:site_name',
+              content: props.data.site.siteMetadata.name,
+            },
+            {
+              property: 'og:title',
+              content: props.data.site.siteMetadata.title,
+            },
+            {
+              property: 'og:url',
+              content: props.data.site.siteMetadata.url,
+            },
+            {
+              property: 'og:type',
+              content: 'website',
+            },
+            {
+              property: 'og:image:width',
+              content: '1000',
+            },
+            {
+              property: 'og:image:height',
+              content: '562',
+            },
+            // Twitter Meta Tags
+            {
+              name: 'twitter:card',
+              content: 'summary',
+            },
+            {
+              name: 'twitter:title',
+              content: props.data.site.siteMetadata.title,
+            },
+            {
+              name: 'twitter:image',
+              content: metaImg,
+            },
+            {
+              name: 'twitter:url',
               content: props.data.site.siteMetadata.url,
             },
           ]}
@@ -89,14 +90,14 @@ const Layout = props => (
               href: favicon,
             },
             {
-              rel: "image_src",
-              content: metaImg
-            }
+              rel: 'image_src',
+              content: metaImg,
+            },
           ]}
           htmlAttributes={{
             lang: 'en-GB',
             itemscope: true,
-            itemtype: "http://schema.org/WebPage"
+            itemtype: 'http://schema.org/WebPage',
           }}
         />
         <SimpleNav />

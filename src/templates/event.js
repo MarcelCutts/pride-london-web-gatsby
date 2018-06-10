@@ -91,94 +91,112 @@ export default class Event extends Component {
       addressLine1,
       addressLine2,
       city,
-      postcode
+      postcode,
+      eventPriceLow,
     } = this.props.data.contentfulEvent
 
     const metaImg = `${individualEventPicture.file.url}?w=1000&h=562`
-    const metaUrl = typeof window !== 'undefined' && (window.location.hostname + this.props.location.pathname)
+    const metaUrl =
+      typeof window !== 'undefined' &&
+      window.location.hostname + this.props.location.pathname
 
     return (
       <PageWrapper>
-        <Helmet 
+        <Helmet
           title={name}
           meta={[
             // Schema meta tags
             {
-              itemprop: "name",
-              content: name
+              itemprop: 'name',
+              content: name,
             },
             {
-              itemprop: "description",
-              content: eventDescription.eventDescription
+              itemprop: 'description',
+              content: eventDescription.eventDescription,
             },
             {
-              itemprop: "url",
-              content: metaUrl
+              itemprop: 'url',
+              content: metaUrl,
             },
             {
-              itemprop: "thumbnailUrl",
-              content: metaImg
+              itemprop: 'thumbnailUrl',
+              content: metaImg,
             },
             {
-              itemprop: "image",
-              content: metaImg
+              itemprop: 'image',
+              content: metaImg,
+            },
+            {
+              itemprop: 'startDate',
+              content: props.pathContext.startTime,
+            },
+            {
+              itemprop: 'endDate',
+              content: props.pathContext.endTime,
+            },
+            {
+              itemprop: 'isAccessibleForFree',
+              content: eventPriceLow === 0 ? true : false,
             },
 
             // OpenGraph Meta Tags
             {
-              property: "og:title",
+              property: 'og:title',
               content: name,
             },
             {
-              property: "og:description",
+              property: 'og:description',
               content: eventDescription.eventDescription,
             },
             {
-              property: "og:latitude",
+              property: 'og:latitude',
               content: location.lat,
             },
             {
-              property: "og:longitude",
+              property: 'og:longitude',
               content: location.lon,
             },
             {
-              property: "og:street-address",
-              content: !addressLine1 ? '' : addressLine2 ? `${locationName}, ${addressLine1}, ${addressLine2}`: `${locationName}, ${addressLine1}`,
+              property: 'og:street-address',
+              content: !addressLine1
+                ? ''
+                : addressLine2
+                  ? `${locationName}, ${addressLine1}, ${addressLine2}`
+                  : `${locationName}, ${addressLine1}`,
             },
             {
-              property: "og:locality",
-              content: city && city
+              property: 'og:locality',
+              content: city && city,
             },
             {
-              property: "og:postal-code",
+              property: 'og:postal-code',
               content: postcode && postcode,
             },
             {
-              property: "og:url",
+              property: 'og:url',
               content: metaUrl,
             },
 
             // Twitter Meta Tags
             {
-              name: "twitter:title",
+              name: 'twitter:title',
               content: name,
             },
             {
-              name: "twitter:description",
+              name: 'twitter:description',
               content: eventDescription.eventDescription,
             },
             {
-              name: "twitter:image",
+              name: 'twitter:image',
               content: metaImg,
             },
             {
-              name: "twitter:url",
+              name: 'twitter:url',
               content: metaUrl,
             },
-
           ]}
           htmlAttributes={{
-            itemtype: "http://schema.org/Event"
+            itemtype: 'http://schema.org/Event',
           }}
         />
         <HeroImageAndTitle>
