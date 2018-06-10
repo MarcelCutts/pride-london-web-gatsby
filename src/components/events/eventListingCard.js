@@ -139,7 +139,11 @@ export const EventListingCard = props => {
   const { event } = props
   const { date, time } = formatDate(event)
   return (
-    <Card to={`/events/${event.id}`}>
+    <Card
+      to={`/events/${event.id}`}
+      itemScope
+      itemType="http://schema.org/Event"
+    >
       <CardImageOverflow>
         <CardImageWrapper
           className="card-img-wrapper"
@@ -154,6 +158,10 @@ export const EventListingCard = props => {
             alt={event.eventsListPicture.title}
             width="400"
             height="225"
+            itemProp="image"
+            content={`${
+              event.eventsListPicture.file.url
+            }?fit=fill&w=400&h=225&f=faces`}
           />
         </CardImageWrapper>
       </CardImageOverflow>
@@ -162,12 +170,26 @@ export const EventListingCard = props => {
         <CardDate>
           <CardDateSpan>{date}</CardDateSpan>
           <CardBullet> • </CardBullet> <CardDateSpan>{time}</CardDateSpan>
+          <meta itemProp="startDate" content={event.startTime} />
+          {event.startTime !== event.endTime && (
+            <meta itemProp="endDate" content={event.endTime} />
+          )}
         </CardDate>
-        <CardHeading>{event.name}</CardHeading>
+        <CardHeading itemProp="name">{event.name}</CardHeading>
       </CardBody>
       {event.eventPriceLow != null && (
-        <CardPrice>
-          {formatPrice(event.eventPriceLow, event.eventPriceHigh)}
+        <CardPrice
+          itemProp="offers"
+          itemScope
+          itemType="http://schema.org/Offer"
+        >
+          <span itemprop="price">
+            {formatPrice(event.eventPriceLow, event.eventPriceHigh)}
+          </span>
+          <meta
+            itemProp="isAccessibleForFree"
+            content={event.eventPriceLow === 0 ? true : false}
+          />
         </CardPrice>
       )}
     </Card>
