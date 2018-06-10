@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
+import PropTypes from 'prop-types'
 import { media } from '../../theme/media'
 import {
   AccessibilityIcon,
@@ -12,7 +13,6 @@ import {
   TicketIcon,
 } from '../../components/icons'
 import Button from '../../components/button'
-import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.indigo};
@@ -104,15 +104,15 @@ const formatPrice = (eventPriceLow, eventPriceHigh) => {
   return `From £${eventPriceLow}`
 }
 
-const formatAddress = (addressLine1, addressLine2, city, postcode) => {
-  return [
+const formatAddress = (addressLine1, addressLine2, city, postcode) => (
+  [
     addressLine1,
     addressLine2,
     [city, postcode].filter(Boolean).join(' '),
   ]
     .filter(Boolean)
     .join(', ')
-}
+)
 
 const Link = styled.a`
   color: white;
@@ -170,7 +170,7 @@ export default function EventInfoCard({
           <Item
             icon={<AccessibilityIcon />}
             title="Accessibility"
-            detail={accessibilityOptions.join(', ') + '.'}
+            detail={`${accessibilityOptions.join(', ')}.`}
           />
         )}
       {venueDetails &&
@@ -207,6 +207,12 @@ export default function EventInfoCard({
       )}
     </Wrapper>
   )
+}
+
+Item.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  detail: PropTypes.string.isRequired,
 }
 
 EventInfoCard.propTypes = {
