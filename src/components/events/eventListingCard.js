@@ -15,6 +15,7 @@ const Card = styled(Link)`
   position: relative;
   width: 100%;
   min-height: 130px;
+  background-color: ${props => props.theme.colors.white};
 
   &:hover,
   &:focus {
@@ -24,7 +25,7 @@ const Card = styled(Link)`
   }
 
   ${media.tablet`
-    flex-direction: column;
+    display: block;
     min-height: auto;
   `};
 `
