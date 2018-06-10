@@ -81,6 +81,7 @@ export default class Event extends Component {
       name,
       performances,
       eventCategories,
+      accessibilityDetails,
     } = this.props.data.contentfulEvent
 
     return (
@@ -101,6 +102,16 @@ export default class Event extends Component {
           <Section>
             <ReactMarkdown source={eventDescription.eventDescription} />
           </Section>
+          {accessibilityDetails && (
+            <React.Fragment>
+              <h2>Accessibility</h2>
+              <Section>
+                <ReactMarkdown
+                  source={accessibilityDetails.accessibilityDetails}
+                />
+              </Section>
+            </React.Fragment>
+          )}
           {performances && (
             <Section>
               <EventSchedule schedule={performances} />
@@ -130,6 +141,9 @@ export const eventPageQuery = graphql`
         }
         title
         description
+      }
+      accessibilityDetails {
+        accessibilityDetails
       }
       eventCategories
       performances {
