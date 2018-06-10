@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     }
 
     const eventTemplate = path.resolve('./src/templates/event.js')
-    const prettyDate = 'D MMM YYYY'
+
     result.data.allContentfulEvent.edges.forEach(edge => {
       if (!edge.node.recurrenceDates || !edge.node.recurrenceDates.length) {
         createPage({
@@ -44,10 +44,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           component: eventTemplate,
           context: {
             id: edge.node.id,
-            startDate: moment(edge.node.startTime).format(prettyDate),
-            endDate: moment(edge.node.endTime).format(prettyDate),
-            startTime: formatTime(edge.node.startTime),
-            endTime: formatTime(edge.node.endTime),
+            startTime: edge.node.startTime,
+            endTime: edge.node.endTime
           },
         })
       } else {
@@ -56,6 +54,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           ...edge.node.recurrenceDates,
         ])
 
+        console.log(recurrenceDates)
         recurrenceDates.forEach(date => {
           const customId = `${edge.node.id}-${moment(date).format('YYYYMMDD')}`
           createPage({
@@ -63,15 +62,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             component: eventTemplate,
             context: {
               id: edge.node.id,
-              startDate: moment(date, dateFormat).format(prettyDate),
-              endDate: moment(date, dateFormat)
+              startTime: date,
+              endTime: moment(date)
                 .add(
                   getDuration(edge.node.startTime, edge.node.endTime),
                   'milliseconds'
                 )
-                .format(prettyDate),
-              startTime: formatTime(edge.node.startTime),
-              endTime: formatTime(edge.node.endTime),
+                .toISOString(),
             },
           })
         })

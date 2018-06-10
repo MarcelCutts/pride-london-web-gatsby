@@ -22,19 +22,25 @@ const formatDate = event => {
   const startTime = formatTime(event.startTime)
   const endTime = formatTime(event.endTime)
 
-  const dateTime = {
-    time: `${startTime} - ${endTime}`,
+  const dateTime = {}
+
+  switch (true) {
+    case startDate === endDate && startTime === endTime:
+      dateTime.date = `${startDay} ${startMonth} ${year}`
+      dateTime.time = `${startTime}`
+      break
+    case startDate === endDate:
+      dateTime.date = `${startDay} ${startMonth} ${year}`
+      dateTime.time = `${startTime} - ${endTime}`
+      break
+    case startMonth === endMonth:
+      dateTime.date = `${startDay} - ${endDay} ${startMonth} ${year}`
+      dateTime.time = `${startTime} - ${endTime}`
+    default:
+      dateTime.date = `${startDay} ${startMonth} - ${endDay} ${endMonth} ${year}`
+      dateTime.time = `${startTime} - ${endTime}`
   }
 
-  if (startDate === endDate) {
-    dateTime.date = `${startDay} ${startMonth} ${year}`
-    return dateTime
-  } else if (startMonth === endMonth) {
-    dateTime.date = `${startDay} - ${endDay} ${startMonth} ${year}`
-    return dateTime
-  }
-
-  dateTime.date = `${startDay} ${startMonth} - ${endDay} ${endMonth} ${year}`
   return dateTime
 }
 
