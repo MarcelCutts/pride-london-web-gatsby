@@ -39,14 +39,13 @@ const EventTagListItem = styled.li`
   line-height: 22px;
   font-weight: 600;
   font-family: Poppins, sans-serif;
-  margin: 10px 10px 6px 0;
-  margin-right: 10px;
-  margin-bottom: 6px;
+  margin: 0px 10px 6px 0;
 `
 
 const EventTagUl = styled.ul`
   padding: 0;
   margin: 0;
+  margin-bottom: -6px;
   list-style-type: none;
 `
 

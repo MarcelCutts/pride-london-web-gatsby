@@ -21,11 +21,14 @@ const PageWrapper = styled.div`
 
 const Title = styled.h1`
   color: ${props => props.theme.colors.indigo};
-  font-size: 1.75em;
-  line-height: 1.4;
+  font-size: 1.25em;
+  line-height: 1.5;
   margin-bottom: 20px;
+  ${media.desktop`
+    font-size: 1.75em;
+    line-height: 1.4;
+  `};
 `
-
 const HeroImageAndTitle = styled.div`
   display: flex;
   flex-direction: column-reverse;
