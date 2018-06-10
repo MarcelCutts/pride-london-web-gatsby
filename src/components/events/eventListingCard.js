@@ -154,19 +154,25 @@ export const EventListingCard = props => {
             alt={event.eventsListPicture.title}
             width="400"
             height="225"
+            itemProp="image"
+            content={`${
+              event.eventsListPicture.file.url
+            }?fit=fill&w=400&h=225&f=faces`}
           />
         </CardImageWrapper>
       </CardImageOverflow>
 
       <CardBody>
         <CardDate>
-          <CardDateSpan itemProp="startDate" content={event.startTime}>{date}</CardDateSpan>
+          <CardDateSpan>{date}</CardDateSpan>
           <CardBullet> • </CardBullet> <CardDateSpan>{time}</CardDateSpan>
+          <meta itemProp="startDate" content={event.startTime} />
+          { event.startTime !== event.endTime && <meta itemProp="endDate" content={event.endTime} />}
         </CardDate>
         <CardHeading itemProp="name">{event.name}</CardHeading>
       </CardBody>
-      <CardPrice>
-        {event.eventPriceLow === 0 ? 'Free' : `from £${event.eventPriceLow}`}
+      <CardPrice itemProp="offers" itemScope itemType="http://schema.org/Offer">
+        <span itemprop="price">{event.eventPriceLow === 0 ? 'Free' : `from £${event.eventPriceLow}`}</span>
       </CardPrice>
     </Card>
   )
