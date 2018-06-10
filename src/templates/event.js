@@ -128,11 +128,11 @@ export default class Event extends Component {
             },
             {
               itemprop: 'startDate',
-              content: props.pathContext.startTime,
+              content: this.props.pathContext.startTime,
             },
             {
               itemprop: 'endDate',
-              content: props.pathContext.endTime,
+              content: this.props.pathContext.endTime,
             },
             {
               itemprop: 'isAccessibleForFree',
