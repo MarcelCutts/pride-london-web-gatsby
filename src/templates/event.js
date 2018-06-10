@@ -145,7 +145,7 @@ export default class Event extends Component {
               itemprop: 'offers',
               itemscope: true,
               itemtype: 'http://schema.org/Offer',
-              itemref: 'meta-price'
+              itemref: 'meta-price',
             },
             {
               itemprop: 'price',
