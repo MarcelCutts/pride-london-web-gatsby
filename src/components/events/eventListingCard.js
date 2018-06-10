@@ -167,10 +167,7 @@ export const EventListingCard = props => {
       </CardBody>
       {event.eventPriceLow != null && (
         <CardPrice>
-          {formatPrice(event.eventPriceLow, event.eventPriceHigh).replace(
-            'From',
-            'from'
-          )}
+          {formatPrice(event.eventPriceLow, event.eventPriceHigh)}
         </CardPrice>
       )}
     </Card>
