@@ -95,7 +95,7 @@ const Layout = props => (
           ]}
           htmlAttributes={{
             lang: 'en-GB',
-            itemscope: 'itemscope',
+            itemscope: true,
             itemtype: "http://schema.org/WebPage"
           }}
         />
