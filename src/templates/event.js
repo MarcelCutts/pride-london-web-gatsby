@@ -48,7 +48,7 @@ const ContentWrapper = styled.div`
   ${media.desktop`
     padding: 0;
     margin-left: 90px;
-    max-width: 45vw;
+    max-width: 40vw;
   `};
   ${media.desktopHD`
     max-width: 830px;
