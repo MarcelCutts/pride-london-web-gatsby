@@ -14,24 +14,23 @@ const Wrapper = styled.div`
 `
 
 const FilterButton = styled.button`
-  font-family: ${props => props.theme.fonts.title};
-  font-weight: 600;
-  font-size: 1rem;
+  display: none;
   width: 100%;
   background-color: ${props => props.theme.colors.lightGrey};
   border-color: ${props => props.theme.colors.lightGrey};
   color: ${props => props.theme.colors.indigo};
   padding: 11px 10px;
-  display: flex;
   align-items: center;
   min-height: 48px;
   box-sizing: border-box;
+  text-align: left;
 
   ${media.mobile`
     padding: 11px 45px 11px 20px;
   `};
 
   ${media.tablet`
+    display: flex;
     color: ${props => props.theme.colors.black};
     font-family: ${props => props.theme.fonts.body};
     font-weight: 500;
@@ -57,6 +56,30 @@ const FilterButton = styled.button`
       border-color: ${props => props.theme.colors.eucalyptusGreen};
       outline: none;
     }
+  `};
+`
+
+const FilterHeader = styled.div`
+  display: block;
+  font-family: ${props => props.theme.fonts.title};
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  background-color: ${props => props.theme.colors.lightGrey};
+  border-color: ${props => props.theme.colors.lightGrey};
+  color: ${props => props.theme.colors.indigo};
+  padding: 11px 10px;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  box-sizing: border-box;
+
+  ${media.mobile`
+    padding: 11px 45px 11px 20px;
+  `};
+
+  ${media.tablet`
+    display: none;
   `};
 `
 
@@ -128,6 +151,14 @@ class EventDropdownFilter extends Component {
       <Consumer>
         {context => (
           <Wrapper>
+            <FilterHeader>
+              {this.props.heading}
+              {context.state.filters[this.props.filterName].length > 0 && (
+                <Badge>
+                  {context.state.filters[this.props.filterName].length}
+                </Badge>
+              )}
+            </FilterHeader>
             <FilterButton
               aria-controls={this.props.filterName}
               aria-expanded={this.state.isOpen}
@@ -138,11 +169,11 @@ class EventDropdownFilter extends Component {
               isActive={context.state.filters[this.props.filterName].length > 0}
             >
               {this.props.heading}
-              {context.state.filters[this.props.filterName].length > 0 ? (
+              {context.state.filters[this.props.filterName].length > 0 && (
                 <Badge>
                   {context.state.filters[this.props.filterName].length}
                 </Badge>
-              ) : null}
+              )}
             </FilterButton>
             <DropDown
               isOpen={this.state.isOpen}

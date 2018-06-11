@@ -76,7 +76,6 @@ const Menu = styled.ul`
 
   &.open {
     transition: left 0.15s linear, visibility 0s 0s linear;
-    left: 0;
     visibility: visible;
   }
 
@@ -147,6 +146,11 @@ const Burger = styled.button`
 
   &:focus {
     outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.colors.indigo};
   }
 
   ${media.tablet`

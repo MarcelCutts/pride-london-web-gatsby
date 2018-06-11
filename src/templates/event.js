@@ -48,7 +48,7 @@ const ContentWrapper = styled.div`
   ${media.desktop`
     padding: 0;
     margin-left: 90px;
-    max-width: 45vw;
+    max-width: 40vw;
   `};
   ${media.desktopHD`
     max-width: 830px;
@@ -75,6 +75,18 @@ const Section = styled.div`
   margin-bottom: 20px;
   ${media.desktop`
     margin-bottom: 60px;
+  `};
+`
+
+const AccessibilityHeading = styled.h2`
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  margin: 1.875rem 0 0.9375rem 0;
+  ${media.tablet`
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+    margin: 1.875rem 0;
   `};
 `
 
@@ -233,7 +245,7 @@ export default class Event extends Component {
           </Section>
           {accessibilityDetails && (
             <React.Fragment>
-              <h2>Accessibility</h2>
+              <AccessibilityHeading>Accessibility</AccessibilityHeading>
               <Section>
                 <ReactMarkdown
                   source={accessibilityDetails.accessibilityDetails}

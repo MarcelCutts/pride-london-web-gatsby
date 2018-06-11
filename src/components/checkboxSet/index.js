@@ -20,11 +20,15 @@ const List = styled.ul`
   `};
 `
 const ListItem = styled.li`
-  padding: 8px 10px;
+  padding: 8px 0;
 
   &:last-child {
     margin-bottom: 0;
   }
+
+  ${media.mobile`
+  padding: 8px 10px;
+  `};
 
   ${media.tablet`
     transition: background-color 0.15s linear;

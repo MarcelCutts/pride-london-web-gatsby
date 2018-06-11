@@ -1,26 +1,30 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
+import { rgba } from 'polished'
 import { Flex, Box } from 'grid-styled'
 import { media } from '../../theme/media'
 import { Consumer } from '../../components/appContext'
 import EventDateFilter from './filters/eventDateFilter'
 import EventFreeFilter from './filters/eventFreeFilter'
 import EventDropdownFilter from './filters/eventDropdownFilter'
+import Button from '../button'
 import iconClear from '../../theme/assets/images/icon-clear.svg'
 import iconClose from '../../theme/assets/images/icon-close.svg'
 
 const FilterWrapper = styled(Flex)`
+  display: block;
   background-color: ${props => props.theme.colors.white};
   position: fixed;
   padding-top: 0;
+  padding-bottom: 0px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: auto;
-  transition: left 0.15s linear, visibility 0s 0.15s linear;
-  visibility: hidden;
   top: 0;
   left: 100%;
+  visibility: hidden;
+  transition: left 0.15s linear, visibility 0s 0.15s linear;
   z-index: 1;
 
   &.open {
@@ -30,11 +34,13 @@ const FilterWrapper = styled(Flex)`
   }
 
   ${media.tablet`
+    display: flex;
     position: static;
     width: auto;
     height: auto;
     overflow: visible;
     padding-top: 20px;
+    padding-bottom: 20px;
     visibility: visible;
   `};
 `
@@ -113,24 +119,24 @@ const ClearButton = styled.button`
   font-size: 0.875rem;
   font-weight: 500;
   color: ${props => props.theme.colors.indigo};
-  padding: 0 0 0 25px;
+  padding: 10px 0 10px 25px;
   position: absolute;
-  right: 20px;
-  top: 104px;
+  right: 10px;
+  top: 95px;
   z-index: 1;
   background-color: transparent;
   cursor: pointer;
   overflow: hidden;
 
-  @media (min-width: ${props => props.theme.breakpoints[0]}) {
-    right: 30px;
-  }
+  ${media.mobile`
+    right: 20px;
+  `};
 
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+  ${media.tablet`
     position: relative;
     top: auto;
     right: auto;
-  }
+  `};
 `
 
 const spin = keyframes`
@@ -150,7 +156,7 @@ const IconClear = styled.i`
   transform-origin: center center;
   position: absolute;
   left: 0;
-  top: 2px;
+  top: 8px;
   animation: ${props =>
     props.clickAnimation ? `${spin} 0.3s ease-in-out` : 'unset'};
 
@@ -182,6 +188,27 @@ const CloseButton = styled.button`
     display: none;
   `};
 `
+
+const ButtonWrapper = styled.div`
+  display: block;
+  padding: 20px;
+  background-color: ${props => props.theme.colors.white};
+  position: fixed;
+  bottom: 0;
+  left: 100%;
+  transition: left 0.15s linear;
+  width: 100%;
+  box-shadow: 0 -3px 5px 0 ${props => rgba(props.theme.colors.black, 0.1)};
+
+  &.open {
+    left: 0;
+  }
+
+  ${media.tablet`
+    display: none;
+  `};
+`
+
 class EventsFilters extends Component {
   state = {
     clickAnimation: false,
@@ -200,7 +227,7 @@ class EventsFilters extends Component {
       <Consumer>
         {context => (
           <FilterWrapper
-            className={this.props.showFiltersMobile ? 'open' : null}
+            className={this.props.showFiltersMobile && 'open'}
             mx={[
               0, // btwn 0 and first breakpoint (375px)
               0, // btwn 1st breakpoint(375px) and 2nd breakpoint (768px)
@@ -288,6 +315,15 @@ class EventsFilters extends Component {
             <FlexColumn width={[1, 1, 0.5, 0.3333]}>
               <EventFreeFilter />
             </FlexColumn>
+            <ButtonWrapper className={this.props.showFiltersMobile && 'open'}>
+              <Button
+                primary
+                fullmobile
+                onClick={this.props.toggleFiltersMobile}
+              >
+                Show {context.filteredEvents.length} events
+              </Button>
+            </ButtonWrapper>
           </FilterWrapper>
         )}
       </Consumer>

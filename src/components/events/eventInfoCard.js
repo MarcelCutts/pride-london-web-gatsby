@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { rgba } from 'polished'
 import moment from 'moment'
 import { media } from '../../theme/media'
 import {
@@ -58,21 +59,31 @@ const Title = styled.h3`
 const Detail = styled.p`
   margin: 0;
   font-size: 0.875rem;
+
+  ${media.desktop`
+    &.ellipsis {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 280px;
+    }
+  `};
 `
 
-const Item = ({ title, icon, detail }) => (
+const Item = ({ title, icon, detail, className }) => (
   <Row>
     <IconWrapper>{icon}</IconWrapper>
     <div>
       {title && <Title>{title}</Title>}
-      {detail && <Detail>{detail}</Detail>}
+      {detail && <Detail className={className}>{detail}</Detail>}
     </div>
   </Row>
 )
 
 const Hr = styled.hr`
   border: none;
-  border-top: 1px solid ${props => props.theme.colors.eucalyptusGreen};
+  border-top: 1px solid ${props => rgba(props.theme.colors.white, 0.3)};
   width: 100%;
   margin: 16px 0px 32px 0px;
 `
@@ -186,6 +197,7 @@ export default function EventInfoCard({
       {(email || phone || ticketingUrl) && <Hr />}
       {email && (
         <Item
+          className="ellipsis"
           icon={<MailIcon role="presentation" />}
           detail={
             <Link href={`mailto:${email}`} aria-label="email the venue">
