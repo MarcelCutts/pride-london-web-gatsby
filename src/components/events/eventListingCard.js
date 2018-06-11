@@ -28,6 +28,10 @@ const Card = styled(Link)`
     display: block;
     min-height: auto;
   `};
+
+  ${media.desktop`
+    margin-bottom: 10px;
+  `};
 `
 
 const CardImageOverflow = styled.div`
@@ -183,12 +187,12 @@ export const EventListingCard = props => {
           itemScope
           itemType="http://schema.org/Offer"
         >
-          <span itemprop="price">
+          <span itemProp="price">
             {formatPrice(event.eventPriceLow, event.eventPriceHigh)}
           </span>
           <meta
             itemProp="isAccessibleForFree"
-            content={event.eventPriceLow === 0 ? true : false}
+            content={`${event.eventPriceLow === 0 ? true : false}`}
           />
         </CardPrice>
       )}
