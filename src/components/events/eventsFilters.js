@@ -16,7 +16,7 @@ import iconClose from '../../theme/assets/images/icon-close.svg'
 const FilterWrapper = styled(Flex)`
   display: block;
   background-color: ${props => props.theme.colors.white};
-  position: absolute;
+  position: fixed;
   padding-top: 0;
   padding-bottom: 0px;
   width: 100%;
@@ -129,15 +129,15 @@ const ClearButton = styled.button`
   cursor: pointer;
   overflow: hidden;
 
-  @media (min-width: ${props => props.theme.breakpoints[0]}) {
+  ${media.mobile`
     right: 20px;
-  }
+  `};
 
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+  ${media.tablet`
     position: relative;
     top: auto;
     right: auto;
-  }
+  `};
 `
 
 const spin = keyframes`
