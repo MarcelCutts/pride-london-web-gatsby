@@ -12,7 +12,6 @@ import Button from '../button'
 import iconClear from '../../theme/assets/images/icon-clear.svg'
 import iconClose from '../../theme/assets/images/icon-close.svg'
 
-
 const FilterWrapper = styled(Flex)`
   display: block;
   background-color: ${props => props.theme.colors.white};
@@ -204,7 +203,7 @@ const ButtonWrapper = styled.div`
   &.open {
     left: 0;
   }
-  
+
   ${media.tablet`
     display: none;
   `};

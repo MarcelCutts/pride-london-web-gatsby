@@ -172,14 +172,10 @@ class EventDateFilter extends Component {
     })
 
     if (!focusedInput) {
-      if (context.state.filters.startDate) { 
-
-        context.actions.setDate('endDate', 'startDate');
-      } 
-      
-      
-      else {
-        context.actions.setDate('startDate', 'endDate');
+      if (context.state.filters.startDate) {
+        context.actions.setDate('endDate', 'startDate')
+      } else {
+        context.actions.setDate('startDate', 'endDate')
       }
     }
   }

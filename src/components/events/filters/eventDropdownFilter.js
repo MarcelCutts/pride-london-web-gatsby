@@ -153,11 +153,11 @@ class EventDropdownFilter extends Component {
           <Wrapper>
             <FilterHeader>
               {this.props.heading}
-              {context.state.filters[this.props.filterName].length > 0 &&
+              {context.state.filters[this.props.filterName].length > 0 && (
                 <Badge>
                   {context.state.filters[this.props.filterName].length}
                 </Badge>
-              }
+              )}
             </FilterHeader>
             <FilterButton
               aria-controls={this.props.filterName}
@@ -169,11 +169,11 @@ class EventDropdownFilter extends Component {
               isActive={context.state.filters[this.props.filterName].length > 0}
             >
               {this.props.heading}
-              {context.state.filters[this.props.filterName].length > 0 &&
+              {context.state.filters[this.props.filterName].length > 0 && (
                 <Badge>
                   {context.state.filters[this.props.filterName].length}
                 </Badge>
-              }
+              )}
             </FilterButton>
             <DropDown
               isOpen={this.state.isOpen}

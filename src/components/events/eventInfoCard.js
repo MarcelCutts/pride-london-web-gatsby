@@ -69,8 +69,6 @@ const Detail = styled.p`
       width: 280px;
     }
   `};
-
-
 `
 
 const Item = ({ title, icon, detail, className }) => (
