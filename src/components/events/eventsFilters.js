@@ -18,7 +18,7 @@ const FilterWrapper = styled(Flex)`
   background-color: ${props => props.theme.colors.white};
   position: fixed;
   padding-top: 0;
-  padding-bottom: 110px;
+  padding-bottom: 0px;
   width: 100%;
   height: 100%;
   overflow: auto;

@@ -6,7 +6,7 @@ import Checkbox from '../../../components/checkbox'
 
 const Wrapper = styled.div`
   background-color: transparent;
-  padding: 20px 10px 0 10px;
+  padding: 20px 10px 110px 10px;
   display: flex;
   align-items: center;
   min-height: 48px;
@@ -25,10 +25,11 @@ const Wrapper = styled.div`
   }
 
   ${media.mobile`
-    padding: 9px 20px;
+    padding: 9px 20px 110px 20px;
   `};
 
   ${media.tablet`
+  padding: 9px 20px;
     background-color: ${props =>
       props.isChecked
         ? props.theme.colors.eucalyptusGreen
