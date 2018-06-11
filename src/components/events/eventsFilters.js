@@ -129,15 +129,15 @@ const ClearButton = styled.button`
   cursor: pointer;
   overflow: hidden;
 
-  @media (min-width: ${props => props.theme.breakpoints[0]}) {
+  ${media.mobile`
     right: 20px;
-  }
+  `};
 
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+  ${media.tablet`
     position: relative;
     top: auto;
     right: auto;
-  }
+  `};
 `
 
 const spin = keyframes`

@@ -148,6 +148,11 @@ const Burger = styled.button`
     outline: none;
   }
 
+  &:hover,
+  &:focus {
+    background-color: ${props => props.theme.colors.indigo};
+  }
+
   ${media.tablet`
     display: none;
   `};
