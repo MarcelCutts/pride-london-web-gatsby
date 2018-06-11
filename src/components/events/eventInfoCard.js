@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { rgba } from 'polished'
 import moment from 'moment'
 import { media } from '../../theme/media'
 import {
@@ -84,7 +85,7 @@ const Item = ({ title, icon, detail, className }) => (
 
 const Hr = styled.hr`
   border: none;
-  border-top: 1px solid ${props => props.theme.colors.eucalyptusGreen};
+  border-top: 1px solid ${props => rgba(props.theme.colors.white, 0.3)};
   width: 100%;
   margin: 16px 0px 32px 0px;
 `
