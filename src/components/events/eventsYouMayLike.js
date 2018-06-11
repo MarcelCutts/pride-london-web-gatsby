@@ -29,12 +29,8 @@ export const StyledContainer = styled(Container)`
   background-color: ${props => props.theme.colors.lightGrey};
 `
 
-const Heading = styled.h1`
-  font-size: 1.25rem;
+const Heading = styled.h2`
   margin: 0;
-  ${media.desktop`
-    font-size: 2rem;
-  `};
 `
 
 const DesktopOnly = styled.span`

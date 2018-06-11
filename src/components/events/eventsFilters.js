@@ -16,7 +16,7 @@ import iconClose from '../../theme/assets/images/icon-close.svg'
 const FilterWrapper = styled(Flex)`
   display: block;
   background-color: ${props => props.theme.colors.white};
-  position: absolute;
+  position: fixed;
   padding-top: 0;
   padding-bottom: 0px;
   width: 100%;
