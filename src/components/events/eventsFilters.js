@@ -20,7 +20,7 @@ const FilterWrapper = styled(Flex)`
   padding-top: 0;
   padding-bottom: 110px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: auto;
   top: 0;
   left: ${props => (props.filtersOpen ? '0' : '100%')};
