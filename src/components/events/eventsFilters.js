@@ -16,20 +16,21 @@ import iconClose from '../../theme/assets/images/icon-close.svg'
 const FilterWrapper = styled(Flex)`
   display: block;
   background-color: ${props => props.theme.colors.white};
-  position: fixed;
+  position: absolute;
   padding-top: 0;
   padding-bottom: 0px;
   width: 100%;
   height: 100%;
   overflow: auto;
   top: 0;
-  left: ${props => (props.filtersOpen ? '0' : '100%')};
+  left: 100%;
   visibility: hidden;
   transition: left 0.15s linear, visibility 0s 0.15s linear;
   z-index: 1;
 
   &.open {
     transition: left 0.15s linear, visibility 0s 0s linear;
+    left: 0;
     visibility: visible;
   }
 
@@ -195,10 +196,14 @@ const ButtonWrapper = styled.div`
   background-color: ${props => props.theme.colors.white};
   position: fixed;
   bottom: 0;
-  left: ${props => (props.filtersOpen ? '0' : '100%')};
+  left: 100%;
   transition: left 0.15s linear;
   width: 100%;
   box-shadow: 0 -3px 5px 0 ${props => rgba(props.theme.colors.black, 0.1)};
+
+  &.open {
+    left: 0;
+  }
   
   ${media.tablet`
     display: none;
@@ -223,7 +228,7 @@ class EventsFilters extends Component {
       <Consumer>
         {context => (
           <FilterWrapper
-            className={this.props.showFiltersMobile ? 'open' : null}
+            className={this.props.showFiltersMobile && 'open'}
             mx={[
               0, // btwn 0 and first breakpoint (375px)
               0, // btwn 1st breakpoint(375px) and 2nd breakpoint (768px)
@@ -235,7 +240,6 @@ class EventsFilters extends Component {
             py={4}
             flexWrap="wrap"
             id="filters"
-            filtersOpen={this.props.showFiltersMobile}
           >
             <FilterHeader width={1}>
               <FilterHeaderInner>
@@ -312,7 +316,7 @@ class EventsFilters extends Component {
             <FlexColumn width={[1, 1, 0.5, 0.3333]}>
               <EventFreeFilter />
             </FlexColumn>
-            <ButtonWrapper filtersOpen={this.props.showFiltersMobile}>
+            <ButtonWrapper className={this.props.showFiltersMobile && 'open'}>
               <Button
                 primary
                 fullmobile
