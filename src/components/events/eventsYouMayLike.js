@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import moment from 'moment'
 import EventListingCard from './eventListingCard'
-import { ChevronRight } from '../../components/chevronRight'
+import ChevronRight from '../../components/chevronRight'
 import { Consumer } from '../../components/appContext'
 import { Container, Row, Column } from '../../components/grid'
 import { media } from '../../theme/media'
@@ -21,17 +21,7 @@ const FlexColumn = styled(Column)`
   display: flex;
 `
 
-const filterEventsYouMayLike = (events, eventId) => {
-  const filteredEvents = events.filter(event => {
-    if (event.node.id === eventId) return false
-
-    return moment(event.node.startTime).diff(moment(), 'hours') > 0
-  })
-
-  return filteredEvents.splice(0, 3)
-}
-
-const StyledContainer = styled(Container)`
+export const StyledContainer = styled(Container)`
   padding: 30px 0px;
   ${media.desktop`
     padding: 60px 0px;
@@ -65,10 +55,23 @@ const HeadingRow = styled(Row)`
   justify-content: space-between;
 `
 
-const EventsYouMayLike = ({ eventId }) => (
+const filterEventsYouMayLike = (events, eventId) => {
+  const filteredEvents = events.filter(event => {
+    if (event.node.id === eventId) return false
+
+    return moment(event.node.startTime).diff(moment(), 'hours') > 0
+  })
+
+  return filteredEvents.splice(0, 3)
+}
+
+export const EventsYouMayLike = ({ eventId }) => (
   <Consumer>
-    {({ events }) => {
-      const eventsYouMayLike = filterEventsYouMayLike(events, eventId)
+    {context => {
+      const eventsYouMayLike = filterEventsYouMayLike(
+        context.state.events,
+        eventId
+      )
 
       if (eventsYouMayLike.length === 0) return null
 
@@ -82,7 +85,7 @@ const EventsYouMayLike = ({ eventId }) => (
           </HeadingRow>
           <Row>
             {eventsYouMayLike.map(event => (
-              <FlexColumn width={[1, 1 / 2, 1 / 3, 1 / 3]} key={event.node.id}>
+              <FlexColumn width={[1, 1, 1 / 2, 1 / 3]} key={event.node.id}>
                 <EventListingCard event={event.node} />
               </FlexColumn>
             ))}

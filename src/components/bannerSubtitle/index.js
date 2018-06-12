@@ -11,6 +11,7 @@ const BannerSubtitle = styled.h2`
   line-height: 1.4;
   box-shadow: 10px 0 0 ${props => props.theme.colors.indigo},
     -10px 0 0 ${props => props.theme.colors.indigo};
+  box-decoration-break: clone;
 
   ${media.tablet`  
     font-size: 1.5rem;
@@ -22,7 +23,7 @@ const BannerSubtitleWrapper = styled.div`
   margin-left: 10px;
 
   ${media.tablet`  
-    max-width: 420px;
+    max-width: 520px;
   `};
 `
 
