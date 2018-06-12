@@ -111,9 +111,7 @@ export default class Event extends Component {
     } = this.props.data.contentfulEvent
 
     const metaImg = `${individualEventPicture.file.url}?w=1000&h=562`
-    const metaUrl =
-      typeof window !== 'undefined' &&
-      window.location.hostname + this.props.location.pathname
+    const metaUrl = typeof window !== 'undefined' && window.location.href
 
     return (
       <PageWrapper>
@@ -232,6 +230,12 @@ export default class Event extends Component {
           htmlAttributes={{
             itemtype: 'http://schema.org/Event',
           }}
+          link={[
+            {
+              rel: 'canonical',
+              href: metaUrl,
+            },
+          ]}
         />
         <HeroImageAndTitle>
           <HeroImage
