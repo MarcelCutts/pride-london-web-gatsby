@@ -153,19 +153,19 @@ export const EventListingCard = props => {
           className="card-img-wrapper"
           src={`${
             event.eventsListPicture.file.url
-          }?fit=fill&w=400&h=225&f=faces`}
+          }?fit=fill&w=400&h=225&f=faces&fm=jpg&q=75`}
         >
           <CardImage
             src={`${
               event.eventsListPicture.file.url
-            }?fit=fill&w=400&h=225&f=faces`}
+            }?fit=fill&w=400&h=225&f=faces&fm=jpg&q=75`}
             alt={event.eventsListPicture.title}
             width="400"
             height="225"
             itemProp="image"
             content={`${
               event.eventsListPicture.file.url
-            }?fit=fill&w=400&h=225&f=faces`}
+            }?fit=fill&w=400&h=225&f=faces&fm=jpg&q=75`}
           />
         </CardImageWrapper>
       </CardImageOverflow>
