@@ -202,6 +202,14 @@ export default class Event extends Component {
               property: 'og:url',
               content: metaUrl,
             },
+            {
+              property: 'og:image',
+              content: metaImg,
+            },
+            {
+              property: 'og:image:secure_url',
+              content: metaImg,
+            },
 
             // Twitter Meta Tags
             {

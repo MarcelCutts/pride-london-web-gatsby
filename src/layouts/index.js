@@ -59,6 +59,14 @@ const Layout = props => (
               content: 'website',
             },
             {
+              property: 'og:image',
+              content: metaImg,
+            },
+            {
+              property: 'og:image:secure_url',
+              content: metaImg,
+            },
+            {
               property: 'og:image:width',
               content: '1000',
             },
