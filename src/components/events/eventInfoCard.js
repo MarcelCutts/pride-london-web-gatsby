@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { rgba } from 'polished'
 import moment from 'moment'
 import { media } from '../../theme/media'
+import theme from '../../theme/theme'
 import {
   AccessibilityIcon,
   DateIcon,
@@ -17,7 +18,7 @@ import Button from '../../components/button'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
-  background-color: ${props => props.theme.colors.indigo};
+  background-color: ${theme.colors.indigo};
   display: flex;
   flex-direction: column;
   padding: 30px 20px;
@@ -83,7 +84,7 @@ const Item = ({ title, icon, detail, className }) => (
 
 const Hr = styled.hr`
   border: none;
-  border-top: 1px solid ${props => rgba(props.theme.colors.white, 0.3)};
+  border-top: 1px solid ${rgba(theme.colors.white, 0.3)};
   width: 100%;
   margin: 16px 0px 32px 0px;
 `

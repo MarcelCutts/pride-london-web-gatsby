@@ -168,36 +168,16 @@ class Provider extends Component {
     }
   }
 
+  previousFilters = null
+  previousFilteredEvents = null
+
   filterEvents = () => {
-    console.log('this.state.events', this.state.events)
-    return this.state.events.filter(event => {
-      console.log(
-        filterByCategory(
-          event,
-          'eventCategories',
-          this.state.filters.eventCategories
-        ),
-        filterByCategory(
-          event,
-          'venueDetails',
-          this.state.filters.venueDetails
-        ),
-        filterByCategory(
-          event,
-          'accessiblityOptions',
-          this.state.filters.accessiblityOptions
-        ),
-        filterByCategory(event, 'audience', this.state.filters.audience),
-        filterByDate(
-          event,
-          this.state.filters.startDate,
-          this.state.filters.endDate
-        ),
-        !this.state.filters.free || filterByFree(event),
-        filterByArea(event, this.state.filters.area),
-        filterByTime(event, this.state.filters.timeOfDay)
-      )
-      return (
+    if (this.state.filters === this.previousFilters) {
+      return this.previousFilteredEvents
+    }
+    this.previousFilters = this.state.filters
+    this.previousFilteredEvents = this.state.events.filter(
+      event =>
         filterByCategory(
           event,
           'eventCategories',
@@ -210,8 +190,8 @@ class Provider extends Component {
         ) &&
         filterByCategory(
           event,
-          'accessiblityOptions',
-          this.state.filters.accessiblityOptions
+          'accessibilityOptions',
+          this.state.filters.accessibilityOptions
         ) &&
         filterByCategory(event, 'audience', this.state.filters.audience) &&
         filterByDate(
@@ -222,8 +202,9 @@ class Provider extends Component {
         (!this.state.filters.free || filterByFree(event)) &&
         filterByArea(event, this.state.filters.area) &&
         filterByTime(event, this.state.filters.timeOfDay)
-      )
-    })
+    )
+
+    return this.previousFilteredEvents
   }
 
   showMore = filteredCount => {

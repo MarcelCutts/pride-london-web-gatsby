@@ -5,6 +5,7 @@ import 'react-dates/lib/css/_datepicker.css'
 import styled from 'styled-components'
 import { darken, lighten } from 'polished'
 import { media } from '../../../theme/media'
+import theme from '../../../theme/theme'
 import { Consumer } from '../../../components/appContext'
 import iconCalendar from '../../../theme/assets/images/icon-calendar.svg'
 
@@ -19,34 +20,30 @@ const DatePickerWrapper = styled.div`
   }
 
   .CalendarDay__selected {
-    background-color: ${props =>
-      darken(0.1, props.theme.colors.eucalyptusGreen)};
+    background-color: ${darken(0.1, theme.colors.eucalyptusGreen)};
     border: 1px solid #e4e7e7;
 
     &:hover {
-      background-color: ${props =>
-        darken(0.1, props.theme.colors.eucalyptusGreen)};
+      background-color: ${darken(0.1, theme.colors.eucalyptusGreen)};
       border: 1px solid #e4e7e7;
     }
   }
 
   .CalendarDay__selected_span {
-    background-color: ${props => props.theme.colors.eucalyptusGreen};
+    background-color: ${theme.colors.eucalyptusGreen};
     border: 1px solid #e4e7e7;
     &:active,
     &:hover {
-      background-color: ${props =>
-        lighten(0.1, props.theme.colors.eucalyptusGreen)};
+      background-color: ${lighten(0.1, theme.colors.eucalyptusGreen)};
       border: 1px solid #e4e7e7;
     }
   }
 
   .CalendarDay__hovered_span,
   .CalendarDay__hovered_span:hover {
-    background-color: ${props =>
-      lighten(0.1, props.theme.colors.eucalyptusGreen)};
+    background-color: ${lighten(0.1, theme.colors.eucalyptusGreen)};
     border: 1px solid #e4e7e7;
-    color: ${props => props.theme.colors.white};
+    color: ${theme.colors.white};
   }
 
   .DateRangePickerInput {
@@ -83,9 +80,9 @@ const DatePickerWrapper = styled.div`
   input.DateInput_input {
     appearance: none;
     border: none;
-    color: ${props => props.theme.colors.black};
+    color: ${theme.colors.black};
     font-size: 0.875rem;
-    font-family: ${props => props.theme.fonts.body};
+    font-family: ${theme.fonts.body};
     line-height: 1.214;
     box-sizing: border-box;
     display: block;
@@ -94,13 +91,13 @@ const DatePickerWrapper = styled.div`
     padding: 25px 0;
 
     &::placeholder {
-      color: ${props => props.theme.colors.black};
+      color: ${theme.colors.black};
       opacity: 1;
     }
   }
 
   .DayPickerKeyboardShortcuts_show__bottomRight {
-    border-right-color: ${props => props.theme.colors.eucalyptusGreen};
+    border-right-color: ${theme.colors.eucalyptusGreen};
   }
 
   ${media.tablet`
@@ -144,12 +141,12 @@ const Label = styled.label`
 `
 
 const DatePickerHeader = styled.div`
-  background-color: ${props => props.theme.colors.lightGrey};
+  background-color: ${theme.colors.lightGrey};
   font-size: 1rem;
-  font-family: ${props => props.theme.fonts.title};
+  font-family: ${theme.fonts.title};
   font-weight: 600;
   padding: 16px 10px;
-  color: ${props => props.theme.colors.indigo};
+  color: ${theme.colors.indigo};
 
   ${media.mobile`
     padding: 16px 20px;

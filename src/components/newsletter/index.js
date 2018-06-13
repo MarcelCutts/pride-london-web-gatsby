@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Row, Column } from '../grid'
 import { media } from '../../theme/media'
+import theme from '../../theme/theme'
 
 const StyledInput = styled.input`
   font-size: 1.25em;
@@ -22,10 +23,10 @@ const StyledInput = styled.input`
 `
 
 export const StyledButton = styled.input`
-  background-color: ${props => props.theme.colors.eucalyptusGreen};
+  background-color: ${theme.colors.eucalyptusGreen};
   border: none;
   border-radius: 4px;
-  color: ${props => props.theme.colors.indigo};
+  color: ${theme.colors.indigo};
   cursor: pointer;
   height: 40px;
   font-size: 1rem;

@@ -11,10 +11,11 @@ import EventDropdownFilter from './filters/eventDropdownFilter'
 import Button from '../button'
 import iconClear from '../../theme/assets/images/icon-clear.svg'
 import iconClose from '../../theme/assets/images/icon-close.svg'
+import theme from '../../theme/theme'
 
 const FilterWrapper = styled(Flex)`
   display: block;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${theme.colors.white};
   position: fixed;
   padding-top: 0;
   padding-bottom: 0px;
@@ -67,7 +68,7 @@ const FlexColumn = styled(Box)`
 `
 
 const FilterHeader = styled(Box)`
-  background-color: ${props => props.theme.colors.indigo};
+  background-color: ${theme.colors.indigo};
   min-height: 90px;
   display: flex;
   align-items: center;
@@ -95,22 +96,22 @@ const FilterHeaderInner = styled.div`
   flex-basis: 100%;
   justify-content: space-between;
 
-  @media (min-width: ${props => props.theme.breakpoints[0]}) {
+  @media (min-width: ${theme.breakpoints[0]}) {
     padding: 20px;
   }
 
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+  @media (min-width: ${theme.breakpoints[1]}) {
     padding: 0;
   }
 `
 
 const Label = styled.span`
-  color: ${props => props.theme.colors.white};
-  font-family: ${props => props.theme.fonts.title};
+  color: ${theme.colors.white};
+  font-family: ${theme.fonts.title};
   font-weight: 600;
 
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    color: ${props => props.theme.colors.indigo};
+  @media (min-width: ${theme.breakpoints[1]}) {
+    color: ${theme.colors.indigo};
   }
 `
 
@@ -118,7 +119,7 @@ const ClearButton = styled.button`
   border: none;
   font-size: 0.875rem;
   font-weight: 500;
-  color: ${props => props.theme.colors.indigo};
+  color: ${theme.colors.indigo};
   padding: 10px 0 10px 25px;
   position: absolute;
   right: 10px;
@@ -192,13 +193,13 @@ const CloseButton = styled.button`
 const ButtonWrapper = styled.div`
   display: block;
   padding: 20px;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${theme.colors.white};
   position: fixed;
   bottom: 0;
   left: 100%;
   transition: left 0.15s linear;
   width: 100%;
-  box-shadow: 0 -3px 5px 0 ${props => rgba(props.theme.colors.black, 0.1)};
+  box-shadow: 0 -3px 5px 0 ${rgba(theme.colors.black, 0.1)};
 
   &.open {
     left: 0;
