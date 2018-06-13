@@ -169,32 +169,61 @@ class Provider extends Component {
   }
 
   filterEvents = () => {
-    const filteredEvents = this.state.events
-      .filter(filterByDate, {
-        startDate: this.state.filters.startDate,
-        endDate: this.state.filters.endDate,
-      })
-      .filter(filterByFree, this.state.filters.free)
-      .filter(filterByCategory, {
-        array: this.state.filters.eventCategories,
-        key: 'eventCategories',
-      })
-      .filter(filterByCategory, {
-        array: this.state.filters.venueDetails,
-        key: 'venueDetails',
-      })
-      .filter(filterByCategory, {
-        array: this.state.filters.accessibilityOptions,
-        key: 'accessibilityOptions',
-      })
-      .filter(filterByCategory, {
-        array: this.state.filters.audience,
-        key: 'audience',
-      })
-      .filter(filterByArea, this.state.filters.area)
-      .filter(filterByTime, this.state.filters.timeOfDay)
-
-    return filteredEvents
+    console.log('this.state.events', this.state.events)
+    return this.state.events.filter(event => {
+      console.log(
+        filterByCategory(
+          event,
+          'eventCategories',
+          this.state.filters.eventCategories
+        ),
+        filterByCategory(
+          event,
+          'venueDetails',
+          this.state.filters.venueDetails
+        ),
+        filterByCategory(
+          event,
+          'accessiblityOptions',
+          this.state.filters.accessiblityOptions
+        ),
+        filterByCategory(event, 'audience', this.state.filters.audience),
+        filterByDate(
+          event,
+          this.state.filters.startDate,
+          this.state.filters.endDate
+        ),
+        !this.state.filters.free || filterByFree(event),
+        filterByArea(event, this.state.filters.area),
+        filterByTime(event, this.state.filters.timeOfDay)
+      )
+      return (
+        filterByCategory(
+          event,
+          'eventCategories',
+          this.state.filters.eventCategories
+        ) &&
+        filterByCategory(
+          event,
+          'venueDetails',
+          this.state.filters.venueDetails
+        ) &&
+        filterByCategory(
+          event,
+          'accessiblityOptions',
+          this.state.filters.accessiblityOptions
+        ) &&
+        filterByCategory(event, 'audience', this.state.filters.audience) &&
+        filterByDate(
+          event,
+          this.state.filters.startDate,
+          this.state.filters.endDate
+        ) &&
+        (!this.state.filters.free || filterByFree(event)) &&
+        filterByArea(event, this.state.filters.area) &&
+        filterByTime(event, this.state.filters.timeOfDay)
+      )
+    })
   }
 
   showMore = filteredCount => {

@@ -51,34 +51,36 @@ const formatDate = event => {
   return dateTime
 }
 
-function filterByDate(event) {
-  if (!(this.startDate && this.endDate)) return true
-
-  // Set time to 12:00 for pure date comparison
-  return moment(event.node.startTime)
-    .set({ hour: 12, minutes: 0 })
-    .isBetween(this.startDate, this.endDate, null, '[]')
+function filterByDate(event, startDate, endDate) {
+  return (
+    !startDate ||
+    !endDate ||
+    moment(event.node.startTime)
+      .set({ hour: 12, minutes: 0 })
+      .isBetween(startDate, endDate, null, '[]')
+  )
 }
 
 function filterByFree(event) {
-  if (!this) return true
   return event.node.eventPriceLow === 0
 }
 
-function filterByCategory(event) {
-  const { key } = this
-  if (this.array.length === 0) return true
-
-  return this.array.some(category => {
-    if (Array.isArray(event.node[key])) {
-      return event.node[key].indexOf(category) >= 0
-    }
-    return false
-  })
+function filterByCategory(event, key, categories) {
+  return (
+    !categories ||
+    categories.length === 0 ||
+    categories.some(category => {
+      return (
+        Array.isArray(event.node[key]) && event.node[key].indexOf(category) >= 0
+      )
+    })
+  )
 }
 
-function filterByArea(event) {
-  if (this.length === 0) return true
+function filterByArea(event, areas) {
+  if (areas.length === 0) {
+    return true
+  }
 
   if (typeof event.node.postcode === 'string') {
     let area
@@ -103,13 +105,16 @@ function filterByArea(event) {
       default:
         return false
     }
-    return this.indexOf(area) !== -1
+    return areas.indexOf(area) !== -1
   }
   return false
 }
 
-function filterByTime(event) {
-  if (this.length === 0) return true
+function filterByTime(event, times) {
+  if (times.length === 0) {
+    return true
+  }
+
   const format = 'HH:mm'
   const startTime = moment(event.node.startTime).format(format)
   const afternoonStart = '12:00'
@@ -130,7 +135,7 @@ function filterByTime(event) {
     default:
       return false
   }
-  return this.indexOf(timeOfDay) !== -1
+  return times.indexOf(timeOfDay) !== -1
 }
 
 function filterPastEvents(event) {
