@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { rgba } from 'polished'
-import { media } from '../../theme/media'
 
 const Field = styled.div`
   margin-bottom: 20px;
@@ -22,20 +21,31 @@ const StyledInput = styled.input`
   color: ${props => props.theme.colors.white};
   padding: 21px 20px;
   width: 100%;
-  ${media.tablet`
-  `};
+  transition: padding 0.15s linear;
+
+  &:focus {
+    padding: 31px 20px 11px 20px;
+    border: 2px solid ${props => props.theme.colors.eucalyptusGreen};
+    outline: none;
+  }
 `
 
 const Label = styled.label`
   position: absolute;
   transition: all 0.15s linear;
-  top: ${props => !props.focused ? '21px' : '0'};
+  top: ${props => (!props.focused && props.empty ? '21px' : '10px')};
   left: 20px;
-  color: ${props => props.theme.colors.white};
+  color: ${props =>
+    !props.focused && props.empty
+      ? props.theme.colors.white
+      : props.theme.colors.eucalyptusGreen};
   font-family: ${props => props.theme.fonts.body};
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: ${props =>
+    !props.focused && props.empty ? '0.875rem' : '0.75rem'};
   line-height: 1.21;
+  opacity: ${props =>
+    props.focused ? 1 : !props.focused && props.empty ? 1 : 0};
 `
 
 class Input extends Component {
@@ -44,32 +54,30 @@ class Input extends Component {
     focused: false,
   }
 
-  handleChange = (e) => {
-    this.setState({value: e.target.value}, ()=> {
-      if(this.props.handleChange) {
+  handleChange = e => {
+    this.setState({ value: e.target.value }, () => {
+      if (this.props.handleChange) {
         this.props.handleChange(this.state.value)
       }
     })
   }
 
   render() {
-    console.log("input rendering")
     return (
-      <Field>    
+      <Field className={this.props.className}>
         <StyledInput
           type={this.props.type}
           id={this.props.id}
           value={this.state.value}
           onChange={this.handleChange}
           required={this.props.required}
-          onFocus={() => this.setState({focused: true})}
-          onBlur={() => this.setState({focused: false})}
-
+          onFocus={() => this.setState({ focused: true })}
+          onBlur={() => this.setState({ focused: false })}
         />
-        <Label 
+        <Label
           for={this.props.id}
           focused={this.state.focused}
-          empty={this.state.value}
+          empty={this.state.value.length === 0}
         >
           {this.props.label}
         </Label>
@@ -90,6 +98,5 @@ Input.defaultProps = {
   required: false,
   handleChange: null,
 }
-
 
 export default Input

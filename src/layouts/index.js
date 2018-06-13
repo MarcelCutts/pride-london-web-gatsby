@@ -115,9 +115,9 @@ const Layout = props => (
             itemtype: 'http://schema.org/WebPage',
           }}
         />
-        <SimpleNav/>
+        <SimpleNav />
         <main>{props.children()}</main>
-        <Footer/>
+        <Footer />
       </Fragment>
     </ThemeProvider>
   </Provider>
