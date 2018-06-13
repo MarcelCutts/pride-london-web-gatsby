@@ -148,6 +148,13 @@ export class EventListingCard extends React.Component {
   render() {
     const { event } = this.props
     const { date, time } = formatDate(event)
+
+    const imageUrl =
+      event.eventsListPicture &&
+      `${
+        event.eventsListPicture.file.url
+      }?fit=fill&w=400&h=225&f=faces&fm=jpg&q=75`
+
     return (
       <Card
         to={`/events/${event.id}`}
@@ -155,23 +162,14 @@ export class EventListingCard extends React.Component {
         itemType="http://schema.org/Event"
       >
         <CardImageOverflow>
-          <CardImageWrapper
-            className="card-img-wrapper"
-            src={`${
-              event.eventsListPicture.file.url
-            }?fit=fill&w=400&h=225&f=faces&fm=jpg&q=75`}
-          >
+          <CardImageWrapper className="card-img-wrapper" src={imageUrl}>
             <CardImage
-              src={`${
-                event.eventsListPicture.file.url
-              }?fit=fill&w=400&h=225&f=faces&fm=jpg&q=75`}
-              alt={event.eventsListPicture.title}
+              src={imageUrl}
+              alt={event.eventsListPicture && event.eventsListPicture.title}
               width="400"
               height="225"
               itemProp="image"
-              content={`${
-                event.eventsListPicture.file.url
-              }?fit=fill&w=400&h=225&f=faces&fm=jpg&q=75`}
+              content={imageUrl}
             />
           </CardImageWrapper>
         </CardImageOverflow>
