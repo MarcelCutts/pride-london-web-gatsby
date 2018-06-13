@@ -140,6 +140,16 @@ class Events extends Component {
     return <EventCount>{text}</EventCount>
   }
 
+  isMobile() {
+    return typeof window !== 'undefined' && window.innerWidth < 1024
+  }
+
+  renderEventCards(context) {
+    return context.filteredEvents
+      .filter(filterByLimit, context.state.eventsToShow)
+      .map((event, index, events) => this.renderCard(event, index, events))
+  }
+
   render() {
     return (
       <Consumer>
@@ -184,13 +194,13 @@ class Events extends Component {
             </ContainerAddFilters>
             <Container>
               <Row>
-                <StyledFlipMove>
-                  {context.filteredEvents
-                    .filter(filterByLimit, context.state.eventsToShow)
-                    .map((event, index, events) =>
-                      this.renderCard(event, index, events)
-                    )}
-                </StyledFlipMove>
+                {this.isMobile() ? (
+                  this.renderEventCards(context)
+                ) : (
+                  <StyledFlipMove>
+                    {this.renderEventCards(context)}
+                  </StyledFlipMove>
+                )}
                 <ColumnPagination width={1}>
                   {this.renderEventCount(
                     context.filteredEvents.length,
