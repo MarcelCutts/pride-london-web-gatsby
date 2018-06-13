@@ -12,6 +12,8 @@ import metaImg from '../theme/assets/images/Pride-in-London-2018-save-the-date10
 import './index.css'
 import './fonts.css'
 
+const metaUrl = typeof window !== 'undefined' && window.location.href
+
 const Layout = props => (
   <Provider events={props.data.allContentfulEvent.edges}>
     <ThemeProvider theme={theme}>
@@ -31,7 +33,7 @@ const Layout = props => (
             },
             {
               itemprop: 'url',
-              content: props.data.site.siteMetadata.url,
+              content: metaUrl,
             },
             {
               itemprop: 'thumbnailUrl',
@@ -52,7 +54,7 @@ const Layout = props => (
             },
             {
               property: 'og:url',
-              content: props.data.site.siteMetadata.url,
+              content: metaUrl,
             },
             {
               property: 'og:type',
@@ -89,7 +91,7 @@ const Layout = props => (
             },
             {
               name: 'twitter:url',
-              content: props.data.site.siteMetadata.url,
+              content: metaUrl,
             },
           ]}
           link={[
@@ -100,6 +102,10 @@ const Layout = props => (
             {
               rel: 'image_src',
               content: metaImg,
+            },
+            {
+              rel: 'canonical',
+              href: metaUrl,
             },
           ]}
           htmlAttributes={{
