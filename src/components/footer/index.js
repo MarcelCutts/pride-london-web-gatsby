@@ -85,32 +85,50 @@ export const Footer = () => (
         <Heading>Follow us on</Heading>
         <SocialList>
           <SocialItem>
-            <SocialLink href="" aria-label="Link to Facebook page">
+            <SocialLink
+              href="https://www.facebook.com/pg/LondonLGBTPride"
+              aria-label="Link to Facebook page"
+            >
               <Facebook />
             </SocialLink>
           </SocialItem>
           <SocialItem>
-            <SocialLink href="" aria-label="Link to Twitter page">
+            <SocialLink
+              href="https://twitter.com/PrideInLondon"
+              aria-label="Link to Twitter page"
+            >
               <Twitter />
             </SocialLink>
           </SocialItem>
           <SocialItem>
-            <SocialLink href="" aria-label="Link to Instagram page">
+            <SocialLink
+              href="http://instagram.com/prideinlondon"
+              aria-label="Link to Instagram page"
+            >
               <Instagram />
             </SocialLink>
           </SocialItem>
           <SocialItem>
-            <SocialLink href="" aria-label="Link to Youtube channel">
+            <SocialLink
+              href="https://www.youtube.com/user/LondonLGBTPride?sub_confirmation=1"
+              aria-label="Link to Youtube channel"
+            >
               <Youtube />
             </SocialLink>
           </SocialItem>
           <SocialItem>
-            <SocialLink href="" aria-label="Link to LinkedIn page">
+            <SocialLink
+              href="https://www.linkedin.com/company/prideinlondon"
+              aria-label="Link to LinkedIn page"
+            >
               <LinkedIn />
             </SocialLink>
           </SocialItem>
           <SocialItem>
-            <SocialLink href="" aria-label="Link to Snapchat page">
+            <SocialLink
+              href="http://www.snapchat.com/add/LondonLGBTPride"
+              aria-label="Link to Snapchat page"
+            >
               <Snapchat />
             </SocialLink>
           </SocialItem>
