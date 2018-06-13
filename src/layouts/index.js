@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import { Provider } from '../components/appContext'
 // import Navigation from '../components/navigation'
 import SimpleNav from '../components/simpleNav'
+import Footer from '../components/footer'
 import theme from '../theme/theme'
 import favicon from '../favicon.ico'
 import metaImg from '../theme/assets/images/Pride-in-London-2018-save-the-date1024.jpg'
@@ -114,8 +115,9 @@ const Layout = props => (
             itemtype: 'http://schema.org/WebPage',
           }}
         />
-        <SimpleNav />
+        <SimpleNav/>
         <main>{props.children()}</main>
+        <Footer/>
       </Fragment>
     </ThemeProvider>
   </Provider>
