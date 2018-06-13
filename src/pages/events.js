@@ -32,6 +32,12 @@ const StyledFlipMove = styled(FlipMove)`
   flex-basis: 100%;
 `
 
+const CardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+`
+
 const ContainerAddFilters = styled(Container)`
   padding: 20px 0;
   margin-bottom: 20px;
@@ -145,9 +151,22 @@ class Events extends Component {
   }
 
   renderEventCards(context) {
-    return context.filteredEvents
+    const cards = context.filteredEvents
       .filter(filterByLimit, context.state.eventsToShow)
       .map((event, index, events) => this.renderCard(event, index, events))
+
+    if (this.isMobile()) {
+      return cards
+    }
+
+    // only use flip-move for the top few rows, so you get the
+    // transtions when applying filters but not when loading more
+    return (
+      <div>
+        <StyledFlipMove>{cards.slice(0, 12)}</StyledFlipMove>
+        <CardWrapper>{cards.slice(12)}</CardWrapper>
+      </div>
+    )
   }
 
   render() {
@@ -194,13 +213,7 @@ class Events extends Component {
             </ContainerAddFilters>
             <Container>
               <Row>
-                {this.isMobile() ? (
-                  this.renderEventCards(context)
-                ) : (
-                  <StyledFlipMove>
-                    {this.renderEventCards(context)}
-                  </StyledFlipMove>
-                )}
+                {this.renderEventCards(context)}
                 <ColumnPagination width={1}>
                   {this.renderEventCount(
                     context.filteredEvents.length,

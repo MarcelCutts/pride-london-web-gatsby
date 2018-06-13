@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { formatDate, formatPrice } from './helpers'
 import { media } from '../../theme/media'
 import theme from '../../theme/theme'
 
-const Card = styled(Link)`
+const Card = styled.a`
   display: block;
   border-radius: 5px;
   text-decoration: none;
@@ -17,6 +16,10 @@ const Card = styled(Link)`
   width: 100%;
   min-height: 130px;
   background-color: ${theme.colors.white};
+
+  transform: scale(0.2);
+  opacity: 0;
+  transition: transform 0.2s ease-out, opacity 0.15s ease-out;
 
   &:hover,
   &:focus {
@@ -142,6 +145,10 @@ const CardHeading = styled.h3`
 
 /* eslint-disable-next-line */
 export class EventListingCard extends React.Component {
+  componentDidMount() {
+    this.wrapperRef.style.opacity = '1'
+    this.wrapperRef.style.transform = 'scale(1)'
+  }
   shouldComponentUpdate() {
     return false
   }
@@ -157,9 +164,10 @@ export class EventListingCard extends React.Component {
 
     return (
       <Card
-        to={`/events/${event.id}`}
+        href={`/events/${event.id}`}
         itemScope
         itemType="http://schema.org/Event"
+        innerRef={ref => (this.wrapperRef = ref)}
       >
         <CardImageOverflow>
           <CardImageWrapper className="card-img-wrapper" src={imageUrl}>
