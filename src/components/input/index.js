@@ -10,7 +10,7 @@ const Field = styled.div`
 
 const StyledInput = styled.input`
   appearance: none;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 4px;
   height: 58px;
   background-color: ${props => rgba(props.theme.colors.black, 0.2)};
@@ -21,7 +21,7 @@ const StyledInput = styled.input`
   color: ${props => props.theme.colors.white};
   padding: 21px 20px;
   width: 100%;
-  transition: padding 0.15s linear;
+  transition: padding 0.15s linear, border-color 0.15s linear;
 
   &:focus {
     padding: 31px 20px 11px 20px;
