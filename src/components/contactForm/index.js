@@ -37,8 +37,13 @@ const Wrapper = styled.div`
 
   button {
     border: none;
-  }
 
+    img {
+      margin-right: 7px;
+      width: 18px;
+    }
+  }
+  
   .submit {
     background-size: 20px !important;
   }
@@ -161,7 +166,8 @@ const StyledTitle = styled.h3`
 
 class ContactForm extends React.Component {
   state = {
-    sent: false,
+    isSent: false,
+    buttonText: "Send question"
   }
 
   showLabels = e => {
@@ -199,18 +205,17 @@ class ContactForm extends React.Component {
   }
 
   changeButtonText = button => {
-    if (this.state.sent === true) {
-      button.target.innerText = 'Sending...'
-    } else {
-      button.target.innerText = 'Sent!'
-      button.target.style.background = `url(${check}) ${
-        theme.colors.eucalyptusGreen
-      } no-repeat 38% 47%`
-      button.target.style.backgroundSize = '20px'
-    }
+
+    this.setState({
+        isSent: !this.state.isSent,
+        buttonText: "Sent!"
+    })
   }
 
   render() {
+
+    const { isSent } = this.state
+    
     return (
       <Wrapper>
         <StyledTitle>Can't find what you need?</StyledTitle>
@@ -243,12 +248,13 @@ class ContactForm extends React.Component {
           />
           <StyledLabel htmlFor="question">Question</StyledLabel>
         </StyledSpan>
-        <Button
+        <Button isSent={isSent}
           className="submit"
           onClick={e => this.changeButtonText(e)}
           primary
         >
-          Send question
+          <img src={check} style={{ display: (isSent ? 'inline' : 'none')}} />
+          {this.state.buttonText}
         </Button>
         <AddressBox>
           <StyledTitle>Or write to us..</StyledTitle>
