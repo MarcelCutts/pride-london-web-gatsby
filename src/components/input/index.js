@@ -75,7 +75,7 @@ class Input extends Component {
           onBlur={() => this.setState({ focused: false })}
         />
         <Label
-          for={this.props.id}
+          htmlFor={this.props.id}
           focused={this.state.focused}
           empty={this.state.value.length === 0}
         >
