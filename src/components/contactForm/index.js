@@ -167,7 +167,7 @@ const StyledTitle = styled.h3`
 class ContactForm extends React.Component {
   state = {
     isSent: false,
-    buttonText: "Send question"
+    buttonText: 'Send question',
   }
 
   showLabels = e => {
@@ -205,17 +205,15 @@ class ContactForm extends React.Component {
   }
 
   changeButtonText = button => {
-
     this.setState({
-        isSent: !this.state.isSent,
-        buttonText: "Sent!"
+      isSent: !this.state.isSent,
+      buttonText: 'Sent!',
     })
   }
 
   render() {
-
     const { isSent } = this.state
-    
+
     return (
       <Wrapper>
         <StyledTitle>Can't find what you need?</StyledTitle>
@@ -248,12 +246,13 @@ class ContactForm extends React.Component {
           />
           <StyledLabel htmlFor="question">Question</StyledLabel>
         </StyledSpan>
-        <Button isSent={isSent}
+        <Button
+          isSent={isSent}
           className="submit"
           onClick={e => this.changeButtonText(e)}
           primary
         >
-          <img src={check} style={{ display: (isSent ? 'inline' : 'none')}} />
+          <img src={check} style={{ display: isSent ? 'inline' : 'none' }} />
           {this.state.buttonText}
         </Button>
         <AddressBox>
