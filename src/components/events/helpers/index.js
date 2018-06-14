@@ -1,5 +1,11 @@
 const moment = require('moment')
-const { dateFormat } = require('../../../constants')
+
+const formatPrice = (eventPriceLow, eventPriceHigh) => {
+  if (eventPriceLow === 0 && (eventPriceHigh === 0 || eventPriceHigh == null)) {
+    return 'Free'
+  }
+  return `From £${eventPriceLow.toFixed(2).replace('.00', '')}`
+}
 
 const formatTime = time => {
   if (moment(time).format('mm') === '00') {
@@ -23,50 +29,58 @@ const formatDate = event => {
   const startTime = formatTime(event.startTime)
   const endTime = formatTime(event.endTime)
 
-  const dateTime = {
-    time: `${startTime} - ${endTime}`,
+  const dateTime = {}
+
+  switch (true) {
+    case startDate === endDate && startTime === endTime:
+      dateTime.date = `${startDay} ${startMonth} ${year}`
+      dateTime.time = `${startTime}`
+      break
+    case startDate === endDate:
+      dateTime.date = `${startDay} ${startMonth} ${year}`
+      dateTime.time = `${startTime} - ${endTime}`
+      break
+    case startMonth === endMonth:
+      dateTime.date = `${startDay} - ${endDay} ${startMonth} ${year}`
+      dateTime.time = `${startTime} - ${endTime}`
+    default:
+      dateTime.date = `${startDay} ${startMonth} - ${endDay} ${endMonth} ${year}`
+      dateTime.time = `${startTime} - ${endTime}`
   }
 
-  if (startDate === endDate) {
-    dateTime.date = `${startDay} ${startMonth} ${year}`
-    return dateTime
-  } else if (startMonth === endMonth) {
-    dateTime.date = `${startDay} - ${endDay} ${startMonth} ${year}`
-    return dateTime
-  }
-
-  dateTime.date = `${startDay} ${startMonth} - ${endDay} ${endMonth} ${year}`
   return dateTime
 }
 
-function filterByDate(event) {
-  if (!(this.startDate && this.endDate)) return true
-
-  // Set time to 12:00 for pure date comparison
-  return moment(event.node.startTime)
-    .set({ hour: 12, minutes: 0 })
-    .isBetween(this.startDate, this.endDate, null, '[]')
+function filterByDate(event, startDate, endDate) {
+  return (
+    !startDate ||
+    !endDate ||
+    moment(event.node.startTime)
+      .set({ hour: 12, minutes: 0 })
+      .isBetween(startDate, endDate, null, '[]')
+  )
 }
 
 function filterByFree(event) {
-  if (!this) return true
   return event.node.eventPriceLow === 0
 }
 
-function filterByCategory(event) {
-  const { key } = this
-  if (this.array.length === 0) return true
-
-  return this.array.some(category => {
-    if (Array.isArray(event.node[key])) {
-      return event.node[key].indexOf(category) >= 0
-    }
-    return false
-  })
+function filterByCategory(event, key, categories) {
+  return (
+    !categories ||
+    categories.length === 0 ||
+    categories.some(category => {
+      return (
+        Array.isArray(event.node[key]) && event.node[key].indexOf(category) >= 0
+      )
+    })
+  )
 }
 
-function filterByArea(event) {
-  if (this.length === 0) return true
+function filterByArea(event, areas) {
+  if (areas.length === 0) {
+    return true
+  }
 
   if (typeof event.node.postcode === 'string') {
     let area
@@ -91,13 +105,16 @@ function filterByArea(event) {
       default:
         return false
     }
-    return this.indexOf(area) !== -1
+    return areas.indexOf(area) !== -1
   }
   return false
 }
 
-function filterByTime(event) {
-  if (this.length === 0) return true
+function filterByTime(event, times) {
+  if (times.length === 0) {
+    return true
+  }
+
   const format = 'HH:mm'
   const startTime = moment(event.node.startTime).format(format)
   const afternoonStart = '12:00'
@@ -118,7 +135,7 @@ function filterByTime(event) {
     default:
       return false
   }
-  return this.indexOf(timeOfDay) !== -1
+  return times.indexOf(timeOfDay) !== -1
 }
 
 function filterPastEvents(event) {
@@ -131,19 +148,9 @@ function filterByLimit(event, index) {
 }
 
 function sanitizeDates(dates) {
-  const formattedDates = []
-  dates.map(date => {
-    const [day, month, year] = date.split('/')
-
-    // Format date to be DD/MM/YYYY
-    const formattedDate = `${day.length === 1 ? `0${day}` : day}/${
-      month.length === 1 ? `0${month}` : month
-    }/${year.length === 2 ? `20${year}` : year}`
-
-    // Create array of valid dates
-    if (moment(formattedDate, dateFormat).isValid()) {
-      formattedDates.push(formattedDate)
-    }
+  const formattedDates = dates.map(date => {
+    const [day, month, year] = date.split('/').map(Number)
+    return moment([year, month - 1, day]).toISOString()
   })
   // Strip duplicates and return
   return Array.from(new Set([...formattedDates]))
@@ -165,4 +172,5 @@ module.exports = {
   filterByLimit,
   sanitizeDates,
   getDuration,
+  formatPrice,
 }

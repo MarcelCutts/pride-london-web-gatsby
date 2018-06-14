@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { rgba } from 'polished'
 import moment from 'moment'
 import { media } from '../../theme/media'
+import theme from '../../theme/theme'
 import {
   AccessibilityIcon,
   DateIcon,
@@ -11,11 +13,12 @@ import {
   PhoneIcon,
   TicketIcon,
 } from '../../components/icons'
+import { formatPrice } from './helpers'
 import Button from '../../components/button'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
-  background-color: ${props => props.theme.colors.indigo};
+  background-color: ${theme.colors.indigo};
   display: flex;
   flex-direction: column;
   padding: 30px 20px;
@@ -57,21 +60,31 @@ const Title = styled.h3`
 const Detail = styled.p`
   margin: 0;
   font-size: 0.875rem;
+
+  ${media.desktop`
+    &.ellipsis {
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 280px;
+    }
+  `};
 `
 
-const Item = ({ title, icon, detail }) => (
+const Item = ({ title, icon, detail, className }) => (
   <Row>
     <IconWrapper>{icon}</IconWrapper>
     <div>
       {title && <Title>{title}</Title>}
-      {detail && <Detail>{detail}</Detail>}
+      {detail && <Detail className={className}>{detail}</Detail>}
     </div>
   </Row>
 )
 
 const Hr = styled.hr`
   border: none;
-  border-top: 1px solid ${props => props.theme.colors.eucalyptusGreen};
+  border-top: 1px solid ${rgba(theme.colors.white, 0.3)};
   width: 100%;
   margin: 16px 0px 32px 0px;
 `
@@ -85,23 +98,26 @@ const VSpace = styled.div`
 const dateFormat = 'D MMMM YYYY'
 
 const formatDayRange = (startTime, endTime) => {
-  if (startTime.isSame('day', endTime)) {
-    return startTime.format(dateFormat)
+  const startDay = startTime.format(dateFormat)
+  const endDay = endTime.format(dateFormat)
+
+  if (startDay === endDay) {
+    return startDay
   }
 
-  return `${startTime.format(dateFormat)} to ${endTime.format(dateFormat)}`
+  return `${startDay} to ${endDay}`
 }
 
 const timeFormat = 'h:mma'
 
-const formatTimeRange = (startTime, endTime) =>
-  `${startTime.format(timeFormat)} to ${endTime.format(timeFormat)}`
+const formatTimeRange = (startTime, endTime) => {
+  const start = startTime.format(timeFormat)
+  const end = endTime.format(timeFormat)
 
-const formatPrice = (eventPriceLow, eventPriceHigh) => {
-  if (eventPriceLow === 0 && eventPriceHigh === 0) {
-    return 'Free'
+  if (start !== end) {
+    return `${start} to ${end}`
   }
-  return `From £${eventPriceLow}`
+  return start
 }
 
 const formatAddress = (addressLine1, addressLine2, city, postcode) => {
@@ -135,8 +151,6 @@ export default function EventInfoCard({
     addressLine2,
     city,
     postcode,
-    startTime,
-    endTime,
     eventPriceLow,
     eventPriceHigh,
     email,
@@ -145,6 +159,7 @@ export default function EventInfoCard({
     ticketingUrl,
     accessibilityOptions,
   },
+  pathContext: { startTime, endTime },
 }) {
   return (
     <Wrapper>
@@ -156,10 +171,12 @@ export default function EventInfoCard({
             detail={formatTimeRange(moment(startTime), moment(endTime))}
           />
         )}
-      <Item
-        icon={<TicketIcon />}
-        title={formatPrice(eventPriceLow, eventPriceHigh)}
-      />
+      {eventPriceLow != 'null' && (
+        <Item
+          icon={<TicketIcon />}
+          title={formatPrice(eventPriceLow, eventPriceHigh)}
+        />
+      )}
       <Item
         icon={<MapPinIcon />}
         title={locationName}
@@ -181,6 +198,7 @@ export default function EventInfoCard({
       {(email || phone || ticketingUrl) && <Hr />}
       {email && (
         <Item
+          className="ellipsis"
           icon={<MailIcon role="presentation" />}
           detail={
             <Link href={`mailto:${email}`} aria-label="email the venue">
@@ -225,6 +243,11 @@ EventInfoCard.propTypes = {
     ticketingUrl: PropTypes.string,
     accessibilityOptions: PropTypes.arrayOf(PropTypes.string),
     venueDetails: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+  pathContext: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    startTime: PropTypes.string.isRequired,
+    endTime: PropTypes.string.isRequired,
   }).isRequired,
 }
 

@@ -31,7 +31,8 @@ export const Button = props => {
     text-align: center;
     transition: background-color 0.15s linear;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: ${styleProps =>
         styleProps.primary
           ? darken(0.1, styleProps.theme.colors.eucalyptusGreen)

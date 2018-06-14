@@ -12,7 +12,6 @@ const StyledContainer = styled(Container)`
   min-height: 270px;
   overflow: hidden;
   position: relative;
-  background-color: ${props => props.color};
   padding-bottom: 35px;
 
   & img {
@@ -35,7 +34,7 @@ const StyledRow = styled(Row)`
 `
 
 const ImageBanner = ({ titleText, subtitleText, imageSrc, altText, color }) => (
-  <StyledContainer color={color}>
+  <StyledContainer style={{ backgroundColor: color }}>
     {imageSrc && <img src={imageSrc} alt={altText} />}
     <StyledRow>
       <Column width={1}>

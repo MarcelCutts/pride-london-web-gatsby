@@ -7,10 +7,11 @@ import ChevronRight from '../../components/chevronRight'
 import { Consumer } from '../../components/appContext'
 import { Container, Row, Column } from '../../components/grid'
 import { media } from '../../theme/media'
+import theme from '../../theme/theme'
 
 const ViewAll = styled.a`
-  color: ${props => props.theme.colors.indigo};
-  font-family: ${props => props.theme.fonts.title};
+  color: ${theme.colors.indigo};
+  font-family: ${theme.fonts.title};
   font-size: 1rem;
   padding-top: 5px;
   text-align: right;
@@ -26,15 +27,11 @@ export const StyledContainer = styled(Container)`
   ${media.desktop`
     padding: 60px 0px;
   `}
-  background-color: ${props => props.theme.colors.lightGrey};
+  background-color: ${theme.colors.lightGrey};
 `
 
-const Heading = styled.h1`
-  font-size: 1.25rem;
+const Heading = styled.h2`
   margin: 0;
-  ${media.desktop`
-    font-size: 2rem;
-  `};
 `
 
 const DesktopOnly = styled.span`
@@ -57,7 +54,7 @@ const HeadingRow = styled(Row)`
 
 const filterEventsYouMayLike = (events, eventId) => {
   const filteredEvents = events.filter(event => {
-    if (event.node.id === eventId) return false
+    if (event.node.id.includes(eventId)) return false
 
     return moment(event.node.startTime).diff(moment(), 'hours') > 0
   })

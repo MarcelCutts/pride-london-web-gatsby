@@ -1,21 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
-import { formatDate } from './helpers'
+import { formatDate, formatPrice } from './helpers'
 import { media } from '../../theme/media'
+import theme from '../../theme/theme'
 
-const Card = styled(Link)`
+const Card = styled.a`
   display: block;
   border-radius: 5px;
   text-decoration: none;
-  color: ${props => props.theme.colors.black};
+  color: ${theme.colors.black};
   overflow: hidden;
   display: flex;
   position: relative;
   width: 100%;
   min-height: 130px;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${theme.colors.white};
+
+  transform: scale(0.2);
+  opacity: 0;
+  transition: transform 0.2s ease-out, opacity 0.15s ease-out;
 
   &:hover,
   &:focus {
@@ -27,6 +31,10 @@ const Card = styled(Link)`
   ${media.tablet`
     display: block;
     min-height: auto;
+  `};
+
+  ${media.desktop`
+    margin-bottom: 10px;
   `};
 `
 
@@ -67,7 +75,7 @@ const CardImage = styled.img`
 
 const CardBody = styled.div`
   padding: 15px;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${theme.colors.white};
   flex-grow: 1;
 
   ${media.tablet`
@@ -77,15 +85,15 @@ const CardBody = styled.div`
 
 const CardDate = styled.span`
   display: block;
-  color: ${props => props.theme.colors.darkGrey};
+  color: ${theme.colors.darkGrey};
   font-size: 0.875rem;
-  font-family: ${props => props.theme.fonts.body};
+  font-family: ${theme.fonts.body};
   line-height: 1.43;
   font-weight: 400;
   margin-bottom: 0.65rem;
 
   ${media.tablet`
-    font-family: ${props => props.theme.fonts.title};
+    font-family: ${theme.fonts.title};
     font-weight: 600;
   `};
 `
@@ -110,9 +118,9 @@ const CardPrice = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: ${props => props.theme.colors.indigo};
-  color: ${props => props.theme.colors.white};
-  font-family: ${props => props.theme.fonts.title};
+  background-color: ${theme.colors.indigo};
+  color: ${theme.colors.white};
+  font-family: ${theme.fonts.title};
   font-weight: 600;
   padding: 5px 10px;
   border-radius: 5px;
@@ -135,41 +143,74 @@ const CardHeading = styled.h3`
   `};
 `
 
-export const EventListingCard = props => {
-  const { event } = props
-  const { date, time } = formatDate(event)
-  return (
-    <Card to={`/events/${event.id}`}>
-      <CardImageOverflow>
-        <CardImageWrapper
-          className="card-img-wrapper"
-          src={`${
-            event.eventsListPicture.file.url
-          }?fit=fill&w=400&h=225&f=faces`}
-        >
-          <CardImage
-            src={`${
-              event.eventsListPicture.file.url
-            }?fit=fill&w=400&h=225&f=faces`}
-            alt={event.eventsListPicture.title}
-            width="400"
-            height="225"
-          />
-        </CardImageWrapper>
-      </CardImageOverflow>
+/* eslint-disable-next-line */
+export class EventListingCard extends React.Component {
+  componentDidMount() {
+    this.wrapperRef.style.opacity = '1'
+    this.wrapperRef.style.transform = 'scale(1)'
+  }
+  shouldComponentUpdate() {
+    return false
+  }
+  render() {
+    const { event } = this.props
+    const { date, time } = formatDate(event)
 
-      <CardBody>
-        <CardDate>
-          <CardDateSpan>{date}</CardDateSpan>
-          <CardBullet> • </CardBullet> <CardDateSpan>{time}</CardDateSpan>
-        </CardDate>
-        <CardHeading>{event.name}</CardHeading>
-      </CardBody>
-      <CardPrice>
-        {event.eventPriceLow === 0 ? 'Free' : `from £${event.eventPriceLow}`}
-      </CardPrice>
-    </Card>
-  )
+    const imageUrl =
+      event.eventsListPicture &&
+      `${
+        event.eventsListPicture.file.url
+      }?fit=fill&w=400&h=225&f=faces&fm=jpg&q=75`
+
+    return (
+      <Card
+        href={`/events/${event.id}`}
+        itemScope
+        itemType="http://schema.org/Event"
+        innerRef={ref => (this.wrapperRef = ref)}
+      >
+        <CardImageOverflow>
+          <CardImageWrapper className="card-img-wrapper" src={imageUrl}>
+            <CardImage
+              src={imageUrl}
+              alt={event.eventsListPicture && event.eventsListPicture.title}
+              width="400"
+              height="225"
+              itemProp="image"
+              content={imageUrl}
+            />
+          </CardImageWrapper>
+        </CardImageOverflow>
+
+        <CardBody>
+          <CardDate>
+            <CardDateSpan>{date}</CardDateSpan>
+            <CardBullet> • </CardBullet> <CardDateSpan>{time}</CardDateSpan>
+            <meta itemProp="startDate" content={event.startTime} />
+            {event.startTime !== event.endTime && (
+              <meta itemProp="endDate" content={event.endTime} />
+            )}
+          </CardDate>
+          <CardHeading itemProp="name">{event.name}</CardHeading>
+        </CardBody>
+        {event.eventPriceLow != null && (
+          <CardPrice
+            itemProp="offers"
+            itemScope
+            itemType="http://schema.org/Offer"
+          >
+            <span itemProp="price">
+              {formatPrice(event.eventPriceLow, event.eventPriceHigh)}
+            </span>
+            <meta
+              itemProp="isAccessibleForFree"
+              content={`${event.eventPriceLow === 0 ? true : false}`}
+            />
+          </CardPrice>
+        )}
+      </Card>
+    )
+  }
 }
 
 EventListingCard.propTypes = {

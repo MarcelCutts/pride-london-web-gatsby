@@ -39,26 +39,26 @@ const EventTagListItem = styled.li`
   line-height: 22px;
   font-weight: 600;
   font-family: Poppins, sans-serif;
-  margin: 10px 10px 6px 0;
-  margin-right: 10px;
-  margin-bottom: 6px;
+  margin: 0px 10px 6px 0;
 `
 
 const EventTagUl = styled.ul`
   padding: 0;
   margin: 0;
+  margin-bottom: -6px;
   list-style-type: none;
 `
 
-const EventTagList = ({ values, className }) => (
-  <EventTagUl className={className}>
-    {values.map(value => (
-      <EventTagListItem tagStyle={selectTagStyle(value)} key={value}>
-        {value}
-      </EventTagListItem>
-    ))}
-  </EventTagUl>
-)
+const EventTagList = ({ values, className }) =>
+  values ? (
+    <EventTagUl className={className}>
+      {values.map(value => (
+        <EventTagListItem tagStyle={selectTagStyle(value)} key={value}>
+          {value}
+        </EventTagListItem>
+      ))}
+    </EventTagUl>
+  ) : null
 
 EventTagList.propTypes = {
   values: PropTypes.arrayOf(PropTypes.string).isRequired,
