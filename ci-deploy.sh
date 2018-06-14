@@ -14,3 +14,7 @@ now ./public -A ../now.json -e NODE_ENV=production --token $NOW_TOKEN --team=pri
 
 echo "running now alias"
 now alias --token $NOW_TOKEN --team=prideinlondon
+
+if test $1 = 'production'; then
+  now alias pride-in-london-production.now.sh events.prideinlondon.org --token $NOW_TOKEN --team=prideinlondon
+fi
