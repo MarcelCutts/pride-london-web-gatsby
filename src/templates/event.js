@@ -53,6 +53,19 @@ const ContentWrapper = styled.div`
   ${media.desktopHD`
     max-width: 830px;
   `};
+  a {
+    color: #2d2f7f;
+    border-bottom: 2px solid #2cda9d;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    display: inline-block;
+    transition: border-bottom-color 0.1s ease-in-out;
+    line-height: 1.1em;
+  }
+  a:hover {
+    border-bottom-color: transparent;
+  }
 `
 
 const TitleWrapper = ContentWrapper.extend`
