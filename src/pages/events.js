@@ -32,10 +32,16 @@ const StyledFlipMove = styled(FlipMove)`
   flex-basis: 100%;
 `
 
+const CardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+`
+
 const ContainerAddFilters = styled(Container)`
   padding: 20px 0;
   margin-bottom: 20px;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${theme.colors.white};
 
   ${media.tablet`
     display: none;
@@ -63,7 +69,7 @@ const OffsetContainer = styled(Container)`
 const EventCount = styled.p`
   font-size: 0.875rem;
   line-height: 1.214;
-  color: ${props => props.theme.colors.darkGrey};
+  color: ${theme.colors.darkGrey};
 `
 
 const DateGroupHeading = styled.h2`
@@ -140,6 +146,29 @@ class Events extends Component {
     return <EventCount>{text}</EventCount>
   }
 
+  isMobile() {
+    return typeof window !== 'undefined' && window.innerWidth < 1024
+  }
+
+  renderEventCards(context) {
+    const cards = context.filteredEvents
+      .filter(filterByLimit, context.state.eventsToShow)
+      .map((event, index, events) => this.renderCard(event, index, events))
+
+    if (this.isMobile()) {
+      return cards
+    }
+
+    // only use flip-move for the top few rows, so you get the
+    // transtions when applying filters but not when loading more
+    return (
+      <div>
+        <StyledFlipMove>{cards.slice(0, 12)}</StyledFlipMove>
+        <CardWrapper>{cards.slice(12)}</CardWrapper>
+      </div>
+    )
+  }
+
   render() {
     return (
       <Consumer>
@@ -184,13 +213,7 @@ class Events extends Component {
             </ContainerAddFilters>
             <Container>
               <Row>
-                <StyledFlipMove>
-                  {context.filteredEvents
-                    .filter(filterByLimit, context.state.eventsToShow)
-                    .map((event, index, events) =>
-                      this.renderCard(event, index, events)
-                    )}
-                </StyledFlipMove>
+                {this.renderEventCards(context)}
                 <ColumnPagination width={1}>
                   {this.renderEventCount(
                     context.filteredEvents.length,

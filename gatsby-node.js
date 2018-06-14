@@ -3,7 +3,6 @@ const path = require('path')
 const moment = require('moment')
 const {
   sanitizeDates,
-  formatTime,
   getDuration,
 } = require('./src/components/events/helpers')
 
@@ -45,7 +44,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           context: {
             id: edge.node.id,
             startTime: edge.node.startTime,
-            endTime: edge.node.endTime
+            endTime: edge.node.endTime,
           },
         })
       } else {

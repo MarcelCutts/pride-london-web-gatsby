@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import ReactMarkdown from 'react-markdown'
 import Helmet from 'react-helmet'
 import { media } from '../theme/media'
+import theme from '../theme/theme'
 import {
   EventTagList,
   EventsYouMayLike,
@@ -16,12 +17,12 @@ import { formatPrice } from '../components/events/helpers'
 const PageWrapper = styled.div`
   position: relative;
   margin: 0 auto;
-  max-width: ${props => props.theme.breakpoints[3]};
+  max-width: ${theme.breakpoints[3]};
   background-color: white;
 `
 
 const Title = styled.h1`
-  color: ${props => props.theme.colors.indigo};
+  color: ${theme.colors.indigo};
   font-size: 1.25em;
   line-height: 1.5;
   margin-bottom: 20px;

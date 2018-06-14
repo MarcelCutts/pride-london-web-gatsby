@@ -8,10 +8,11 @@ import logo from '../../theme/assets/images/logo-pride.svg'
 import Button from '../button'
 import burger from '../../theme/assets/images/icon-menu.svg'
 import iconClose from '../../theme/assets/images/icon-close.svg'
+import theme from '../../theme/theme'
 import noScroll from 'no-scroll'
 
 const Header = styled.header`
-  background-color: ${props => lighten(0.05, props.theme.colors.indigo)};
+  background-color: ${lighten(0.05, theme.colors.indigo)};
   width: 100%;
   height: 80px;
   max-width: 1440px;
@@ -24,7 +25,7 @@ const Header = styled.header`
 
   ${media.tablet`
     height: 100px;
-    background-color: ${props => props.theme.colors.indigo};
+    background-color: ${theme.colors.indigo};
   `};
 `
 
@@ -72,7 +73,7 @@ const Menu = styled.ul`
   height: calc(100vh - 80px);
   overflow: hidden;
   z-index: 1;
-  background-color: ${props => props.theme.colors.indigo};
+  background-color: ${theme.colors.indigo};
 
   &.open {
     transition: left 0.15s linear, visibility 0s 0s linear;
@@ -99,10 +100,10 @@ const MenuItem = styled.li`
 `
 
 const MenuLink = styled.a`
-  font-family: ${props => props.theme.fonts.title};
+  font-family: ${theme.fonts.title};
   font-size: 1.25rem;
   line-height: 1.5;
-  color: ${props => props.theme.colors.lightGrey};
+  color: ${theme.colors.lightGrey};
   text-decoration: none;
   align-self: stretch;
   display: flex;
@@ -115,15 +116,15 @@ const MenuLink = styled.a`
 
     &:hover,
     &:focus {
-      background-color: ${props => lighten(0.05, props.theme.colors.indigo)};
+      background-color: ${lighten(0.05, theme.colors.indigo)};
     }
   `};
 `
 const Burger = styled.button`
   cursor: pointer;
   border: none;
-  color: ${props => props.theme.colors.lightGrey};
-  font-family: ${props => props.theme.fonts.title};
+  color: ${theme.colors.lightGrey};
+  font-family: ${theme.fonts.title};
   font-size: 0.875rem;
   line-height: 1.125rem;
   transition: background-color 0.15s linear;
@@ -150,7 +151,7 @@ const Burger = styled.button`
 
   &:hover,
   &:focus {
-    background-color: ${props => props.theme.colors.indigo};
+    background-color: ${theme.colors.indigo};
   }
 
   ${media.tablet`

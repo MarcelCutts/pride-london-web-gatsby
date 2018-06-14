@@ -4,14 +4,15 @@ import { Container, Row, Column } from '../components/grid'
 
 import AccordionWrapper from '../components/accordion/accordionWrapper'
 import Accordion from '../components/accordion'
+import theme from '../theme/theme'
 
 const PageWrapper = styled.div`
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${theme.colors.white};
 
   h1 {
     margin-top: 60px;
 
-    @media (max-width: ${props => props.theme.breakpoints[1]}) {
+    @media (max-width: ${theme.breakpoints[1]}) {
       font-size: 20px;
       margin-top: 30px;
     }
