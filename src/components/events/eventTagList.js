@@ -1,37 +1,85 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import hash from 'string-hash'
 
-const hotPink = css`
-  background-color: hsl(339, 87%, 55%);
-  color: white;
-`
+const brightLightBlueColor = '#2acfff'
+const darkSkyBlueColor = '#2c77e5'
+const turquoiseBlueColor = '#00a3bd'
+const lightTealColor = '#7de2d1'
+const vomitYellowColor = '#c3d30e'
+const yellowColor = '#ffd95e'
+const warmPinkColor = '#fc4984'
+const bubblegumPinkColor = '#ff88f1'
+const brightPurpleColor = '#bc01ff'
+const cornflowerBlueColor = '#5770d1'
+const coralColor = '#ff5b44'
 
-const blueish = css`
-  background-color: hsl(228, 57%, 58%);
-  color: white;
-`
-
-const yellow = css`
-  background-color: hsl(46, 100%, 68%);
-  color: black;
-`
-
-// we want consistent colors for tags we might not have seen
-const tagStyles = [hotPink, blueish, yellow]
-
-const knownValueStyles = {
-  Nightlife: yellow,
-  Music: blueish,
-  'Plays & Theatre': hotPink,
+export const getEventCategoryStyleFromName = category => {
+  switch (category) {
+    case 'Cabaret and Variety':
+      return {
+        backgroundColor: coralColor,
+        color: 'white',
+      }
+    case 'Community':
+      return {
+        backgroundColor: brightLightBlueColor,
+        color: 'black',
+      }
+    case 'Talks and Debates':
+      return {
+        backgroundColor: darkSkyBlueColor,
+        color: 'white',
+      }
+    case 'Film and Screenings':
+      return {
+        backgroundColor: lightTealColor,
+        color: 'black',
+      }
+    case 'Plays and Theatre':
+      return {
+        backgroundColor: warmPinkColor,
+        color: 'white',
+      }
+    case 'Social and Networking':
+      return {
+        backgroundColor: turquoiseBlueColor,
+        color: 'white',
+      }
+    case 'Nightlife':
+      return {
+        backgroundColor: yellowColor,
+        color: 'black',
+      }
+    case 'Exhibition and Tours':
+      return {
+        backgroundColor: brightPurpleColor,
+        color: 'white',
+      }
+    case 'Sports and Activities':
+      return {
+        backgroundColor: vomitYellowColor,
+        color: 'black',
+      }
+    case 'Health':
+      return {
+        backgroundColor: bubblegumPinkColor,
+        color: 'black',
+      }
+    case 'Music':
+      return {
+        backgroundColor: cornflowerBlueColor,
+        color: 'white',
+      }
+    default:
+      return {
+        backgroundColor: cornflowerBlueColor,
+        color: 'white',
+      }
+  }
 }
 
-const selectTagStyle = value =>
-  knownValueStyles[value] || tagStyles[hash(value) % tagStyles.length]
-
 const EventTagListItem = styled.li`
-  ${({ tagStyle }) => tagStyle};
   display: inline-block;
   border-radius: 4px;
   padding: 0px 6px;
@@ -53,7 +101,10 @@ const EventTagList = ({ values, className }) =>
   values ? (
     <EventTagUl className={className}>
       {values.map(value => (
-        <EventTagListItem tagStyle={selectTagStyle(value)} key={value}>
+        <EventTagListItem
+          style={getEventCategoryStyleFromName(value)}
+          key={value}
+        >
           {value}
         </EventTagListItem>
       ))}
