@@ -26,7 +26,7 @@ const Heading = styled.h2`
   line-height: 1.375rem;
   font-weight: 600;
   margin: 0 0 1.25rem 0;
-  color: ${props => props.theme.colors.white};
+  color: ${theme.colors.white};
 
   ${media.tablet`
     font-size: 1.5rem;
