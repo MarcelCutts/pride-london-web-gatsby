@@ -204,7 +204,7 @@ class ContactForm extends React.Component {
     textarea.style.height = '58px'
   }
 
-  changeButtonText = button => {
+  changeButtonText = () => {
     this.setState({
       isSent: !this.state.isSent,
       buttonText: 'Sent!',
@@ -249,7 +249,7 @@ class ContactForm extends React.Component {
         <Button
           isSent={isSent}
           className="submit"
-          onClick={e => this.changeButtonText(e)}
+          onClick={this.changeButtonText}
           primary
         >
           <img src={check} style={{ display: isSent ? 'inline' : 'none' }} />
