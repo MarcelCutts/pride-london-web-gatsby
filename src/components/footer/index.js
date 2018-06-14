@@ -71,8 +71,8 @@ const Small = styled.small`
   color: ${props => props.theme.colors.white};
 
   ${media.tablet`
-        margin-top: 40px;
-    `};
+    margin-top: 40px;
+  `};
 `
 
 export const Footer = () => (
