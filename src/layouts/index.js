@@ -13,8 +13,6 @@ import metaImg from '../theme/assets/images/Pride-in-London-2018-save-the-date10
 import './index.css'
 import './fonts.css'
 
-const metaUrl = typeof window !== 'undefined' && window.location.href
-
 const Layout = props => (
   <Provider events={props.data.allContentfulEvent.edges}>
     <ThemeProvider theme={theme}>
@@ -34,15 +32,15 @@ const Layout = props => (
             },
             {
               itemprop: 'url',
-              content: metaUrl,
+              content: props.data.site.siteMetadata.url,
             },
             {
               itemprop: 'thumbnailUrl',
-              content: metaImg,
+              content: props.data.site.siteMetadata.url + metaImg,
             },
             {
               itemprop: 'image',
-              content: metaImg,
+              content: props.data.site.siteMetadata.url + metaImg,
             },
             // OpenGraph Meta Tags
             {
@@ -54,20 +52,24 @@ const Layout = props => (
               content: props.data.site.siteMetadata.title,
             },
             {
-              property: 'og:url',
-              content: metaUrl,
-            },
-            {
               property: 'og:type',
               content: 'website',
             },
             {
+              property: 'og:url',
+              content: props.data.site.siteMetadata.url,
+            },
+            {
+              property: 'og:description',
+              content: props.data.site.siteMetadata.description,
+            },
+            {
               property: 'og:image',
-              content: metaImg,
+              content: props.data.site.siteMetadata.url + metaImg,
             },
             {
               property: 'og:image:secure_url',
-              content: metaImg,
+              content: props.data.site.siteMetadata.url + metaImg,
             },
             {
               property: 'og:image:width',
@@ -88,11 +90,11 @@ const Layout = props => (
             },
             {
               name: 'twitter:image',
-              content: metaImg,
+              content: props.data.site.siteMetadata.url + metaImg,
             },
             {
               name: 'twitter:url',
-              content: metaUrl,
+              content: props.data.site.siteMetadata.url,
             },
           ]}
           link={[
@@ -102,11 +104,11 @@ const Layout = props => (
             },
             {
               rel: 'image_src',
-              content: metaImg,
+              content: props.data.site.siteMetadata.url + metaImg,
             },
             {
               rel: 'canonical',
-              href: metaUrl,
+              href: props.data.site.siteMetadata.url,
             },
           ]}
           htmlAttributes={{

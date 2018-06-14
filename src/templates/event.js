@@ -110,8 +110,9 @@ export default class Event extends Component {
       eventPriceHigh,
     } = this.props.data.contentfulEvent
 
-    const metaImg = `${individualEventPicture.file.url}?w=1000&h=562`
-    const metaUrl = typeof window !== 'undefined' && window.location.href
+    const metaImg = `https:${individualEventPicture.file.url}?w=1000&h=562`
+    const metaUrl =
+      this.props.data.site.siteMetadata.url + this.props.location.pathname
 
     return (
       <PageWrapper>
@@ -280,6 +281,15 @@ Event.propTypes = {
 
 export const eventPageQuery = graphql`
   query eventQuery($id: String!) {
+    site {
+      siteMetadata {
+        name
+        title
+        description
+        url
+      }
+    }
+
     contentfulEvent(id: { eq: $id }) {
       id
       name
