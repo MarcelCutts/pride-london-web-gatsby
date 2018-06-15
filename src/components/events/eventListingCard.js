@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { formatDate, formatPrice } from './helpers'
@@ -20,13 +20,6 @@ const Card = styled.a`
   transform: scale(0.2);
   opacity: 0;
   transition: transform 0.2s ease-out, opacity 0.15s ease-out;
-
-  &:hover,
-  &:focus {
-    .card-img-wrapper {
-      transform: scale(1.08);
-    }
-  }
 
   ${media.tablet`
     display: block;
@@ -54,13 +47,19 @@ const CardImageWrapper = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url(${props => props.src});
-  transition: transform 0.15s ease-out;
+  background-image: url(${props => props.imgLoaded && props.content});
+  transition: transform 0.15s ease-out, opacity 0.25s linear;
+  opacity: ${props => (props.imgLoaded ? 1 : 0)};
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.08);
+  }
 `
 
 const CardImage = styled.img`
@@ -144,14 +143,50 @@ const CardHeading = styled.h3`
 `
 
 /* eslint-disable-next-line */
-export class EventListingCard extends React.Component {
+export class EventListingCard extends Component {
+  state = {
+    intersected: false,
+    imgLoaded: false,
+  }
+
   componentDidMount() {
     this.wrapperRef.style.opacity = '1'
     this.wrapperRef.style.transform = 'scale(1)'
+
+    if (typeof window !== 'undefined') {
+      const observer = new IntersectionObserver(this.handleEnter, {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.01,
+      })
+
+      observer.observe(this.wrapperRef)
+    }
   }
-  shouldComponentUpdate() {
-    return false
+
+  shouldComponentUpdate(_nextProps, nextState) {
+    return this.state !== nextState
   }
+
+  handleEnter = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio > 0) {
+        this.setState({ intersected: true })
+        observer.disconnect()
+        observer = null
+      }
+    })
+  }
+
+  renderImg = (imageUrl, imageAlt) => (
+    <CardImage
+      src={imageUrl}
+      alt={imageAlt}
+      width="400"
+      height="225"
+      onLoad={() => this.setState({ imgLoaded: true })}
+    />
+  )
   render() {
     const { event } = this.props
     const { date, time } = formatDate(event)
@@ -170,15 +205,14 @@ export class EventListingCard extends React.Component {
         innerRef={ref => (this.wrapperRef = ref)}
       >
         <CardImageOverflow>
-          <CardImageWrapper className="card-img-wrapper" src={imageUrl}>
-            <CardImage
-              src={imageUrl}
-              alt={event.eventsListPicture && event.eventsListPicture.title}
-              width="400"
-              height="225"
-              itemProp="image"
-              content={imageUrl}
-            />
+          <CardImageWrapper
+            itemProp="image"
+            content={imageUrl}
+            imgLoaded={this.state.imgLoaded}
+          >
+            {this.state.intersected &&
+              event.eventsListPicture &&
+              this.renderImg(imageUrl, event.eventsListPicture.title)}
           </CardImageWrapper>
         </CardImageOverflow>
 
