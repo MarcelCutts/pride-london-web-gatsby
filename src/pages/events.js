@@ -162,10 +162,10 @@ class Events extends Component {
     // only use flip-move for the top few rows, so you get the
     // transtions when applying filters but not when loading more
     return (
-      <div>
+      <CardWrapper>
         <StyledFlipMove>{cards.slice(0, 12)}</StyledFlipMove>
-        <CardWrapper>{cards.slice(12)}</CardWrapper>
-      </div>
+        {cards.slice(12)}
+      </CardWrapper>
     )
   }
 
