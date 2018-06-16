@@ -1,37 +1,74 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import hash from 'string-hash'
+import { colors } from '../../theme/theme'
 
-const hotPink = css`
-  background-color: hsl(339, 87%, 55%);
-  color: white;
-`
-
-const blueish = css`
-  background-color: hsl(228, 57%, 58%);
-  color: white;
-`
-
-const yellow = css`
-  background-color: hsl(46, 100%, 68%);
-  color: black;
-`
-
-// we want consistent colors for tags we might not have seen
-const tagStyles = [hotPink, blueish, yellow]
-
-const knownValueStyles = {
-  Nightlife: yellow,
-  Music: blueish,
-  'Plays & Theatre': hotPink,
+export const getEventCategoryStyleFromName = category => {
+  switch (category) {
+    case 'Cabaret and Variety':
+      return {
+        backgroundColor: colors.tomato,
+        color: 'white',
+      }
+    case 'Community':
+      return {
+        backgroundColor: colors.skyBlue,
+        color: 'black',
+      }
+    case 'Talks and Debates':
+      return {
+        backgroundColor: colors.beachBlue,
+        color: 'white',
+      }
+    case 'Film and Screenings':
+      return {
+        backgroundColor: colors.lightTeal,
+        color: 'black',
+      }
+    case 'Plays and Theatre':
+      return {
+        backgroundColor: colors.pink,
+        color: 'white',
+      }
+    case 'Social and Networking':
+      return {
+        backgroundColor: colors.bondiBlue,
+        color: 'white',
+      }
+    case 'Nightlife':
+      return {
+        backgroundColor: colors.yellow,
+        color: 'black',
+      }
+    case 'Exhibition and Tours':
+      return {
+        backgroundColor: colors.electricPurple,
+        color: 'white',
+      }
+    case 'Sports and Activities':
+      return {
+        backgroundColor: colors.lemonGreen,
+        color: 'black',
+      }
+    case 'Health':
+      return {
+        backgroundColor: colors.fuscia,
+        color: 'black',
+      }
+    case 'Music':
+      return {
+        backgroundColor: colors.greyBlue,
+        color: 'white',
+      }
+    default:
+      return {
+        backgroundColor: colors.greyBlue,
+        color: 'white',
+      }
+  }
 }
 
-const selectTagStyle = value =>
-  knownValueStyles[value] || tagStyles[hash(value) % tagStyles.length]
-
 const EventTagListItem = styled.li`
-  ${({ tagStyle }) => tagStyle};
   display: inline-block;
   border-radius: 4px;
   padding: 0px 6px;
@@ -53,7 +90,10 @@ const EventTagList = ({ values, className }) =>
   values ? (
     <EventTagUl className={className}>
       {values.map(value => (
-        <EventTagListItem tagStyle={selectTagStyle(value)} key={value}>
+        <EventTagListItem
+          style={getEventCategoryStyleFromName(value)}
+          key={value}
+        >
           {value}
         </EventTagListItem>
       ))}
