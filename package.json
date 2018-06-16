@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "dependencies": {
   },
+  "scripts": {
+    "deploy:sites": "yarn ./packages/*/deploy:ci"
+  },
   "license": "MIT",
   "devDependencies": {
     "lerna": "^2.11.0"
