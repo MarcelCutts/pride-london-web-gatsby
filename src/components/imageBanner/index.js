@@ -14,6 +14,7 @@ const StyledContainer = styled(Container)`
   position: relative;
   background-color: ${props => props.color};
   padding-bottom: 35px;
+  z-index: -2;
 
   & img {
     position: absolute;
