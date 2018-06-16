@@ -22,6 +22,9 @@ const PageWrapper = styled.div`
 
 const Title = styled.h1`
   color: ${props => props.theme.colors.indigo};
+  font-size: 1.75em;
+  line-height: 1.4;
+  margin-bottom: 20px;
 `
 
 const HeroImageAndTitle = styled.div`

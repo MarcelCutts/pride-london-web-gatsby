@@ -2,6 +2,7 @@
   "name": "pride-london-web",
   "version": "0.1.0",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "gatsby": "^1.9.270",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
