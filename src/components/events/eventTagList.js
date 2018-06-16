@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { colors } from '../../theme/theme'
+import theme from '../../theme/theme'
+
+const { colors } = theme
 
 export const getEventCategoryStyleFromName = category => {
   switch (category) {
