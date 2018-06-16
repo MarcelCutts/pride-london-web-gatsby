@@ -7,8 +7,12 @@ import {
   filterByArea,
   filterByTime,
   filterPastEvents,
-} from '../../templates/events/helpers'
+  getDuration,
+  sanitizeDates,
+} from '../events/helpers'
 import { itemsToLoad } from '../../constants'
+import { dateFormat } from '../../constants'
+import moment from 'moment'
 
 const AppContext = React.createContext()
 const { Consumer } = AppContext
@@ -25,6 +29,7 @@ const initialFilterState = {
 }
 
 const initialState = {
+  events: [],
   filterOpen: null,
   filteredEventsCount: 0,
   eventsToShow: itemsToLoad,
@@ -64,13 +69,13 @@ class Provider extends React.Component<Props, State> {
       ...prevState,
       filters: {
         ...prevState.filters,
-        date,
+        [dateToSet]: prevState.filters[dateToGet],
       },
     }))
   }
 
   getCheckboxBool = (name: string, checked: boolean) => {
-    console.log('getCheckboxBool', checked)
+
     this.setState(prevState => ({
       ...prevState,
       filters: {
@@ -118,13 +123,20 @@ class Provider extends React.Component<Props, State> {
         ...prevState,
         filterOpen: filterName,
       }))
+    } else {
+      this.setState(prevState => ({
+        ...prevState,
+        filterOpen: null,
+      }))
     }
   }
 
   filterEvents = () => {
-    const filteredEvents = this.props.events
-      .filter(filterPastEvents)
-      .filter(filterByDate, this.state.filters.date)
+    const filteredEvents = this.state.events
+      .filter(filterByDate, {
+        startDate: this.state.filters.startDate,
+        endDate: this.state.filters.endDate,
+      })
       .filter(filterByFree, this.state.filters.free)
       .filter(filterByCategory, {
         array: this.state.filters.eventCategories,
@@ -155,22 +167,19 @@ class Provider extends React.Component<Props, State> {
   }
 
   render() {
-    const filteredEvents = this.filterEvents()
-    const filteredCount = filteredEvents.length
     return (
       <AppContext.Provider
         value={{
           state: this.state,
-          events: this.props.events.filter(filterPastEvents),
-          filteredEvents,
-          filteredCount,
+          filteredEvents: this.filterEvents(),
           actions: {
             getCheckboxBool: this.getCheckboxBool,
-            getDatepickerValue: this.getDatepickerValue,
+            getDatepickerValues: this.getDatepickerValues,
             getCheckboxSetValues: this.getCheckboxSetValues,
             clearFilters: this.clearFilters,
             closeSiblingFilters: this.closeSiblingFilters,
             showMore: this.showMore,
+            setDate: this.setDate,
           },
         }}
       >

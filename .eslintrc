@@ -20,16 +20,18 @@
   "rules": {
     "arrow-parens": "off",
     "comma-dangle": "off",
+    "consistent-return": "off",
     "eqeqeq": "off",
     "function-paren-newline": "off",
     "import/extensions": "error",
-    "import/first": 2,
+    "import/first": "error",
     "import/no-extraneous-dependencies": "off",
     "import/no-named-as-default": "off",
     "import/no-unresolved": "error",
     "import/prefer-default-export": "off",
     "indent": "off", // in conflict with prettier
     "jsx-a11y/anchor-is-valid": "off",
+    "max-len": 0, // in conflict with prettier
     "no-confusing-arrow": "off",
     "no-else-return": "error",
     "no-return-assign": "off",
@@ -48,6 +50,7 @@
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
     "react/no-array-index-key": 2,
+    "react/no-unescaped-entities": "off",
     "react/no-unused-state": "off",
     "react/prefer-stateless-function": "error",
     "react/require-default-props": 2,

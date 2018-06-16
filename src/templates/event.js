@@ -5,8 +5,13 @@ import ReactMarkdown from 'react-markdown'
 import Helmet from 'react-helmet'
 import NewsletterForm from '../components/newsletter'
 import { media } from '../theme/media'
-import { EventTagList, EventSchedule, EventsYouMayLike } from './events'
-import { EventDirectionSection } from './events/eventDirectionsSection'
+import {
+  EventTagList,
+  EventSchedule,
+  EventsYouMayLike,
+  EventInfoCard,
+  EventDirectionsSection,
+} from '../components/events'
 
 const PageWrapper = styled.div`
   position: relative;
@@ -17,6 +22,9 @@ const PageWrapper = styled.div`
 
 const Title = styled.h1`
   color: ${props => props.theme.colors.indigo};
+  font-size: 1.75em;
+  line-height: 1.4;
+  margin-bottom: 20px;
 `
 
 const HeroImageAndTitle = styled.div`
@@ -59,22 +67,6 @@ const HeroImage = styled.div`
   `};
 `
 
-const InfoPlaceholder = styled.div`
-  background-color: ${props => props.theme.colors.indigo};
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  ${media.desktop`
-    position: absolute;
-    width: 400px;
-    height: 565px;
-    right: 90px;
-    top: 270px;
- `};
-`
-
 const Section = styled.div`
   margin-bottom: 20px;
   ${media.desktop`
@@ -107,7 +99,7 @@ export default class Event extends Component {
             <EventTagList values={eventCategories} />
           </TitleWrapper>
         </HeroImageAndTitle>
-        <InfoPlaceholder>put things inside me plz</InfoPlaceholder>
+        <EventInfoCard data={this.props.data.contentfulEvent} />
         <ContentWrapper>
           <Section>
             <ReactMarkdown source={eventDescription.eventDescription} />
@@ -118,7 +110,7 @@ export default class Event extends Component {
             </Section>
           )}
         </ContentWrapper>
-        <EventDirectionSection data={this.props.data.contentfulEvent} />
+        <EventDirectionsSection data={this.props.data.contentfulEvent} />
         <EventsYouMayLike eventId={id} />
         <NewsletterForm buttonText="Subscribe" />
       </PageWrapper>
@@ -150,6 +142,7 @@ export const eventPageQuery = graphql`
         eventDescription
       }
       ...eventDirectionsFragment
+      ...eventInfoCardQuery
     }
   }
 `
