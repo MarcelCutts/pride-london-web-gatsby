@@ -95,6 +95,7 @@ const DatePickerWrapper = styled.div`
 
     &::placeholder {
       color: ${props => props.theme.colors.black};
+      opacity: 1;
     }
   }
 
