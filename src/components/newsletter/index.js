@@ -10,6 +10,12 @@ const StyledInput = styled.input`
   margin-bottom: 10px;
   padding-left: 10px;
   width: 100%;
+
+  /* Fix for firefox adding red border to required inputs */
+  &:required {
+    box-shadow: none;
+  }
+
   ${media.desktop`
     margin-bottom: 0;
   `};
@@ -28,6 +34,7 @@ export const StyledButton = styled.input`
   outline: none;
   text-decoration: none;
   width: 100%;
+
   ${media.tablet`
     margin-bottom: 0;
     width: 138px;
