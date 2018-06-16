@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Flex, Box } from 'grid-styled'
 import styled from 'styled-components'
-import { media } from '../../theme/media'
 import { lighten } from 'polished'
 import Link from 'gatsby-link'
+import noScroll from 'no-scroll'
+import { media } from '../../theme/media'
 import logo from '../../theme/assets/images/logo-pride.svg'
 import Button from '../button'
 import burger from '../../theme/assets/images/icon-menu.svg'
 import iconClose from '../../theme/assets/images/icon-close.svg'
-import noScroll from 'no-scroll'
 
 const Header = styled.header`
   background-color: ${props => lighten(0.05, props.theme.colors.indigo)};

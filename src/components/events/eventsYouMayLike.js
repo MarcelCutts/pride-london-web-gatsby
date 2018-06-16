@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import moment from 'moment'
-import EventListingCard from './eventListingCard'
 import ChevronRight from '../../components/chevronRight'
 import { Consumer } from '../../components/appContext'
 import { Container, Row, Column } from '../../components/grid'
 import { media } from '../../theme/media'
+import EventListingCard from './eventListingCard'
 
 const ViewAll = styled.a`
   color: ${props => props.theme.colors.indigo};

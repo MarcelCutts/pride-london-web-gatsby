@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import ReactMarkdown from 'react-markdown'
 import Helmet from 'react-helmet'
+import ReactMarkdown from 'react-markdown'
 import NewsletterForm from '../components/newsletter'
 import { media } from '../theme/media'
 import {

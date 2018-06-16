@@ -6,7 +6,6 @@ import Helmet from 'react-helmet'
 import { media } from '../theme/media'
 import theme from '../theme/theme'
 import { Column, Row, Container } from '../components/grid'
-
 import ImageBanner from '../components/imageBanner'
 
 const PageWrapper = styled(Container)`

@@ -14,6 +14,7 @@ const StyledContainer = styled(Container)`
   position: relative;
   background-color: ${props => props.color};
   padding-bottom: 35px;
+  z-index: -2;
 
   & img {
     position: absolute;
@@ -24,7 +25,7 @@ const StyledContainer = styled(Container)`
 
   ${media.tablet`
     align-items: center;
-    height: 400px;
+    height: ${props => (props.large === 'true' ? '500px' : '400px')};
     padding: 0;
   `};
 `
@@ -34,32 +35,48 @@ const StyledRow = styled(Row)`
   flex-basis: 100%;
 `
 
-const ImageBanner = ({ titleText, subtitleText, imageSrc, altText, color }) => (
-  <StyledContainer color={color}>
+const ImageBanner = ({
+  titleText,
+  subtitleText,
+  imageSrc,
+  altText,
+  color,
+  children,
+  large,
+}) => (
+  <StyledContainer color={color} large={large}>
     {imageSrc && <img src={imageSrc} alt={altText} />}
     <StyledRow>
       <Column width={1}>
         <BannerTitle>{titleText}</BannerTitle>
         <BannerSubtitle>{subtitleText}</BannerSubtitle>
       </Column>
+      {children}
     </StyledRow>
   </StyledContainer>
 )
 
 ImageBanner.propTypes = {
+  large: PropTypes.string,
   imageSrc: PropTypes.string,
   altText: PropTypes.string,
   subtitleText: PropTypes.string,
   titleText: PropTypes.string,
   color: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
 }
 
 ImageBanner.defaultProps = {
+  large: 'false', // this isn' a bool because styled components
   imageSrc: '',
   altText: '',
   subtitleText: '',
   titleText: '',
   color: '',
+  children: null,
 }
 
 export default ImageBanner

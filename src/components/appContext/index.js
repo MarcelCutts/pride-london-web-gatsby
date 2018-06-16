@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 import {
   filterByDate,
   filterByFree,
@@ -10,9 +11,7 @@ import {
   getDuration,
   sanitizeDates,
 } from '../events/helpers'
-import { itemsToLoad } from '../../constants'
-import { dateFormat } from '../../constants'
-import moment from 'moment'
+import { itemsToLoad, dateFormat } from '../../constants'
 
 const AppContext = React.createContext()
 const { Consumer } = AppContext
@@ -221,7 +220,7 @@ Provider.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
-  events: PropTypes.array,
+  events: PropTypes.array, // eslint-disable-line
 }
 
 Provider.defaultProps = {

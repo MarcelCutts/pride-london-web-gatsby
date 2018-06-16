@@ -163,6 +163,7 @@ EventDropdownFilter.propTypes = {
   heading: PropTypes.string.isRequired,
   filterName: PropTypes.string.isRequired,
   closeSiblingFilters: PropTypes.func.isRequired,
+  filterOpen: PropTypes.bool.isRequired,
 }
 
 export default onClickOutside(EventDropdownFilter)

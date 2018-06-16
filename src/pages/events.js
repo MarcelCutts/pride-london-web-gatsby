@@ -1,6 +1,8 @@
 import React, { Fragment, Component } from 'react'
 import FlipMove from 'react-flip-move'
 import styled from 'styled-components'
+import moment from 'moment'
+import noScroll from 'no-scroll'
 import { media } from '../theme/media'
 import theme from '../theme/theme'
 import { EventListingCard } from '../components/events'
@@ -12,8 +14,6 @@ import { Consumer } from '../components/appContext'
 import { filterByLimit } from '../components/events/helpers'
 import { dateFormat } from '../constants'
 import filterIcon from '../theme/assets/images/icon-filters.svg'
-import noScroll from 'no-scroll'
-import moment from 'moment'
 
 const FlexColumn = styled(Column)`
   display: block;
@@ -134,7 +134,8 @@ class Events extends Component {
         eventsToShow <= filteredCount ? eventsToShow : filteredCount
       } of ${filteredCount} events`
     } else {
-      text = `There are no events matching your criteria. Please try changing your filter options.`
+      text =
+        'There are no events matching your criteria. Please try changing your filter options.'
     }
 
     return <EventCount>{text}</EventCount>
