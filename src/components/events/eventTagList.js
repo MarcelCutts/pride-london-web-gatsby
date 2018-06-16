@@ -1,79 +1,68 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-
-const brightLightBlueColor = '#2acfff'
-const darkSkyBlueColor = '#2c77e5'
-const turquoiseBlueColor = '#00a3bd'
-const lightTealColor = '#7de2d1'
-const vomitYellowColor = '#c3d30e'
-const yellowColor = '#ffd95e'
-const warmPinkColor = '#fc4984'
-const bubblegumPinkColor = '#ff88f1'
-const brightPurpleColor = '#bc01ff'
-const cornflowerBlueColor = '#5770d1'
-const coralColor = '#ff5b44'
+import { colors } from '../../theme/theme'
 
 export const getEventCategoryStyleFromName = category => {
   switch (category) {
     case 'Cabaret and Variety':
       return {
-        backgroundColor: coralColor,
+        backgroundColor: colors.tomato,
         color: 'white',
       }
     case 'Community':
       return {
-        backgroundColor: brightLightBlueColor,
+        backgroundColor: colors.skyBlue,
         color: 'black',
       }
     case 'Talks and Debates':
       return {
-        backgroundColor: darkSkyBlueColor,
+        backgroundColor: colors.beachBlue,
         color: 'white',
       }
     case 'Film and Screenings':
       return {
-        backgroundColor: lightTealColor,
+        backgroundColor: colors.lightTeal,
         color: 'black',
       }
     case 'Plays and Theatre':
       return {
-        backgroundColor: warmPinkColor,
+        backgroundColor: colors.pink,
         color: 'white',
       }
     case 'Social and Networking':
       return {
-        backgroundColor: turquoiseBlueColor,
+        backgroundColor: colors.bondiBlue,
         color: 'white',
       }
     case 'Nightlife':
       return {
-        backgroundColor: yellowColor,
+        backgroundColor: colors.yellow,
         color: 'black',
       }
     case 'Exhibition and Tours':
       return {
-        backgroundColor: brightPurpleColor,
+        backgroundColor: colors.electricPurple,
         color: 'white',
       }
     case 'Sports and Activities':
       return {
-        backgroundColor: vomitYellowColor,
+        backgroundColor: colors.lemonGreen,
         color: 'black',
       }
     case 'Health':
       return {
-        backgroundColor: bubblegumPinkColor,
+        backgroundColor: colors.fuscia,
         color: 'black',
       }
     case 'Music':
       return {
-        backgroundColor: cornflowerBlueColor,
+        backgroundColor: colors.greyBlue,
         color: 'white',
       }
     default:
       return {
-        backgroundColor: cornflowerBlueColor,
+        backgroundColor: colors.greyBlue,
         color: 'white',
       }
   }
