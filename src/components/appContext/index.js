@@ -1,5 +1,5 @@
-// @flow
-import * as React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {
   filterByDate,
   filterByFree,
@@ -17,54 +17,85 @@ import moment from 'moment'
 const AppContext = React.createContext()
 const { Consumer } = AppContext
 
-const initialFilterState = {
-  date: null,
-  free: false,
-  eventCategories: [],
-  venueDetails: [],
-  audience: [],
-  accessibilityOptions: [],
-  area: [],
-  timeOfDay: [],
+function getInitialFilterState() {
+  return {
+    startDate: null,
+    endDate: null,
+    free: false,
+    eventCategories: [],
+    venueDetails: [],
+    audience: [],
+    accessibilityOptions: [],
+    area: [],
+    timeOfDay: [],
+  }
 }
 
 const initialState = {
   events: [],
   filterOpen: null,
-  filteredEventsCount: 0,
   eventsToShow: itemsToLoad,
-  filters: initialFilterState,
+  filters: getInitialFilterState(),
 }
 
-type Props = {
-  events: Array<*>, // TODO The shape of the array should be typed
-  children: React.Node,
-}
-
-type State = {
-  filterOpen: ?string,
-  eventsToShow: typeof itemsToLoad,
-  filteredEventsCount: number,
-  filters: {
-    date: ?Date,
-    free: boolean,
-    eventCategories: Array<string>,
-    venueDetails: Array<string>,
-    audience: Array<string>,
-    accessibilityOptions: Array<string>,
-    area: Array<string>, // NOTE This does not exist in graphql?
-    timeOfDay: Array<string>,
-  },
-}
-
-class Provider extends React.Component<Props, State> {
-  state = initialState
-
-  static defaultProps = {
-    events: [],
+class Provider extends Component {
+  constructor() {
+    super()
+    this.state = {
+      ...initialState,
+    }
   }
 
-  getDatepickerValue = (date: Date) => {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.events !== prevState.events) {
+      // Generate all recurrences of events
+      const allEventOccurences = []
+      // Map over events
+      nextProps.events.map(event => {
+        if (!event.node.recurrenceDates) {
+          allEventOccurences.push(event)
+        } else {
+          const recurrenceDates = sanitizeDates([
+            moment(event.node.startTime).format(dateFormat),
+            ...event.node.recurrenceDates,
+          ])
+          const time = moment(event.node.startTime).format('HH:mm')
+          const duration = getDuration(event.node.startTime, event.node.endTime)
+
+          recurrenceDates.forEach(date => {
+            // Deep clone event
+            const copy = JSON.parse(JSON.stringify(event))
+
+            // Modify start time and end time
+            copy.node.startTime = moment(
+              `${date} ${time}`,
+              'DD/MM/YYYY hh:mm'
+            ).format()
+            copy.node.endTime = moment(copy.node.startTime)
+              .add(duration, 'milliseconds')
+              .format()
+            copy.node.id = `${event.node.id}-${date.split('/').join('')}`
+
+            allEventOccurences.push(copy)
+          })
+        }
+      })
+      return { events: allEventOccurences.filter(filterPastEvents) }
+    }
+  }
+
+  getDatepickerValues = ({ startDate, endDate }) => {
+    this.setState(prevState => ({
+      ...prevState,
+      filters: {
+        ...prevState.filters,
+        startDate,
+        endDate,
+      },
+    }))
+  }
+
+  setDate = (dateToSet, dateToGet) => {
     this.setState(prevState => ({
       ...prevState,
       filters: {
@@ -74,8 +105,7 @@ class Provider extends React.Component<Props, State> {
     }))
   }
 
-  getCheckboxBool = (name: string, checked: boolean) => {
-
+  getCheckboxBool = (name, checked) => {
     this.setState(prevState => ({
       ...prevState,
       filters: {
@@ -85,10 +115,7 @@ class Provider extends React.Component<Props, State> {
     }))
   }
 
-  getCheckboxSetValues = (
-    e: SyntheticInputEvent<HTMLInputElement>,
-    name: string
-  ) => {
+  getCheckboxSetValues = (e, name) => {
     const state = {
       ...this.state,
       filters: { ...this.state.filters },
@@ -113,12 +140,12 @@ class Provider extends React.Component<Props, State> {
     this.setState({
       ...this.state,
       filterOpen: null,
-      filters: initialFilterState,
+      filters: getInitialFilterState(),
     })
   }
 
-  closeSiblingFilters = (filterName: string, isOpen: string) => {
-    if (isOpen && filterName != this.state.filterOpen) {
+  closeSiblingFilters = (filterName, isOpen) => {
+    if (isOpen && filterName != this.state.openFilter) {
       this.setState(prevState => ({
         ...prevState,
         filterOpen: filterName,
@@ -160,7 +187,7 @@ class Provider extends React.Component<Props, State> {
     return filteredEvents
   }
 
-  showMore = (filteredCount: number) => {
+  showMore = filteredCount => {
     if (this.state.eventsToShow < filteredCount) {
       this.setState({ eventsToShow: this.state.eventsToShow + itemsToLoad })
     }
@@ -187,6 +214,18 @@ class Provider extends React.Component<Props, State> {
       </AppContext.Provider>
     )
   }
+}
+
+Provider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+  events: PropTypes.array,
+}
+
+Provider.defaultProps = {
+  events: [],
 }
 
 module.exports = {
