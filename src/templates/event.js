@@ -77,6 +77,7 @@ const TitleWrapper = ContentWrapper.extend`
 
 const HeroImage = styled.div`
   background-size: cover;
+  background-position: center center;
   background-image: url(${props => props.src});
 
   height: 240px;
