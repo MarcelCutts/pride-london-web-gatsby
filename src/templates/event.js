@@ -10,6 +10,7 @@ import {
   EventsYouMayLike,
   EventInfoCard,
   EventDirectionsSection,
+  EventSchedule,
 } from '../components/events'
 
 import { formatPrice } from '../components/events/helpers'
@@ -121,6 +122,7 @@ export default class Event extends Component {
       postcode,
       eventPriceLow,
       eventPriceHigh,
+      performances,
     } = this.props.data.contentfulEvent
 
     const metaImg = `https:${individualEventPicture.file.url}?w=1000&h=562`
@@ -279,6 +281,11 @@ export default class Event extends Component {
               </Section>
             </React.Fragment>
           )}
+          {performances && (
+            <Section>
+              <EventSchedule schedule={performances} />
+            </Section>
+          )}
         </ContentWrapper>
         <EventDirectionsSection data={this.props.data.contentfulEvent} />
         <EventsYouMayLike eventId={id} />
@@ -312,6 +319,9 @@ export const eventPageQuery = graphql`
         }
         title
         description
+      }
+      performances {
+        ...eventScheduleFragment
       }
       eventCategories
       eventDescription {
