@@ -6,6 +6,8 @@ script:
 - yarn lint 
 - yarn test
 - ./ci-build.sh production
+before_install:
+- export TZ='Europe/London'
 after_success:
 - if [ $TRAVIS_BRANCH == 'spike/production-release' ]; then ./ci-deploy.sh production; fi;
 env:
