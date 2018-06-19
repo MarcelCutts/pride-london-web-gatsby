@@ -55,18 +55,24 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         recurrenceDates.forEach(date => {
           const customId = `${edge.node.id}-${moment(date).format('YYYYMMDD')}`
+          const originalStartTime = moment(edge.node.startTime)
+          const startTime = moment(date)
+            .hours(originalStartTime.hours())
+            .minutes(originalStartTime.minutes())
+            .toISOString()
+          const endTime = moment(startTime)
+            .add(
+              getDuration(edge.node.startTime, edge.node.endTime),
+              'milliseconds'
+            )
+            .toISOString()
           createPage({
             path: `/events/${customId}/`,
             component: eventTemplate,
             context: {
               id: edge.node.id,
-              startTime: date,
-              endTime: moment(date)
-                .add(
-                  getDuration(edge.node.startTime, edge.node.endTime),
-                  'milliseconds'
-                )
-                .toISOString(),
+              startTime,
+              endTime,
             },
           })
         })
