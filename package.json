@@ -2,11 +2,19 @@
   "name": "pride-london-web",
   "version": "0.1.0",
   "dependencies": {
+    "husky": "^0.14.3"
   },
   "scripts": {
     "deploy:sites": "yarn ./packages/app/deploy:ci",
     "lint": "cd ./packages/app && yarn lint",
-    "test": "cd ./packages/app && yarn test"
+    "test": "cd ./packages/app && yarn test",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{js}": [
+      "eslint --fix",
+      "git add -A"
+    ]
   },
   "license": "MIT",
   "devDependencies": {
