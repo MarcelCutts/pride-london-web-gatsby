@@ -11,32 +11,35 @@ import favicon from '../favicon.ico'
 import './index.css'
 import './fonts.css'
 
-const Layout = props => (
-  <Provider events={props.data.allContentfulEvent.edges}>
-    <ThemeProvider theme={theme}>
-      <Fragment>
-        <Helmet
-          title={props.data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
-          ]}
-          link={[
-            {
-              rel: 'icon',
-              href: favicon,
-            },
-          ]}
-          htmlAttributes={{
-            lang: 'en-gb',
-          }}
-        />
-        <SimpleNav />
-        <main>{props.children()}</main>
-      </Fragment>
-    </ThemeProvider>
-  </Provider>
-)
+const Layout = props => {
+  console.log(props);
+  return (
+    <Provider events={props.data.allContentfulEvent.edges}>
+      <ThemeProvider theme={theme}>
+        <Fragment>
+          <Helmet
+            title={props.data.site.siteMetadata.title}
+            meta={[
+              { name: 'description', content: 'Sample' },
+              { name: 'keywords', content: 'sample, something' },
+            ]}
+            link={[
+              {
+                rel: 'icon',
+                href: favicon,
+              },
+            ]}
+            htmlAttributes={{
+              lang: 'en-gb',
+            }}
+          />
+          <SimpleNav />
+          <main>{props.children()}</main>
+        </Fragment>
+      </ThemeProvider>
+    </Provider>
+  )
+}
 
 // <Navigation
 // items={{

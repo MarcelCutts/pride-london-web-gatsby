@@ -10,26 +10,29 @@ const ColumnTextCenter = styled(Column)`
   width: fit-content;
 `
 
-const Home = ({ data: { contentfulHeaderBanner } }) => (
-  <Fragment>
-    <ImageBanner
-      titleText={contentfulHeaderBanner.heading}
-      subtitleText={contentfulHeaderBanner.subHeading}
-      imageSrc={
-        contentfulHeaderBanner && contentfulHeaderBanner.heroImage.file.url
-      }
-      altText={contentfulHeaderBanner.heroImage.title}
-      color={contentfulHeaderBanner.backgroundColour}
-      large="true"
-    >
-      <ColumnTextCenter>
-        <Button wide={false} primary link to="/events/">
-          Find out more
-        </Button>
-      </ColumnTextCenter>
-    </ImageBanner>
-  </Fragment>
-)
+const Home = ({ data: { contentfulHeaderBanner } }) => {
+  console.log('header banner', contentfulHeaderBanner);
+  return (
+    <Fragment>
+      <ImageBanner
+        titleText={contentfulHeaderBanner.heading}
+        subtitleText={contentfulHeaderBanner.subHeading}
+        imageSrc={
+          contentfulHeaderBanner && contentfulHeaderBanner.heroImage.file.url
+        }
+        altText={contentfulHeaderBanner.heroImage.title}
+        color={contentfulHeaderBanner.backgroundColour}
+        large="true"
+      >
+        <ColumnTextCenter>
+          <Button wide={false} primary link to="/events/">
+            Find out more
+          </Button>
+        </ColumnTextCenter>
+      </ImageBanner>
+    </Fragment>
+  )
+}
 
 export default Home
 

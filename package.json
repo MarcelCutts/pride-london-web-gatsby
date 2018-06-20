@@ -4,7 +4,9 @@
   "dependencies": {
   },
   "scripts": {
-    "deploy:sites": "yarn ./packages/*/deploy:ci"
+    "deploy:sites": "yarn ./packages/app/deploy:ci",
+    "lint": "cd ./packages/app && yarn lint",
+    "test": "cd ./packages/app && yarn test"
   },
   "license": "MIT",
   "devDependencies": {
