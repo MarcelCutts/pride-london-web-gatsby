@@ -99,29 +99,29 @@ const Sponsors = ({ data }) => {
   )
 }
 
-export const query = graphql`
-  query sponsorsQuery {
-    contentfulGenericCopy(name: { eq: "Sponsors page body" }) {
-      content {
-        content
-      }
-    }
-    allContentfulSponsor(filter: {}) {
-      distinct
-      edges {
-        node {
-          sponsorName
-          sponsorUrl
-          sponsorLogo {
-            sizes(maxHeight: 84) {
-              src
-            }
-          }
-          sponsorLevel
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query sponsorsQuery {
+//     contentfulGenericCopy(name: { eq: "Sponsors page body" }) {
+//       content {
+//         content
+//       }
+//     }
+//     allContentfulSponsor(filter: {}) {
+//       distinct
+//       edges {
+//         node {
+//           sponsorName
+//           sponsorUrl
+//           sponsorLogo {
+//             sizes(maxHeight: 84) {
+//               src
+//             }
+//           }
+//           sponsorLevel
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default Sponsors

@@ -22,26 +22,21 @@ describe('ImageBanner', () => {
     expect(wrapper.find(BannerSubtitle)).toHaveLength(1)
   })
 
-  it('should render an <img> if passed an imageSrc prop', () => {
-    const wrapper = shallow(<ImageBanner imageSrc="foo" />)
-    expect(wrapper.find('img')).toHaveLength(1)
-  })
-
-  it('should not render an <img> if not passed an imageSrc prop', () => {
-    const wrapper = shallow(<ImageBanner />)
-    expect(wrapper.find('img')).toHaveLength(0)
-  })
-
-  it('should render an img with imgSrc from props', () => {
-    const imageSrc = 'http://www.image.com'
+  it('should render a background image if passed an imageSrc prop', () => {
+    const imageSrc = 'foo'
     const wrapper = shallow(<ImageBanner imageSrc={imageSrc} />)
-    expect(wrapper.find('img').props().src).toBe(imageSrc)
+    expect(wrapper.prop('style')).toEqual({backgroundImage: `url(${imageSrc})`})
   })
 
-  it('should render an img with altText from props', () => {
+  it('should not render a background image if not passed an imageSrc prop', () => {
+    const wrapper = shallow(<ImageBanner />)
+    expect(wrapper.prop('style')).toEqual('')
+  })
+
+  it('should render an aria-label from props', () => {
     const altText = 'background image'
     const wrapper = shallow(<ImageBanner imageSrc="foo" altText={altText} />)
-    expect(wrapper.find('img').props().alt).toBe(altText)
+    expect(wrapper.props()['aria-label']).toBe(altText)
   })
 
   it('should render the titleText from props to BannerTitle ', () => {

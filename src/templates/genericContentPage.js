@@ -92,22 +92,22 @@ GenericContentPage.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export const query = graphql`
-  query genericContentPageQuery($id: String!) {
-    contentfulGenericContentPage(id: { eq: $id }) {
-      id
-      title
-      subtitle
-      bannerImage {
-        id
-        file {
-          url
-        }
-      }
-      bannerColor
-      content {
-        content
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query genericContentPageQuery($id: String!) {
+//     contentfulGenericContentPage(id: { eq: $id }) {
+//       id
+//       title
+//       subtitle
+//       bannerImage {
+//         id
+//         file {
+//           url
+//         }
+//       }
+//       bannerColor
+//       content {
+//         content
+//       }
+//     }
+//   }
+// `

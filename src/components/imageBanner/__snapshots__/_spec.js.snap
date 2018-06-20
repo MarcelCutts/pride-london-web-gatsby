@@ -2,8 +2,11 @@
 
 exports[`ImageBanner should render 1`] = `
 <Styled(Styled(Box))
+  aria-label=""
   color=""
   large="false"
+  role="banner"
+  style=""
 >
   <Styled(Row)>
     <Column
@@ -18,8 +21,11 @@ exports[`ImageBanner should render 1`] = `
 
 exports[`ImageBanner should render the subtitleText from props to BannerTitle  1`] = `
 <Styled(Styled(Box))
+  aria-label=""
   color=""
   large="false"
+  role="banner"
+  style=""
 >
   <Styled(Row)>
     <Column
@@ -36,8 +42,11 @@ exports[`ImageBanner should render the subtitleText from props to BannerTitle  1
 
 exports[`ImageBanner should render the titleText from props to BannerTitle  1`] = `
 <Styled(Styled(Box))
+  aria-label=""
   color=""
   large="false"
+  role="banner"
+  style=""
 >
   <Styled(Row)>
     <Column

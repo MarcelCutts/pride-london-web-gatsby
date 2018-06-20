@@ -13,6 +13,9 @@ const StyledContainer = styled(Container)`
   overflow: hidden;
   position: relative;
   background-color: ${props => props.color};
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
   padding-bottom: 35px;
   z-index: -2;
 
@@ -44,8 +47,13 @@ const ImageBanner = ({
   children,
   large,
 }) => (
-  <StyledContainer color={color} large={large}>
-    {imageSrc && <img src={imageSrc} alt={altText} />}
+  <StyledContainer 
+    color={color} 
+    large={large} 
+    role="banner" 
+    aria-label={altText}
+    style={imageSrc && {backgroundImage: `url(${imageSrc})`}}
+  >
     <StyledRow>
       <Column width={1}>
         <BannerTitle>{titleText}</BannerTitle>
