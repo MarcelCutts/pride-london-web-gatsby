@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 import { Container } from '../components/grid/'
@@ -59,7 +60,7 @@ const selectSponsors = data =>
 const renderSponsors = sponsors =>
   sponsors.map(sponsor => <SponsorBadge key={sponsor.name} {...sponsor} />)
 
-const selectBodyContent = data => data.contentfulGenericCopy.content.content
+// const selectBodyContent = data => data.contentfulGenericCopy.content.content
 
 const Sponsors = ({ data }) => {
   const sponsors = selectSponsors(data)
@@ -72,7 +73,7 @@ const Sponsors = ({ data }) => {
       />
       <SponsorsContainer>
         <Body>
-          <ReactMarkdown source={selectBodyContent(data)} />
+          <ReactMarkdown />
         </Body>
         <SponsorsList>
           <ListTitle>Our main 2018 partners</ListTitle>
@@ -99,13 +100,12 @@ const Sponsors = ({ data }) => {
   )
 }
 
+Sponsors.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
 export const query = graphql`
   query sponsorsQuery {
-    contentfulGenericCopy(name: { eq: "Sponsors page body" }) {
-      content {
-        content
-      }
-    }
     allContentfulSponsor(filter: {}) {
       distinct
       edges {
