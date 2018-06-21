@@ -140,6 +140,7 @@ export const query = graphql`
         title
         description
         url
+        appleAppId
       }
     }
 

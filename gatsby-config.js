@@ -9,6 +9,7 @@ module.exports = {
     description:
       "This June and July, enjoy events across the city culminating in London's iconic Pride parade and free Trafalgar Square performances on July 7th 2018.",
     url: 'https://' + (process.env.GATSBY_PUBLIC_DOMAIN || 'localhost'), // If changing this URL, ensure you remove trailing slash
+    appleAppId: '1250496471',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

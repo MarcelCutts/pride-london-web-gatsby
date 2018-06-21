@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react'
+import Helmet from 'react-helmet'
 import FlipMove from 'react-flip-move'
 import styled from 'styled-components'
 import { media } from '../theme/media'
@@ -174,6 +175,16 @@ class Events extends Component {
       <Consumer>
         {context => (
           <Fragment>
+            <Helmet
+              meta={[
+                {
+                  name: 'apple-itunes-app',
+                  content: `app-id=${
+                    this.props.data.site.siteMetadata.appleAppId
+                  }`,
+                },
+              ]}
+            />
             <ImageBanner
               titleText="What's on"
               subtitleText="Check out the huge array of events that Pride are running during the festival"
@@ -246,3 +257,13 @@ class Events extends Component {
 }
 
 export default Events
+
+export const query = graphql`
+  query EventsPageQuery {
+    site {
+      siteMetadata {
+        appleAppId
+      }
+    }
+  }
+`
