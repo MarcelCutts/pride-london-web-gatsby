@@ -1,10 +1,16 @@
 language: node_js
 node_js:
-- '8'
+  - "8.11.2"
+
 cache: yarn
+
+install:
+  - yarn global add lerna
+  - lerna bootstrap
+
 script:
-- yarn lint 
-- yarn test
+  - yarn lint
+  - yarn test
 after_success:
 - test $TRAVIS_BRANCH = "master" && yarn global add gatsby && yarn deploy:ci
 env:
