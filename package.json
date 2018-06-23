@@ -4,7 +4,6 @@
   "scripts": {
     "deploy:sites": "yarn ./packages/app/deploy:ci",
     "lint": "eslint packages/app/src/**/*.js",
-    "test": "jest",
     "precommit": "lint-staged"
   },
   "lint-staged": {
