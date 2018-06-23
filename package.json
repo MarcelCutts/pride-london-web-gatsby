@@ -2,7 +2,7 @@
   "name": "pride-london-web",
   "version": "0.1.0",
   "scripts": {
-    "deploy:sites": "yarn ./packages/app/deploy:ci",
+    "deploy:ci": "cd packages/app && yarn deploy:ci",
     "lint": "eslint packages/**/*.js",
     "precommit": "lint-staged"
   },
