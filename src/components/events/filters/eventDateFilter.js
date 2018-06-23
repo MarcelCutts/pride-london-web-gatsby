@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import 'react-dates/initialize'
+import moment from 'moment'
 import { DateRangePicker } from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css'
 import styled from 'styled-components'
@@ -190,9 +191,17 @@ class EventDateFilter extends Component {
               isFocused={this.state.focusedInput}
             >
               <DateRangePicker
-                startDate={context.state.filters.startDate}
+                startDate={
+                  context.state.filters.startDate
+                    ? moment(context.state.filters.startDate)
+                    : null
+                }
                 startDateId="start_date"
-                endDate={context.state.filters.endDate}
+                endDate={
+                  context.state.filters.endDate
+                    ? moment(context.state.filters.endDate)
+                    : null
+                }
                 endDateId="end_date"
                 onDatesChange={context.actions.getDatepickerValues}
                 focusedInput={this.state.focusedInput}

@@ -44,6 +44,12 @@ class Provider extends Component {
     this.state = {
       ...initialState,
     }
+    if (typeof sessionStorage !== 'undefined') {
+      const filters = sessionStorage.getItem('filters')
+      if (filters) {
+        this.state.filters = JSON.parse(filters)
+      }
+    }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -94,13 +100,22 @@ class Provider extends Component {
     }
   }
 
+  componentDidUpdate(_prevProps, prevState) {
+    if (
+      prevState.filters !== this.state.filters &&
+      typeof sessionStorage !== 'undefined'
+    ) {
+      sessionStorage.setItem('filters', JSON.stringify(this.state.filters))
+    }
+  }
+
   getDatepickerValues = ({ startDate, endDate }) => {
     this.setState(prevState => ({
       ...prevState,
       filters: {
         ...prevState.filters,
-        startDate,
-        endDate,
+        startDate: startDate ? startDate.toISOString() : null,
+        endDate: endDate ? endDate.toISOString() : null,
       },
     }))
   }
