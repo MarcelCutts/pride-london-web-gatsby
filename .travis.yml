@@ -11,6 +11,7 @@ install:
 script:
   - cd packages/app
   - yarn test
+  - yarn lint
 
 after_success:
   - test $TRAVIS_BRANCH = "master" && yarn global add gatsby && yarn deploy:ci
