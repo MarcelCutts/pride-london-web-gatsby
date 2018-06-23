@@ -5,7 +5,7 @@ node_js:
 cache: yarn
 
 install:
-  - yarn global add lerna eslint
+  - yarn global add lerna eslint jest
   - lerna bootstrap
 
 script:

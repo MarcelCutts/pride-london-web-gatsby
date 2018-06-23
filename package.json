@@ -1,9 +1,6 @@
 {
   "name": "pride-london-web",
   "version": "0.1.0",
-  "dependencies": {
-    "husky": "^0.14.3"
-  },
   "scripts": {
     "deploy:sites": "yarn ./packages/app/deploy:ci",
     "lint": "eslint packages/app/src/**/*.js",
@@ -26,6 +23,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.8.2",
+    "husky": "^0.14.3",
     "lerna": "^2.11.0",
     "jest": "^23.1.0",
     "jest-environment-jsdom": "^23.1.0"
