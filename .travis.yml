@@ -10,7 +10,7 @@ install:
 
 matrix:
   include:
-    - env: PROJECT=package/app
+    env: PROJECT=packages/app
 
 script:
   - cd $PROJECT
