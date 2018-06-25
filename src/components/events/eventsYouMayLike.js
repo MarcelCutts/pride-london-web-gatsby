@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import moment from 'moment'
@@ -52,46 +52,62 @@ const HeadingRow = styled(Row)`
   justify-content: space-between;
 `
 
-const filterEventsYouMayLike = (events, eventId) => {
-  const filteredEvents = events.filter(event => {
-    if (event.node.id.includes(eventId)) return false
+class EventsYouMayLike extends Component {
+  componentDidMount() {}
+  filterEventsYouMayLike = (events, eventId) => {
+    let filteredEvents = []
+    if (typeof sessionStorage !== 'undefined') {
+      filteredEvents = JSON.parse(sessionStorage.getItem('filteredEvents'))
+    }
+    const eventsYouMayLike = [...filteredEvents, ...events]
+    return eventsYouMayLike
+      .filter((event, pos, arr) => {
+        // Filter out recurrences of current event
+        if (event.node.id.includes(eventId)) return false
+        // Filter out duplicate events
+        return (
+          arr.map(mapEvent => mapEvent.node.id).indexOf(event.node.id) ===
+            pos &&
+          // Filter out past events
+          moment(event.node.startTime).diff(moment(), 'hours') > 0
+        )
+      })
+      .splice(0, 3) // Take first 3
+  }
 
-    return moment(event.node.startTime).diff(moment(), 'hours') > 0
-  })
+  render() {
+    return (
+      <Consumer>
+        {context => {
+          const eventsYouMayLike = this.filterEventsYouMayLike(
+            context.state.events,
+            this.props.eventId
+          )
 
-  return filteredEvents.splice(0, 3)
+          if (eventsYouMayLike.length === 0) return null
+
+          return (
+            <StyledContainer>
+              <HeadingRow>
+                <Heading>You may also like</Heading>
+                <ViewAll href="/events">
+                  View all<DesktopOnly>&nbsp;events</DesktopOnly>&nbsp;<ChevronRight />
+                </ViewAll>
+              </HeadingRow>
+              <Row>
+                {eventsYouMayLike.map(event => (
+                  <FlexColumn width={[1, 1, 1 / 2, 1 / 3]} key={event.node.id}>
+                    <EventListingCard event={event.node} />
+                  </FlexColumn>
+                ))}
+              </Row>
+            </StyledContainer>
+          )
+        }}
+      </Consumer>
+    )
+  }
 }
-
-export const EventsYouMayLike = ({ eventId }) => (
-  <Consumer>
-    {context => {
-      const eventsYouMayLike = filterEventsYouMayLike(
-        context.state.events,
-        eventId
-      )
-
-      if (eventsYouMayLike.length === 0) return null
-
-      return (
-        <StyledContainer>
-          <HeadingRow>
-            <Heading>You may also like</Heading>
-            <ViewAll href="/events">
-              View all<DesktopOnly>&nbsp;events</DesktopOnly>&nbsp;<ChevronRight />
-            </ViewAll>
-          </HeadingRow>
-          <Row>
-            {eventsYouMayLike.map(event => (
-              <FlexColumn width={[1, 1, 1 / 2, 1 / 3]} key={event.node.id}>
-                <EventListingCard event={event.node} />
-              </FlexColumn>
-            ))}
-          </Row>
-        </StyledContainer>
-      )
-    }}
-  </Consumer>
-)
 
 EventsYouMayLike.propTypes = {
   eventId: PropTypes.string.isRequired,
