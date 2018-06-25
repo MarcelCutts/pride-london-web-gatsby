@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { formatDate, formatPrice } from './helpers'
 import { media } from '../../theme/media'
 import theme from '../../theme/theme'
 
-const Card = styled.a`
+const Card = styled(Link)`
   display: block;
   border-radius: 5px;
   text-decoration: none;
@@ -17,8 +18,8 @@ const Card = styled.a`
   min-height: 130px;
   background-color: ${theme.colors.white};
 
-  transform: scale(0.2);
-  opacity: 0;
+  transform: ${props => (props.mounted == 'true' ? 'scale(1)' : 'scale(0.2)')};
+  opacity: ${props => (props.mounted == 'true' ? 1 : 0)};
   transition: transform 0.2s ease-out, opacity 0.15s ease-out;
 
   &:hover,
@@ -145,12 +146,15 @@ const CardHeading = styled.h3`
 
 /* eslint-disable-next-line */
 export class EventListingCard extends React.Component {
-  componentDidMount() {
-    this.wrapperRef.style.opacity = '1'
-    this.wrapperRef.style.transform = 'scale(1)'
+  state = {
+    mounted: 'false',
   }
-  shouldComponentUpdate() {
-    return false
+
+  componentDidMount() {
+    this.setState({ mounted: 'true' })
+  }
+  shouldComponentUpdate(_nextProps, nextState) {
+    return nextState.mounted !== this.state.mounted
   }
   render() {
     const { event } = this.props
@@ -164,10 +168,10 @@ export class EventListingCard extends React.Component {
 
     return (
       <Card
-        href={`/events/${event.id}`}
+        to={`/events/${event.id}`}
         itemScope
         itemType="http://schema.org/Event"
-        innerRef={ref => (this.wrapperRef = ref)}
+        mounted={`${this.state.mounted}`}
       >
         <CardImageOverflow>
           <CardImageWrapper className="card-img-wrapper" src={imageUrl}>
