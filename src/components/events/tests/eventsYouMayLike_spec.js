@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { ThemeProvider } from 'styled-components'
-import { EventsYouMayLike } from '../eventsYouMayLike'
+import EventsYouMayLike from '../eventsYouMayLike'
 import EventListingCard from '../eventListingCard'
 import theme from '../../../theme/theme'
 
@@ -49,6 +49,7 @@ jest.mock('../../../components/appContext', () => {
   return {
     Consumer: props =>
       props.children({
+        filteredEvents: [nodeOne, nodeTwo, nodeThree],
         state: {
           events: [nodeOne, nodeTwo, nodeThree],
         },
