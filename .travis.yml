@@ -8,13 +8,17 @@ install:
   - yarn global add lerna
   - lerna bootstrap
 
+matrix:
+  include:
+    - env PROJECT=package/app
+
 script:
-  - cd packages/app
+  - cd $PROJECT
   - yarn test
   - yarn lint
 
 after_success:
-  - test $TRAVIS_BRANCH = "master" && yarn global add gatsby && yarn deploy:ci
+  - test $TRAVIS_BRANCH = "master" && yarn global add gatsby && cd &PROJECT && yarn deploy:ci
 
 env:
   global:
