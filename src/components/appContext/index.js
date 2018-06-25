@@ -219,6 +219,15 @@ class Provider extends Component {
         filterByTime(event, this.state.filters.timeOfDay)
     )
 
+    if (typeof sessionStorage !== 'undefined') {
+      setTimeout(() => {
+        sessionStorage.setItem(
+          'filteredEvents',
+          JSON.stringify(this.previousFilteredEvents)
+        )
+      })
+    }
+
     return this.previousFilteredEvents
   }
 
