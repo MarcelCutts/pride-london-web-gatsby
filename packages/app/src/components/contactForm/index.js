@@ -252,7 +252,11 @@ class ContactForm extends React.Component {
           onClick={this.changeButtonText}
           primary
         >
-          <img src={check} style={{ display: isSent ? 'inline' : 'none' }} />
+          <img
+            src={check}
+            alt=""
+            style={{ display: isSent ? 'inline' : 'none' }}
+          />
           {this.state.buttonText}
         </Button>
         <AddressBox>

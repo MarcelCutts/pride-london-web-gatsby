@@ -67,7 +67,7 @@ const NamePlaceholder = styled.h3`
 
 const SponsorBadge = ({ logo, name, url, level }) => (
   <Badge level={level}>
-    <a href={url} target="_blank">
+    <a href={url} rel="noopener noreferrer" target="_blank">
       {logo ? (
         <BadgeImage src={logo} alt={name} level={level} />
       ) : (
@@ -78,6 +78,9 @@ const SponsorBadge = ({ logo, name, url, level }) => (
 )
 
 SponsorBadge.propTypes = {
+  logo: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   level: PropTypes.oneOf(
     Object.keys(constants.sponsorLevels).map(
       key => constants.sponsorLevels[key]

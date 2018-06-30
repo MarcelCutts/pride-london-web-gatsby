@@ -1,10 +1,12 @@
 # Project dependencies
-.cache
 node_modules
+packages/*/.cache
+packages/*/node_modules
 yarn-error.log
+coverage
 
 # Build directory
-/public
+packages/*/public
 .DS_Store
 .env.development
 .env.production

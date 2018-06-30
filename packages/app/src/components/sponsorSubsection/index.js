@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { media } from '../../theme/media'
 
@@ -24,5 +25,12 @@ const SponsorsSubsection = ({ title, icon, children }) => (
     <BadgesContainer>{children}</BadgesContainer>
   </Fragment>
 )
+
+SponsorsSubsection.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  children: oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)])
+    .isRequired,
+}
 
 export default SponsorsSubsection

@@ -20,7 +20,11 @@ npm install --global gatsby-cli
 3.  Install nvm from [here](https://github.com/creationix/nvm)
 4.  Make sure you're using the correct version of node `nvm use`
 5.  Ensure you have [yarn](https://yarnpkg.com/en/docs/install) installed. 
-6.  Run yarn in the root directory to pull in dependencies.
+6.  Ensure you have [lerna](https://lernajs.io/) installed. 
+7.  Run `lerna bootstrap` in the root directory to pull in dependencies.
+
+As we're using lerna to deal with dependencies, don't use yarn or npm to install new ones. 
+Run `lerna add 'dependency name'` or, and this is preferable, add the node-module you want to add to the package.json of the desired package and run `lerna bootstrap`
 
 ## ENVIRONMENT VARIABLES
 
@@ -30,9 +34,10 @@ npm install --global gatsby-cli
 
 ## Running 🏃
 
-Then you can run it by:
+Go to the package you want to run e.g. events, then run gatsby develop:
 
 ```sh
+cd packages/events
 gatsby develop
 ```
 
