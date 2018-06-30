@@ -2,7 +2,8 @@
   "plugins": [
     "prettier",
     "react",
-    "import"
+    "import",
+    "jest"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -15,7 +16,11 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
+  },
+  "globals": {
+    "graphql": false
   },
   "rules": {
     "array-callback-return": "off",
@@ -37,11 +42,11 @@
     "jsx-a11y/no-redundant-roles": "off",
     "max-len": 0, // in conflict with prettier
     "no-confusing-arrow": "off",
+    "no-undef": "error",
     "no-else-return": "error",
     "no-nested-ternary": "off",
     "no-return-assign": "off",
     "no-param-reassign": "off",
-    "no-undef": "off", // throw error on graphql queries
     "no-unused-vars": "error",
     "no-use-before-define": "error",
     "object-curly-newline": "off",

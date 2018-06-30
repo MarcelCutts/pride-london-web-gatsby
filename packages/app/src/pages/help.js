@@ -6,20 +6,19 @@ import AccordionWrapper from '../components/accordion/accordionWrapper'
 import Accordion from '../components/accordion'
 import ContactForm from '../components/contactForm'
 import ImageBanner from '../components/imageBanner'
+import theme from '../theme/theme'
 
 const PageWrapper = styled.div`
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${theme.colors.white};
 
   h1 {
     font-size: 20px;
     margin-top: 30px;
 
-    ${media.tablet`
-      margin-top: 60px;
-      font-size: 32px;
-      line-height: 38px;
-      font-weight: bold;
-    `};
+    @media (max-width: ${theme.breakpoints[1]}) {
+      font-size: 20px;
+      margin-top: 30px;
+    }
   }
 `
 
@@ -45,3 +44,6 @@ const Help = () => (
 )
 
 export default Help
+
+// unsure of travis.yml file
+// check accordionWrapper

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import moment from 'moment'
@@ -7,10 +7,11 @@ import { Consumer } from '../../components/appContext'
 import { Container, Row, Column } from '../../components/grid'
 import { media } from '../../theme/media'
 import EventListingCard from './eventListingCard'
+import theme from '../../theme/theme'
 
 const ViewAll = styled.a`
-  color: ${props => props.theme.colors.indigo};
-  font-family: ${props => props.theme.fonts.title};
+  color: ${theme.colors.indigo};
+  font-family: ${theme.fonts.title};
   font-size: 1rem;
   padding-top: 5px;
   text-align: right;
@@ -26,15 +27,11 @@ export const StyledContainer = styled(Container)`
   ${media.desktop`
     padding: 60px 0px;
   `}
-  background-color: ${props => props.theme.colors.lightGrey};
+  background-color: ${theme.colors.lightGrey};
 `
 
-const Heading = styled.h1`
-  font-size: 1.25rem;
+const Heading = styled.h2`
   margin: 0;
-  ${media.desktop`
-    font-size: 2rem;
-  `};
 `
 
 const DesktopOnly = styled.span`
@@ -55,46 +52,59 @@ const HeadingRow = styled(Row)`
   justify-content: space-between;
 `
 
-const filterEventsYouMayLike = (events, eventId) => {
-  const filteredEvents = events.filter(event => {
-    if (event.node.id === eventId) return false
+class EventsYouMayLike extends Component {
+  componentDidMount() {}
+  filterEventsYouMayLike = (filtered, events, eventId) => {
+    const eventsYouMayLike = [...filtered, ...events]
+    return eventsYouMayLike
+      .filter((event, pos, arr) => {
+        // Filter out recurrences of current event
+        if (event.node.id.includes(eventId)) return false
+        // Filter out duplicate events
+        return (
+          arr.map(mapEvent => mapEvent.node.id).indexOf(event.node.id) ===
+            pos &&
+          // Filter out past events
+          moment(event.node.startTime).diff(moment(), 'hours') > 0
+        )
+      })
+      .splice(0, 3) // Take first 3
+  }
 
-    return moment(event.node.startTime).diff(moment(), 'hours') > 0
-  })
+  render() {
+    return (
+      <Consumer>
+        {context => {
+          const eventsYouMayLike = this.filterEventsYouMayLike(
+            context.filteredEvents,
+            context.state.events,
+            this.props.eventId
+          )
 
-  return filteredEvents.splice(0, 3)
+          if (eventsYouMayLike.length === 0) return null
+
+          return (
+            <StyledContainer>
+              <HeadingRow>
+                <Heading>You may also like</Heading>
+                <ViewAll href="/events">
+                  View all<DesktopOnly>&nbsp;events</DesktopOnly>&nbsp;<ChevronRight />
+                </ViewAll>
+              </HeadingRow>
+              <Row>
+                {eventsYouMayLike.map(event => (
+                  <FlexColumn width={[1, 1, 1 / 2, 1 / 3]} key={event.node.id}>
+                    <EventListingCard event={event.node} />
+                  </FlexColumn>
+                ))}
+              </Row>
+            </StyledContainer>
+          )
+        }}
+      </Consumer>
+    )
+  }
 }
-
-export const EventsYouMayLike = ({ eventId }) => (
-  <Consumer>
-    {context => {
-      const eventsYouMayLike = filterEventsYouMayLike(
-        context.state.events,
-        eventId
-      )
-
-      if (eventsYouMayLike.length === 0) return null
-
-      return (
-        <StyledContainer>
-          <HeadingRow>
-            <Heading>You may also like</Heading>
-            <ViewAll href="/events">
-              View all<DesktopOnly>&nbsp;events</DesktopOnly>&nbsp;<ChevronRight />
-            </ViewAll>
-          </HeadingRow>
-          <Row>
-            {eventsYouMayLike.map(event => (
-              <FlexColumn width={[1, 1, 1 / 2, 1 / 3]} key={event.node.id}>
-                <EventListingCard event={event.node} />
-              </FlexColumn>
-            ))}
-          </Row>
-        </StyledContainer>
-      )
-    }}
-  </Consumer>
-)
 
 EventsYouMayLike.propTypes = {
   eventId: PropTypes.string.isRequired,

@@ -7,6 +7,7 @@ import { Consumer } from '../../../components/appContext'
 import CheckboxSet from '../../../components/checkboxSet'
 import iconDown from '../../../theme/assets/images/icon-chevron-down.svg'
 import iconUp from '../../../theme/assets/images/icon-chevron-up.svg'
+import theme from '../../../theme/theme'
 
 const Wrapper = styled.div`
   position: relative;
@@ -14,26 +15,25 @@ const Wrapper = styled.div`
 `
 
 const FilterButton = styled.button`
-  font-family: ${props => props.theme.fonts.title};
-  font-weight: 600;
-  font-size: 1rem;
+  display: none;
   width: 100%;
-  background-color: ${props => props.theme.colors.lightGrey};
-  border-color: ${props => props.theme.colors.lightGrey};
-  color: ${props => props.theme.colors.indigo};
+  background-color: ${theme.colors.lightGrey};
+  border-color: ${theme.colors.lightGrey};
+  color: ${theme.colors.indigo};
   padding: 11px 10px;
-  display: flex;
   align-items: center;
   min-height: 48px;
   box-sizing: border-box;
+  text-align: left;
 
   ${media.mobile`
     padding: 11px 45px 11px 20px;
   `};
 
   ${media.tablet`
-    color: ${props => props.theme.colors.black};
-    font-family: ${props => props.theme.fonts.body};
+    display: flex;
+    color: ${theme.colors.black};
+    font-family: ${theme.fonts.body};
     font-weight: 500;
     font-size: 0.875rem;
     background-image: url(${props => (props.isOpen ? iconUp : iconDown)});
@@ -54,9 +54,33 @@ const FilterButton = styled.button`
     transition: border-color 0.15s linear, background-color 0.15s linear;
 
     &:focus {
-      border-color: ${props => props.theme.colors.eucalyptusGreen};
+      border-color: ${theme.colors.eucalyptusGreen};
       outline: none;
     }
+  `};
+`
+
+const FilterHeader = styled.div`
+  display: block;
+  font-family: ${theme.fonts.title};
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  background-color: ${theme.colors.lightGrey};
+  border-color: ${theme.colors.lightGrey};
+  color: ${theme.colors.indigo};
+  padding: 11px 10px;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  box-sizing: border-box;
+
+  ${media.mobile`
+    padding: 11px 45px 11px 20px;
+  `};
+
+  ${media.tablet`
+    display: none;
   `};
 `
 
@@ -65,7 +89,7 @@ const DropDown = styled.fieldset`
   margin: 0;
   border: none;
 
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
+  @media (min-width: ${theme.breakpoints[1]}) {
     display: ${props => (props.isOpen ? 'block' : 'none')};
     position: absolute;
     top: 100%;
@@ -81,14 +105,14 @@ const Badge = styled.span`
   justify-content: center;
   margin-left: 10px;
   border-radius: 50%;
-  color: ${props => props.theme.colors.white};
-  background-color: ${props => props.theme.colors.eucalyptusGreen};
+  color: ${theme.colors.white};
+  background-color: ${theme.colors.eucalyptusGreen};
   height: 22px;
   width: 22px;
   line-height: 1;
 
-  @media (min-width: ${props => props.theme.breakpoints[1]}) {
-    background-color: ${props => props.theme.colors.indigo};
+  @media (min-width: ${theme.breakpoints[1]}) {
+    background-color: ${theme.colors.indigo};
   }
 `
 
@@ -98,6 +122,7 @@ class EventDropdownFilter extends Component {
   }
 
   static getDerivedStateFromProps(nextProps) {
+    console.log(nextProps.filterOpen)
     if (nextProps.filterOpen !== nextProps.filterName) {
       return { isOpen: false }
     }
@@ -106,6 +131,7 @@ class EventDropdownFilter extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldCom', nextState)
     return this.state.isOpen !== nextState.isOpen
   }
 
@@ -118,9 +144,8 @@ class EventDropdownFilter extends Component {
   }
 
   toggleMenu = () => {
-    this.setState({ isOpen: !this.state.isOpen }, () =>
-      this.props.closeSiblingFilters(this.props.filterName, this.state.isOpen)
-    )
+    this.props.closeSiblingFilters(this.props.filterName, !this.state.isOpen)
+    this.setState({ isOpen: !this.state.isOpen })
   }
 
   render() {
@@ -128,6 +153,14 @@ class EventDropdownFilter extends Component {
       <Consumer>
         {context => (
           <Wrapper>
+            <FilterHeader>
+              {this.props.heading}
+              {context.state.filters[this.props.filterName].length > 0 && (
+                <Badge>
+                  {context.state.filters[this.props.filterName].length}
+                </Badge>
+              )}
+            </FilterHeader>
             <FilterButton
               aria-controls={this.props.filterName}
               aria-expanded={this.state.isOpen}
@@ -138,11 +171,11 @@ class EventDropdownFilter extends Component {
               isActive={context.state.filters[this.props.filterName].length > 0}
             >
               {this.props.heading}
-              {context.state.filters[this.props.filterName].length > 0 ? (
+              {context.state.filters[this.props.filterName].length > 0 && (
                 <Badge>
                   {context.state.filters[this.props.filterName].length}
                 </Badge>
-              ) : null}
+              )}
             </FilterButton>
             <DropDown
               isOpen={this.state.isOpen}
@@ -163,7 +196,7 @@ EventDropdownFilter.propTypes = {
   heading: PropTypes.string.isRequired,
   filterName: PropTypes.string.isRequired,
   closeSiblingFilters: PropTypes.func.isRequired,
-  filterOpen: PropTypes.bool.isRequired,
+  filterOpen: PropTypes.string.isRequired,
 }
 
 export default onClickOutside(EventDropdownFilter)

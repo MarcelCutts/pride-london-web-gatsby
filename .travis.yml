@@ -16,6 +16,10 @@ script:
   - cd $PROJECT
   - yarn test
   - yarn lint
+  - ./ci-build.sh production
+
+before_install:
+  - export TZ='Europe/London'
 
 after_success:
   - test $TRAVIS_BRANCH = "master" && yarn global add gatsby && cd &PROJECT && yarn deploy:ci

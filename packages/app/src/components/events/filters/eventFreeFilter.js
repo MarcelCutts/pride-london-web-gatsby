@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import { media } from '../../../theme/media'
 import { Consumer } from '../../../components/appContext'
 import Checkbox from '../../../components/checkbox'
+import theme from '../../../theme/theme'
 
 const Wrapper = styled.div`
   background-color: transparent;
-  padding: 20px 10px 0 10px;
+  padding: 20px 10px 110px 10px;
   display: flex;
   align-items: center;
   min-height: 48px;
@@ -25,10 +26,11 @@ const Wrapper = styled.div`
   }
 
   ${media.mobile`
-    padding: 9px 20px;
+    padding: 9px 20px 110px 20px;
   `};
 
   ${media.tablet`
+  padding: 9px 20px;
     background-color: ${props =>
       props.isChecked
         ? props.theme.colors.eucalyptusGreen
@@ -41,7 +43,7 @@ const Wrapper = styled.div`
     transition: background-color 0.15s linear;
 
     &:focus-within {
-      border-color: ${props => props.theme.colors.eucalyptusGreen}
+      border-color: ${theme.colors.eucalyptusGreen}
     }
 
     input {
@@ -61,11 +63,11 @@ const Wrapper = styled.div`
 `
 const FilterHeader = styled.div`
   padding: 16px 10px;
-  background-color: ${props => props.theme.colors.lightGrey};
+  background-color: ${theme.colors.lightGrey};
   font-size: 1rem;
-  font-family: ${props => props.theme.fonts.title};
+  font-family: ${theme.fonts.title};
   font-weight: 600;
-  color: ${props => props.theme.colors.indigo};
+  color: ${theme.colors.indigo};
 
   ${media.mobile`
     padding: 16px 20px;

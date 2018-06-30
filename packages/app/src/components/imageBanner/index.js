@@ -12,7 +12,6 @@ const StyledContainer = styled(Container)`
   min-height: 270px;
   overflow: hidden;
   position: relative;
-  background-color: ${props => props.color};
   padding-bottom: 35px;
   z-index: -2;
 
@@ -35,48 +34,31 @@ const StyledRow = styled(Row)`
   flex-basis: 100%;
 `
 
-const ImageBanner = ({
-  titleText,
-  subtitleText,
-  imageSrc,
-  altText,
-  color,
-  children,
-  large,
-}) => (
-  <StyledContainer color={color} large={large}>
+const ImageBanner = ({ titleText, subtitleText, imageSrc, altText, color }) => (
+  <StyledContainer style={{ backgroundColor: color }}>
     {imageSrc && <img src={imageSrc} alt={altText} />}
     <StyledRow>
       <Column width={1}>
         <BannerTitle>{titleText}</BannerTitle>
         <BannerSubtitle>{subtitleText}</BannerSubtitle>
       </Column>
-      {children}
     </StyledRow>
   </StyledContainer>
 )
 
 ImageBanner.propTypes = {
-  large: PropTypes.string,
   imageSrc: PropTypes.string,
   altText: PropTypes.string,
   subtitleText: PropTypes.string,
   titleText: PropTypes.string,
   color: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
 }
 
 ImageBanner.defaultProps = {
-  large: 'false', // this isn' a bool because styled components
   imageSrc: '',
   altText: '',
   subtitleText: '',
   titleText: '',
   color: '',
-  children: null,
 }
-
 export default ImageBanner

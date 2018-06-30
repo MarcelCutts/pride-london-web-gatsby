@@ -2,16 +2,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import EventScheduleItem from './eventScheduleItem'
+import moment from 'moment'
 
 const splitIntoArray = schedule =>
   schedule.reduce(
     (acc, item) => {
-      if (item.startTime < '12:00') {
+      if (
+        moment(item.startTime).isBefore(
+          moment(item.startTime)
+            .hours(12)
+            .minutes(0)
+        )
+      ) {
         return {
           ...acc,
           morning: [...acc.morning, item],
         }
-      } else if (item.startTime < '17:00') {
+      } else if (
+        moment(item.startTime).isBefore(
+          moment(item.startTime)
+            .hours(17)
+            .minutes(0)
+        )
+      ) {
         return {
           ...acc,
           afternoon: [...acc.afternoon, item],
@@ -57,6 +70,6 @@ export const query = graphql`
   fragment eventScheduleFragment on ContentfulPerformance {
     id
     title
-    startTime(formatString: "HH:mm")
+    startTime
   }
 `

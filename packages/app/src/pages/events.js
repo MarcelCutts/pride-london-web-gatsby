@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react'
+import Helmet from 'react-helmet'
 import FlipMove from 'react-flip-move'
 import styled from 'styled-components'
 import moment from 'moment'
@@ -32,10 +33,16 @@ const StyledFlipMove = styled(FlipMove)`
   flex-basis: 100%;
 `
 
+const CardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+`
+
 const ContainerAddFilters = styled(Container)`
   padding: 20px 0;
   margin-bottom: 20px;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${theme.colors.white};
 
   ${media.tablet`
     display: none;
@@ -63,7 +70,7 @@ const OffsetContainer = styled(Container)`
 const EventCount = styled.p`
   font-size: 0.875rem;
   line-height: 1.214;
-  color: ${props => props.theme.colors.darkGrey};
+  color: ${theme.colors.darkGrey};
 `
 
 const DateGroupHeading = styled.h2`
@@ -141,14 +148,47 @@ class Events extends Component {
     return <EventCount>{text}</EventCount>
   }
 
+  isMobile() {
+    return typeof window !== 'undefined' && window.innerWidth < 1024
+  }
+
+  renderEventCards(context) {
+    const cards = context.filteredEvents
+      .filter(filterByLimit, context.state.eventsToShow)
+      .map((event, index, events) => this.renderCard(event, index, events))
+
+    if (this.isMobile()) {
+      return cards
+    }
+
+    // only use flip-move for the top few rows, so you get the
+    // transtions when applying filters but not when loading more
+    return (
+      <CardWrapper>
+        <StyledFlipMove>{cards.slice(0, 12)}</StyledFlipMove>
+        {cards.slice(12)}
+      </CardWrapper>
+    )
+  }
+
   render() {
     return (
       <Consumer>
         {context => (
           <Fragment>
+            <Helmet
+              meta={[
+                {
+                  name: 'apple-itunes-app',
+                  content: `app-id=${
+                    this.props.data.site.siteMetadata.appleAppId
+                  }`,
+                },
+              ]}
+            />
             <ImageBanner
               titleText="What's on"
-              subtitleText="Checkout the huge array of events that Pride are running during the festival"
+              subtitleText="Check out the huge array of events that Pride are running during the festival"
               imageSrc=""
               altText=""
               color={theme.colors.beachBlue}
@@ -185,13 +225,7 @@ class Events extends Component {
             </ContainerAddFilters>
             <Container>
               <Row>
-                <StyledFlipMove>
-                  {context.filteredEvents
-                    .filter(filterByLimit, context.state.eventsToShow)
-                    .map((event, index, events) =>
-                      this.renderCard(event, index, events)
-                    )}
-                </StyledFlipMove>
+                {this.renderEventCards(context)}
                 <ColumnPagination width={1}>
                   {this.renderEventCount(
                     context.filteredEvents.length,
@@ -224,3 +258,13 @@ class Events extends Component {
 }
 
 export default Events
+
+export const query = graphql`
+  query EventsPageQuery {
+    site {
+      siteMetadata {
+        appleAppId
+      }
+    }
+  }
+`

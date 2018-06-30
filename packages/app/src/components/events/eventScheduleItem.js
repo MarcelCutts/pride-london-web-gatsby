@@ -1,11 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import moment from 'moment'
+import { media } from '../../theme/media'
 
 const Table = styled.table`
   text-align: left;
   width: 100%;
   margin-bottom: 18px;
+  font-size: 1rem;
+  ${media.desktop`
+    font-size: 1em;
+  `};
 `
 
 const TableHeader = styled.th`
@@ -39,7 +45,9 @@ const EventScheduleItem = props => {
           </tr>
           {props.data.map(item => (
             <tr key={item.id}>
-              <TableItemTime>{item.startTime}</TableItemTime>
+              <TableItemTime>
+                {moment(item.startTime).format('HH:mm')}
+              </TableItemTime>
               <TableItem>{item.title}</TableItem>
             </tr>
           ))}
