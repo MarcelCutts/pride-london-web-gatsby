@@ -64,25 +64,25 @@ const responsiveBannerUrl = url => {
 // eslint-disable-next-line react/prefer-stateless-function
 export default class GenericContentPage extends Component {
   render() {
-    const data = this.props.data.contentfulGenericContentPage
+    // const data = this.props.data.contentfulGenericContentPage
 
     return (
       <PageWrapper>
-        <ImageBanner
-          titleText={data.title}
-          subtitleText={data.subtitle}
-          imageSrc={
-            data.bannerImage && responsiveBannerUrl(data.bannerImage.file.url)
-          }
-          altText=""
-          color={data.bannerColor ? data.bannerColor : theme.colors.beachBlue}
-        />
-        <Row>
-          <Content width={[1, 1, 0.8]}>
-            <ReactMarkdown source={data.content.content} />
-          </Content>
-        </Row>
-        <Helmet title={data.title} />
+        {/*<ImageBanner*/}
+          {/*titleText={data.title}*/}
+          {/*subtitleText={data.subtitle}*/}
+          {/*imageSrc={*/}
+            {/*data.bannerImage && responsiveBannerUrl(data.bannerImage.file.url)*/}
+          {/*}*/}
+          {/*altText=""*/}
+          {/*color={data.bannerColor ? data.bannerColor : theme.colors.beachBlue}*/}
+        {/*/>*/}
+        {/*<Row>*/}
+          {/*<Content width={[1, 1, 0.8]}>*/}
+            {/*<ReactMarkdown source={data.content.content} />*/}
+          {/*</Content>*/}
+        {/*</Row>*/}
+        {/*<Helmet title={data.title} />*/}
       </PageWrapper>
     )
   }
@@ -92,22 +92,22 @@ GenericContentPage.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export const query = graphql`
-  query genericContentPageQuery($id: String!) {
-    contentfulGenericContentPage(id: { eq: $id }) {
-      id
-      title
-      subtitle
-      bannerImage {
-        id
-        file {
-          url
-        }
-      }
-      bannerColor
-      content {
-        content
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query genericContentPageQuery($id: String!) {
+//     contentfulGenericContentPage(id: { eq: $id }) {
+//       id
+//       title
+//       subtitle
+//       bannerImage {
+//         id
+//         file {
+//           url
+//         }
+//       }
+//       bannerColor
+//       content {
+//         content
+//       }
+//     }
+//   }
+// `
