@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 import Helmet from 'react-helmet'
 import { media } from '../theme/media'
@@ -12,7 +12,6 @@ import {
   EventDirectionsSection,
   EventSchedule,
 } from '../components/events'
-
 import { formatPrice } from '../components/events/helpers'
 
 const PageWrapper = styled.div`
@@ -166,7 +165,7 @@ export default class Event extends Component {
             },
             {
               itemprop: 'isAccessibleForFree',
-              content: eventPriceLow === 0 ? true : false,
+              content: eventPriceLow === 0,
             },
             {
               itemprop: 'offers',
@@ -297,6 +296,7 @@ export default class Event extends Component {
 
 Event.propTypes = {
   data: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
   pathContext: PropTypes.object.isRequired,
 }
 

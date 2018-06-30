@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import FlipMove from 'react-flip-move'
 import styled from 'styled-components'
@@ -85,6 +86,8 @@ const FilterIcon = styled.img`
   margin: 0 6px -2px 0;
 `
 
+const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 1024
+
 class Events extends Component {
   state = {
     showFiltersMobile: false,
@@ -148,16 +151,12 @@ class Events extends Component {
     return <EventCount>{text}</EventCount>
   }
 
-  isMobile() {
-    return typeof window !== 'undefined' && window.innerWidth < 1024
-  }
-
   renderEventCards(context) {
     const cards = context.filteredEvents
       .filter(filterByLimit, context.state.eventsToShow)
       .map((event, index, events) => this.renderCard(event, index, events))
 
-    if (this.isMobile()) {
+    if (isMobile()) {
       return cards
     }
 
@@ -255,6 +254,10 @@ class Events extends Component {
       </Consumer>
     )
   }
+}
+
+Events.propTypes = {
+  data: PropTypes.object.isRequired,
 }
 
 export default Events

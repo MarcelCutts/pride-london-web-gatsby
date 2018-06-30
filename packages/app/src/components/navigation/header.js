@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Container, Row } from '../grid'
-import NavItems from './navItems'
 import theme from '../../theme/theme'
+import NavItems from './navItems'
 
 const StyledContainer = styled(Container)`
   background-color: ${theme.colors.indigo};

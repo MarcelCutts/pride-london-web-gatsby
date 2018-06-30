@@ -43,6 +43,7 @@ const formatDate = event => {
     case startMonth === endMonth:
       dateTime.date = `${startDay} - ${endDay} ${startMonth} ${year}`
       dateTime.time = `${startTime} - ${endTime}`
+      break
     default:
       dateTime.date = `${startDay} ${startMonth} - ${endDay} ${endMonth} ${year}`
       dateTime.time = `${startTime} - ${endTime}`
@@ -69,11 +70,10 @@ function filterByCategory(event, key, categories) {
   return (
     !categories ||
     categories.length === 0 ||
-    categories.some(category => {
-      return (
+    categories.some(
+      category =>
         Array.isArray(event.node[key]) && event.node[key].indexOf(category) >= 0
-      )
-    })
+    )
   )
 }
 

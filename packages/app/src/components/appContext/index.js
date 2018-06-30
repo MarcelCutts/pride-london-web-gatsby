@@ -154,7 +154,6 @@ class Provider extends Component {
   }
 
   closeSiblingFilters = (filterName, isOpen) => {
-    console.log('-- filterName')
     if (isOpen && filterName != this.state.openFilter) {
       this.setState(prevState => ({
         ...prevState,

@@ -122,7 +122,6 @@ class EventDropdownFilter extends Component {
   }
 
   static getDerivedStateFromProps(nextProps) {
-    console.log(nextProps.filterOpen)
     if (nextProps.filterOpen !== nextProps.filterName) {
       return { isOpen: false }
     }
@@ -131,7 +130,6 @@ class EventDropdownFilter extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('shouldCom', nextState)
     return this.state.isOpen !== nextState.isOpen
   }
 

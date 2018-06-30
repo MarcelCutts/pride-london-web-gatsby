@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import { formatDate, formatPrice } from './helpers'
 import { media } from '../../theme/media'
 import theme from '../../theme/theme'
+import { formatDate, formatPrice } from './helpers'
 
 const Card = styled(Link)`
   display: block;
@@ -208,7 +208,7 @@ export class EventListingCard extends React.Component {
             </span>
             <meta
               itemProp="isAccessibleForFree"
-              content={`${event.eventPriceLow === 0 ? true : false}`}
+              content={`${event.eventPriceLow === 0}`}
             />
           </CardPrice>
         )}

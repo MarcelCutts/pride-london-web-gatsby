@@ -92,11 +92,13 @@ Input.propTypes = {
   id: PropTypes.string.isRequired,
   required: PropTypes.bool,
   handleChange: PropTypes.func,
+  className: PropTypes.string,
 }
 
 Input.defaultProps = {
   required: false,
   handleChange: null,
+  className: '',
 }
 
 export default Input

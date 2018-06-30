@@ -14,8 +14,8 @@ import {
   PhoneIcon,
   TicketIcon,
 } from '../../components/icons'
-import { formatPrice } from './helpers'
 import Button from '../../components/button'
+import { formatPrice } from './helpers'
 
 const Wrapper = styled.div`
   background-color: ${theme.colors.indigo};
@@ -225,11 +225,13 @@ Item.propTypes = {
   title: PropTypes.string,
   icon: PropTypes.node.isRequired,
   detail: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+  className: PropTypes.string,
 }
 
 Item.defaultProps = {
   title: '',
   detail: '',
+  className: '',
 }
 
 EventInfoCard.propTypes = {
