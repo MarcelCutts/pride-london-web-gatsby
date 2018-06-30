@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Button } from '@pride/pride-ui'
 import 'react-accessible-accordion/dist/fancy-example.css'
 import { media } from '../../theme/media'
 import theme from '../../theme/theme'
-import Button from '../button'
 import check from '../../theme/assets/images/icon-check.svg'
 import DropDown from './dropDown'
 

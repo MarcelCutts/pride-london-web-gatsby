@@ -1,16 +1,873 @@
-0 silly input [ 'clean' ]
-1 silly flags { _: [ 'clean' ], 'reject-cycles': false, rejectCycles: false }
+0 silly input []
+1 silly flags { _: [ 'bootstrap' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   args: [] }
 2 verbose rootPath /Users/Home/Documents/Coding/pride-london-web-gatsby
 3 info version 2.11.0
 4 silly existsSync /Users/Home/Documents/Coding/pride-london-web-gatsby/VERSION
-5 error EPACKAGES Errored while collecting packages and package graph
-6 error JSONError: Unexpected token } in JSON at position 750 while parsing near '...un jest --watch",  },  "devDependencie...' in packages/shared_ui/package.json
-6 error     at module.exports (/Users/Home/.config/yarn/global/node_modules/load-json-file/node_modules/parse-json/index.js:26:19)
-6 error     at parse (/Users/Home/.config/yarn/global/node_modules/load-json-file/index.js:8:29)
-6 error     at Function.module.exports.sync.fp [as sync] (/Users/Home/.config/yarn/global/node_modules/load-json-file/index.js:11:29)
-6 error     at Function.module.exports.sync (/Users/Home/.config/yarn/global/node_modules/lerna/node_modules/read-pkg/index.js:40:25)
-6 error     at /Users/Home/.config/yarn/global/node_modules/lerna/lib/PackageUtilities.js:138:47
-6 error     at Array.forEach (<anonymous>)
-6 error     at /Users/Home/.config/yarn/global/node_modules/lerna/lib/PackageUtilities.js:132:86
-6 error     at Array.forEach (<anonymous>)
-6 error     at Function.getPackages (/Users/Home/.config/yarn/global/node_modules/lerna/lib/PackageUtilities.js:131:22)
+5 silly initialize attempt
+6 silly npmConfig { registry: undefined,
+6 silly npmConfig   npmClient: undefined,
+6 silly npmConfig   npmClientArgs: undefined,
+6 silly npmConfig   mutex: undefined }
+7 silly initialize success
+8 silly execute attempt
+9 info Bootstrapping 2 packages
+10 info lifecycle preinstall
+11 silly runScript preinstall pride-london-web
+12 silly pride-london-web
+13 silly runScript preinstall pride-london-shared-ui
+14 silly pride-london-shared-ui
+15 silly hasDependencyInstalled pride-london-web enzyme
+16 silly dependencyIsSatisfied [ 'enzyme',
+16 silly dependencyIsSatisfied   '^3.3.0',
+16 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+17 verbose dependencyIsSatisfied enzyme true
+18 silly hasDependencyInstalled pride-london-shared-ui enzyme
+19 silly dependencyIsSatisfied [ 'enzyme',
+19 silly dependencyIsSatisfied   '^3.3.0',
+19 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+20 verbose dependencyIsSatisfied enzyme true
+21 silly hasDependencyInstalled pride-london-web enzyme-adapter-react-16
+22 silly dependencyIsSatisfied [ 'enzyme-adapter-react-16',
+22 silly dependencyIsSatisfied   '^1.1.1',
+22 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+23 verbose dependencyIsSatisfied enzyme-adapter-react-16 true
+24 silly hasDependencyInstalled pride-london-shared-ui enzyme-adapter-react-16
+25 silly dependencyIsSatisfied [ 'enzyme-adapter-react-16',
+25 silly dependencyIsSatisfied   '^1.1.1',
+25 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+26 verbose dependencyIsSatisfied enzyme-adapter-react-16 true
+27 silly hasDependencyInstalled pride-london-web eslint
+28 silly dependencyIsSatisfied [ 'eslint',
+28 silly dependencyIsSatisfied   '^4.19.1',
+28 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+29 verbose dependencyIsSatisfied eslint true
+30 silly hasDependencyInstalled pride-london-shared-ui eslint
+31 silly dependencyIsSatisfied [ 'eslint',
+31 silly dependencyIsSatisfied   '^4.19.1',
+31 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+32 verbose dependencyIsSatisfied eslint true
+33 silly hasDependencyInstalled pride-london-web eslint-config-airbnb
+34 silly dependencyIsSatisfied [ 'eslint-config-airbnb',
+34 silly dependencyIsSatisfied   '^16.1.0',
+34 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+35 verbose dependencyIsSatisfied eslint-config-airbnb true
+36 silly hasDependencyInstalled pride-london-shared-ui eslint-config-airbnb
+37 silly dependencyIsSatisfied [ 'eslint-config-airbnb',
+37 silly dependencyIsSatisfied   '^16.1.0',
+37 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+38 verbose dependencyIsSatisfied eslint-config-airbnb true
+39 silly hasDependencyInstalled pride-london-web eslint-plugin-import
+40 silly dependencyIsSatisfied [ 'eslint-plugin-import',
+40 silly dependencyIsSatisfied   '^2.11.0',
+40 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+41 verbose dependencyIsSatisfied eslint-plugin-import true
+42 silly hasDependencyInstalled pride-london-shared-ui eslint-plugin-import
+43 silly dependencyIsSatisfied [ 'eslint-plugin-import',
+43 silly dependencyIsSatisfied   '^2.11.0',
+43 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+44 verbose dependencyIsSatisfied eslint-plugin-import true
+45 silly hasDependencyInstalled pride-london-web eslint-plugin-jsx-a11y
+46 silly dependencyIsSatisfied [ 'eslint-plugin-jsx-a11y',
+46 silly dependencyIsSatisfied   '^6.0.3',
+46 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+47 verbose dependencyIsSatisfied eslint-plugin-jsx-a11y true
+48 silly hasDependencyInstalled pride-london-shared-ui eslint-plugin-jsx-a11y
+49 silly dependencyIsSatisfied [ 'eslint-plugin-jsx-a11y',
+49 silly dependencyIsSatisfied   '^6.0.3',
+49 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+50 verbose dependencyIsSatisfied eslint-plugin-jsx-a11y true
+51 silly hasDependencyInstalled pride-london-web eslint-plugin-prettier
+52 silly dependencyIsSatisfied [ 'eslint-plugin-prettier',
+52 silly dependencyIsSatisfied   '^2.6.0',
+52 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+53 verbose dependencyIsSatisfied eslint-plugin-prettier true
+54 silly hasDependencyInstalled pride-london-shared-ui eslint-plugin-prettier
+55 silly dependencyIsSatisfied [ 'eslint-plugin-prettier',
+55 silly dependencyIsSatisfied   '^2.6.0',
+55 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+56 verbose dependencyIsSatisfied eslint-plugin-prettier true
+57 silly hasDependencyInstalled pride-london-web eslint-plugin-react
+58 silly dependencyIsSatisfied [ 'eslint-plugin-react',
+58 silly dependencyIsSatisfied   '^7.8.2',
+58 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+59 verbose dependencyIsSatisfied eslint-plugin-react true
+60 silly hasDependencyInstalled pride-london-shared-ui eslint-plugin-react
+61 silly dependencyIsSatisfied [ 'eslint-plugin-react',
+61 silly dependencyIsSatisfied   '^7.8.2',
+61 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+62 verbose dependencyIsSatisfied eslint-plugin-react true
+63 silly hasDependencyInstalled pride-london-web husky
+64 silly dependencyIsSatisfied [ 'husky',
+64 silly dependencyIsSatisfied   '^0.14.3',
+64 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+65 verbose dependencyIsSatisfied husky true
+66 silly hasDependencyInstalled pride-london-shared-ui husky
+67 silly dependencyIsSatisfied [ 'husky',
+67 silly dependencyIsSatisfied   '^0.14.3',
+67 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+68 verbose dependencyIsSatisfied husky true
+69 silly hasDependencyInstalled pride-london-web lerna
+70 silly dependencyIsSatisfied [ 'lerna',
+70 silly dependencyIsSatisfied   '^2.11.0',
+70 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+71 verbose dependencyIsSatisfied lerna true
+72 silly hasDependencyInstalled pride-london-shared-ui lerna
+73 silly dependencyIsSatisfied [ 'lerna',
+73 silly dependencyIsSatisfied   '^2.11.0',
+73 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+74 verbose dependencyIsSatisfied lerna true
+75 silly hasDependencyInstalled pride-london-web babel-eslint
+76 silly dependencyIsSatisfied [ 'babel-eslint',
+76 silly dependencyIsSatisfied   '^8.2.3',
+76 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+77 verbose dependencyIsSatisfied babel-eslint true
+78 silly hasDependencyInstalled pride-london-shared-ui babel-eslint
+79 silly dependencyIsSatisfied [ 'babel-eslint',
+79 silly dependencyIsSatisfied   '^8.2.3',
+79 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+80 verbose dependencyIsSatisfied babel-eslint true
+81 silly hasDependencyInstalled pride-london-web babel-plugin-styled-components
+82 silly dependencyIsSatisfied [ 'babel-plugin-styled-components',
+82 silly dependencyIsSatisfied   '^1.5.1',
+82 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+83 verbose dependencyIsSatisfied babel-plugin-styled-components true
+84 silly hasDependencyInstalled pride-london-shared-ui babel-plugin-styled-components
+85 silly dependencyIsSatisfied [ 'babel-plugin-styled-components',
+85 silly dependencyIsSatisfied   '^1.5.1',
+85 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+86 verbose dependencyIsSatisfied babel-plugin-styled-components true
+87 silly hasDependencyInstalled pride-london-web babel-plugin-transform-class-properties
+88 silly dependencyIsSatisfied [ 'babel-plugin-transform-class-properties',
+88 silly dependencyIsSatisfied   '^6.24.1',
+88 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+89 verbose dependencyIsSatisfied babel-plugin-transform-class-properties true
+90 silly hasDependencyInstalled pride-london-shared-ui babel-plugin-transform-class-properties
+91 silly dependencyIsSatisfied [ 'babel-plugin-transform-class-properties',
+91 silly dependencyIsSatisfied   '^6.24.1',
+91 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+92 verbose dependencyIsSatisfied babel-plugin-transform-class-properties true
+93 silly hasDependencyInstalled pride-london-web dotenv
+94 silly dependencyIsSatisfied [ 'dotenv',
+94 silly dependencyIsSatisfied   '^5.0.1',
+94 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+95 verbose dependencyIsSatisfied dotenv true
+96 silly hasDependencyInstalled pride-london-shared-ui dotenv
+97 silly dependencyIsSatisfied [ 'dotenv',
+97 silly dependencyIsSatisfied   '^5.0.1',
+97 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+98 verbose dependencyIsSatisfied dotenv true
+99 silly hasDependencyInstalled pride-london-web enzyme-to-json
+100 silly dependencyIsSatisfied [ 'enzyme-to-json',
+100 silly dependencyIsSatisfied   '^3.3.4',
+100 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+101 verbose dependencyIsSatisfied enzyme-to-json true
+102 silly hasDependencyInstalled pride-london-shared-ui enzyme-to-json
+103 silly dependencyIsSatisfied [ 'enzyme-to-json',
+103 silly dependencyIsSatisfied   '^3.3.4',
+103 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+104 verbose dependencyIsSatisfied enzyme-to-json true
+105 silly hasDependencyInstalled pride-london-web gatsby-source-contentful
+106 silly dependencyIsSatisfied [ 'gatsby-source-contentful',
+106 silly dependencyIsSatisfied   '^1.3.52',
+106 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+107 verbose dependencyIsSatisfied gatsby-source-contentful true
+108 silly hasDependencyInstalled pride-london-web jest
+109 silly dependencyIsSatisfied [ 'jest',
+109 silly dependencyIsSatisfied   '^23.1.0',
+109 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+110 verbose dependencyIsSatisfied jest true
+111 silly hasDependencyInstalled pride-london-shared-ui jest
+112 silly dependencyIsSatisfied [ 'jest',
+112 silly dependencyIsSatisfied   '^23.1.0',
+112 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+113 verbose dependencyIsSatisfied jest true
+114 silly hasDependencyInstalled pride-london-web jest-environment-jsdom
+115 silly dependencyIsSatisfied [ 'jest-environment-jsdom',
+115 silly dependencyIsSatisfied   '^23.1.0',
+115 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+116 verbose dependencyIsSatisfied jest-environment-jsdom true
+117 silly hasDependencyInstalled pride-london-shared-ui jest-environment-jsdom
+118 silly dependencyIsSatisfied [ 'jest-environment-jsdom',
+118 silly dependencyIsSatisfied   '^23.1.0',
+118 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+119 verbose dependencyIsSatisfied jest-environment-jsdom true
+120 silly hasDependencyInstalled pride-london-web jest-styled-components
+121 silly dependencyIsSatisfied [ 'jest-styled-components',
+121 silly dependencyIsSatisfied   '^5.0.1',
+121 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+122 verbose dependencyIsSatisfied jest-styled-components true
+123 silly hasDependencyInstalled pride-london-shared-ui jest-styled-components
+124 silly dependencyIsSatisfied [ 'jest-styled-components',
+124 silly dependencyIsSatisfied   '^5.0.1',
+124 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+125 verbose dependencyIsSatisfied jest-styled-components true
+126 silly hasDependencyInstalled pride-london-web lint-staged
+127 silly dependencyIsSatisfied [ 'lint-staged',
+127 silly dependencyIsSatisfied   '^7.1.2',
+127 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+128 verbose dependencyIsSatisfied lint-staged true
+129 silly hasDependencyInstalled pride-london-shared-ui lint-staged
+130 silly dependencyIsSatisfied [ 'lint-staged',
+130 silly dependencyIsSatisfied   '^7.1.2',
+130 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+131 verbose dependencyIsSatisfied lint-staged true
+132 silly hasDependencyInstalled pride-london-web now
+133 silly dependencyIsSatisfied [ 'now',
+133 silly dependencyIsSatisfied   '^11.1.12',
+133 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+134 verbose dependencyIsSatisfied now true
+135 silly hasDependencyInstalled pride-london-web prettier
+136 silly dependencyIsSatisfied [ 'prettier',
+136 silly dependencyIsSatisfied   '^1.12.1',
+136 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+137 verbose dependencyIsSatisfied prettier true
+138 silly hasDependencyInstalled pride-london-shared-ui prettier
+139 silly dependencyIsSatisfied [ 'prettier',
+139 silly dependencyIsSatisfied   '^1.12.1',
+139 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+140 verbose dependencyIsSatisfied prettier true
+141 silly hasDependencyInstalled pride-london-web prop-types
+142 silly dependencyIsSatisfied [ 'prop-types',
+142 silly dependencyIsSatisfied   '^15.6.1',
+142 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+143 verbose dependencyIsSatisfied prop-types true
+144 silly hasDependencyInstalled pride-london-shared-ui prop-types
+145 silly dependencyIsSatisfied [ 'prop-types',
+145 silly dependencyIsSatisfied   '^15.6.1',
+145 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+146 verbose dependencyIsSatisfied prop-types true
+147 silly hasDependencyInstalled pride-london-web react
+148 silly dependencyIsSatisfied [ 'react',
+148 silly dependencyIsSatisfied   '^16.3.2',
+148 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+149 verbose dependencyIsSatisfied react true
+150 silly hasDependencyInstalled pride-london-shared-ui react
+151 silly dependencyIsSatisfied [ 'react',
+151 silly dependencyIsSatisfied   '^16.3.2',
+151 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+152 verbose dependencyIsSatisfied react true
+153 silly hasDependencyInstalled pride-london-web react-dom
+154 silly dependencyIsSatisfied [ 'react-dom',
+154 silly dependencyIsSatisfied   '^16.3.2',
+154 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+155 verbose dependencyIsSatisfied react-dom true
+156 silly hasDependencyInstalled pride-london-shared-ui react-dom
+157 silly dependencyIsSatisfied [ 'react-dom',
+157 silly dependencyIsSatisfied   '^16.3.2',
+157 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+158 verbose dependencyIsSatisfied react-dom true
+159 silly hasDependencyInstalled pride-london-web react-markdown
+160 silly dependencyIsSatisfied [ 'react-markdown',
+160 silly dependencyIsSatisfied   '^3.3.2',
+160 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+161 verbose dependencyIsSatisfied react-markdown true
+162 silly hasDependencyInstalled pride-london-shared-ui react-markdown
+163 silly dependencyIsSatisfied [ 'react-markdown',
+163 silly dependencyIsSatisfied   '^3.3.2',
+163 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+164 verbose dependencyIsSatisfied react-markdown true
+165 silly hasDependencyInstalled pride-london-web react-router-dom
+166 silly dependencyIsSatisfied [ 'react-router-dom',
+166 silly dependencyIsSatisfied   '^4.2.2',
+166 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+167 verbose dependencyIsSatisfied react-router-dom true
+168 silly hasDependencyInstalled pride-london-shared-ui react-router-dom
+169 silly dependencyIsSatisfied [ 'react-router-dom',
+169 silly dependencyIsSatisfied   '^4.2.2',
+169 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+170 verbose dependencyIsSatisfied react-router-dom true
+171 silly hasDependencyInstalled pride-london-web @pride/shared-ui
+172 silly dependencyIsSatisfied [ '@pride/shared-ui',
+172 silly dependencyIsSatisfied   'file:../shared_ui',
+172 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+173 verbose dependencyIsSatisfied @pride/shared-ui false
+174 silly hasDependencyInstalled pride-london-web babel-polyfill
+175 silly dependencyIsSatisfied [ 'babel-polyfill',
+175 silly dependencyIsSatisfied   '^6.26.0',
+175 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+176 verbose dependencyIsSatisfied babel-polyfill true
+177 silly hasDependencyInstalled pride-london-shared-ui babel-polyfill
+178 silly dependencyIsSatisfied [ 'babel-polyfill',
+178 silly dependencyIsSatisfied   '^6.26.0',
+178 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+179 verbose dependencyIsSatisfied babel-polyfill true
+180 silly hasDependencyInstalled pride-london-web gatsby
+181 silly dependencyIsSatisfied [ 'gatsby',
+181 silly dependencyIsSatisfied   '^1.9.270',
+181 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+182 verbose dependencyIsSatisfied gatsby true
+183 silly hasDependencyInstalled pride-london-shared-ui gatsby
+184 silly dependencyIsSatisfied [ 'gatsby',
+184 silly dependencyIsSatisfied   '^1.9.270',
+184 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+185 verbose dependencyIsSatisfied gatsby true
+186 silly hasDependencyInstalled pride-london-web gatsby-link
+187 silly dependencyIsSatisfied [ 'gatsby-link',
+187 silly dependencyIsSatisfied   '^1.6.40',
+187 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+188 verbose dependencyIsSatisfied gatsby-link true
+189 silly hasDependencyInstalled pride-london-shared-ui gatsby-link
+190 silly dependencyIsSatisfied [ 'gatsby-link',
+190 silly dependencyIsSatisfied   '^1.6.40',
+190 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+191 verbose dependencyIsSatisfied gatsby-link true
+192 silly hasDependencyInstalled pride-london-web gatsby-plugin-react-helmet
+193 silly dependencyIsSatisfied [ 'gatsby-plugin-react-helmet',
+193 silly dependencyIsSatisfied   '^2.0.10',
+193 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+194 verbose dependencyIsSatisfied gatsby-plugin-react-helmet true
+195 silly hasDependencyInstalled pride-london-shared-ui gatsby-plugin-react-helmet
+196 silly dependencyIsSatisfied [ 'gatsby-plugin-react-helmet',
+196 silly dependencyIsSatisfied   '^2.0.10',
+196 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+197 verbose dependencyIsSatisfied gatsby-plugin-react-helmet true
+198 silly hasDependencyInstalled pride-london-web gatsby-plugin-react-next
+199 silly dependencyIsSatisfied [ 'gatsby-plugin-react-next',
+199 silly dependencyIsSatisfied   '^1.0.11',
+199 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+200 verbose dependencyIsSatisfied gatsby-plugin-react-next true
+201 silly hasDependencyInstalled pride-london-shared-ui gatsby-plugin-react-next
+202 silly dependencyIsSatisfied [ 'gatsby-plugin-react-next',
+202 silly dependencyIsSatisfied   '^1.0.11',
+202 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+203 verbose dependencyIsSatisfied gatsby-plugin-react-next true
+204 silly hasDependencyInstalled pride-london-web gatsby-plugin-styled-components
+205 silly dependencyIsSatisfied [ 'gatsby-plugin-styled-components',
+205 silly dependencyIsSatisfied   '^2.0.11',
+205 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+206 verbose dependencyIsSatisfied gatsby-plugin-styled-components true
+207 silly hasDependencyInstalled pride-london-shared-ui gatsby-plugin-styled-components
+208 silly dependencyIsSatisfied [ 'gatsby-plugin-styled-components',
+208 silly dependencyIsSatisfied   '^2.0.11',
+208 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+209 verbose dependencyIsSatisfied gatsby-plugin-styled-components true
+210 silly hasDependencyInstalled pride-london-web grid-styled
+211 silly dependencyIsSatisfied [ 'grid-styled',
+211 silly dependencyIsSatisfied   '^4.1.0',
+211 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+212 verbose dependencyIsSatisfied grid-styled true
+213 silly hasDependencyInstalled pride-london-shared-ui grid-styled
+214 silly dependencyIsSatisfied [ 'grid-styled',
+214 silly dependencyIsSatisfied   '^4.1.0',
+214 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+215 verbose dependencyIsSatisfied grid-styled true
+216 silly hasDependencyInstalled pride-london-web moment
+217 silly dependencyIsSatisfied [ 'moment',
+217 silly dependencyIsSatisfied   '^2.22.1',
+217 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+218 verbose dependencyIsSatisfied moment true
+219 silly hasDependencyInstalled pride-london-web no-scroll
+220 silly dependencyIsSatisfied [ 'no-scroll',
+220 silly dependencyIsSatisfied   '^2.1.1',
+220 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+221 verbose dependencyIsSatisfied no-scroll true
+222 silly hasDependencyInstalled pride-london-web polished
+223 silly dependencyIsSatisfied [ 'polished',
+223 silly dependencyIsSatisfied   '^1.9.2',
+223 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+224 verbose dependencyIsSatisfied polished true
+225 silly hasDependencyInstalled pride-london-web querystring
+226 silly dependencyIsSatisfied [ 'querystring',
+226 silly dependencyIsSatisfied   '^0.2.0',
+226 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+227 verbose dependencyIsSatisfied querystring true
+228 silly hasDependencyInstalled pride-london-web react-accessible-accordion
+229 silly dependencyIsSatisfied [ 'react-accessible-accordion',
+229 silly dependencyIsSatisfied   '^2.4.0',
+229 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+230 verbose dependencyIsSatisfied react-accessible-accordion true
+231 silly hasDependencyInstalled pride-london-web react-dates
+232 silly dependencyIsSatisfied [ 'react-dates',
+232 silly dependencyIsSatisfied   '^16.7.0',
+232 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+233 verbose dependencyIsSatisfied react-dates true
+234 silly hasDependencyInstalled pride-london-web react-flip-move
+235 silly dependencyIsSatisfied [ 'react-flip-move',
+235 silly dependencyIsSatisfied   '^3.0.2',
+235 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+236 verbose dependencyIsSatisfied react-flip-move true
+237 silly hasDependencyInstalled pride-london-web react-helmet
+238 silly dependencyIsSatisfied [ 'react-helmet',
+238 silly dependencyIsSatisfied   '^5.2.0',
+238 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+239 verbose dependencyIsSatisfied react-helmet true
+240 silly hasDependencyInstalled pride-london-web react-onclickoutside
+241 silly dependencyIsSatisfied [ 'react-onclickoutside',
+241 silly dependencyIsSatisfied   '^6.7.1',
+241 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+242 verbose dependencyIsSatisfied react-onclickoutside true
+243 silly hasDependencyInstalled pride-london-web react-test-renderer
+244 silly dependencyIsSatisfied [ 'react-test-renderer',
+244 silly dependencyIsSatisfied   '^16.3.2',
+244 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+245 verbose dependencyIsSatisfied react-test-renderer true
+246 silly hasDependencyInstalled pride-london-shared-ui react-test-renderer
+247 silly dependencyIsSatisfied [ 'react-test-renderer',
+247 silly dependencyIsSatisfied   '^16.3.2',
+247 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+248 verbose dependencyIsSatisfied react-test-renderer true
+249 silly hasDependencyInstalled pride-london-web string-hash
+250 silly dependencyIsSatisfied [ 'string-hash',
+250 silly dependencyIsSatisfied   '^1.1.3',
+250 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+251 verbose dependencyIsSatisfied string-hash true
+252 silly hasDependencyInstalled pride-london-web styled-components
+253 silly dependencyIsSatisfied [ 'styled-components',
+253 silly dependencyIsSatisfied   '^3.2.6',
+253 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules' ]
+254 verbose dependencyIsSatisfied styled-components true
+255 silly hasDependencyInstalled pride-london-shared-ui styled-components
+256 silly dependencyIsSatisfied [ 'styled-components',
+256 silly dependencyIsSatisfied   '^3.2.6',
+256 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/shared-ui/node_modules' ]
+257 verbose dependencyIsSatisfied styled-components true
+258 silly root dependencies []
+259 silly leaf dependencies {
+259 silly leaf dependencies   "pride-london-web": [
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "enzyme@^3.3.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "enzyme-adapter-react-16@^1.1.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint@^4.19.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint-config-airbnb@^16.1.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint-plugin-import@^2.11.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint-plugin-jsx-a11y@^6.0.3",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint-plugin-prettier@^2.6.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint-plugin-react@^7.8.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "husky@^0.14.3",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "lerna@^2.11.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "babel-eslint@^8.2.3",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "babel-plugin-styled-components@^1.5.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "babel-plugin-transform-class-properties@^6.24.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "dotenv@^5.0.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "enzyme-to-json@^3.3.4",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby-source-contentful@^1.3.52",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "jest@^23.1.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "jest-environment-jsdom@^23.1.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "jest-styled-components@^5.0.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "lint-staged@^7.1.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "now@^11.1.12",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "prettier@^1.12.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "prop-types@^15.6.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react@^16.3.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-dom@^16.3.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-markdown@^3.3.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-router-dom@^4.2.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "@pride/shared-ui@file:../shared_ui",
+259 silly leaf dependencies       "isSatisfied": false
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "babel-polyfill@^6.26.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby@^1.9.270",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby-link@^1.6.40",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby-plugin-react-helmet@^2.0.10",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby-plugin-react-next@^1.0.11",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby-plugin-styled-components@^2.0.11",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "grid-styled@^4.1.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "moment@^2.22.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "no-scroll@^2.1.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "polished@^1.9.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "querystring@^0.2.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-accessible-accordion@^2.4.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-dates@^16.7.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-flip-move@^3.0.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-helmet@^5.2.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-onclickoutside@^6.7.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-test-renderer@^16.3.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "string-hash@^1.1.3",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "styled-components@^3.2.6",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     }
+259 silly leaf dependencies   ],
+259 silly leaf dependencies   "pride-london-shared-ui": [
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "enzyme@^3.3.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "enzyme-adapter-react-16@^1.1.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint@^4.19.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint-config-airbnb@^16.1.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint-plugin-import@^2.11.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint-plugin-jsx-a11y@^6.0.3",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint-plugin-prettier@^2.6.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "eslint-plugin-react@^7.8.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "husky@^0.14.3",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "lerna@^2.11.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "babel-eslint@^8.2.3",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "babel-plugin-styled-components@^1.5.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "babel-plugin-transform-class-properties@^6.24.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "dotenv@^5.0.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "enzyme-to-json@^3.3.4",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "jest@^23.1.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "jest-environment-jsdom@^23.1.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "jest-styled-components@^5.0.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "lint-staged@^7.1.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "prettier@^1.12.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "prop-types@^15.6.1",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react@^16.3.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-dom@^16.3.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-markdown@^3.3.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-router-dom@^4.2.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "babel-polyfill@^6.26.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby@^1.9.270",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby-link@^1.6.40",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby-plugin-react-helmet@^2.0.10",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby-plugin-react-next@^1.0.11",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "gatsby-plugin-styled-components@^2.0.11",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "grid-styled@^4.1.0",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "react-test-renderer@^16.3.2",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     },
+259 silly leaf dependencies     {
+259 silly leaf dependencies       "dependency": "styled-components@^3.2.6",
+259 silly leaf dependencies       "isSatisfied": true
+259 silly leaf dependencies     }
+259 silly leaf dependencies   ]
+259 silly leaf dependencies }
+260 info Installing external dependencies
+261 verbose actions 1 actions, concurrency 4
+262 silly installInDir app [ 'enzyme@^3.3.0',
+262 silly installInDir   'enzyme-adapter-react-16@^1.1.1',
+262 silly installInDir   'eslint@^4.19.1',
+262 silly installInDir   'eslint-config-airbnb@^16.1.0',
+262 silly installInDir   'eslint-plugin-import@^2.11.0',
+262 silly installInDir   'eslint-plugin-jsx-a11y@^6.0.3',
+262 silly installInDir   'eslint-plugin-prettier@^2.6.0',
+262 silly installInDir   'eslint-plugin-react@^7.8.2',
+262 silly installInDir   'husky@^0.14.3',
+262 silly installInDir   'lerna@^2.11.0',
+262 silly installInDir   'babel-eslint@^8.2.3',
+262 silly installInDir   'babel-plugin-styled-components@^1.5.1',
+262 silly installInDir   'babel-plugin-transform-class-properties@^6.24.1',
+262 silly installInDir   'dotenv@^5.0.1',
+262 silly installInDir   'enzyme-to-json@^3.3.4',
+262 silly installInDir   'gatsby-source-contentful@^1.3.52',
+262 silly installInDir   'jest@^23.1.0',
+262 silly installInDir   'jest-environment-jsdom@^23.1.0',
+262 silly installInDir   'jest-styled-components@^5.0.1',
+262 silly installInDir   'lint-staged@^7.1.2',
+262 silly installInDir   'now@^11.1.12',
+262 silly installInDir   'prettier@^1.12.1',
+262 silly installInDir   'prop-types@^15.6.1',
+262 silly installInDir   'react@^16.3.2',
+262 silly installInDir   'react-dom@^16.3.2',
+262 silly installInDir   'react-markdown@^3.3.2',
+262 silly installInDir   'react-router-dom@^4.2.2',
+262 silly installInDir   '@pride/shared-ui@file:../shared_ui',
+262 silly installInDir   'babel-polyfill@^6.26.0',
+262 silly installInDir   'gatsby@^1.9.270',
+262 silly installInDir   'gatsby-link@^1.6.40',
+262 silly installInDir   'gatsby-plugin-react-helmet@^2.0.10',
+262 silly installInDir   'gatsby-plugin-react-next@^1.0.11',
+262 silly installInDir   'gatsby-plugin-styled-components@^2.0.11',
+262 silly installInDir   'grid-styled@^4.1.0',
+262 silly installInDir   'moment@^2.22.1',
+262 silly installInDir   'no-scroll@^2.1.1',
+262 silly installInDir   'polished@^1.9.2',
+262 silly installInDir   'querystring@^0.2.0',
+262 silly installInDir   'react-accessible-accordion@^2.4.0',
+262 silly installInDir   'react-dates@^16.7.0',
+262 silly installInDir   'react-flip-move@^3.0.2',
+262 silly installInDir   'react-helmet@^5.2.0',
+262 silly installInDir   'react-onclickoutside@^6.7.1',
+262 silly installInDir   'react-test-renderer@^16.3.2',
+262 silly installInDir   'string-hash@^1.1.3',
+262 silly installInDir   'styled-components@^3.2.6' ]
+263 silly installInDir backup /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/package.json
+264 silly rename [ '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/package.json',
+264 silly rename   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/package.json.lerna_backup' ]
+265 silly installInDir writing tempJson { dependencies:
+265 silly installInDir    { enzyme: '^3.3.0',
+265 silly installInDir      'enzyme-adapter-react-16': '^1.1.1',
+265 silly installInDir      eslint: '^4.19.1',
+265 silly installInDir      'eslint-config-airbnb': '^16.1.0',
+265 silly installInDir      'eslint-plugin-import': '^2.11.0',
+265 silly installInDir      'eslint-plugin-jsx-a11y': '^6.0.3',
+265 silly installInDir      'eslint-plugin-prettier': '^2.6.0',
+265 silly installInDir      'eslint-plugin-react': '^7.8.2',
+265 silly installInDir      husky: '^0.14.3',
+265 silly installInDir      lerna: '^2.11.0',
+265 silly installInDir      'babel-eslint': '^8.2.3',
+265 silly installInDir      'babel-plugin-styled-components': '^1.5.1',
+265 silly installInDir      'babel-plugin-transform-class-properties': '^6.24.1',
+265 silly installInDir      dotenv: '^5.0.1',
+265 silly installInDir      'enzyme-to-json': '^3.3.4',
+265 silly installInDir      'gatsby-source-contentful': '^1.3.52',
+265 silly installInDir      jest: '^23.1.0',
+265 silly installInDir      'jest-environment-jsdom': '^23.1.0',
+265 silly installInDir      'jest-styled-components': '^5.0.1',
+265 silly installInDir      'lint-staged': '^7.1.2',
+265 silly installInDir      now: '^11.1.12',
+265 silly installInDir      prettier: '^1.12.1',
+265 silly installInDir      'prop-types': '^15.6.1',
+265 silly installInDir      react: '^16.3.2',
+265 silly installInDir      'react-dom': '^16.3.2',
+265 silly installInDir      'react-markdown': '^3.3.2',
+265 silly installInDir      'react-router-dom': '^4.2.2',
+265 silly installInDir      '@pride/shared-ui': 'file:../shared_ui',
+265 silly installInDir      'babel-polyfill': '^6.26.0',
+265 silly installInDir      gatsby: '^1.9.270',
+265 silly installInDir      'gatsby-link': '^1.6.40',
+265 silly installInDir      'gatsby-plugin-react-helmet': '^2.0.10',
+265 silly installInDir      'gatsby-plugin-react-next': '^1.0.11',
+265 silly installInDir      'gatsby-plugin-styled-components': '^2.0.11',
+265 silly installInDir      'grid-styled': '^4.1.0',
+265 silly installInDir      moment: '^2.22.1',
+265 silly installInDir      'no-scroll': '^2.1.1',
+265 silly installInDir      polished: '^1.9.2',
+265 silly installInDir      querystring: '^0.2.0',
+265 silly installInDir      'react-accessible-accordion': '^2.4.0',
+265 silly installInDir      'react-dates': '^16.7.0',
+265 silly installInDir      'react-flip-move': '^3.0.2',
+265 silly installInDir      'react-helmet': '^5.2.0',
+265 silly installInDir      'react-onclickoutside': '^6.7.1',
+265 silly installInDir      'react-test-renderer': '^16.3.2',
+265 silly installInDir      'string-hash': '^1.1.3',
+265 silly installInDir      'styled-components': '^3.2.6' } }
+266 silly getExecOpts { cwd: '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app' }
+267 silly installInDir [ 'npm', [ 'install' ] ]
+268 silly installInDir cleanup /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/package.json
+269 silly renameSync [ '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/package.json.lerna_backup',
+269 silly renameSync   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/package.json' ]
+270 verbose installed leaf pride-london-web
+271 error execute callback with error
+272 error Error: Command failed: npm install
+272 error npm ERR! code ENOLOCAL
+272 error npm ERR! Could not install from "../shared_ui" as it does not contain a package.json file.
+272 error
+272 error npm ERR! A complete log of this run can be found in:
+272 error npm ERR!     /Users/Home/.npm/_logs/2018-06-30T09_24_47_370Z-debug.log
+272 error
+272 error     at Promise.all.then.arr (/Users/Home/.config/yarn/global/node_modules/execa/index.js:236:11)
+272 error     at <anonymous>

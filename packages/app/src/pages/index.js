@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Button } from '@pride/pride-ui'
 import ImageBanner from '../components/imageBanner'
-import Button from '../components/button'
 import { Column } from '../components/grid'
 
 const ColumnTextCenter = styled(Column)`

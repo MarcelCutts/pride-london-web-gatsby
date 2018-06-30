@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 import PropTypes from 'prop-types'
+import { Button } from '@pride/pride-ui'
 import { media } from '../../theme/media'
 import {
   AccessibilityIcon,
@@ -12,7 +13,6 @@ import {
   PhoneIcon,
   TicketIcon,
 } from '../../components/icons'
-import Button from '../../components/button'
 
 const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.indigo};

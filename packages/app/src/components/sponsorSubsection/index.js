@@ -29,8 +29,10 @@ const SponsorsSubsection = ({ title, icon, children }) => (
 SponsorsSubsection.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
-  children: oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)])
-    .isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]).isRequired,
 }
 
 export default SponsorsSubsection

@@ -1,8 +1,8 @@
 {
-  "name": "pride-london-web",
+  "name": "@pride/pride-app",
   "version": "0.1.0",
   "dependencies": {
-    "@pride/shared-ui": "file:../shared_ui",
+    "@pride/pride-ui": "0.1.0",
     "babel-polyfill": "^6.26.0",
     "gatsby": "^1.9.270",
     "gatsby-link": "^1.6.40",
