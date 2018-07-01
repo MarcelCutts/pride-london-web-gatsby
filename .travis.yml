@@ -10,13 +10,13 @@ install:
 
 matrix:
   include:
-    env: PROJECT=packages/app
+    env: PROJECT=packages/events
 
 script:
   - cd $PROJECT
   - yarn test
   - yarn lint
-  - ../../ci-build.sh production
+  - ./ci-build.sh production
 
 before_install:
   - export TZ='Europe/London'
