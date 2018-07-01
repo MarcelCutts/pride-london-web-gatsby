@@ -1,5 +1,5 @@
 {
-  "name": "pride-london-web",
+  "name": "@pride/pride-events",
   "version": "0.1.0",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
