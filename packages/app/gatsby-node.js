@@ -77,36 +77,5 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         })
       }
     })
-  }).then(() =>
-    graphql(`
-        {
-          allContentfulGenericContentPage(filter: {}) {
-            edges {
-              node {
-                id
-                slug
-              }
-            }
-          }
-        }
-      `),
-  ).then(result => {
-    if (result.errors) {
-      throw result.errors
-    }
-
-    const genericContentPageTemplate = path.resolve(
-      './src/templates/genericContentPage.js',
-    )
-
-    result.data.allContentfulGenericContentPage.edges.forEach(edge => {
-      createPage({
-        path: `/pages/${edge.node.slug}`,
-        component: genericContentPageTemplate,
-        context: {
-          id: edge.node.id,
-        },
-      })
-    })
   })
 }
