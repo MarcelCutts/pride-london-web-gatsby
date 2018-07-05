@@ -135,9 +135,8 @@ class EventDropdownFilter extends Component {
 
   handleClickOutside = () => {
     if (this.props.filterName === this.props.filterOpen) {
-      this.setState({ isOpen: false }, () => {
-        this.props.closeSiblingFilters(this.props.filterName, this.state.isOpen)
-      })
+      this.props.closeSiblingFilters(this.props.filterName, !this.state.isOpen)
+      this.setState({ isOpen: false })
     }
   }
 
@@ -194,7 +193,11 @@ EventDropdownFilter.propTypes = {
   heading: PropTypes.string.isRequired,
   filterName: PropTypes.string.isRequired,
   closeSiblingFilters: PropTypes.func.isRequired,
-  filterOpen: PropTypes.string.isRequired,
+  filterOpen: PropTypes.string,
+}
+
+EventDropdownFilter.defaultProps = {
+  filterOpen: '',
 }
 
 export default onClickOutside(EventDropdownFilter)

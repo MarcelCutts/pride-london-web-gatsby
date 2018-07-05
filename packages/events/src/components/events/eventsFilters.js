@@ -226,107 +226,110 @@ class EventsFilters extends Component {
   render() {
     return (
       <Consumer>
-        {context => (
-          <FilterWrapper
-            className={this.props.showFiltersMobile && 'open'}
-            mx={[
-              0, // btwn 0 and first breakpoint (375px)
-              0, // btwn 1st breakpoint(375px) and 2nd breakpoint (768px)
-              25, // btwn 2nd breakpoint(768px) and 3rd breakpoint (1024px)
-              60, // 3rd breakpoint(1024px) onwards
-            ]}
-            mb={[0, 0, 50]}
-            px={[0, 0, 15, 15]}
-            py={4}
-            flexWrap="wrap"
-            id="filters"
-          >
-            <FilterHeader width={1}>
-              <FilterHeaderInner>
-                <Label>Filter events by</Label>
-                <ClearButton
-                  type="button"
-                  onClick={() => {
-                    context.actions.clearFilters()
-                    this.animateIcon()
-                  }}
-                >
-                  <IconClear clickAnimation={this.state.clickAnimation} />
-                  Clear filters
-                </ClearButton>
-                <CloseButton
-                  aria-controls="filters"
-                  aria-expanded={this.props.showFiltersMobile}
-                  aria-label="Close filters"
-                  onClick={this.props.toggleFiltersMobile}
+        {context => {
+          console.log(context, 'cont')
+          return (
+            <FilterWrapper
+              className={this.props.showFiltersMobile && 'open'}
+              mx={[
+                0, // btwn 0 and first breakpoint (375px)
+                0, // btwn 1st breakpoint(375px) and 2nd breakpoint (768px)
+                25, // btwn 2nd breakpoint(768px) and 3rd breakpoint (1024px)
+                60, // 3rd breakpoint(1024px) onwards
+              ]}
+              mb={[0, 0, 50]}
+              px={[0, 0, 15, 15]}
+              py={4}
+              flexWrap="wrap"
+              id="filters"
+            >
+              <FilterHeader width={1}>
+                <FilterHeaderInner>
+                  <Label>Filter events by</Label>
+                  <ClearButton
+                    type="button"
+                    onClick={() => {
+                      context.actions.clearFilters()
+                      this.animateIcon()
+                    }}
+                  >
+                    <IconClear clickAnimation={this.state.clickAnimation} />
+                    Clear filters
+                  </ClearButton>
+                  <CloseButton
+                    aria-controls="filters"
+                    aria-expanded={this.props.showFiltersMobile}
+                    aria-label="Close filters"
+                    onClick={this.props.toggleFiltersMobile}
+                  />
+                </FilterHeaderInner>
+              </FilterHeader>
+              <FlexColumn width={[1, 1, 0.5, 0.3333]}>
+                <EventDropdownFilter
+                  heading="Category"
+                  filterName="eventCategories"
+                  filterOpen={context.state.filterOpen}
+                  closeSiblingFilters={context.actions.closeSiblingFilters}
                 />
-              </FilterHeaderInner>
-            </FilterHeader>
-            <FlexColumn width={[1, 1, 0.5, 0.3333]}>
-              <EventDropdownFilter
-                heading="Category"
-                filterName="eventCategories"
-                filterOpen={context.state.filterOpen}
-                closeSiblingFilters={context.actions.closeSiblingFilters}
-              />
-            </FlexColumn>
-            <FlexColumn width={[1, 1, 0.5, 0.3333]}>
-              <EventDateFilter />
-            </FlexColumn>
-            <FlexColumn width={[1, 1, 0.5, 0.3333]}>
-              <EventDropdownFilter
-                heading="Area of London"
-                filterName="area"
-                filterOpen={context.state.filterOpen}
-                closeSiblingFilters={context.actions.closeSiblingFilters}
-              />
-            </FlexColumn>
-            <FlexColumn width={[1, 1, 0.5, 0.3333]}>
-              <EventDropdownFilter
-                heading="Time of day"
-                filterName="timeOfDay"
-                filterOpen={context.state.filterOpen}
-                closeSiblingFilters={context.actions.closeSiblingFilters}
-              />
-            </FlexColumn>
-            <FlexColumn width={[1, 1, 0.5, 0.3333]}>
-              <EventDropdownFilter
-                heading="Age group"
-                filterName="audience"
-                filterOpen={context.state.filterOpen}
-                closeSiblingFilters={context.actions.closeSiblingFilters}
-              />
-            </FlexColumn>
-            <FlexColumn width={[1, 1, 0.5, 0.3333]}>
-              <EventDropdownFilter
-                heading="Venue options"
-                filterName="venueDetails"
-                filterOpen={context.state.filterOpen}
-                closeSiblingFilters={context.actions.closeSiblingFilters}
-              />
-            </FlexColumn>
-            <FlexColumn width={[1, 1, 0.5, 0.3333]}>
-              <EventDropdownFilter
-                heading="Accessibility"
-                filterName="accessibilityOptions"
-                filterOpen={context.state.filterOpen}
-                closeSiblingFilters={context.actions.closeSiblingFilters}
-              />
-            </FlexColumn>
-            <FlexColumn width={[1, 1, 0.5, 0.3333]}>
-              <EventFreeFilter />
-            </FlexColumn>
-            <ButtonWrapper className={this.props.showFiltersMobile && 'open'}>
-              <Button
-                primary
-                fullmobile
-                onClick={this.props.toggleFiltersMobile}
-              >
-                Show {context.filteredEvents.length} events
-              </Button>
-            </ButtonWrapper>
-          </FilterWrapper>
-        )}
+              </FlexColumn>
+              <FlexColumn width={[1, 1, 0.5, 0.3333]}>
+                <EventDateFilter />
+              </FlexColumn>
+              <FlexColumn width={[1, 1, 0.5, 0.3333]}>
+                <EventDropdownFilter
+                  heading="Area of London"
+                  filterName="area"
+                  filterOpen={context.state.filterOpen}
+                  closeSiblingFilters={context.actions.closeSiblingFilters}
+                />
+              </FlexColumn>
+              <FlexColumn width={[1, 1, 0.5, 0.3333]}>
+                <EventDropdownFilter
+                  heading="Time of day"
+                  filterName="timeOfDay"
+                  filterOpen={context.state.filterOpen}
+                  closeSiblingFilters={context.actions.closeSiblingFilters}
+                />
+              </FlexColumn>
+              <FlexColumn width={[1, 1, 0.5, 0.3333]}>
+                <EventDropdownFilter
+                  heading="Age group"
+                  filterName="audience"
+                  filterOpen={context.state.filterOpen}
+                  closeSiblingFilters={context.actions.closeSiblingFilters}
+                />
+              </FlexColumn>
+              <FlexColumn width={[1, 1, 0.5, 0.3333]}>
+                <EventDropdownFilter
+                  heading="Venue options"
+                  filterName="venueDetails"
+                  filterOpen={context.state.filterOpen}
+                  closeSiblingFilters={context.actions.closeSiblingFilters}
+                />
+              </FlexColumn>
+              <FlexColumn width={[1, 1, 0.5, 0.3333]}>
+                <EventDropdownFilter
+                  heading="Accessibility"
+                  filterName="accessibilityOptions"
+                  filterOpen={context.state.filterOpen}
+                  closeSiblingFilters={context.actions.closeSiblingFilters}
+                />
+              </FlexColumn>
+              <FlexColumn width={[1, 1, 0.5, 0.3333]}>
+                <EventFreeFilter />
+              </FlexColumn>
+              <ButtonWrapper className={this.props.showFiltersMobile && 'open'}>
+                <Button
+                  primary
+                  fullmobile
+                  onClick={this.props.toggleFiltersMobile}
+                >
+                  Show {context.filteredEvents.length} events
+                </Button>
+              </ButtonWrapper>
+            </FilterWrapper>
+          )
+        }}
       </Consumer>
     )
   }
