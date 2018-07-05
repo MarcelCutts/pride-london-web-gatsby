@@ -1,2404 +1,635 @@
-0 silly input [ 'test' ]
-1 silly flags { _: [ 'run' ],
+0 silly input []
+1 silly flags { _: [ 'bootstrap' ],
 1 silly flags   'reject-cycles': false,
 1 silly flags   rejectCycles: false,
-1 silly flags   script: 'test',
 1 silly flags   args: [] }
 2 verbose rootPath /Users/Home/Documents/Coding/pride-london-web-gatsby
 3 info version 2.11.0
 4 silly existsSync /Users/Home/Documents/Coding/pride-london-web-gatsby/VERSION
 5 silly initialize attempt
-6 silly initialize success
-7 silly execute attempt
-8 silly runScriptInDir test [] app
-9 silly getExecOpts { cwd: '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app' }
-10 error test Errored while running script in 'pride-london-web'
-11 error execute callback with error
-12 error Error: Command failed: npm run test
-12 error FAIL src/components/checkbox/_spec.js
-12 error   ● Checkbox › @renders › should render
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "Checkbox @renders should render 1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <Checkbox
-12 error     + <styled.div>
-12 error     +   <styled.input
-12 error           checked={false}
-12 error     -     handleChange={[MockFunction]}
-12 error           id="test"
-12 error     -     label="hello"
-12 error           name="myInput"
-12 error     +     onChange={[Function]}
-12 error     +     type="checkbox"
-12 error           value="selected"
-12 error     -   />,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "class",
-12 error     -     "props": Object {
-12 error     -       "children": Array [
-12 error     -         <styled.input
-12 error     -           checked={false}
-12 error     -           id="test"
-12 error     -           name="myInput"
-12 error     -           onChange={[Function]}
-12 error     -           type="checkbox"
-12 error     -           value="selected"
-12 error     -         />,
-12 error     -         <styled.label
-12 error     -           htmlFor="test"
-12 error     -         >
-12 error     -           hello
-12 error     -         </styled.label>,
-12 error     -       ],
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": Array [
-12 error     -       Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "class",
-12 error     -         "props": Object {
-12 error     -           "checked": false,
-12 error     -           "id": "test",
-12 error     -           "name": "myInput",
-12 error     -           "onChange": [Function],
-12 error     -           "type": "checkbox",
-12 error     -           "value": "selected",
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": null,
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -       Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "class",
-12 error     -         "props": Object {
-12 error     -           "children": "hello",
-12 error     -           "htmlFor": "test",
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": "hello",
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -     ],
-12 error     -     "type": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": Array [
-12 error     -           <styled.input
-12 error     -             checked={false}
-12 error     -             id="test"
-12 error     -             name="myInput"
-12 error     -             onChange={[Function]}
-12 error     -             type="checkbox"
-12 error     -             value="selected"
-12 error     -           />,
-12 error     -           <styled.label
-12 error     -             htmlFor="test"
-12 error     -           >
-12 error     -             hello
-12 error     -           </styled.label>,
-12 error     -         ],
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Array [
-12 error     -         Object {
-12 error     -           "instance": null,
-12 error     -           "key": undefined,
-12 error     -           "nodeType": "class",
-12 error     -           "props": Object {
-12 error     -             "checked": false,
-12 error     -             "id": "test",
-12 error     -             "name": "myInput",
-12 error     -             "onChange": [Function],
-12 error     -             "type": "checkbox",
-12 error     -             "value": "selected",
-12 error     -           },
-12 error     -           "ref": null,
-12 error     -           "rendered": null,
-12 error     -           "type": [Function],
-12 error     -         },
-12 error     -         Object {
-12 error     -           "instance": null,
-12 error     -           "key": undefined,
-12 error     -           "nodeType": "class",
-12 error     -           "props": Object {
-12 error     -             "children": "hello",
-12 error     -             "htmlFor": "test",
-12 error     -           },
-12 error     -           "ref": null,
-12 error     -           "rendered": "hello",
-12 error     -           "type": [Function],
-12 error     -         },
-12 error     -       ],
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -     "context": Object {
-12 error     -       "theme": Object {
-12 error     -         "breakpoints": Array [
-12 error     -           "375px",
-12 error     -           "768px",
-12 error     -           "1024px",
-12 error     -           "1440px",
-12 error     -         ],
-12 error     -         "colors": Object {
-12 error     -           "amber": "#FFCA00",
-12 error     -           "beachBlue": "#2C77E5",
-12 error     -           "black": "#000000",
-12 error     -           "bondiBlue": "#00A3BD",
-12 error     -           "darkGrey": "#5B5B5B",
-12 error     -           "darkPurple": "#660C63",
-12 error     -           "electricPurple": "#BC01FF",
-12 error     -           "eucalyptusGreen": "#2CDA9D",
-12 error     -           "fuscia": "#FF88F1",
-12 error     -           "green": "#34C30A",
-12 error     -           "greyBlue": "#5770D1",
-12 error     -           "indigo": "#2D2F7F",
-12 error     -           "lemonGreen": "#C3D30E",
-12 error     -           "lightGrey": "#EFEFEF",
-12 error     -           "mediumGrey": "#E1E1E1",
-12 error     -           "pink": "#ED2C6E",
-12 error     -           "red": "#D0021B",
-12 error     -           "skyBlue": "#2ACFFF",
-12 error     -           "tomato": "#FF5B44",
-12 error     -           "white": "#FFFFFF",
-12 error     -           "yellow": "#FFD95E",
-12 error     -         },
-12 error     -         "fonts": Object {
-12 error     -           "body": "Roboto, sans-serif",
-12 error     -           "title": "Poppins, sans-serif",
-12 error     -         },
-12 error     -         "space": Array [
-12 error     -           0,
-12 error     -           5,
-12 error     -           10,
-12 error     -           15,
-12 error     -           20,
-12 error     -         ],
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     +   />
-12 error     +   <styled.label
-12 error     +     htmlFor="test"
-12 error     +   >
-12 error     +     hello
-12 error     +   </styled.label>
-12 error     + </styled.div>
-12 error
-12 error       29 |   describe('@renders', () => {
-12 error       30 |     it('should render', () => {
-12 error     > 31 |       expect(wrapper).toMatchSnapshot()
-12 error          |                       ^
-12 error       32 |     })
-12 error       33 |     describe('input', () => {
-12 error       34 |       it('should have id from props', () => {
-12 error
-12 error       at Object.<anonymous> (src/components/checkbox/_spec.js:31:23)
-12 error
-12 error  › 1 snapshot failed.
-12 error FAIL src/components/events/tests/eventsYouMayLike_spec.js
-12 error   ● The Events You May Like component › should matchsnapshot
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "The Events You May Like component should matchsnapshot 1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <Consumer>
-12 error     -     [Function]
-12 error     -   </Consumer>,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "class",
-12 error     -     "props": Object {
-12 error     -       "children": Array [
-12 error     -         <Styled(Row)>
-12 error     -           <styled.h1>
-12 error     -             You may also like
-12 error     -           </styled.h1>
-12 error     -           <styled.a
-12 error     -             href="/events"
-12 error     -           >
-12 error     -             View all
-12 error     -             <styled.span>
-12 error     -                events
-12 error     -             </styled.span>
-12 error     -
-12 error     -             <ChevronRight />
-12 error     -           </styled.a>
-12 error     -         </Styled(Row)>,
-12 error     -         <Row>
-12 error     -           <Styled(Column)
-12 error     -             width={
-12 error     -               Array [
-12 error     -                 1,
-12 error     -                 1,
-12 error     -                 0.5,
-12 error     -                 0.3333333333333333,
-12 error     -               ]
-12 error     -             }
-12 error     -           >
-12 error     -             <EventListingCard
-12 error     -               event={
-12 error     -                 Object {
-12 error     -                   "eventsListPicture": Object {
-12 error     -                     "file": Object {
-12 error     -                       "url": "123123",
-12 error     -                     },
-12 error     -                   },
-12 error     -                   "id": "123",
-12 error     -                   "startTime": "2035-06-02T13:30+01:00",
-12 error     -                 }
-12 error     -               }
-12 error     -             />
-12 error     -           </Styled(Column)>
-12 error     -         </Row>,
-12 error     -       ],
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": Array [
-12 error     -       Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "class",
-12 error     -         "props": Object {
-12 error     -           "children": Array [
-12 error     -             <styled.h1>
-12 error     -               You may also like
-12 error     -             </styled.h1>,
-12 error     -             <styled.a
-12 error     -               href="/events"
-12 error     -             >
-12 error     -               View all
-12 error     -               <styled.span>
-12 error     -                  events
-12 error     -               </styled.span>
-12 error     -
-12 error     -               <ChevronRight />
-12 error     -             </styled.a>,
-12 error     -           ],
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": Array [
-12 error     + <Styled(Styled(Box))>
-12 error     +   <Styled(Row)>
-12 error     +     <styled.h1>
-12 error     +       You may also like
-12 error     +     </styled.h1>
-12 error     +     <styled.a
-12 error     +       href="/events"
-12 error     +     >
-12 error     +       View all
-12 error     +       <styled.span>
-12 error     +          events
-12 error     +       </styled.span>
-12 error     +
-12 error     +       <ChevronRight />
-12 error     +     </styled.a>
-12 error     +   </Styled(Row)>
-12 error     +   <Row>
-12 error     +     <Styled(Column)
-12 error     +       key="123"
-12 error     +       width={
-12 error     +         Array [
-12 error     +           1,
-12 error     +           1,
-12 error     +           0.5,
-12 error     +           0.3333333333333333,
-12 error     +         ]
-12 error     +       }
-12 error     +     >
-12 error     +       <EventListingCard
-12 error     +         event={
-12 error                 Object {
-12 error     -             "instance": null,
-12 error     -             "key": undefined,
-12 error     -             "nodeType": "class",
-12 error     -             "props": Object {
-12 error     -               "children": "You may also like",
-12 error     -             },
-12 error     -             "ref": null,
-12 error     -             "rendered": "You may also like",
-12 error     -             "type": [Function],
-12 error     -           },
-12 error     -           Object {
-12 error     -             "instance": null,
-12 error     -             "key": undefined,
-12 error     -             "nodeType": "class",
-12 error     -             "props": Object {
-12 error     -               "children": Array [
-12 error     -                 "View all",
-12 error     -                 <styled.span>
-12 error     -                    events
-12 error     -                 </styled.span>,
-12 error     -                 " ",
-12 error     -                 <ChevronRight />,
-12 error     -               ],
-12 error     -               "href": "/events",
-12 error     -             },
-12 error     -             "ref": null,
-12 error     -             "rendered": Array [
-12 error     -               "View all",
-12 error     -               Object {
-12 error     -                 "instance": null,
-12 error     -                 "key": undefined,
-12 error     -                 "nodeType": "class",
-12 error     -                 "props": Object {
-12 error     -                   "children": " events",
-12 error     -                 },
-12 error     -                 "ref": null,
-12 error     -                 "rendered": " events",
-12 error     -                 "type": [Function],
-12 error     +             "eventsListPicture": Object {
-12 error     +               "file": Object {
-12 error     +                 "url": "123123",
-12 error                     },
-12 error     -               " ",
-12 error     -               Object {
-12 error     -                 "instance": null,
-12 error     -                 "key": undefined,
-12 error     -                 "nodeType": "function",
-12 error     -                 "props": Object {},
-12 error     -                 "ref": null,
-12 error     -                 "rendered": null,
-12 error     -                 "type": [Function],
-12 error     -               },
-12 error     -             ],
-12 error     -             "type": [Function],
-12 error     -           },
-12 error     -         ],
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -       Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "function",
-12 error     -         "props": Object {
-12 error     -           "children": Array [
-12 error     -             <Styled(Column)
-12 error     -               width={
-12 error     -                 Array [
-12 error     -                   1,
-12 error     -                   1,
-12 error     -                   0.5,
-12 error     -                   0.3333333333333333,
-12 error     -                 ]
-12 error     -               }
-12 error     -             >
-12 error     -               <EventListingCard
-12 error     -                 event={
-12 error     -                   Object {
-12 error     -                     "eventsListPicture": Object {
-12 error     -                       "file": Object {
-12 error     -                         "url": "123123",
-12 error     -                       },
-12 error     -                     },
-12 error     -                     "id": "123",
-12 error     -                     "startTime": "2035-06-02T13:30+01:00",
-12 error     -                   }
-12 error     -                 }
-12 error     -               />
-12 error     -             </Styled(Column)>,
-12 error     -           ],
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": Array [
-12 error     -           Object {
-12 error     -             "instance": null,
-12 error     -             "key": "123",
-12 error     -             "nodeType": "class",
-12 error     -             "props": Object {
-12 error     -               "children": <EventListingCard
-12 error     -                 event={
-12 error     -                   Object {
-12 error     -                     "eventsListPicture": Object {
-12 error     -                       "file": Object {
-12 error     -                         "url": "123123",
-12 error     -                       },
-12 error     -                     },
-12 error     -                     "id": "123",
-12 error     -                     "startTime": "2035-06-02T13:30+01:00",
-12 error     -                   }
-12 error     -                 }
-12 error     -               />,
-12 error     -               "width": Array [
-12 error     -                 1,
-12 error     -                 1,
-12 error     -                 0.5,
-12 error     -                 0.3333333333333333,
-12 error     -               ],
-12 error                   },
-12 error     -             "ref": null,
-12 error     -             "rendered": Object {
-12 error     -               "instance": null,
-12 error     -               "key": undefined,
-12 error     -               "nodeType": "function",
-12 error     -               "props": Object {
-12 error     -                 "event": Object {
-12 error     -                   "eventsListPicture": Object {
-12 error     -                     "file": Object {
-12 error     -                       "url": "123123",
-12 error     -                     },
-12 error     -                   },
-12 error     -                   "id": "123",
-12 error     -                   "startTime": "2035-06-02T13:30+01:00",
-12 error     -                 },
-12 error     -               },
-12 error     -               "ref": null,
-12 error     -               "rendered": null,
-12 error     -               "type": [Function],
-12 error     -             },
-12 error     -             "type": [Function],
-12 error     -           },
-12 error     -         ],
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -     ],
-12 error     -     "type": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": Array [
-12 error     -           <Styled(Row)>
-12 error     -             <styled.h1>
-12 error     -               You may also like
-12 error     -             </styled.h1>
-12 error     -             <styled.a
-12 error     -               href="/events"
-12 error     -             >
-12 error     -               View all
-12 error     -               <styled.span>
-12 error     -                  events
-12 error     -               </styled.span>
-12 error     -
-12 error     -               <ChevronRight />
-12 error     -             </styled.a>
-12 error     -           </Styled(Row)>,
-12 error     -           <Row>
-12 error     -             <Styled(Column)
-12 error     -               width={
-12 error     -                 Array [
-12 error     -                   1,
-12 error     -                   1,
-12 error     -                   0.5,
-12 error     -                   0.3333333333333333,
-12 error     -                 ]
-12 error     -               }
-12 error     -             >
-12 error     -               <EventListingCard
-12 error     -                 event={
-12 error     -                   Object {
-12 error     -                     "eventsListPicture": Object {
-12 error     -                       "file": Object {
-12 error     -                         "url": "123123",
-12 error     -                       },
-12 error     -                     },
-12 error     -                     "id": "123",
-12 error     -                     "startTime": "2035-06-02T13:30+01:00",
-12 error     -                   }
-12 error     -                 }
-12 error     -               />
-12 error     -             </Styled(Column)>
-12 error     -           </Row>,
-12 error     -         ],
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Array [
-12 error     -         Object {
-12 error     -           "instance": null,
-12 error     -           "key": undefined,
-12 error     -           "nodeType": "class",
-12 error     -           "props": Object {
-12 error     -             "children": Array [
-12 error     -               <styled.h1>
-12 error     -                 You may also like
-12 error     -               </styled.h1>,
-12 error     -               <styled.a
-12 error     -                 href="/events"
-12 error     -               >
-12 error     -                 View all
-12 error     -                 <styled.span>
-12 error     -                    events
-12 error     -                 </styled.span>
-12 error     -
-12 error     -                 <ChevronRight />
-12 error     -               </styled.a>,
-12 error     -             ],
-12 error     -           },
-12 error     -           "ref": null,
-12 error     -           "rendered": Array [
-12 error     -             Object {
-12 error     -               "instance": null,
-12 error     -               "key": undefined,
-12 error     -               "nodeType": "class",
-12 error     -               "props": Object {
-12 error     -                 "children": "You may also like",
-12 error     -               },
-12 error     -               "ref": null,
-12 error     -               "rendered": "You may also like",
-12 error     -               "type": [Function],
-12 error     -             },
-12 error     -             Object {
-12 error     -               "instance": null,
-12 error     -               "key": undefined,
-12 error     -               "nodeType": "class",
-12 error     -               "props": Object {
-12 error     -                 "children": Array [
-12 error     -                   "View all",
-12 error     -                   <styled.span>
-12 error     -                      events
-12 error     -                   </styled.span>,
-12 error     -                   " ",
-12 error     -                   <ChevronRight />,
-12 error     -                 ],
-12 error     -                 "href": "/events",
-12 error     -               },
-12 error     -               "ref": null,
-12 error     -               "rendered": Array [
-12 error     -                 "View all",
-12 error     -                 Object {
-12 error     -                   "instance": null,
-12 error     -                   "key": undefined,
-12 error     -                   "nodeType": "class",
-12 error     -                   "props": Object {
-12 error     -                     "children": " events",
-12 error     -                   },
-12 error     -                   "ref": null,
-12 error     -                   "rendered": " events",
-12 error     -                   "type": [Function],
-12 error     -                 },
-12 error     -                 " ",
-12 error     -                 Object {
-12 error     -                   "instance": null,
-12 error     -                   "key": undefined,
-12 error     -                   "nodeType": "function",
-12 error     -                   "props": Object {},
-12 error     -                   "ref": null,
-12 error     -                   "rendered": null,
-12 error     -                   "type": [Function],
-12 error     -                 },
-12 error     -               ],
-12 error     -               "type": [Function],
-12 error     -             },
-12 error     -           ],
-12 error     -           "type": [Function],
-12 error     -         },
-12 error     -         Object {
-12 error     -           "instance": null,
-12 error     -           "key": undefined,
-12 error     -           "nodeType": "function",
-12 error     -           "props": Object {
-12 error     -             "children": Array [
-12 error     -               <Styled(Column)
-12 error     -                 width={
-12 error     -                   Array [
-12 error     -                     1,
-12 error     -                     1,
-12 error     -                     0.5,
-12 error     -                     0.3333333333333333,
-12 error     -                   ]
-12 error     -                 }
-12 error     -               >
-12 error     -                 <EventListingCard
-12 error     -                   event={
-12 error     -                     Object {
-12 error     -                       "eventsListPicture": Object {
-12 error     -                         "file": Object {
-12 error     -                           "url": "123123",
-12 error     -                         },
-12 error     -                       },
-12 error     -                       "id": "123",
-12 error     -                       "startTime": "2035-06-02T13:30+01:00",
-12 error     -                     }
-12 error     -                   }
-12 error     -                 />
-12 error     -               </Styled(Column)>,
-12 error     -             ],
-12 error     -           },
-12 error     -           "ref": null,
-12 error     -           "rendered": Array [
-12 error     -             Object {
-12 error     -               "instance": null,
-12 error     -               "key": "123",
-12 error     -               "nodeType": "class",
-12 error     -               "props": Object {
-12 error     -                 "children": <EventListingCard
-12 error     -                   event={
-12 error     -                     Object {
-12 error     -                       "eventsListPicture": Object {
-12 error     -                         "file": Object {
-12 error     -                           "url": "123123",
-12 error     -                         },
-12 error     -                       },
-12 error     -                       "id": "123",
-12 error     -                       "startTime": "2035-06-02T13:30+01:00",
-12 error     -                     }
-12 error     -                   }
-12 error     -                 />,
-12 error     -                 "width": Array [
-12 error     -                   1,
-12 error     -                   1,
-12 error     -                   0.5,
-12 error     -                   0.3333333333333333,
-12 error     -                 ],
-12 error     -               },
-12 error     -               "ref": null,
-12 error     -               "rendered": Object {
-12 error     -                 "instance": null,
-12 error     -                 "key": undefined,
-12 error     -                 "nodeType": "function",
-12 error     -                 "props": Object {
-12 error     -                   "event": Object {
-12 error     -                     "eventsListPicture": Object {
-12 error     -                       "file": Object {
-12 error     -                         "url": "123123",
-12 error     -                       },
-12 error     -                     },
-12 error     -                     "id": "123",
-12 error     -                     "startTime": "2035-06-02T13:30+01:00",
-12 error     -                   },
-12 error     -                 },
-12 error     -                 "ref": null,
-12 error     -                 "rendered": null,
-12 error     -                 "type": [Function],
-12 error     -               },
-12 error     -               "type": [Function],
-12 error     -             },
-12 error     -           ],
-12 error     -           "type": [Function],
-12 error     -         },
-12 error     -       ],
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -     "context": Object {
-12 error     -       "__styled-components__": [Function],
-12 error     -       "__styled-components__next__": Object {
-12 error     -         "getTheme": [Function],
-12 error     -         "subscribe": [Function],
-12 error     -         "unsubscribe": [Function],
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     +             "id": "123",
-12 error     +             "startTime": "2035-06-02T13:30+01:00",
-12 error     +           }
-12 error     +         }
-12 error     +       />
-12 error     +     </Styled(Column)>
-12 error     +   </Row>
-12 error     + </Styled(Styled(Box))>
-12 error
-12 error       72 |     const wrapper = shallowWithTheme(<EventsYouMayLike {...mockProps} />)
-12 error       73 |
-12 error     > 74 |     expect(wrapper.dive()).toMatchSnapshot()
-12 error          |                            ^
-12 error       75 |   })
-12 error       76 |
-12 error       77 |   it('should render Event Listing Card if a correct event is passed from the state', () => {
-12 error
-12 error       at Object.<anonymous> (src/components/events/tests/eventsYouMayLike_spec.js:74:28)
-12 error
-12 error  › 1 snapshot failed.
-12 error FAIL src/components/button/_spec.js
-12 error   ● Button component › should match snapshot
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "Button component should match snapshot 1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <Button
-12 error     -     className=""
-12 error     -     disabled={false}
-12 error     -     fullmobile={false}
-12 error     -     link={false}
-12 error     -     onClick={null}
-12 error     -     primary={false}
-12 error     -     small={false}
-12 error     -     to={null}
-12 error     -     type="button"
-12 error     -     wide={true}
-12 error     -   >
-12 error     -     Button
-12 error     -   </Button>,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "class",
-12 error     -     "props": Object {
-12 error     -       "aria-controls": undefined,
-12 error     -       "aria-expanded": undefined,
-12 error     -       "children": "Button",
-12 error     -       "className": "",
-12 error     -       "disabled": false,
-12 error     -       "fullmobile": false,
-12 error     -       "href": null,
-12 error     -       "onClick": null,
-12 error     -       "primary": false,
-12 error     -       "small": false,
-12 error     -       "type": "button",
-12 error     -       "wide": true,
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": "Button",
-12 error     -     "type": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "aria-controls": undefined,
-12 error     -         "aria-expanded": undefined,
-12 error     -         "children": "Button",
-12 error     -         "className": "",
-12 error     -         "disabled": false,
-12 error     -         "fullmobile": false,
-12 error     -         "href": null,
-12 error     -         "onClick": null,
-12 error     -         "primary": false,
-12 error     -         "small": false,
-12 error     -         "type": "button",
-12 error     -         "wide": true,
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": "Button",
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     + <styled.button
-12 error     +   className=""
-12 error     +   disabled={false}
-12 error     +   fullmobile={false}
-12 error     +   href={null}
-12 error     +   onClick={null}
-12 error     +   primary={false}
-12 error     +   small={false}
-12 error     +   type="button"
-12 error     +   wide={true}
-12 error     + >
-12 error     +   Button
-12 error     + </styled.button>
-12 error
-12 error        7 |     const wrapper = shallow(<Button />)
-12 error        8 |
-12 error     >  9 |     expect(wrapper).toMatchSnapshot()
-12 error          |                     ^
-12 error       10 |   })
-12 error       11 |
-12 error       12 |   it('should fire correct method when set onClick property', () => {
-12 error
-12 error       at Object.<anonymous> (src/components/button/_spec.js:9:21)
-12 error
-12 error  › 1 snapshot failed.
-12 error FAIL src/components/checkboxSet/_spec.js
-12 error   ● CheckboxSet › @renders › should render
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "CheckboxSet @renders should render 1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <CheckboxSet
-12 error     -     filterName="test"
-12 error     -   />,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "function",
-12 error     -     "props": Object {
-12 error     -       "children": [Function],
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": [Function],
-12 error     -     "type": Object {
-12 error     -       "$$typeof": Symbol(react.context),
-12 error     -       "Consumer": [Circular],
-12 error     -       "Provider": Object {
-12 error     -         "$$typeof": Symbol(react.provider),
-12 error     -         "_context": [Circular],
-12 error     -       },
-12 error     -       "_calculateChangedBits": null,
-12 error     -       "_changedBits": 0,
-12 error     -       "_changedBits2": 0,
-12 error     -       "_currentRenderer": null,
-12 error     -       "_currentRenderer2": null,
-12 error     -       "_currentValue": undefined,
-12 error     -       "_currentValue2": undefined,
-12 error     -       "_defaultValue": undefined,
-12 error     -     },
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "function",
-12 error     -       "props": Object {
-12 error     -         "children": [Function],
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": [Function],
-12 error     -       "type": Object {
-12 error     -         "$$typeof": Symbol(react.context),
-12 error     -         "Consumer": [Circular],
-12 error     -         "Provider": Object {
-12 error     -           "$$typeof": Symbol(react.provider),
-12 error     -           "_context": [Circular],
-12 error     -         },
-12 error     -         "_calculateChangedBits": null,
-12 error     -         "_changedBits": 0,
-12 error     -         "_changedBits2": 0,
-12 error     -         "_currentRenderer": null,
-12 error     -         "_currentRenderer2": null,
-12 error     -         "_currentValue": undefined,
-12 error     -         "_currentValue2": undefined,
-12 error     -         "_defaultValue": undefined,
-12 error     -       },
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -     "context": Object {
-12 error     -       "theme": Object {
-12 error     -         "breakpoints": Array [
-12 error     -           "375px",
-12 error     -           "768px",
-12 error     -           "1024px",
-12 error     -           "1440px",
-12 error     -         ],
-12 error     -         "colors": Object {
-12 error     -           "amber": "#FFCA00",
-12 error     -           "beachBlue": "#2C77E5",
-12 error     -           "black": "#000000",
-12 error     -           "bondiBlue": "#00A3BD",
-12 error     -           "darkGrey": "#5B5B5B",
-12 error     -           "darkPurple": "#660C63",
-12 error     -           "electricPurple": "#BC01FF",
-12 error     -           "eucalyptusGreen": "#2CDA9D",
-12 error     -           "fuscia": "#FF88F1",
-12 error     -           "green": "#34C30A",
-12 error     -           "greyBlue": "#5770D1",
-12 error     -           "indigo": "#2D2F7F",
-12 error     -           "lemonGreen": "#C3D30E",
-12 error     -           "lightGrey": "#EFEFEF",
-12 error     -           "mediumGrey": "#E1E1E1",
-12 error     -           "pink": "#ED2C6E",
-12 error     -           "red": "#D0021B",
-12 error     -           "skyBlue": "#2ACFFF",
-12 error     -           "tomato": "#FF5B44",
-12 error     -           "white": "#FFFFFF",
-12 error     -           "yellow": "#FFD95E",
-12 error     -         },
-12 error     -         "fonts": Object {
-12 error     -           "body": "Roboto, sans-serif",
-12 error     -           "title": "Poppins, sans-serif",
-12 error     -         },
-12 error     -         "space": Array [
-12 error     -           0,
-12 error     -           5,
-12 error     -           10,
-12 error     -           15,
-12 error     -           20,
-12 error     -         ],
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     + <[object Object] />
-12 error
-12 error       17 |       })
-12 error       18 |
-12 error     > 19 |       expect(wrapper).toMatchSnapshot()
-12 error          |                       ^
-12 error       20 |     })
-12 error       21 |   })
-12 error       22 | })
-12 error
-12 error       at Object.<anonymous> (src/components/checkboxSet/_spec.js:19:23)
-12 error
-12 error  › 1 snapshot failed.
-12 error PASS src/components/navigation/tests/navigation_test.js
-12 error FAIL src/components/imageBanner/_spec.js
-12 error   ● ImageBanner › should render
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "ImageBanner should render 1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <ImageBanner
-12 error     -     altText=""
-12 error     -     color=""
-12 error     -     imageSrc=""
-12 error     -     large="false"
-12 error     -     subtitleText=""
-12 error     -     titleText=""
-12 error     -   />,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "class",
-12 error     -     "props": Object {
-12 error     -       "children": Array [
-12 error     -         "",
-12 error     -         <Styled(Row)>
-12 error     -           <Column
-12 error     -             width={1}
-12 error     -           >
-12 error     -             <StyledBannerTitle>
-12 error     -
-12 error     -             </StyledBannerTitle>
-12 error     -             <StyledBannerSubtitle>
-12 error     -
-12 error     -             </StyledBannerSubtitle>
-12 error     -           </Column>
-12 error     -         </Styled(Row)>,
-12 error     -       ],
-12 error     -       "color": "",
-12 error     -       "large": "false",
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": Array [
-12 error     -       "",
-12 error     -       Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "class",
-12 error     -         "props": Object {
-12 error     -           "children": Array [
-12 error     -             <Column
-12 error     -               width={1}
-12 error     -             >
-12 error     -               <StyledBannerTitle>
-12 error     -
-12 error     -               </StyledBannerTitle>
-12 error     -               <StyledBannerSubtitle>
-12 error     -
-12 error     -               </StyledBannerSubtitle>
-12 error     -             </Column>,
-12 error     -             null,
-12 error     -           ],
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": Array [
-12 error     -           Object {
-12 error     -             "instance": null,
-12 error     -             "key": undefined,
-12 error     -             "nodeType": "function",
-12 error     -             "props": Object {
-12 error     -               "children": Array [
-12 error     -                 <StyledBannerTitle>
-12 error     -
-12 error     -                 </StyledBannerTitle>,
-12 error     -                 <StyledBannerSubtitle>
-12 error     -
-12 error     -                 </StyledBannerSubtitle>,
-12 error     -               ],
-12 error     -               "width": 1,
-12 error     -             },
-12 error     -             "ref": null,
-12 error     -             "rendered": Array [
-12 error     -               Object {
-12 error     -                 "instance": null,
-12 error     -                 "key": undefined,
-12 error     -                 "nodeType": "function",
-12 error     -                 "props": Object {
-12 error     -                   "children": "",
-12 error     -                 },
-12 error     -                 "ref": null,
-12 error     -                 "rendered": "",
-12 error     -                 "type": [Function],
-12 error     -               },
-12 error     -               Object {
-12 error     -                 "instance": null,
-12 error     -                 "key": undefined,
-12 error     -                 "nodeType": "function",
-12 error     -                 "props": Object {
-12 error     -                   "children": "",
-12 error     -                 },
-12 error     -                 "ref": null,
-12 error     -                 "rendered": "",
-12 error     -                 "type": [Function],
-12 error     -               },
-12 error     -             ],
-12 error     -             "type": [Function],
-12 error     -           },
-12 error     -           null,
-12 error     -         ],
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -     ],
-12 error     -     "type": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": Array [
-12 error     -           "",
-12 error     -           <Styled(Row)>
-12 error     -             <Column
-12 error     -               width={1}
-12 error     -             >
-12 error     -               <StyledBannerTitle>
-12 error     -
-12 error     -               </StyledBannerTitle>
-12 error     -               <StyledBannerSubtitle>
-12 error     -
-12 error     -               </StyledBannerSubtitle>
-12 error     -             </Column>
-12 error     -           </Styled(Row)>,
-12 error     -         ],
-12 error     -         "color": "",
-12 error     -         "large": "false",
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Array [
-12 error     -         "",
-12 error     -         Object {
-12 error     -           "instance": null,
-12 error     -           "key": undefined,
-12 error     -           "nodeType": "class",
-12 error     -           "props": Object {
-12 error     -             "children": Array [
-12 error     -               <Column
-12 error     -                 width={1}
-12 error     -               >
-12 error     -                 <StyledBannerTitle>
-12 error     -
-12 error     -                 </StyledBannerTitle>
-12 error     -                 <StyledBannerSubtitle>
-12 error     -
-12 error     -                 </StyledBannerSubtitle>
-12 error     -               </Column>,
-12 error     -               null,
-12 error     -             ],
-12 error     -           },
-12 error     -           "ref": null,
-12 error     -           "rendered": Array [
-12 error     -             Object {
-12 error     -               "instance": null,
-12 error     -               "key": undefined,
-12 error     -               "nodeType": "function",
-12 error     -               "props": Object {
-12 error     -                 "children": Array [
-12 error     -                   <StyledBannerTitle>
-12 error     -
-12 error     -                   </StyledBannerTitle>,
-12 error     -                   <StyledBannerSubtitle>
-12 error     -
-12 error     -                   </StyledBannerSubtitle>,
-12 error     -                 ],
-12 error     -                 "width": 1,
-12 error     -               },
-12 error     -               "ref": null,
-12 error     -               "rendered": Array [
-12 error     -                 Object {
-12 error     -                   "instance": null,
-12 error     -                   "key": undefined,
-12 error     -                   "nodeType": "function",
-12 error     -                   "props": Object {
-12 error     -                     "children": "",
-12 error     -                   },
-12 error     -                   "ref": null,
-12 error     -                   "rendered": "",
-12 error     -                   "type": [Function],
-12 error     -                 },
-12 error     -                 Object {
-12 error     -                   "instance": null,
-12 error     -                   "key": undefined,
-12 error     -                   "nodeType": "function",
-12 error     -                   "props": Object {
-12 error     -                     "children": "",
-12 error     -                   },
-12 error     -                   "ref": null,
-12 error     -                   "rendered": "",
-12 error     -                   "type": [Function],
-12 error     -                 },
-12 error     -               ],
-12 error     -               "type": [Function],
-12 error     -             },
-12 error     -             null,
-12 error     -           ],
-12 error     -           "type": [Function],
-12 error     -         },
-12 error     -       ],
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     + <Styled(Styled(Box))
-12 error     +   color=""
-12 error     +   large="false"
-12 error     + >
-12 error     +   <Styled(Row)>
-12 error     +     <Column
-12 error     +       width={1}
-12 error     +     >
-12 error     +       <StyledBannerTitle />
-12 error     +       <StyledBannerSubtitle />
-12 error     +     </Column>
-12 error     +   </Styled(Row)>
-12 error     + </Styled(Styled(Box))>
-12 error
-12 error       10 |   it('should render', () => {
-12 error       11 |     const wrapper = shallow(<ImageBanner />)
-12 error     > 12 |     expect(wrapper).toMatchSnapshot()
-12 error          |                     ^
-12 error       13 |   })
-12 error       14 |
-12 error       15 |   it('should render a <BannerTitle />', () => {
-12 error
-12 error       at Object.<anonymous> (src/components/imageBanner/_spec.js:12:21)
-12 error
-12 error   ● ImageBanner › should render the titleText from props to BannerTitle
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "ImageBanner should render the titleText from props to BannerTitle  1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <ImageBanner
-12 error     -     altText=""
-12 error     -     color=""
-12 error     -     imageSrc=""
-12 error     -     large="false"
-12 error     -     subtitleText=""
-12 error     -     titleText="Here is a test title!"
-12 error     -   />,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "class",
-12 error     -     "props": Object {
-12 error     -       "children": Array [
-12 error     -         "",
-12 error     -         <Styled(Row)>
-12 error     -           <Column
-12 error     -             width={1}
-12 error     -           >
-12 error     -             <StyledBannerTitle>
-12 error     -               Here is a test title!
-12 error     -             </StyledBannerTitle>
-12 error     -             <StyledBannerSubtitle>
-12 error     -
-12 error     -             </StyledBannerSubtitle>
-12 error     -           </Column>
-12 error     -         </Styled(Row)>,
-12 error     -       ],
-12 error     -       "color": "",
-12 error     -       "large": "false",
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": Array [
-12 error     -       "",
-12 error     -       Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "class",
-12 error     -         "props": Object {
-12 error     -           "children": Array [
-12 error     -             <Column
-12 error     -               width={1}
-12 error     -             >
-12 error     -               <StyledBannerTitle>
-12 error     -                 Here is a test title!
-12 error     -               </StyledBannerTitle>
-12 error     -               <StyledBannerSubtitle>
-12 error     -
-12 error     -               </StyledBannerSubtitle>
-12 error     -             </Column>,
-12 error     -             null,
-12 error     -           ],
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": Array [
-12 error     -           Object {
-12 error     -             "instance": null,
-12 error     -             "key": undefined,
-12 error     -             "nodeType": "function",
-12 error     -             "props": Object {
-12 error     -               "children": Array [
-12 error     -                 <StyledBannerTitle>
-12 error     -                   Here is a test title!
-12 error     -                 </StyledBannerTitle>,
-12 error     -                 <StyledBannerSubtitle>
-12 error     -
-12 error     -                 </StyledBannerSubtitle>,
-12 error     -               ],
-12 error     -               "width": 1,
-12 error     -             },
-12 error     -             "ref": null,
-12 error     -             "rendered": Array [
-12 error     -               Object {
-12 error     -                 "instance": null,
-12 error     -                 "key": undefined,
-12 error     -                 "nodeType": "function",
-12 error     -                 "props": Object {
-12 error     -                   "children": "Here is a test title!",
-12 error     -                 },
-12 error     -                 "ref": null,
-12 error     -                 "rendered": "Here is a test title!",
-12 error     -                 "type": [Function],
-12 error     -               },
-12 error     -               Object {
-12 error     -                 "instance": null,
-12 error     -                 "key": undefined,
-12 error     -                 "nodeType": "function",
-12 error     -                 "props": Object {
-12 error     -                   "children": "",
-12 error     -                 },
-12 error     -                 "ref": null,
-12 error     -                 "rendered": "",
-12 error     -                 "type": [Function],
-12 error     -               },
-12 error     -             ],
-12 error     -             "type": [Function],
-12 error     -           },
-12 error     -           null,
-12 error     -         ],
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -     ],
-12 error     -     "type": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": Array [
-12 error     -           "",
-12 error     -           <Styled(Row)>
-12 error     -             <Column
-12 error     -               width={1}
-12 error     -             >
-12 error     -               <StyledBannerTitle>
-12 error     -                 Here is a test title!
-12 error     -               </StyledBannerTitle>
-12 error     -               <StyledBannerSubtitle>
-12 error     -
-12 error     -               </StyledBannerSubtitle>
-12 error     -             </Column>
-12 error     -           </Styled(Row)>,
-12 error     -         ],
-12 error     -         "color": "",
-12 error     -         "large": "false",
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Array [
-12 error     -         "",
-12 error     -         Object {
-12 error     -           "instance": null,
-12 error     -           "key": undefined,
-12 error     -           "nodeType": "class",
-12 error     -           "props": Object {
-12 error     -             "children": Array [
-12 error     -               <Column
-12 error     -                 width={1}
-12 error     -               >
-12 error     -                 <StyledBannerTitle>
-12 error     -                   Here is a test title!
-12 error     -                 </StyledBannerTitle>
-12 error     -                 <StyledBannerSubtitle>
-12 error     -
-12 error     -                 </StyledBannerSubtitle>
-12 error     -               </Column>,
-12 error     -               null,
-12 error     -             ],
-12 error     -           },
-12 error     -           "ref": null,
-12 error     -           "rendered": Array [
-12 error     -             Object {
-12 error     -               "instance": null,
-12 error     -               "key": undefined,
-12 error     -               "nodeType": "function",
-12 error     -               "props": Object {
-12 error     -                 "children": Array [
-12 error     -                   <StyledBannerTitle>
-12 error     -                     Here is a test title!
-12 error     -                   </StyledBannerTitle>,
-12 error     -                   <StyledBannerSubtitle>
-12 error     -
-12 error     -                   </StyledBannerSubtitle>,
-12 error     -                 ],
-12 error     -                 "width": 1,
-12 error     -               },
-12 error     -               "ref": null,
-12 error     -               "rendered": Array [
-12 error     -                 Object {
-12 error     -                   "instance": null,
-12 error     -                   "key": undefined,
-12 error     -                   "nodeType": "function",
-12 error     -                   "props": Object {
-12 error     -                     "children": "Here is a test title!",
-12 error     -                   },
-12 error     -                   "ref": null,
-12 error     -                   "rendered": "Here is a test title!",
-12 error     -                   "type": [Function],
-12 error     -                 },
-12 error     -                 Object {
-12 error     -                   "instance": null,
-12 error     -                   "key": undefined,
-12 error     -                   "nodeType": "function",
-12 error     -                   "props": Object {
-12 error     -                     "children": "",
-12 error     -                   },
-12 error     -                   "ref": null,
-12 error     -                   "rendered": "",
-12 error     -                   "type": [Function],
-12 error     -                 },
-12 error     -               ],
-12 error     -               "type": [Function],
-12 error     -             },
-12 error     -             null,
-12 error     -           ],
-12 error     -           "type": [Function],
-12 error     -         },
-12 error     -       ],
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     + <Styled(Styled(Box))
-12 error     +   color=""
-12 error     +   large="false"
-12 error     + >
-12 error     +   <Styled(Row)>
-12 error     +     <Column
-12 error     +       width={1}
-12 error     +     >
-12 error     +       <StyledBannerTitle>
-12 error     +         Here is a test title!
-12 error     +       </StyledBannerTitle>
-12 error     +       <StyledBannerSubtitle />
-12 error     +     </Column>
-12 error     +   </Styled(Row)>
-12 error     + </Styled(Styled(Box))>
-12 error
-12 error       49 |     const wrapper = shallow(<ImageBanner titleText={titleText} />)
-12 error       50 |
-12 error     > 51 |     expect(wrapper).toMatchSnapshot()
-12 error          |                     ^
-12 error       52 |
-12 error       53 |     expect(
-12 error       54 |       wrapper
-12 error
-12 error       at Object.<anonymous> (src/components/imageBanner/_spec.js:51:21)
-12 error
-12 error   ● ImageBanner › should render the subtitleText from props to BannerTitle
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "ImageBanner should render the subtitleText from props to BannerTitle  1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <ImageBanner
-12 error     -     altText=""
-12 error     -     color=""
-12 error     -     imageSrc=""
-12 error     -     large="false"
-12 error     -     subtitleText="And here is a test subtitle!"
-12 error     -     titleText=""
-12 error     -   />,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "class",
-12 error     -     "props": Object {
-12 error     -       "children": Array [
-12 error     -         "",
-12 error     -         <Styled(Row)>
-12 error     -           <Column
-12 error     -             width={1}
-12 error     -           >
-12 error     -             <StyledBannerTitle>
-12 error     -
-12 error     -             </StyledBannerTitle>
-12 error     -             <StyledBannerSubtitle>
-12 error     -               And here is a test subtitle!
-12 error     -             </StyledBannerSubtitle>
-12 error     -           </Column>
-12 error     -         </Styled(Row)>,
-12 error     -       ],
-12 error     -       "color": "",
-12 error     -       "large": "false",
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": Array [
-12 error     -       "",
-12 error     -       Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "class",
-12 error     -         "props": Object {
-12 error     -           "children": Array [
-12 error     -             <Column
-12 error     -               width={1}
-12 error     -             >
-12 error     -               <StyledBannerTitle>
-12 error     -
-12 error     -               </StyledBannerTitle>
-12 error     -               <StyledBannerSubtitle>
-12 error     -                 And here is a test subtitle!
-12 error     -               </StyledBannerSubtitle>
-12 error     -             </Column>,
-12 error     -             null,
-12 error     -           ],
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": Array [
-12 error     -           Object {
-12 error     -             "instance": null,
-12 error     -             "key": undefined,
-12 error     -             "nodeType": "function",
-12 error     -             "props": Object {
-12 error     -               "children": Array [
-12 error     -                 <StyledBannerTitle>
-12 error     -
-12 error     -                 </StyledBannerTitle>,
-12 error     -                 <StyledBannerSubtitle>
-12 error     -                   And here is a test subtitle!
-12 error     -                 </StyledBannerSubtitle>,
-12 error     -               ],
-12 error     -               "width": 1,
-12 error     -             },
-12 error     -             "ref": null,
-12 error     -             "rendered": Array [
-12 error     -               Object {
-12 error     -                 "instance": null,
-12 error     -                 "key": undefined,
-12 error     -                 "nodeType": "function",
-12 error     -                 "props": Object {
-12 error     -                   "children": "",
-12 error     -                 },
-12 error     -                 "ref": null,
-12 error     -                 "rendered": "",
-12 error     -                 "type": [Function],
-12 error     -               },
-12 error     -               Object {
-12 error     -                 "instance": null,
-12 error     -                 "key": undefined,
-12 error     -                 "nodeType": "function",
-12 error     -                 "props": Object {
-12 error     -                   "children": "And here is a test subtitle!",
-12 error     -                 },
-12 error     -                 "ref": null,
-12 error     -                 "rendered": "And here is a test subtitle!",
-12 error     -                 "type": [Function],
-12 error     -               },
-12 error     -             ],
-12 error     -             "type": [Function],
-12 error     -           },
-12 error     -           null,
-12 error     -         ],
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -     ],
-12 error     -     "type": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": Array [
-12 error     -           "",
-12 error     -           <Styled(Row)>
-12 error     -             <Column
-12 error     -               width={1}
-12 error     -             >
-12 error     -               <StyledBannerTitle>
-12 error     -
-12 error     -               </StyledBannerTitle>
-12 error     -               <StyledBannerSubtitle>
-12 error     -                 And here is a test subtitle!
-12 error     -               </StyledBannerSubtitle>
-12 error     -             </Column>
-12 error     -           </Styled(Row)>,
-12 error     -         ],
-12 error     -         "color": "",
-12 error     -         "large": "false",
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Array [
-12 error     -         "",
-12 error     -         Object {
-12 error     -           "instance": null,
-12 error     -           "key": undefined,
-12 error     -           "nodeType": "class",
-12 error     -           "props": Object {
-12 error     -             "children": Array [
-12 error     -               <Column
-12 error     -                 width={1}
-12 error     -               >
-12 error     -                 <StyledBannerTitle>
-12 error     -
-12 error     -                 </StyledBannerTitle>
-12 error     -                 <StyledBannerSubtitle>
-12 error     -                   And here is a test subtitle!
-12 error     -                 </StyledBannerSubtitle>
-12 error     -               </Column>,
-12 error     -               null,
-12 error     -             ],
-12 error     -           },
-12 error     -           "ref": null,
-12 error     -           "rendered": Array [
-12 error     -             Object {
-12 error     -               "instance": null,
-12 error     -               "key": undefined,
-12 error     -               "nodeType": "function",
-12 error     -               "props": Object {
-12 error     -                 "children": Array [
-12 error     -                   <StyledBannerTitle>
-12 error     -
-12 error     -                   </StyledBannerTitle>,
-12 error     -                   <StyledBannerSubtitle>
-12 error     -                     And here is a test subtitle!
-12 error     -                   </StyledBannerSubtitle>,
-12 error     -                 ],
-12 error     -                 "width": 1,
-12 error     -               },
-12 error     -               "ref": null,
-12 error     -               "rendered": Array [
-12 error     -                 Object {
-12 error     -                   "instance": null,
-12 error     -                   "key": undefined,
-12 error     -                   "nodeType": "function",
-12 error     -                   "props": Object {
-12 error     -                     "children": "",
-12 error     -                   },
-12 error     -                   "ref": null,
-12 error     -                   "rendered": "",
-12 error     -                   "type": [Function],
-12 error     -                 },
-12 error     -                 Object {
-12 error     -                   "instance": null,
-12 error     -                   "key": undefined,
-12 error     -                   "nodeType": "function",
-12 error     -                   "props": Object {
-12 error     -                     "children": "And here is a test subtitle!",
-12 error     -                   },
-12 error     -                   "ref": null,
-12 error     -                   "rendered": "And here is a test subtitle!",
-12 error     -                   "type": [Function],
-12 error     -                 },
-12 error     -               ],
-12 error     -               "type": [Function],
-12 error     -             },
-12 error     -             null,
-12 error     -           ],
-12 error     -           "type": [Function],
-12 error     -         },
-12 error     -       ],
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     + <Styled(Styled(Box))
-12 error     +   color=""
-12 error     +   large="false"
-12 error     + >
-12 error     +   <Styled(Row)>
-12 error     +     <Column
-12 error     +       width={1}
-12 error     +     >
-12 error     +       <StyledBannerTitle />
-12 error     +       <StyledBannerSubtitle>
-12 error     +         And here is a test subtitle!
-12 error     +       </StyledBannerSubtitle>
-12 error     +     </Column>
-12 error     +   </Styled(Row)>
-12 error     + </Styled(Styled(Box))>
-12 error
-12 error       63 |     const wrapper = shallow(<ImageBanner subtitleText={subtitleText} />)
-12 error       64 |
-12 error     > 65 |     expect(wrapper).toMatchSnapshot()
-12 error          |                     ^
-12 error       66 |     expect(
-12 error       67 |       wrapper
-12 error       68 |         .dive()
-12 error
-12 error       at Object.<anonymous> (src/components/imageBanner/_spec.js:65:21)
-12 error
-12 error  › 3 snapshots failed.
-12 error PASS src/components/navigation/tests/header_test.js
-12 error PASS src/components/navigation/tests/navItems_test.js
-12 error PASS src/components/events/tests/eventTagList_spec.js
-12 error FAIL src/components/bannerSubtitle/_spec.js
-12 error   ● BannerSubtitle › should render
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "BannerSubtitle should render 1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <StyledBannerSubtitle>
-12 error     + <SubtitleWrapper>
-12 error     +   <SubtitleText>
-12 error           <h1>
-12 error             Hey
-12 error           </h1>
-12 error     -   </StyledBannerSubtitle>,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "class",
-12 error     -     "props": Object {
-12 error     -       "children": <SubtitleText>
-12 error     -         <h1>
-12 error     -           Hey
-12 error     -         </h1>
-12 error     -       </SubtitleText>,
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": <h1>
-12 error     -           Hey
-12 error     -         </h1>,
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "host",
-12 error     -         "props": Object {
-12 error     -           "children": "Hey",
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": "Hey",
-12 error     -         "type": "h1",
-12 error     -       },
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -     "type": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": <SubtitleText>
-12 error     -           <h1>
-12 error     -             Hey
-12 error     -           </h1>
-12 error     -         </SubtitleText>,
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "class",
-12 error     -         "props": Object {
-12 error     -           "children": <h1>
-12 error     -             Hey
-12 error     -           </h1>,
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": Object {
-12 error     -           "instance": null,
-12 error     -           "key": undefined,
-12 error     -           "nodeType": "host",
-12 error     -           "props": Object {
-12 error     -             "children": "Hey",
-12 error     -           },
-12 error     -           "ref": null,
-12 error     -           "rendered": "Hey",
-12 error     -           "type": "h1",
-12 error     -         },
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     +   </SubtitleText>
-12 error     + </SubtitleWrapper>
-12 error
-12 error       13 |       </StyledBannerSubtitle>
-12 error       14 |     )
-12 error     > 15 |     expect(wrapper).toMatchSnapshot()
-12 error          |                     ^
-12 error       16 |   })
-12 error       17 |
-12 error       18 |   it('should render a Wrapper', () => {
-12 error
-12 error       at Object.<anonymous> (src/components/bannerSubtitle/_spec.js:15:21)
-12 error
-12 error   ● BannerSubtitle › should render child text
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "BannerSubtitle should render child text  1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <StyledBannerSubtitle>
-12 error     + <SubtitleWrapper>
-12 error     +   <SubtitleText>
-12 error           And here is a test subtitle!
-12 error     -   </StyledBannerSubtitle>,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "class",
-12 error     -     "props": Object {
-12 error     -       "children": <SubtitleText>
-12 error     -         And here is a test subtitle!
-12 error     -       </SubtitleText>,
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": "And here is a test subtitle!",
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": "And here is a test subtitle!",
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -     "type": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": <SubtitleText>
-12 error     -           And here is a test subtitle!
-12 error     -         </SubtitleText>,
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "class",
-12 error     -         "props": Object {
-12 error     -           "children": "And here is a test subtitle!",
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": "And here is a test subtitle!",
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     +   </SubtitleText>
-12 error     + </SubtitleWrapper>
-12 error
-12 error       37 |     const text = 'And here is a test subtitle!'
-12 error       38 |     const wrapper = shallow(<StyledBannerSubtitle>{text}</StyledBannerSubtitle>)
-12 error     > 39 |     expect(wrapper).toMatchSnapshot()
-12 error          |                     ^
-12 error       40 |   })
-12 error       41 | })
-12 error       42 |
-12 error
-12 error       at Object.<anonymous> (src/components/bannerSubtitle/_spec.js:39:21)
-12 error
-12 error  › 2 snapshots failed.
-12 error FAIL src/components/bannerTitle/_spec.js
-12 error   ● BannerTitle › should render
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "BannerTitle should render 1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <StyledBannerTitle>
-12 error     + <styled.div>
-12 error     +   <TestBannerTitle>
-12 error           foo
-12 error     -   </StyledBannerTitle>,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "class",
-12 error     -     "props": Object {
-12 error     -       "children": <TestBannerTitle>
-12 error     -         foo
-12 error     -       </TestBannerTitle>,
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": "foo",
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": "foo",
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -     "type": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": <TestBannerTitle>
-12 error     -           foo
-12 error     -         </TestBannerTitle>,
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "class",
-12 error     -         "props": Object {
-12 error     -           "children": "foo",
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": "foo",
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     +   </TestBannerTitle>
-12 error     + </styled.div>
-12 error
-12 error        9 |   it('should render', () => {
-12 error       10 |     const tree = shallow(<BannerTitle>foo</BannerTitle>)
-12 error     > 11 |     expect(tree).toMatchSnapshot()
-12 error          |                  ^
-12 error       12 |   })
-12 error       13 |
-12 error       14 |   it('should render a <h1 />', () => {
-12 error
-12 error       at Object.<anonymous> (src/components/bannerTitle/_spec.js:11:18)
-12 error
-12 error   ● BannerTitle › should render child text
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "BannerTitle should render child text  1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <StyledBannerTitle>
-12 error     + <styled.div>
-12 error     +   <TestBannerTitle>
-12 error           Here is a test title!
-12 error     -   </StyledBannerTitle>,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "class",
-12 error     -     "props": Object {
-12 error     -       "children": <TestBannerTitle>
-12 error     -         Here is a test title!
-12 error     -       </TestBannerTitle>,
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": "Here is a test title!",
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": "Here is a test title!",
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -     "type": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     -     Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "class",
-12 error     -       "props": Object {
-12 error     -         "children": <TestBannerTitle>
-12 error     -           Here is a test title!
-12 error     -         </TestBannerTitle>,
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "class",
-12 error     -         "props": Object {
-12 error     -           "children": "Here is a test title!",
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": "Here is a test title!",
-12 error     -         "type": [Function],
-12 error     -       },
-12 error     -       "type": [Function],
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -     "context": Object {
-12 error     -       "theme": Object {
-12 error     -         "breakpoints": Array [
-12 error     -           "375px",
-12 error     -           "768px",
-12 error     -           "1024px",
-12 error     -           "1440px",
-12 error     -         ],
-12 error     -         "colors": Object {
-12 error     -           "amber": "#FFCA00",
-12 error     -           "beachBlue": "#2C77E5",
-12 error     -           "black": "#000000",
-12 error     -           "bondiBlue": "#00A3BD",
-12 error     -           "darkGrey": "#5B5B5B",
-12 error     -           "darkPurple": "#660C63",
-12 error     -           "electricPurple": "#BC01FF",
-12 error     -           "eucalyptusGreen": "#2CDA9D",
-12 error     -           "fuscia": "#FF88F1",
-12 error     -           "green": "#34C30A",
-12 error     -           "greyBlue": "#5770D1",
-12 error     -           "indigo": "#2D2F7F",
-12 error     -           "lemonGreen": "#C3D30E",
-12 error     -           "lightGrey": "#EFEFEF",
-12 error     -           "mediumGrey": "#E1E1E1",
-12 error     -           "pink": "#ED2C6E",
-12 error     -           "red": "#D0021B",
-12 error     -           "skyBlue": "#2ACFFF",
-12 error     -           "tomato": "#FF5B44",
-12 error     -           "white": "#FFFFFF",
-12 error     -           "yellow": "#FFD95E",
-12 error     -         },
-12 error     -         "fonts": Object {
-12 error     -           "body": "Roboto, sans-serif",
-12 error     -           "title": "Poppins, sans-serif",
-12 error     -         },
-12 error     -         "space": Array [
-12 error     -           0,
-12 error     -           5,
-12 error     -           10,
-12 error     -           15,
-12 error     -           20,
-12 error     -         ],
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     +   </TestBannerTitle>
-12 error     + </styled.div>
-12 error
-12 error       23 |     })
-12 error       24 |     // Currently having issues testing with enzyme as the theme does not get provided to the styled componentw
-12 error     > 25 |     expect(wrapper).toMatchSnapshot()
-12 error          |                     ^
-12 error       26 |   })
-12 error       27 | })
-12 error       28 |
-12 error
-12 error       at Object.<anonymous> (src/components/bannerTitle/_spec.js:25:21)
-12 error
-12 error  › 2 snapshots failed.
-12 error FAIL src/components/chevronRight/_spec.js
-12 error   ● ChevronRight › should render the correct tree
-12 error
-12 error     expect(value).toMatchSnapshot()
-12 error
-12 error     Received value does not match stored snapshot "ChevronRight should render the correct tree 1".
-12 error
-12 error     - Snapshot
-12 error     + Received
-12 error
-12 error     - ShallowWrapper {
-12 error     -   "length": 1,
-12 error     -   Symbol(enzyme.__root__): [Circular],
-12 error     -   Symbol(enzyme.__unrendered__): <ChevronRight />,
-12 error     -   Symbol(enzyme.__renderer__): Object {
-12 error     -     "batchedUpdates": [Function],
-12 error     -     "getNode": [Function],
-12 error     -     "render": [Function],
-12 error     -     "simulateEvent": [Function],
-12 error     -     "unmount": [Function],
-12 error     -   },
-12 error     -   Symbol(enzyme.__node__): Object {
-12 error     -     "instance": null,
-12 error     -     "key": undefined,
-12 error     -     "nodeType": "host",
-12 error     -     "props": Object {
-12 error     -       "children": <path
-12 error     -         d="M2 2l7 7-7 7"
-12 error     -         stroke="#2D2F7F"
-12 error     -         strokeLinecap="round"
-12 error     -         strokeLinejoin="round"
-12 error     -         strokeWidth={3}
-12 error     -       />,
-12 error     -       "fill": "none",
-12 error     -       "height": 18,
-12 error     -       "style": Object {
-12 error     -         "display": "inline-block",
-12 error     -         "marginBottom": "-4px",
-12 error     -         "marginLeft": "6px",
-12 error     -       },
-12 error     -       "viewBox": "0 0 11 18",
-12 error     -       "width": 11,
-12 error     -     },
-12 error     -     "ref": null,
-12 error     -     "rendered": Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "host",
-12 error     -       "props": Object {
-12 error     -         "d": "M2 2l7 7-7 7",
-12 error     -         "stroke": "#2D2F7F",
-12 error     -         "strokeLinecap": "round",
-12 error     -         "strokeLinejoin": "round",
-12 error     -         "strokeWidth": 3,
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": null,
-12 error     -       "type": "path",
-12 error     -     },
-12 error     -     "type": "svg",
-12 error     -   },
-12 error     -   Symbol(enzyme.__nodes__): Array [
-12 error     + <svg
-12 error     +   fill="none"
-12 error     +   height={18}
-12 error     +   style={
-12 error           Object {
-12 error     -       "instance": null,
-12 error     -       "key": undefined,
-12 error     -       "nodeType": "host",
-12 error     -       "props": Object {
-12 error     -         "children": <path
-12 error     -           d="M2 2l7 7-7 7"
-12 error     -           stroke="#2D2F7F"
-12 error     -           strokeLinecap="round"
-12 error     -           strokeLinejoin="round"
-12 error     -           strokeWidth={3}
-12 error     -         />,
-12 error     -         "fill": "none",
-12 error     -         "height": 18,
-12 error     -         "style": Object {
-12 error     -           "display": "inline-block",
-12 error     -           "marginBottom": "-4px",
-12 error     -           "marginLeft": "6px",
-12 error     -         },
-12 error     -         "viewBox": "0 0 11 18",
-12 error     -         "width": 11,
-12 error     -       },
-12 error     -       "ref": null,
-12 error     -       "rendered": Object {
-12 error     -         "instance": null,
-12 error     -         "key": undefined,
-12 error     -         "nodeType": "host",
-12 error     -         "props": Object {
-12 error     -           "d": "M2 2l7 7-7 7",
-12 error     -           "stroke": "#2D2F7F",
-12 error     -           "strokeLinecap": "round",
-12 error     -           "strokeLinejoin": "round",
-12 error     -           "strokeWidth": 3,
-12 error     -         },
-12 error     -         "ref": null,
-12 error     -         "rendered": null,
-12 error     -         "type": "path",
-12 error     -       },
-12 error     -       "type": "svg",
-12 error     -     },
-12 error     -   ],
-12 error     -   Symbol(enzyme.__options__): Object {
-12 error     -     "adapter": ReactSixteenAdapter {
-12 error     -       "options": Object {
-12 error     -         "enableComponentDidUpdateOnSetState": true,
-12 error     -       },
-12 error     -     },
-12 error     -   },
-12 error     - }
-12 error     +       "display": "inline-block",
-12 error     +       "marginBottom": "-4px",
-12 error     +       "marginLeft": "6px",
-12 error     +     }
-12 error     +   }
-12 error     +   viewBox="0 0 11 18"
-12 error     +   width={11}
-12 error     + >
-12 error     +   <path
-12 error     +     d="M2 2l7 7-7 7"
-12 error     +     stroke="#2D2F7F"
-12 error     +     strokeLinecap="round"
-12 error     +     strokeLinejoin="round"
-12 error     +     strokeWidth={3}
-12 error     +   />
-12 error     + </svg>
-12 error
-12 error        7 |   it('should render the correct tree', () => {
-12 error        8 |     const tree = shallow(<ChevronRight />)
-12 error     >  9 |     expect(tree).toMatchSnapshot()
-12 error          |                  ^
-12 error       10 |   })
-12 error       11 | })
-12 error       12 |
-12 error
-12 error       at Object.<anonymous> (src/components/chevronRight/_spec.js:9:18)
-12 error
-12 error  › 1 snapshot failed.
-12 error Snapshot Summary
-12 error  › 12 snapshots failed from 8 test suites. Inspect your code changes or run `yarn run jest -u` to update them.
-12 error
-12 error Test Suites: 8 failed, 4 passed, 12 total
-12 error Tests:       12 failed, 1 skipped, 27 passed, 40 total
-12 error Snapshots:   12 failed, 3 passed, 15 total
-12 error Time:        11.301s
-12 error Ran all test suites.
-12 error error Command failed with exit code 1.
-12 error npm ERR! code ELIFECYCLE
-12 error npm ERR! errno 1
-12 error npm ERR! pride-london-web@0.1.0 test: `yarn run jest`
-12 error npm ERR! Exit status 1
-12 error npm ERR!
-12 error npm ERR! Failed at the pride-london-web@0.1.0 test script.
-12 error npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
-12 error
-12 error npm ERR! A complete log of this run can be found in:
-12 error npm ERR!     /Users/Home/.npm/_logs/2018-06-23T15_47_59_565Z-debug.log
-12 error
-12 error > pride-london-web@0.1.0 test /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app
-12 error > yarn run jest
-12 error
-12 error yarn run v1.6.0
-12 error $ /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/app/node_modules/.bin/jest
-12 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-12 error
-12 error     at Promise.all.then.arr (/Users/Home/.config/yarn/global/node_modules/execa/index.js:236:11)
-12 error     at <anonymous>
+6 silly npmConfig { registry: undefined,
+6 silly npmConfig   npmClient: undefined,
+6 silly npmConfig   npmClientArgs: undefined,
+6 silly npmConfig   mutex: undefined }
+7 silly initialize success
+8 silly execute attempt
+9 info Bootstrapping 1 packages
+10 info lifecycle preinstall
+11 silly runScript preinstall @pride/pride-events
+12 silly @pride/pride-events
+13 silly hasDependencyInstalled @pride/pride-events enzyme
+14 silly dependencyIsSatisfied [ 'enzyme',
+14 silly dependencyIsSatisfied   '^3.3.0',
+14 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+15 verbose dependencyIsSatisfied enzyme false
+16 silly hasDependencyInstalled @pride/pride-events enzyme-adapter-react-16
+17 silly dependencyIsSatisfied [ 'enzyme-adapter-react-16',
+17 silly dependencyIsSatisfied   '^1.1.1',
+17 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+18 verbose dependencyIsSatisfied enzyme-adapter-react-16 false
+19 silly hasDependencyInstalled @pride/pride-events eslint
+20 silly dependencyIsSatisfied [ 'eslint',
+20 silly dependencyIsSatisfied   '^4.19.1',
+20 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+21 verbose dependencyIsSatisfied eslint false
+22 silly hasDependencyInstalled @pride/pride-events eslint-config-airbnb
+23 silly dependencyIsSatisfied [ 'eslint-config-airbnb',
+23 silly dependencyIsSatisfied   '^16.1.0',
+23 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+24 verbose dependencyIsSatisfied eslint-config-airbnb false
+25 silly hasDependencyInstalled @pride/pride-events eslint-plugin-import
+26 silly dependencyIsSatisfied [ 'eslint-plugin-import',
+26 silly dependencyIsSatisfied   '^2.11.0',
+26 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+27 verbose dependencyIsSatisfied eslint-plugin-import false
+28 silly hasDependencyInstalled @pride/pride-events eslint-plugin-jest
+29 silly dependencyIsSatisfied [ 'eslint-plugin-jest',
+29 silly dependencyIsSatisfied   '^21.17.0',
+29 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+30 verbose dependencyIsSatisfied eslint-plugin-jest false
+31 silly hasDependencyInstalled @pride/pride-events eslint-plugin-jsx-a11y
+32 silly dependencyIsSatisfied [ 'eslint-plugin-jsx-a11y',
+32 silly dependencyIsSatisfied   '^6.0.3',
+32 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+33 verbose dependencyIsSatisfied eslint-plugin-jsx-a11y false
+34 silly hasDependencyInstalled @pride/pride-events eslint-plugin-prettier
+35 silly dependencyIsSatisfied [ 'eslint-plugin-prettier',
+35 silly dependencyIsSatisfied   '^2.6.0',
+35 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+36 verbose dependencyIsSatisfied eslint-plugin-prettier false
+37 silly hasDependencyInstalled @pride/pride-events eslint-plugin-react
+38 silly dependencyIsSatisfied [ 'eslint-plugin-react',
+38 silly dependencyIsSatisfied   '^7.8.2',
+38 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+39 verbose dependencyIsSatisfied eslint-plugin-react false
+40 silly hasDependencyInstalled @pride/pride-events husky
+41 silly dependencyIsSatisfied [ 'husky',
+41 silly dependencyIsSatisfied   '^0.14.3',
+41 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+42 verbose dependencyIsSatisfied husky false
+43 silly hasDependencyInstalled @pride/pride-events lerna
+44 silly dependencyIsSatisfied [ 'lerna',
+44 silly dependencyIsSatisfied   '^2.11.0',
+44 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+45 verbose dependencyIsSatisfied lerna false
+46 silly hasDependencyInstalled @pride/pride-events babel-eslint
+47 silly dependencyIsSatisfied [ 'babel-eslint',
+47 silly dependencyIsSatisfied   '^8.2.3',
+47 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+48 verbose dependencyIsSatisfied babel-eslint false
+49 silly hasDependencyInstalled @pride/pride-events babel-plugin-styled-components
+50 silly dependencyIsSatisfied [ 'babel-plugin-styled-components',
+50 silly dependencyIsSatisfied   '^1.5.1',
+50 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+51 verbose dependencyIsSatisfied babel-plugin-styled-components false
+52 silly hasDependencyInstalled @pride/pride-events babel-plugin-transform-class-properties
+53 silly dependencyIsSatisfied [ 'babel-plugin-transform-class-properties',
+53 silly dependencyIsSatisfied   '^6.24.1',
+53 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+54 verbose dependencyIsSatisfied babel-plugin-transform-class-properties false
+55 silly hasDependencyInstalled @pride/pride-events dotenv
+56 silly dependencyIsSatisfied [ 'dotenv',
+56 silly dependencyIsSatisfied   '^5.0.1',
+56 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+57 verbose dependencyIsSatisfied dotenv false
+58 silly hasDependencyInstalled @pride/pride-events enzyme-to-json
+59 silly dependencyIsSatisfied [ 'enzyme-to-json',
+59 silly dependencyIsSatisfied   '^3.3.4',
+59 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+60 verbose dependencyIsSatisfied enzyme-to-json false
+61 silly hasDependencyInstalled @pride/pride-events gatsby-source-contentful
+62 silly dependencyIsSatisfied [ 'gatsby-source-contentful',
+62 silly dependencyIsSatisfied   '^1.3.52',
+62 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+63 verbose dependencyIsSatisfied gatsby-source-contentful false
+64 silly hasDependencyInstalled @pride/pride-events jest
+65 silly dependencyIsSatisfied [ 'jest',
+65 silly dependencyIsSatisfied   '^23.1.0',
+65 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+66 verbose dependencyIsSatisfied jest false
+67 silly hasDependencyInstalled @pride/pride-events jest-environment-jsdom
+68 silly dependencyIsSatisfied [ 'jest-environment-jsdom',
+68 silly dependencyIsSatisfied   '^23.1.0',
+68 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+69 verbose dependencyIsSatisfied jest-environment-jsdom false
+70 silly hasDependencyInstalled @pride/pride-events jest-styled-components
+71 silly dependencyIsSatisfied [ 'jest-styled-components',
+71 silly dependencyIsSatisfied   '^5.0.1',
+71 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+72 verbose dependencyIsSatisfied jest-styled-components false
+73 silly hasDependencyInstalled @pride/pride-events lint-staged
+74 silly dependencyIsSatisfied [ 'lint-staged',
+74 silly dependencyIsSatisfied   '^7.1.2',
+74 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+75 verbose dependencyIsSatisfied lint-staged false
+76 silly hasDependencyInstalled @pride/pride-events now
+77 silly dependencyIsSatisfied [ 'now',
+77 silly dependencyIsSatisfied   '^11.1.12',
+77 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+78 verbose dependencyIsSatisfied now false
+79 silly hasDependencyInstalled @pride/pride-events prettier
+80 silly dependencyIsSatisfied [ 'prettier',
+80 silly dependencyIsSatisfied   '^1.12.1',
+80 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+81 verbose dependencyIsSatisfied prettier false
+82 silly hasDependencyInstalled @pride/pride-events prop-types
+83 silly dependencyIsSatisfied [ 'prop-types',
+83 silly dependencyIsSatisfied   '^15.6.1',
+83 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+84 verbose dependencyIsSatisfied prop-types false
+85 silly hasDependencyInstalled @pride/pride-events react
+86 silly dependencyIsSatisfied [ 'react',
+86 silly dependencyIsSatisfied   '^16.3.2',
+86 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+87 verbose dependencyIsSatisfied react false
+88 silly hasDependencyInstalled @pride/pride-events react-dom
+89 silly dependencyIsSatisfied [ 'react-dom',
+89 silly dependencyIsSatisfied   '^16.3.2',
+89 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+90 verbose dependencyIsSatisfied react-dom false
+91 silly hasDependencyInstalled @pride/pride-events react-markdown
+92 silly dependencyIsSatisfied [ 'react-markdown',
+92 silly dependencyIsSatisfied   '^3.3.2',
+92 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+93 verbose dependencyIsSatisfied react-markdown false
+94 silly hasDependencyInstalled @pride/pride-events react-router-dom
+95 silly dependencyIsSatisfied [ 'react-router-dom',
+95 silly dependencyIsSatisfied   '^4.2.2',
+95 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+96 verbose dependencyIsSatisfied react-router-dom false
+97 silly hasDependencyInstalled @pride/pride-events svg-react-loader
+98 silly dependencyIsSatisfied [ 'svg-react-loader',
+98 silly dependencyIsSatisfied   '^0.4.5',
+98 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+99 verbose dependencyIsSatisfied svg-react-loader false
+100 silly hasDependencyInstalled @pride/pride-events babel-polyfill
+101 silly dependencyIsSatisfied [ 'babel-polyfill',
+101 silly dependencyIsSatisfied   '^6.26.0',
+101 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+102 verbose dependencyIsSatisfied babel-polyfill false
+103 silly hasDependencyInstalled @pride/pride-events gatsby
+104 silly dependencyIsSatisfied [ 'gatsby',
+104 silly dependencyIsSatisfied   '^1.9.270',
+104 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+105 verbose dependencyIsSatisfied gatsby false
+106 silly hasDependencyInstalled @pride/pride-events gatsby-link
+107 silly dependencyIsSatisfied [ 'gatsby-link',
+107 silly dependencyIsSatisfied   '^1.6.40',
+107 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+108 verbose dependencyIsSatisfied gatsby-link false
+109 silly hasDependencyInstalled @pride/pride-events gatsby-plugin-react-helmet
+110 silly dependencyIsSatisfied [ 'gatsby-plugin-react-helmet',
+110 silly dependencyIsSatisfied   '^2.0.10',
+110 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+111 verbose dependencyIsSatisfied gatsby-plugin-react-helmet false
+112 silly hasDependencyInstalled @pride/pride-events gatsby-plugin-react-next
+113 silly dependencyIsSatisfied [ 'gatsby-plugin-react-next',
+113 silly dependencyIsSatisfied   '^1.0.11',
+113 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+114 verbose dependencyIsSatisfied gatsby-plugin-react-next false
+115 silly hasDependencyInstalled @pride/pride-events gatsby-plugin-styled-components
+116 silly dependencyIsSatisfied [ 'gatsby-plugin-styled-components',
+116 silly dependencyIsSatisfied   '^2.0.11',
+116 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+117 verbose dependencyIsSatisfied gatsby-plugin-styled-components false
+118 silly hasDependencyInstalled @pride/pride-events grid-styled
+119 silly dependencyIsSatisfied [ 'grid-styled',
+119 silly dependencyIsSatisfied   '^4.1.0',
+119 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+120 verbose dependencyIsSatisfied grid-styled false
+121 silly hasDependencyInstalled @pride/pride-events moment
+122 silly dependencyIsSatisfied [ 'moment',
+122 silly dependencyIsSatisfied   '^2.22.1',
+122 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+123 verbose dependencyIsSatisfied moment false
+124 silly hasDependencyInstalled @pride/pride-events no-scroll
+125 silly dependencyIsSatisfied [ 'no-scroll',
+125 silly dependencyIsSatisfied   '^2.1.1',
+125 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+126 verbose dependencyIsSatisfied no-scroll false
+127 silly hasDependencyInstalled @pride/pride-events polished
+128 silly dependencyIsSatisfied [ 'polished',
+128 silly dependencyIsSatisfied   '^1.9.2',
+128 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+129 verbose dependencyIsSatisfied polished false
+130 silly hasDependencyInstalled @pride/pride-events querystring
+131 silly dependencyIsSatisfied [ 'querystring',
+131 silly dependencyIsSatisfied   '^0.2.0',
+131 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+132 verbose dependencyIsSatisfied querystring false
+133 silly hasDependencyInstalled @pride/pride-events react-accessible-accordion
+134 silly dependencyIsSatisfied [ 'react-accessible-accordion',
+134 silly dependencyIsSatisfied   '^2.4.0',
+134 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+135 verbose dependencyIsSatisfied react-accessible-accordion false
+136 silly hasDependencyInstalled @pride/pride-events react-dates
+137 silly dependencyIsSatisfied [ 'react-dates',
+137 silly dependencyIsSatisfied   '^16.7.0',
+137 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+138 verbose dependencyIsSatisfied react-dates false
+139 silly hasDependencyInstalled @pride/pride-events react-flip-move
+140 silly dependencyIsSatisfied [ 'react-flip-move',
+140 silly dependencyIsSatisfied   '^3.0.2',
+140 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+141 verbose dependencyIsSatisfied react-flip-move false
+142 silly hasDependencyInstalled @pride/pride-events react-helmet
+143 silly dependencyIsSatisfied [ 'react-helmet',
+143 silly dependencyIsSatisfied   '^5.2.0',
+143 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+144 verbose dependencyIsSatisfied react-helmet false
+145 silly hasDependencyInstalled @pride/pride-events react-onclickoutside
+146 silly dependencyIsSatisfied [ 'react-onclickoutside',
+146 silly dependencyIsSatisfied   '^6.7.1',
+146 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+147 verbose dependencyIsSatisfied react-onclickoutside false
+148 silly hasDependencyInstalled @pride/pride-events react-test-renderer
+149 silly dependencyIsSatisfied [ 'react-test-renderer',
+149 silly dependencyIsSatisfied   '^16.3.2',
+149 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+150 verbose dependencyIsSatisfied react-test-renderer false
+151 silly hasDependencyInstalled @pride/pride-events string-hash
+152 silly dependencyIsSatisfied [ 'string-hash',
+152 silly dependencyIsSatisfied   '^1.1.3',
+152 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+153 verbose dependencyIsSatisfied string-hash false
+154 silly hasDependencyInstalled @pride/pride-events styled-components
+155 silly dependencyIsSatisfied [ 'styled-components',
+155 silly dependencyIsSatisfied   '^3.2.6',
+155 silly dependencyIsSatisfied   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules' ]
+156 verbose dependencyIsSatisfied styled-components false
+157 silly root dependencies []
+158 silly leaf dependencies {
+158 silly leaf dependencies   "@pride/pride-events": [
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "enzyme@^3.3.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "enzyme-adapter-react-16@^1.1.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "eslint@^4.19.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "eslint-config-airbnb@^16.1.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "eslint-plugin-import@^2.11.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "eslint-plugin-jest@^21.17.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "eslint-plugin-jsx-a11y@^6.0.3",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "eslint-plugin-prettier@^2.6.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "eslint-plugin-react@^7.8.2",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "husky@^0.14.3",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "lerna@^2.11.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "babel-eslint@^8.2.3",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "babel-plugin-styled-components@^1.5.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "babel-plugin-transform-class-properties@^6.24.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "dotenv@^5.0.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "enzyme-to-json@^3.3.4",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "gatsby-source-contentful@^1.3.52",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "jest@^23.1.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "jest-environment-jsdom@^23.1.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "jest-styled-components@^5.0.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "lint-staged@^7.1.2",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "now@^11.1.12",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "prettier@^1.12.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "prop-types@^15.6.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "react@^16.3.2",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "react-dom@^16.3.2",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "react-markdown@^3.3.2",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "react-router-dom@^4.2.2",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "svg-react-loader@^0.4.5",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "babel-polyfill@^6.26.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "gatsby@^1.9.270",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "gatsby-link@^1.6.40",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "gatsby-plugin-react-helmet@^2.0.10",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "gatsby-plugin-react-next@^1.0.11",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "gatsby-plugin-styled-components@^2.0.11",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "grid-styled@^4.1.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "moment@^2.22.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "no-scroll@^2.1.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "polished@^1.9.2",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "querystring@^0.2.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "react-accessible-accordion@^2.4.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "react-dates@^16.7.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "react-flip-move@^3.0.2",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "react-helmet@^5.2.0",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "react-onclickoutside@^6.7.1",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "react-test-renderer@^16.3.2",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "string-hash@^1.1.3",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     },
+158 silly leaf dependencies     {
+158 silly leaf dependencies       "dependency": "styled-components@^3.2.6",
+158 silly leaf dependencies       "isSatisfied": false
+158 silly leaf dependencies     }
+158 silly leaf dependencies   ]
+158 silly leaf dependencies }
+159 info Installing external dependencies
+160 verbose actions 1 actions, concurrency 4
+161 silly installInDir events [ 'enzyme@^3.3.0',
+161 silly installInDir   'enzyme-adapter-react-16@^1.1.1',
+161 silly installInDir   'eslint@^4.19.1',
+161 silly installInDir   'eslint-config-airbnb@^16.1.0',
+161 silly installInDir   'eslint-plugin-import@^2.11.0',
+161 silly installInDir   'eslint-plugin-jest@^21.17.0',
+161 silly installInDir   'eslint-plugin-jsx-a11y@^6.0.3',
+161 silly installInDir   'eslint-plugin-prettier@^2.6.0',
+161 silly installInDir   'eslint-plugin-react@^7.8.2',
+161 silly installInDir   'husky@^0.14.3',
+161 silly installInDir   'lerna@^2.11.0',
+161 silly installInDir   'babel-eslint@^8.2.3',
+161 silly installInDir   'babel-plugin-styled-components@^1.5.1',
+161 silly installInDir   'babel-plugin-transform-class-properties@^6.24.1',
+161 silly installInDir   'dotenv@^5.0.1',
+161 silly installInDir   'enzyme-to-json@^3.3.4',
+161 silly installInDir   'gatsby-source-contentful@^1.3.52',
+161 silly installInDir   'jest@^23.1.0',
+161 silly installInDir   'jest-environment-jsdom@^23.1.0',
+161 silly installInDir   'jest-styled-components@^5.0.1',
+161 silly installInDir   'lint-staged@^7.1.2',
+161 silly installInDir   'now@^11.1.12',
+161 silly installInDir   'prettier@^1.12.1',
+161 silly installInDir   'prop-types@^15.6.1',
+161 silly installInDir   'react@^16.3.2',
+161 silly installInDir   'react-dom@^16.3.2',
+161 silly installInDir   'react-markdown@^3.3.2',
+161 silly installInDir   'react-router-dom@^4.2.2',
+161 silly installInDir   'svg-react-loader@^0.4.5',
+161 silly installInDir   'babel-polyfill@^6.26.0',
+161 silly installInDir   'gatsby@^1.9.270',
+161 silly installInDir   'gatsby-link@^1.6.40',
+161 silly installInDir   'gatsby-plugin-react-helmet@^2.0.10',
+161 silly installInDir   'gatsby-plugin-react-next@^1.0.11',
+161 silly installInDir   'gatsby-plugin-styled-components@^2.0.11',
+161 silly installInDir   'grid-styled@^4.1.0',
+161 silly installInDir   'moment@^2.22.1',
+161 silly installInDir   'no-scroll@^2.1.1',
+161 silly installInDir   'polished@^1.9.2',
+161 silly installInDir   'querystring@^0.2.0',
+161 silly installInDir   'react-accessible-accordion@^2.4.0',
+161 silly installInDir   'react-dates@^16.7.0',
+161 silly installInDir   'react-flip-move@^3.0.2',
+161 silly installInDir   'react-helmet@^5.2.0',
+161 silly installInDir   'react-onclickoutside@^6.7.1',
+161 silly installInDir   'react-test-renderer@^16.3.2',
+161 silly installInDir   'string-hash@^1.1.3',
+161 silly installInDir   'styled-components@^3.2.6' ]
+162 silly installInDir backup /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/package.json
+163 silly rename [ '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/package.json',
+163 silly rename   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/package.json.lerna_backup' ]
+164 silly installInDir writing tempJson { dependencies:
+164 silly installInDir    { enzyme: '^3.3.0',
+164 silly installInDir      'enzyme-adapter-react-16': '^1.1.1',
+164 silly installInDir      eslint: '^4.19.1',
+164 silly installInDir      'eslint-config-airbnb': '^16.1.0',
+164 silly installInDir      'eslint-plugin-import': '^2.11.0',
+164 silly installInDir      'eslint-plugin-jest': '^21.17.0',
+164 silly installInDir      'eslint-plugin-jsx-a11y': '^6.0.3',
+164 silly installInDir      'eslint-plugin-prettier': '^2.6.0',
+164 silly installInDir      'eslint-plugin-react': '^7.8.2',
+164 silly installInDir      husky: '^0.14.3',
+164 silly installInDir      lerna: '^2.11.0',
+164 silly installInDir      'babel-eslint': '^8.2.3',
+164 silly installInDir      'babel-plugin-styled-components': '^1.5.1',
+164 silly installInDir      'babel-plugin-transform-class-properties': '^6.24.1',
+164 silly installInDir      dotenv: '^5.0.1',
+164 silly installInDir      'enzyme-to-json': '^3.3.4',
+164 silly installInDir      'gatsby-source-contentful': '^1.3.52',
+164 silly installInDir      jest: '^23.1.0',
+164 silly installInDir      'jest-environment-jsdom': '^23.1.0',
+164 silly installInDir      'jest-styled-components': '^5.0.1',
+164 silly installInDir      'lint-staged': '^7.1.2',
+164 silly installInDir      now: '^11.1.12',
+164 silly installInDir      prettier: '^1.12.1',
+164 silly installInDir      'prop-types': '^15.6.1',
+164 silly installInDir      react: '^16.3.2',
+164 silly installInDir      'react-dom': '^16.3.2',
+164 silly installInDir      'react-markdown': '^3.3.2',
+164 silly installInDir      'react-router-dom': '^4.2.2',
+164 silly installInDir      'svg-react-loader': '^0.4.5',
+164 silly installInDir      'babel-polyfill': '^6.26.0',
+164 silly installInDir      gatsby: '^1.9.270',
+164 silly installInDir      'gatsby-link': '^1.6.40',
+164 silly installInDir      'gatsby-plugin-react-helmet': '^2.0.10',
+164 silly installInDir      'gatsby-plugin-react-next': '^1.0.11',
+164 silly installInDir      'gatsby-plugin-styled-components': '^2.0.11',
+164 silly installInDir      'grid-styled': '^4.1.0',
+164 silly installInDir      moment: '^2.22.1',
+164 silly installInDir      'no-scroll': '^2.1.1',
+164 silly installInDir      polished: '^1.9.2',
+164 silly installInDir      querystring: '^0.2.0',
+164 silly installInDir      'react-accessible-accordion': '^2.4.0',
+164 silly installInDir      'react-dates': '^16.7.0',
+164 silly installInDir      'react-flip-move': '^3.0.2',
+164 silly installInDir      'react-helmet': '^5.2.0',
+164 silly installInDir      'react-onclickoutside': '^6.7.1',
+164 silly installInDir      'react-test-renderer': '^16.3.2',
+164 silly installInDir      'string-hash': '^1.1.3',
+164 silly installInDir      'styled-components': '^3.2.6' } }
+165 silly getExecOpts { cwd: '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events' }
+166 silly installInDir [ 'npm', [ 'install' ] ]
+167 silly installInDir cleanup /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/package.json
+168 silly renameSync [ '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/package.json.lerna_backup',
+168 silly renameSync   '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/package.json' ]
+169 verbose installed leaf @pride/pride-events
+170 error execute callback with error
+171 error Error: Command failed: npm install
+171 error info sharp Downloading https://github.com/lovell/sharp-libvips/releases/download/v8.6.1/libvips-8.6.1-darwin-x64.tar.gz
+171 error   ✔ cwebp pre-build test passed successfully
+171 error   ✔ pngquant pre-build test passed successfully
+171 error { Error: ENOENT: no such file or directory, rename '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now/download/dist/now.partial' -> '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now/download/dist/now'
+171 error     at Object.fs.renameSync (fs.js:766:18)
+171 error     at _callee2$ (/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now/download/dist/download.js:2673:25)
+171 error     at tryCatch (/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now/download/dist/download.js:2891:40)
+171 error     at Generator.invoke [as _invoke] (/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now/download/dist/download.js:3125:22)
+171 error     at Generator.prototype.(anonymous function) [as next] (/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now/download/dist/download.js:2943:21)
+171 error     at step (/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now/download/dist/download.js:3574:30)
+171 error     at _next (/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now/download/dist/download.js:3589:9)
+171 error     at <anonymous>
+171 error     at process._tickCallback (internal/process/next_tick.js:188:7)
+171 error   errno: -2,
+171 error   code: 'ENOENT',
+171 error   syscall: 'rename',
+171 error   path: '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now/download/dist/now.partial',
+171 error   dest: '/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now/download/dist/now' }
+171 error npm WARN events No description
+171 error npm WARN events No repository field.
+171 error npm WARN events No license field.
+171 error
+171 error npm ERR! code ELIFECYCLE
+171 error npm ERR! errno 2
+171 error npm ERR! now@11.2.4 postinstall: `node download/install.js`
+171 error npm ERR! Exit status 2
+171 error npm ERR!
+171 error npm ERR! Failed at the now@11.2.4 postinstall script.
+171 error npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+171 error
+171 error npm ERR! A complete log of this run can be found in:
+171 error npm ERR!     /Users/Home/.npm/_logs/2018-07-05T07_43_40_457Z-debug.log
+171 error
+171 error > fsevents@1.2.4 install /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/fsevents
+171 error > node install
+171 error
+171 error [fsevents] Success: "/Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/fsevents/lib/binding/Release/node-v57-darwin-x64/fse.node" already installed
+171 error Pass --update-binary to reinstall or --build-from-source to recompile
+171 error
+171 error > sharp@0.20.4 install /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/sharp
+171 error > (node install/libvips && node install/dll-copy && prebuild-install) || (node-gyp rebuild && node install/dll-copy)
+171 error
+171 error
+171 error > husky@0.14.3 install /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/husky
+171 error > node ./bin/install.js
+171 error
+171 error husky
+171 error setting up Git hooks
+171 error done
+171 error
+171 error
+171 error > cwebp-bin@4.0.0 postinstall /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/cwebp-bin
+171 error > node lib/install.js
+171 error
+171 error
+171 error > pngquant-bin@3.1.1 postinstall /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/pngquant-bin
+171 error > node lib/install.js
+171 error
+171 error
+171 error > now@11.2.4 postinstall /Users/Home/Documents/Coding/pride-london-web-gatsby/packages/events/node_modules/now
+171 error > node download/install.js
+171 error
+171 error > For the source code, check out: https://github.com/zeit/now-cli
+171 error
+171 error
+171 error
+171 error
+171 error     at Promise.all.then.arr (/Users/Home/.config/yarn/global/node_modules/execa/index.js:236:11)
+171 error     at <anonymous>

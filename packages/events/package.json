@@ -61,7 +61,7 @@
     "jest-environment-jsdom": "^23.1.0",
     "jest-styled-components": "^5.0.1",
     "lint-staged": "^7.1.2",
-    "now": "^11.1.12",
+    "now": "^11.2.5",
     "prettier": "^1.12.1",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
