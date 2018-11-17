@@ -5,15 +5,13 @@ node_js:
 cache: yarn
 
 install:
-  - yarn global add lerna
-  - lerna bootstrap
+  - yarn
 
 matrix:
   include:
     env: PROJECT=packages/app
 
 script:
-  - cd $PROJECT
   - yarn test
   - yarn lint
 
