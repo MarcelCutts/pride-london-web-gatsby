@@ -321,9 +321,6 @@ export const eventPageQuery = graphql`
         title
         description
       }
-      performances {
-        ...eventScheduleFragment
-      }
       eventCategories
       eventDescription {
         eventDescription
