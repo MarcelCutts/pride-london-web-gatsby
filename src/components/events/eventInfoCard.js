@@ -98,8 +98,8 @@ const VSpace = styled.div`
 const dateFormat = 'D MMMM YYYY'
 
 const formatDayRange = (startTime, endTime) => {
-  const startDay = startTime.format(dateFormat)
-  const endDay = endTime.format(dateFormat)
+  const startDay = startTime.parseZone().format(dateFormat)
+  const endDay = endTime.parseZone().format(dateFormat)
 
   if (startDay === endDay) {
     return startDay
@@ -111,8 +111,8 @@ const formatDayRange = (startTime, endTime) => {
 const timeFormat = 'h:mma'
 
 const formatTimeRange = (startTime, endTime) => {
-  const start = startTime.format(timeFormat)
-  const end = endTime.format(timeFormat)
+  const start = startTime.parseZone().format(timeFormat)
+  const end = endTime.parseZone().format(timeFormat)
 
   if (start !== end) {
     return `${start} to ${end}`
