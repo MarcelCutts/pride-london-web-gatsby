@@ -98,8 +98,8 @@ const VSpace = styled.div`
 const dateFormat = 'D MMMM YYYY'
 
 const formatDayRange = (startTime, endTime) => {
-  const startDay = startTime.parseZone().format(dateFormat)
-  const endDay = endTime.parseZone().format(dateFormat)
+  const startDay = moment(startTime).format(dateFormat)
+  const endDay = moment(endTime).format(dateFormat)
 
   if (startDay === endDay) {
     return startDay
@@ -111,8 +111,10 @@ const formatDayRange = (startTime, endTime) => {
 const timeFormat = 'h:mma'
 
 const formatTimeRange = (startTime, endTime) => {
-  const start = startTime.parseZone().format(timeFormat)
-  const end = endTime.parseZone().format(timeFormat)
+  const start = moment(startTime).format(timeFormat)
+  const end = moment(endTime).format(timeFormat)
+
+  console.log(start, end)
 
   if (start !== end) {
     return `${start} to ${end}`
@@ -167,8 +169,8 @@ export default function EventInfoCard({
         endTime && (
           <Item
             icon={<DateIcon />}
-            title={formatDayRange(moment(startTime), moment(endTime))}
-            detail={formatTimeRange(moment(startTime), moment(endTime))}
+            title={formatDayRange(startTime, endTime)}
+            detail={formatTimeRange(startTime, endTime)}
           />
         )}
       {eventPriceLow != 'null' && (

@@ -125,6 +125,7 @@ export default class Event extends Component {
       eventPriceHigh,
       performances,
     } = this.props.data.contentfulEvent
+    console.log(this.props.data.contentfulEvent)
 
     const metaImg = `https:${individualEventPicture.file.url}?w=1000&h=562`
     const metaUrl =
