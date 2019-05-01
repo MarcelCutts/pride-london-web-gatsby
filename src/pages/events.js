@@ -187,7 +187,7 @@ class Events extends Component {
             />
             <ImageBanner
               titleText="What's on"
-              subtitleText="Check out the huge array of events that Pride are running during the festival"
+              subtitleText="LGBT+ events happening in and around London"
               imageSrc=""
               altText=""
               color={theme.colors.beachBlue}
